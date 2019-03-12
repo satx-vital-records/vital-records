@@ -10,6 +10,15 @@ import java.util.Date;
 @Table(name = "applications")
 public class Application {
 
+  @OneToOne
+  private Status status;
+
+  @OneToOne
+  private Record record;
+
+  @ManyToOne
+  private User applicant;
+
   @Id
   @GeneratedValue
   private long id;

@@ -9,6 +9,7 @@ import javax.persistence.Table;
 @Table(name = "statuses")
 public class Status {
 
+
   @Column(nullable = false)
   private long status_id;
 
