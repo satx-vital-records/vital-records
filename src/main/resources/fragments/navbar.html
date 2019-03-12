@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<body>
+    <th:block th:fragment="navbar">
+        <nav id="main-nav" style="display:block;">
+            <div class="row">
+                <div class="container">
+                    <div class="logo smoothScroll mt-3 section-tItle"><a th:href="@{/}"><h6 class="name-logo">SATX Vital Records</h6></a>
+
+                    </div>
+                    <div class="responsive"><i data-icon="m" class="ion-navicon-round"></i></div>
+                    <ul class="nav-menu list-unstyled">
+                        <li><a th:href="@{/}" class="smoothScroll">Home</a></li>
+                        <li><a th:href="@{/portfolio}" class="smoothScroll">Projects</a></li>
+                        <li><a th:href="@{/posts}" class="smoothScroll">Notes</a></li>
+                        <li><a th:href="@{/resume}" class="smoothScroll">Resume</a></li>
+                        <!--<li>-->
+                            <!--<form sec:authorize="isAuthenticated()" th:action="@{/logout}" th:method="post">-->
+                                <!--<button class="nav-btn btn-sm" style="margin-top: -10px">Logout</button>-->
+                            <!--</form>-->
+                        <!--</li>-->
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </th:block>
+</body>
+</html>
