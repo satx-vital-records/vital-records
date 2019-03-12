@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:fragment="header(title)">
+    <!-- meta -->
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+
+    <title th:text="${'SATX | Vital Records ' + title}">SA Vital Records</title>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,300i,400,400i,500,500i,600,600i,700,700i|Playfair+Display:400,400i,700,700i,900,900i|Montserrat"
+          rel="stylesheet"/>
+
+    <!-- Bootstrap CSS File -->
+    <link th:href="@{/lib/bootstrap/css/bootstrap.min.css}" rel="stylesheet"/>
+
+    <!-- Libraries CSS Files -->
+    <link th:href="@{/lib/ionicons/css/ionicons.css}" rel="stylesheet"/>
+    <link th:href="@{/lib/owlcarousel/assets/owl.carousel.css}" rel="stylesheet"/>
+    <link th:href="@{/lib/magnific-popup.css}" rel="stylesheet"/>
+    <link th:href="@{/lib/hover.min.css}" rel="stylesheet"/>
+
+    <!-- Blog Stylesheet File -->
+    <link th:href="@{/css/blog.css}" rel="stylesheet"/>
+
+    <!-- Main Stylesheet File -->
+    <link th:href="@{/css/style.css}" rel="stylesheet"/>
+
+    <!-- Responsive css -->
+    <link th:href="@{/css/responsive.css}" rel="stylesheet"/>
+
+    <!-- Favicon -->
+    <!--<link rel="shortcut icon" href="pics/favicon.png"/>-->
+</head>
+</html>
