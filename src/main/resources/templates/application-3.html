@@ -1,14 +1,18 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8"/>
-    <title>Title</title>
-</head>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/header :: header('Application')"/>
 <body>
     <sect class="main-content">
         <form class="main-content__container">
             <field class="row">
                 <section class="col-xs-12">
+                    <div class="cssProgress">
+                        <div class="progress3">
+                            <div class="cssProgress-bar" data-percent="65">
+                                <span class="cssProgress-label">65%</span>
+                            </div>
+                        </div>
+                    </div>
                     <form class="simple_form new_certificate" id="new_certificate" novalidate="novalidate"
                           action="/application-3" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden"
                                                                                               value="✓"/><input
@@ -127,7 +131,7 @@
 
                         </fieldset>
                     </form>
-                    <!--<div th:replace="fragment/footer :: footer"></div>-->
+                    <div th:replace="fragments/footer :: footer"></div>
                 </section>
             </field>
         </form>
