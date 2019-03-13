@@ -1,4 +1,6 @@
 <!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
 <html lang="en">
 <head>
     <meta charset="UTF-8"/>
@@ -117,6 +119,10 @@
                                                id="continue-button"
                                                class="btn-primary btn--large is-block disable-resubmit"
                                                data-disable-with="CONTINUE APPLICATION"/>
+                                       <form th:action="@{/app-2/{id}(id=${app.id})}" method="get"> <input type="button" name="previous-2" value="previous-page"
+                                               id="previous-3"
+                                               class="btn-primary btn--large is-block disable-resubmit"
+                                               data-disable-with="previous-page"/></form>
                                         <input type="submit" name="commit" value="SAVE APPLICATION"
                                                id="save-button"
                                                class="btn-primary btn--large is-block disable-resubmit"
