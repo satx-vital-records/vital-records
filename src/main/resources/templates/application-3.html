@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Title</title>
+</head>
+<body>
+    <sect class="main-content">
+        <form class="main-content__container">
+            <field class="row">
+                <section class="col-xs-12">
+                    <form class="simple_form new_certificate" id="new_certificate" novalidate="novalidate"
+                          action="/application-3" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden"
+                                                                                              value="✓"/><input
+                            type="hidden" name="authenticity_token"
+                            value="GBkZnnvogYBnoELufrriChXdsyeZ975veN9Q1hrDy5ov+pkPlLS8VIQiZjTnU/pzR6WYK8uVu/UzabA9pT+vYg=="/>
+                        <fieldset>
+                            <section class="section align-center"><h1 class="h1"> Birth Certificate Order Form</h1>
+                            </section>
+
+                            <section class="section">
+                                <div class="row">
+                                    <div class="section__container">
+                                        <h2 class="h2">6. Contact information</h2>
+                                        <p class="align-left">Enter your full name as shown on your ID/driver's license,
+                                            as well as your contact information.</p>
+
+                                        <div class="row">
+                                            <div class="form-group string required certificate_contact_first_name col-xs-4">
+                                                <div class="tooltip-wrapper-mobile"><label class="string required"
+                                                                                           for="certificate_contact_first_name">First
+                                                    name</label></div>
+                                                <div class="tooltip-wrapper"><input data-validate=""
+                                                                                    class="string required" type="text"
+                                                                                    name="certificate[contact_first_name]"
+                                                                                    id="certificate_contact_first_name"/>
+                                                </div>
+                                            </div>
+                                            <div class="form-group string optional certificate_contact_middle_name col-xs-4">
+                                                <div class="tooltip-wrapper-mobile"><label class="string optional"
+                                                                                           for="certificate_contact_middle_name">Middle
+                                                    name</label></div>
+                                                <div class="tooltip-wrapper"><input data-validate=""
+                                                                                    class="string optional" type="text"
+                                                                                    name="certificate[contact_middle_name]"
+                                                                                    id="certificate_contact_middle_name"/>
+                                                </div>
+                                            </div>
+                                            <div class="form-group string required certificate_contact_last_name col-xs-4">
+                                                <div class="tooltip-wrapper-mobile"><label class="string required"
+                                                                                           for="certificate_contact_last_name">Last
+                                                    name</label><a class="fa fa-question-circle tooltip-trigger"
+                                                                   data-tippy=""
+                                                                   data-original-title="Enter your full name as shown on your ID or driver´s license. Leave middle name empty if unknown."></a>
+                                                </div>
+                                                <div class="tooltip-wrapper"><input data-validate=""
+                                                                                    class="string required" type="text"
+                                                                                    name="certificate[contact_last_name]"
+                                                                                    id="certificate_contact_last_name"/><a
+                                                        class="fa fa-question-circle tooltip-trigger" data-tippy=""
+                                                        data-original-title="Enter your full name as shown on your ID or driver´s license. Leave middle name empty if unknown."></a>
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+                                        <div class="form-group tel required certificate_contact_phone">
+                                            <div class="tooltip-wrapper-mobile"><label class="tel required"
+                                                                                       for="certificate_contact_phone">Phone
+                                                number</label><a class="fa fa-question-circle tooltip-trigger"
+                                                                 data-tippy=""
+                                                                 data-original-title="Please enter a valid contact phone number in case an agent needs to reach you regarding your application."></a>
+                                            </div>
+                                            <div class="tooltip-wrapper"><input data-validate=""
+                                                                                class="string tel required phone-format"
+                                                                                type="tel"
+                                                                                name="certificate[contact_phone]"
+                                                                                id="certificate_contact_phone"
+                                                                                maxlength="14"/><a
+                                                    class="fa fa-question-circle tooltip-trigger" data-tippy=""
+                                                    data-original-title="Please enter a valid contact phone number in case an agent needs to reach you regarding your application."></a>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group email required certificate_contact_email">
+                                            <div class="tooltip-wrapper-mobile"><label class="email required"
+                                                                                       for="certificate_contact_email">Email
+                                                address</label><a class="fa fa-question-circle tooltip-trigger"
+                                                                  data-tippy=""
+                                                                  data-original-title="Specify your email address. It is very important that you provide a valid email, as all communication will be done via email, including your application package If the email address is incorrect, you will not be able to finalize your order and birth certificate will not be delivered."></a>
+                                            </div>
+                                            <div class="tooltip-wrapper"><input data-validate=""
+                                                                                class="string email required"
+                                                                                type="email"
+                                                                                name="certificate[contact_email]"
+                                                                                id="certificate_contact_email"/><a
+                                                    class="fa fa-question-circle tooltip-trigger" data-tippy=""
+                                                    data-original-title="Specify your email address. It is very important that you provide a valid email, as all communication will be done via email, including your application package If the email address is incorrect, you will not be able to finalize your order and birth certificate will not be delivered."></a>
+                                            </div>
+                                        </div>
+                                        <div class="form-group email required certificate_contact_email_confirmation">
+                                            <div class="tooltip-wrapper-mobile"><label class="email required"
+                                                                                       for="certificate_contact_email_confirmation">Confirm
+                                                email address</label><a class="fa fa-question-circle tooltip-trigger"
+                                                                        data-tippy=""
+                                                                        data-original-title="Please re-enter your email address."></a>
+                                            </div>
+                                            <div class="tooltip-wrapper"><input data-validate=""
+                                                                                class="string email required"
+                                                                                type="email"
+                                                                                name="certificate[contact_email_confirmation]"
+                                                                                id="certificate_contact_email_confirmation"/><a
+                                                    class="fa fa-question-circle tooltip-trigger" data-tippy=""
+                                                    data-original-title="Please re-enter your email address."></a></div>
+                                        </div>
+                                        <input type="submit" name="commit" value="CONTINUE APPLICATION"
+                                               id="continue-button"
+                                               class="btn-primary btn--large is-block disable-resubmit"
+                                               data-disable-with="CONTINUE APPLICATION"/>
+                                        <input type="submit" name="commit" value="SAVE APPLICATION"
+                                               id="save-button"
+                                               class="btn-primary btn--large is-block disable-resubmit"
+                                               data-disable-with="SAVE APPLICATION"/>
+                                    </div>
+                                </div>
+                            </section>
+
+                        </fieldset>
+                    </form>
+                    <!--<div th:replace="fragment/footer :: footer"></div>-->
+                </section>
+            </field>
+        </form>
+    </sect>
+</body>
+</html>
