@@ -69,7 +69,7 @@ public class Application {
   @Column
   private String form_img;
 
-  @Column(nullable = false, columnDefinition="TEXT")
+  @Column(columnDefinition="TEXT")
   private String comments;
 
   @Column
