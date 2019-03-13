@@ -16,57 +16,57 @@ public class Record {
   @GeneratedValue
   private long id;
 
-  @Column(nullable = false)
+  @Column
   private String first_name;
 
-  @Column(nullable = false)
+  @Column
   private String mid_name;
 
-  @Column(nullable = false)
+  @Column
   private String last_name;
 
-  @Column(nullable = false)
+  @Column
   @DateTimeFormat(pattern = "YY/DD/MM")
   private Date date_of_birth;
 
-  @Column(nullable = false)
+  @Column
   @DateTimeFormat(pattern = "YY/DD/MM")
   private Date date_of_death;
 
-  @Column(nullable = false, length = 10)
+  @Column(length = 10)
   private String sex;
 
-  @Column(nullable = false)
+  @Column
   private String birth_city;
 
-  @Column(nullable = false)
+  @Column
   private String birth_county;
 
-  @Column(nullable = false)
+  @Column
   private String death_city;
 
-  @Column(nullable = false)
+  @Column
   private String death_county;
 
-  @Column(nullable = false)
+  @Column
   private String parent1_first_name;
 
-  @Column(nullable = false)
+  @Column
   private String parent1_mid_name;
 
-  @Column(nullable = false)
+  @Column
   private String parent1_last_name;
 
-  @Column(nullable = false)
+  @Column
   private String parent2_first_name;
 
-  @Column(nullable = false)
+  @Column
   private String parent2_mid_name;
 
-  @Column(nullable = false)
+  @Column
   private String parent2_last_name;
 
-  @Column(nullable = false)
+  @Column
   @DateTimeFormat(pattern = "YY/DD/MM hh:mm:ss")
   private Date date_of_request;
 
