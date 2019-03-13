@@ -17,7 +17,9 @@ public class Application {
   private Record record;
 
   @ManyToOne
-  private User applicant;
+  @JoinColumn(name= "user_id")
+  private User user;
+
 
   @Id
   @GeneratedValue

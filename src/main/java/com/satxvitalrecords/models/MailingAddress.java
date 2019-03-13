@@ -6,6 +6,10 @@ import javax.persistence.*;
 @Table(name= "mailing_address")
 public class MailingAddress {
 
+  @ManyToOne
+  @JoinColumn(name = "user_id")
+  private User user;
+
   @Id
   @GeneratedValue
   private long id;
@@ -30,6 +34,7 @@ public class MailingAddress {
 
   @Column(nullable = false)
   private String zip;
+
 
   public MailingAddress() {
   }

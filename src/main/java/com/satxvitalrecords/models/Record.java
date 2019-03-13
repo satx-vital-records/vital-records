@@ -9,6 +9,9 @@ import java.util.Date;
 @Table(name = "records")
 public class Record {
 
+  @OneToOne
+  private Application application;
+
   @Id
   @GeneratedValue
   private long id;
