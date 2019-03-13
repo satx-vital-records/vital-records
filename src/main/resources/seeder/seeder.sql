@@ -1,4 +1,22 @@
---
+use vitalrecords_db;
+
+INSERT INTO applications(id, city, comment_date_time, comments, contact_type, first_name, form_img, form_type, identification_img, last_name, mid_name, purpose, record_relationship, record_type, state, street, street2, zip, record_id, status_id, user_id)
+VALUES (1, 'san antonio', null, null, 'phone', 'sarah', null, 'long', null, 'barron', 'e', 'funeral', 'daughter', 'death', 'tx', '2222 cavalier ave', null, '78210', 1, 1, 1 );
+
+INSERT INTO mailing_address(id, city, first_name, last_name, state, street, street_2, zip, user_id)
+VALUES (1, 'san antonio', 'sarah', 'barron', 'tx', '2222 cavalier', 'street', '78210', 1);
+
+INSERT INTO records(id, birth_city, birth_county, date_of_birth, date_of_death, date_of_request, death_city, death_county, first_name, last_name, mid_name, parent1_first_name, parent1_last_name, parent1_mid_name, parent2_first_name, parent2_last_name, parent2_mid_name, sex, application_id)
+VALUES (1, 'san antonio', 'bexar', '01/01/1959', '04/03/2019', current_date, 'edwards air force base', 'lincoln', 'Zeta', 'Reticulans', 'Grayson', 'Gray', 'Reticulans', null, 'Mara', 'Jade', null, 'male', 1);
+
+INSERT INTO statuses(id, description)
+VALUES (100, 'In Progress');
+
+INSERT INTO users(id, email, first_name, last_name, password, phone_num, role, username)
+VALUES (1, 'sarah.barron@email.com', 'sarah', 'barron', 'p@$$w0rd', '210-512-1234', 1, 'sarah_barron');
+
+
+
 -- -- USE vitalrecords_db;
 -- --
 -- --
