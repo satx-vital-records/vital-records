@@ -1,7 +1,7 @@
 package com.satxvitalrecords.models;
 
 import org.springframework.format.annotation.DateTimeFormat;
-import sun.plugin.dom.core.Text;
+
 
 import javax.persistence.*;
 import java.util.Date;
@@ -70,8 +70,8 @@ public class Application {
   @Column
   private String form_img;
 
-  @Column
-  private Text comments;
+  @Column(nullable = false, columnDefinition="TEXT")
+  private String comments;
 
   @Column
   @DateTimeFormat(pattern = "YY/DD/MM hh:mm:ss")
@@ -219,11 +219,11 @@ public class Application {
     this.form_img = form_img;
   }
 
-  public Text getComments() {
+  public String getComments() {
     return comments;
   }
 
-  public void setComments(Text comments) {
+  public void setComments(String comments) {
     this.comments = comments;
   }
 
