@@ -6,6 +6,9 @@ import javax.persistence.*;
 @Table(name = "statuses")
 public class Status {
 
+//  @OneToOne
+//  private Application application;
+
   @Id
   @Column
   private long id;
