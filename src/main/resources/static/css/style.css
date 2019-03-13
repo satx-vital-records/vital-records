@@ -10,7 +10,8 @@
 /*-----------------------------------------------------------------------------------*/
 
 body {
-    height: 100%;
+    min-height: 100vh;
+    position: relative;
     font-family: 'Poppins', helvetica;
     font-size: 15px;
     font-weight: 300;
@@ -25,6 +26,21 @@ body {
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
 }
+
+.home{
+    width: 90%;
+    margin: 0 auto;
+}
+
+.main{
+    margin-top: 1rem;
+    text-align: left;
+}
+
+.disclaimer{
+    border: .25em solid firebrick;
+}
+
 .home {
     height: 100%;
     background-image: url('../img/trees.jpg');
@@ -99,6 +115,12 @@ p {
     font-size: 15px;
     color: black;
     line-height: 28px;
+}
+
+footer{
+    font-family: "freight-text-pro", sans-serif;
+    position: absolute;
+    bottom: 0;
 }
 
 ::-moz-selection {

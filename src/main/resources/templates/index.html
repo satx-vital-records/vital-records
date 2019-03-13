@@ -7,16 +7,57 @@
 
     <nav th:replace="fragments/navbar :: navbar"></nav>
 
-    <div id="header" class="home">
+    <div id="header" class="container home">
+
         <div class="pt-5">
-            <p>Hello World!</p>
+            <h3>San Antonio Vital Records</h3>
+        </div>
+
+        <div class="card-deck">
+            <div class="card" style="width:18rem;">
+                <div class="card-body">
+                    <h5 class="card-title">Step 1</h5>
+                    <p class="card-text">If this is your first time visiting us, please register a new account. <br />
+                        If you are a returning customer, please login to start, return, or review your application.</p>
+                    <a th:href="@{registration}" class="btn btn-primary">Register</a>
+                    <a th:href="@{login}" class="btn btn-primary">Login</a>
+                </div>
+            </div>
+            <div class="card" style="width:18rem;">
+                <div class="card-body">
+                    <h5 class="card-title">Step 2</h5>
+                    <p class="card-text">Select which record you need</p>
+                </div>
+            </div>
+            <div class="card" style="width:18rem;">
+                <div class="card-body">
+                    <h5 class="card-title">Step 3</h5>
+                    <p class="card-text">Fill out the proper application</p>
+                </div>
+            </div>
+            <div class="card" style="width:18rem;">
+                <div class="card-body">
+                    <h5 class="card-title">Step 4</h5>
+                    <p class="card-text">Print out the completed application and get it notarized</p>
+                </div>
+            </div>
+            <div class="card" style="width:18rem;">
+                <div class="card-body">
+                    <h5 class="card-title">Step 5</h5>
+                    <p class="card-text">Upload notarized application</p>
+                </div>
+            </div>
+            <div class="card" style="width:18rem;">
+                <div class="card-body">
+                    <h5 class="card-title">Step 6</h5>
+                    <p class="card-text">Update shipping address and purchase</p>
+                </div>
+            </div>
+        </div>
 
     </div>
-    <div>I can't see anything</div>
-    <div>where are my divs!</div>
-
 
     <footer th:replace="fragments/footer :: footer"></footer>
-        </div>
+
 </body>
 </html>
