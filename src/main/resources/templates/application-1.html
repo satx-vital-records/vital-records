@@ -1,29 +1,34 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<!--<head th:replace="fragment/header :: header('Application')"/>-->
+<head th:replace="fragments/header :: header('Application')"/>
 <body>
-    <sect class="main-content">
-        <form class="main-content__container">
-            <field class="row">
-                <section class="col-xs-12">
-                    <form class="simple_form new_certificate" id="new_certificate" novalidate="novalidate"
+    <div class=" pb-5">
+        <div class="container">
+            <div class="">
+                <div class="col-xs-12">
+                    <div class="cssProgress pt-4 mx-auto" style="width: 70%">
+                        <div class="progress1">
+                            <div class="cssProgress-bar" data-percent="15" style="width: 15%;">
+                                <span class="cssProgress-label">15%</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <form class="simple_form new_certificate mx-auto" style="width: 70%" id="new_certificate1"
+                          novalidate="novalidate"
                           action="/application-1" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden"
                                                                                               value="✓"/><input
                             type="hidden" name="authenticity_token"
                             value="GBkZnnvogYBnoELufrriChXdsyeZ975veN9Q1hrDy5ov+pkPlLS8VIQiZjTnU/pzR6WYK8uVu/UzabA9pT+vYg=="/>
                         <fieldset>
-                            <section class="section align-center"><h1 class="h1"> Birth Certificate Order Form</h1>
-                            </section>
-
-                            <div class="section__container ">
-                                <p>
-
-                                </p>
+                            <div class=" text-center py-4"><h2 class="h2"> Birth Certificate Order Form</h2>
                             </div>
-                            <section class="section">
+                            <hr/>
+                            <div class="section__container "></div>
+                            <section class="section pb-2">
                                 <div class="row">
                                     <div class="section__container">
-                                        <h2 class="h2">1. Birth information of the person on record</h2>
+                                        <h4 class="h4">1. Birth information of the person on record</h4>
                                         <p class="align-left">Enter the birth information of the person needing the
                                             birth certificate. If you are applying for someone else (i.e. your child),
                                             enter their birth information here.</p>
@@ -354,14 +359,15 @@
                                     </div>
                                 </div>
                             </section>
-                            <section class="section">
+                            <hr/>
+                            <section class="section pt-2">
                                 <div class="row">
                                     <div class="section__container">
-                                        <h2 class="h2">2. Full name of the person on record</h2>
+                                        <h4 class="h4">2. Full name of the person on record</h4>
                                         <p class="align-left">Enter the full name of the person on record at the time of
                                             birth. Leave middle name empty if unknown.</p>
 
-                                        <div class="row">
+                                        <div class="">
                                             <div class="form-group string required certificate_person_first_name col-xs-4">
                                                 <div class="tooltip-wrapper-mobile"><label class="string required"
                                                                                            for="certificate_person_first_name">First
@@ -420,31 +426,33 @@
                                             </div>
                                         </div>
 
-
-                                        <input type="submit" name="commit" value="CONTINUE APPLICATION"
-                                               id="continue-button"
-                                               class="btn-primary btn--large is-block disable-resubmit"
-                                               data-disable-with="CONTINUE APPLICATION"/>
-                                        <input type="submit" name="commit" value="SAVE APPLICATION"
-                                               id="save-button"
-                                               class="btn-primary btn--large is-block disable-resubmit"
-                                               data-disable-with="SAVE APPLICATION"/>
+                                        <div class="row justify-content-between pt-5">
+                                            <a th:href="@{/application-2}"><input type="submit" name="commit"
+                                                                                  value="CONTINUE APPLICATION"
+                                                                                  id="continue-button1"
+                                                                                  class="btn-primary btn--large is-block disable-resubmit"
+                                                                                  data-disable-with="CONTINUE APPLICATION"/></a>
+                                            <input type="submit" name="commit" value="SAVE APPLICATION"
+                                                   id="save-button1"
+                                                   class="btn-primary btn--large is-block disable-resubmit"
+                                                   data-disable-with="SAVE APPLICATION"/>
+                                        </div>
                                     </div>
                                 </div>
                             </section>
                             <section class="section">
-                                <div class="row">
+                                <div class="">
                                     <form class="section__container">
                                     </form>
 
-                                    <!--<div th:replace="fragment/footer :: footer"></div>-->
+                                    <div th:replace="fragments/footer :: footer"></div>
                                 </div>
                             </section>
                         </fieldset>
                     </form>
-                </section>
-            </field>
-        </form>
-    </sect>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
