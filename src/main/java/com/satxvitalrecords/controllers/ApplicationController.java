@@ -40,12 +40,15 @@ public class ApplicationController {
     }
 
     @GetMapping("/application-2")
-    public String showApplication2() {
+    public String showApplication2(@ModelAttribute Record record) {
+    recordDao.findOne(1L);
         return "application-2";
     }
 
     @PostMapping("/application-2")
-    public String showApp3() {
+    public String saveApp2() {
+      Record record1= recordDao.findOne(1L);
+      recordDao.save(record1);
       return "redirect:/application-3";
     }
 
@@ -54,13 +57,9 @@ public class ApplicationController {
         return "application-3";
     }
 
-    @GetMapping("/app-2/{id}")
-  public String goBacktoPage2(){
-    return "redirect:/application-3";
-  }
 
     @PostMapping("/application-3")
-    public String showApp4() {
+    public String saveApp3() {
         return "redirect:/application-4";
     }
 
@@ -70,7 +69,7 @@ public class ApplicationController {
     }
 
     @PostMapping("/application-4")
-    public String saveApp() {
+    public String saveApp4() {
         return "redirect:/";
     }
 

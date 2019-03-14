@@ -1,8 +1,6 @@
 package com.satxvitalrecords.models;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-import com.satxvitalrecords.repositories.RecordRepo;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
