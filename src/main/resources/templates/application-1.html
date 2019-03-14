@@ -1,16 +1,15 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" class="p-5">
 <head th:replace="fragments/header :: header('Application')"/>
 <body>
-    <nav th:replace="fragments/navbar :: navbar"></nav>
-    <sect class="main-content">
-        <form class="main-content__container">
-            <field class="row">
-                <section class="col-xs-8">
+    <div class=" pb-5">
+        <div class="">
+            <field class="">
+                <section class="col-xs-12">
                     <div class="cssProgress pt-4">
                         <div class="progress1">
-                            <div class="cssProgress-bar" data-percent="25" style="width: 25%;">
-                                <span class="cssProgress-label">25%</span>
+                            <div class="cssProgress-bar" data-percent="15" style="width: 15%;">
+                                <span class="cssProgress-label">15%</span>
                             </div>
                         </div>
                     </div>
@@ -21,7 +20,7 @@
                             type="hidden" name="authenticity_token"
                             value="GBkZnnvogYBnoELufrriChXdsyeZ975veN9Q1hrDy5ov+pkPlLS8VIQiZjTnU/pzR6WYK8uVu/UzabA9pT+vYg=="/>
                         <fieldset>
-                            <section class="section align-center"><h1 class="h1"> Birth Certificate Order Form</h1>
+                            <section class=" align-center"><h1 class="h1"> Birth Certificate Order Form</h1>
                             </section>
 
                             <div class="section__container ">
@@ -364,13 +363,13 @@
                                 </div>
                             </section>
                             <section class="section">
-                                <div class="row">
+                                <div class="">
                                     <div class="section__container">
                                         <h2 class="h2">2. Full name of the person on record</h2>
                                         <p class="align-left">Enter the full name of the person on record at the time of
                                             birth. Leave middle name empty if unknown.</p>
 
-                                        <div class="row">
+                                        <div class="">
                                             <div class="form-group string required certificate_person_first_name col-xs-4">
                                                 <div class="tooltip-wrapper-mobile"><label class="string required"
                                                                                            for="certificate_person_first_name">First
@@ -430,10 +429,10 @@
                                         </div>
 
 
-                                        <input type="submit" name="commit" value="CONTINUE APPLICATION"
+                                        <a th:href="@{/application-2}"><input type="submit" name="commit" value="CONTINUE APPLICATION"
                                                id="continue-button"
                                                class="btn-primary btn--large is-block disable-resubmit"
-                                               data-disable-with="CONTINUE APPLICATION"/>
+                                               data-disable-with="CONTINUE APPLICATION"/></a>
                                         <input type="submit" name="commit" value="SAVE APPLICATION"
                                                id="save-button"
                                                class="btn-primary btn--large is-block disable-resubmit"
@@ -442,7 +441,7 @@
                                 </div>
                             </section>
                             <section class="section">
-                                <div class="row">
+                                <div class="">
                                     <form class="section__container">
                                     </form>
 
@@ -453,7 +452,7 @@
                     </form>
                 </section>
             </field>
-        </form>
-    </sect>
+        </div>
+    </div>
 </body>
 </html>

@@ -50,9 +50,9 @@ html {
     -webkit-tap-highlight-color: transparent;
 }
 
-@-ms-viewport {
-    width: device-width;
-}
+/*@-ms-viewport {*/
+    /*width: device-width;*/
+/*}*/
 
 article, aside, dialog, figcaption, figure, footer, header, hgroup, main, nav, section {
     display: block;
@@ -2157,7 +2157,7 @@ select.form-control-lg:not([size]):not([multiple]), .input-group-lg > select.for
 }
 
 .form-check-inline {
-    display: -webkit-inline-box;
+    /*display: -webkit-inline-box;*/
     display: -ms-inline-flexbox;
     display: inline-flex;
     -webkit-box-align: center;
@@ -3309,7 +3309,7 @@ tbody.collapse.show {
 .btn-group,
 .btn-group-vertical {
     position: relative;
-    display: -webkit-inline-box;
+    /*display: -webkit-inline-box;*/
     display: -ms-inline-flexbox;
     display: inline-flex;
     vertical-align: middle;
@@ -3608,7 +3608,7 @@ tbody.collapse.show {
 }
 
 .custom-control-inline {
-    display: -webkit-inline-box;
+    /*display: -webkit-inline-box;*/
     display: -ms-inline-flexbox;
     display: inline-flex;
     margin-right: 1rem;
@@ -6311,7 +6311,7 @@ button.bg-dark:focus {
 }
 
 .d-inline-flex {
-    display: -webkit-inline-box !important;
+    /*display: -webkit-inline-box !important;*/
     display: -ms-inline-flexbox !important;
     display: inline-flex !important;
 }
@@ -6344,7 +6344,7 @@ button.bg-dark:focus {
         display: flex !important;
     }
     .d-sm-inline-flex {
-        display: -webkit-inline-box !important;
+        /*display: -webkit-inline-box !important;*/
         display: -ms-inline-flexbox !important;
         display: inline-flex !important;
     }
@@ -6378,7 +6378,7 @@ button.bg-dark:focus {
         display: flex !important;
     }
     .d-md-inline-flex {
-        display: -webkit-inline-box !important;
+        /*display: -webkit-inline-box !important;*/
         display: -ms-inline-flexbox !important;
         display: inline-flex !important;
     }
@@ -6412,7 +6412,7 @@ button.bg-dark:focus {
         display: flex !important;
     }
     .d-lg-inline-flex {
-        display: -webkit-inline-box !important;
+        /*display: -webkit-inline-box !important;*/
         display: -ms-inline-flexbox !important;
         display: inline-flex !important;
     }
@@ -6446,7 +6446,7 @@ button.bg-dark:focus {
         display: flex !important;
     }
     .d-xl-inline-flex {
-        display: -webkit-inline-box !important;
+        /*display: -webkit-inline-box !important;*/
         display: -ms-inline-flexbox !important;
         display: inline-flex !important;
     }
@@ -6480,7 +6480,7 @@ button.bg-dark:focus {
         display: flex !important;
     }
     .d-print-inline-flex {
-        display: -webkit-inline-box !important;
+        /*display: -webkit-inline-box !important;*/
         display: -ms-inline-flexbox !important;
         display: inline-flex !important;
     }
@@ -6597,7 +6597,7 @@ button.bg-dark:focus {
 }
 
 .justify-content-around {
-    -ms-flex-pack: distribute !important;
+    /*-ms-flex-pack: distribute !important;*/
     justify-content: space-around !important;
 }
 
@@ -6749,7 +6749,7 @@ button.bg-dark:focus {
         justify-content: space-between !important;
     }
     .justify-content-sm-around {
-        -ms-flex-pack: distribute !important;
+        /*-ms-flex-pack: distribute !important;*/
         justify-content: space-around !important;
     }
     .align-items-sm-start {
@@ -6885,7 +6885,7 @@ button.bg-dark:focus {
         justify-content: space-between !important;
     }
     .justify-content-md-around {
-        -ms-flex-pack: distribute !important;
+        /*-ms-flex-pack: distribute !important;*/
         justify-content: space-around !important;
     }
     .align-items-md-start {
@@ -7021,7 +7021,7 @@ button.bg-dark:focus {
         justify-content: space-between !important;
     }
     .justify-content-lg-around {
-        -ms-flex-pack: distribute !important;
+        /*-ms-flex-pack: distribute !important;*/
         justify-content: space-around !important;
     }
     .align-items-lg-start {
@@ -7157,7 +7157,7 @@ button.bg-dark:focus {
         justify-content: space-between !important;
     }
     .justify-content-xl-around {
-        -ms-flex-pack: distribute !important;
+        /*-ms-flex-pack: distribute !important;*/
         justify-content: space-around !important;
     }
     .align-items-xl-start {

@@ -1,15 +1,15 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" class="p-5">
 <head th:replace="fragments/header :: header('Application')"/>
 <body>
-    <sect class="main-content">
-        <form class="main-content__container">
-            <field class="row">
+    <div class="">
+        <div class="">
+            <field class="">
                 <section class="col-xs-12">
-                    <div class="cssProgress">
-                        <div class="progress2">
-                            <div class="cssProgress-bar" data-percent="55">
-                                <span class="cssProgress-label">55%</span>
+                    <div class="cssProgress pt-4">
+                        <div class="progress1">
+                            <div class="cssProgress-bar" data-percent="35" style="width: 35%;">
+                                <span class="cssProgress-label">35%</span>
                             </div>
                         </div>
                     </div>
@@ -28,7 +28,7 @@
                                 </p>
                             </div>
                             <section class="section">
-                                <div class="row">
+                                <div class="">
                                     <div class="section__container">
                                         <h2 class="h2">3. Your relationship with person on record</h2>
                                         <div data-extra-fields-conditional="{&quot;#record_person_relationship_specify&quot;:&quot;Other (specify)&quot;,&quot;#record_person_relationship_specify_heir&quot;:&quot;Heir of the deceased person named on the record (specify)&quot;,&quot;#record_legal_representative_specify&quot;:&quot;I am the Legal Representative (specify)&quot;}"
@@ -110,13 +110,13 @@
                                 </div>
                             </section>
                             <section class="section">
-                                <div class="row">
+                                <div class="">
                                     <div class="section__container">
                                         <h2 class="h2">4. Mother of the person on record</h2>
                                         <p class="align-left">Enter the full maiden name (before 1st Marriage) of the
                                             mother of the person on record.</p>
 
-                                        <div class="row">
+                                        <div class="">
                                             <div class="form-group string required certificate_mother_first_name col-xs-3">
                                                 <div class="tooltip-wrapper-mobile"><label class="string required"
                                                                                            for="certificate_mother_first_name">First
@@ -154,7 +154,7 @@
                                             </div>
                                         </div>
 
-                                        <div class="row">
+                                        <div class="">
                                         </div>
 
 
@@ -162,13 +162,13 @@
                                 </div>
                             </section>
                             <section class="section">
-                                <div class="row">
+                                <div class="">
                                     <div class="section__container">
                                         <h2 class="h2">5. Father of the person on record</h2>
                                         <p class="align-left">Enter the full name of the father of the person on record.
                                             Leave empty if the identity of the father is unknown.</p>
 
-                                        <div class="row">
+                                        <div class="">
                                             <div class="form-group string optional certificate_father_first_name col-xs-4">
                                                 <div class="tooltip-wrapper-mobile"><label class="string optional"
                                                                                            for="certificate_father_first_name">First
@@ -206,10 +206,10 @@
                                             </div>
                                         </div>
 
-                                        <input type="submit" name="commit" value="CONTINUE APPLICATION"
-                                               id="continue-button"
-                                               class="btn-primary btn--large is-block disable-resubmit"
-                                               data-disable-with="CONTINUE APPLICATION"/>
+                                        <a th:href="@{/application-3}"><input type="submit" name="commit" value="CONTINUE APPLICATION"
+                                                                                                   id="continue-button"
+                                                                                                   class="btn-primary btn--large is-block disable-resubmit"
+                                                                                                   data-disable-with="CONTINUE APPLICATION"/></a>
                                         <input type="submit" name="commit" value="SAVE APPLICATION"
                                                id="save-button"
                                                class="btn-primary btn--large is-block disable-resubmit"
@@ -224,7 +224,7 @@
                     <div th:replace="fragments/footer :: footer"></div>
                 </section>
             </field>
-        </form>
-    </sect>
+        </div>
+    </div>
 </body>
 </html>

@@ -1,15 +1,15 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" class="p-5">
 <head th:replace="fragments/header :: header('Application')"/>
 <body>
-    <sect class="main-content">
-        <form class="main-content__container">
-            <field class="row">
+    <div class="">
+        <form class="">
+            <field class="">
                 <section class="col-xs-12">
                     <div class="cssProgress">
-                        <div class="progress3">
-                            <div class="cssProgress-bar" data-percent="65">
-                                <span class="cssProgress-label">65%</span>
+                        <div class="progress1">
+                            <div class="cssProgress-bar" data-percent="55" style="width: 55%;">
+                                <span class="cssProgress-label">55%</span>
                             </div>
                         </div>
                     </div>
@@ -29,7 +29,7 @@
                                         <p class="align-left">Enter your full name as shown on your ID/driver's license,
                                             as well as your contact information.</p>
 
-                                        <div class="row">
+                                        <div class="">
                                             <div class="form-group string required certificate_contact_first_name col-xs-4">
                                                 <div class="tooltip-wrapper-mobile"><label class="string required"
                                                                                            for="certificate_contact_first_name">First
@@ -117,10 +117,10 @@
                                                     class="fa fa-question-circle tooltip-trigger" data-tippy=""
                                                     data-original-title="Please re-enter your email address."></a></div>
                                         </div>
-                                        <input type="submit" name="commit" value="CONTINUE APPLICATION"
-                                               id="continue-button"
-                                               class="btn-primary btn--large is-block disable-resubmit"
-                                               data-disable-with="CONTINUE APPLICATION"/>
+                                        <a th:href="@{/application-4}"><input type="submit" name="commit" value="CONTINUE APPLICATION"
+                                                                                                   id="continue-button"
+                                                                                                   class="btn-primary btn--large is-block disable-resubmit"
+                                                                                                   data-disable-with="CONTINUE APPLICATION"/></a>
                                         <input type="submit" name="commit" value="SAVE APPLICATION"
                                                id="save-button"
                                                class="btn-primary btn--large is-block disable-resubmit"
@@ -135,6 +135,6 @@
                 </section>
             </field>
         </form>
-    </sect>
+    </div>
 </body>
 </html>
