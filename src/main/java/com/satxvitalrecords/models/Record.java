@@ -26,11 +26,11 @@ public class Record {
   private String last_name;
 
   @Column
-  @DateTimeFormat(pattern = "YY/DD/MM")
+  @DateTimeFormat(pattern = "MM/DD/YYYY")
   private Date date_of_birth;
 
   @Column
-  @DateTimeFormat(pattern = "YY/DD/MM")
+  @DateTimeFormat(pattern = "MM/DD/YYYY")
   private Date date_of_death;
 
   @Column(length = 10)
