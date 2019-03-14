@@ -1,15 +1,20 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8"/>
-    <title>Title</title>
-</head>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/header :: header('Application')"/>
 <body>
-    <sect class="main-content">
-        <form class="main-content__container">
-            <field class="row">
+    <div class="pb-5">
+        <div class="container">
+            <field class="">
                 <section class="col-xs-12">
-                    <form class="simple_form new_certificate" id="new_certificate" novalidate="novalidate"
+                    <div class="cssProgress pt-4 mx-auto" style="width: 70%">
+                        <div class="progress1">
+                            <div class="cssProgress-bar" data-percent="35" style="width: 35%;">
+                                <span class="cssProgress-label">35%</span>
+                            </div>
+                        </div>
+                    </div>
+                    <form class="simple_form new_certificate mx-auto" style="width: 70%" id="new_certificate2"
+                          novalidate="novalidate"
                           action="/application-2" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden"
                                                                                               value="✓"/><input
                             type="hidden" name="authenticity_token"
@@ -17,16 +22,13 @@
                         <fieldset>
                             <section class="section align-center"><h1 class="h1"> Birth Certificate Order Form</h1>
                             </section>
-
+                            <hr/>
                             <div class="section__container ">
-                                <p>
-
-                                </p>
                             </div>
-                            <section class="section">
+                            <section class="section pb-2">
                                 <div class="row">
                                     <div class="section__container">
-                                        <h2 class="h2">3. Your relationship with person on record</h2>
+                                        <h4 class="h4">3. Your relationship with person on record</h4>
                                         <div data-extra-fields-conditional="{&quot;#record_person_relationship_specify&quot;:&quot;Other (specify)&quot;,&quot;#record_person_relationship_specify_heir&quot;:&quot;Heir of the deceased person named on the record (specify)&quot;,&quot;#record_legal_representative_specify&quot;:&quot;I am the Legal Representative (specify)&quot;}"
                                              class="form-group select required certificate_record_person_relationship">
                                             <div class="tooltip-wrapper-mobile"><label class="select required"
@@ -81,6 +83,110 @@
                                         </div>
 
 
+
+
+
+                                        <div
+                                             class="form-group select required certificate_record_person_relationship">
+                                            <div class="tooltip-wrapper-mobile"><label class="select required"
+                                                                                       for="certificate_record_person_relationship">Please select the certificate type you require</label><a
+                                                class="fa fa-question-circle tooltip-trigger" data-tippy=""
+                                                data-original-title="Standard size format is the most commonly issued because it satisfies most purposes,; Long Form is used most often to obtain a passport, for purposes of dual citizenship, Indian Registry and immigration"></a>
+                                            </div>
+                                            <div class="tooltip-wrapper"><select data-validate=""
+                                                                                 class="select required"
+                                                                                 name="certificate_type_long_standard"
+                                                                                 id="certificate_type_long_standard">
+                                                <option value="">Please select</option>
+                                                <option value="Standard size">Standard size</option>
+                                                <option value="Long form">Long form</option>
+
+                                            </select><a class="fa fa-question-circle tooltip-trigger" data-tippy=""
+                                                        data-original-title="Standard size format is the most commonly issued because it satisfies most purposes,; Long Form is used most often to obtain a passport, for purposes of dual citizenship, Indian Registry and immigration"></a>
+                                            </div>
+                                        </div>
+
+                                        <div id="certificate_type" style="display: none;">
+                                            <div class="form-group string optional certificate_record_person_relationship_specify">
+                                                <div class="tooltip-wrapper-mobile"><label
+                                                    class="string optional required"
+                                                    for="certificate_record_person_relationship_specify">Specify</label>
+                                                </div>
+                                                <div class="tooltip-wrapper"><input data-validate="" maxlength="45"
+                                                                                    class="string optional" size="45"
+                                                                                    type="text"
+                                                                                    name="certificate_type"
+                                                                                    id="certificate_type_"/>
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+
+
+
+
+                                        <div
+                                             class="form-group select required certificate_record_person_relationship">
+                                            <div class="tooltip-wrapper-mobile"><label class="select required"
+                                                                                       for="certificate_record_person_relationship">Why are you applying for a certificate?</label><a
+                                                class="fa fa-question-circle tooltip-trigger" data-tippy=""
+                                                data-original-title="This information is required by the Health Department. If the reason for applying is not listed here, please select “other."></a>
+                                            </div>
+                                            <div class="tooltip-wrapper"><select data-validate=""
+                                                                                 class="select required"
+                                                                                 name="certificate_purpose"
+                                                                                 id="certificate_purpose">
+                                                <option value="">Please select</option>
+                                                <option value="Passport">Passport</option>
+                                                <option value="Social Security">Social Security</option>
+                                                <option value="Retirement">Retirement</option>
+                                                <option value="Employment">Employment</option>
+                                                <option value="Working Papers">Working Papers</option>
+                                                <option value="School Entrance">School Entrance</option>
+                                                <option value="Driver's License">Driver's License</option>
+                                                <option value="Marriage License">Marriage License</option>
+                                                <option value="Welfare Assistance">Welfare Assistance</option>
+                                                <option value="Veteran's Benefits">Veteran's Benefits
+                                                </option>
+                                                <option value="Court Proceeding">Court Proceeding
+
+                                                </option>
+                                                <option value="Entrance into Armed Forces">Entrance into Armed Forces</option>
+                                                <option value="International Use">International Use
+                                                </option>
+                                                <option value="Insurance">Insurance
+                                                </option>
+                                                <option value="Genealogy">Genealogy
+                                                </option>
+                                                <option value="Other (specify)">Other</option>
+                                            </select><a class="fa fa-question-circle tooltip-trigger" data-tippy=""
+                                                        data-original-title="If you are requesting the  birth certificate for yourself, please select “Myself”. In all other cases, please specify your relationship to the person on record. For example if you are a mother requesting the certificate for your child, select &quot;I am the Mother&quot;. It is important to note that if you are not a direct family member, you may have to provide additional proof of your relationship with the person on record."></a>
+                                            </div>
+                                        </div>
+
+                                        <div id="certificate_purpose_reason" style="display: none;">
+                                            <div class="form-group string optional certificate_purpose_specify">
+                                                <div class="tooltip-wrapper-mobile"><label
+                                                    class="string optional required"
+                                                    for="certificate_purpose">Specify</label>
+                                                </div>
+                                                <div class="tooltip-wrapper"><input data-validate="" maxlength="45"
+                                                                                    class="string optional" size="45"
+                                                                                    type="text"
+                                                                                    name="certificate[record_person_relationship_specify]"
+                                                                                    id="certificate_purpose-specify"/>
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+
+
+
+
+
+
                                         <div class="form-group select required certificate_record_copies">
                                             <div class="tooltip-wrapper-mobile"><label class="select required"
                                                                                        for="certificate_record_copies">Number
@@ -106,13 +212,13 @@
                                 </div>
                             </section>
                             <section class="section">
-                                <div class="row">
+                                <div class="">
                                     <div class="section__container">
-                                        <h2 class="h2">4. Mother of the person on record</h2>
+                                        <h4 class="h4">4. Mother of the person on record</h4>
                                         <p class="align-left">Enter the full maiden name (before 1st Marriage) of the
                                             mother of the person on record.</p>
 
-                                        <div class="row">
+                                        <div class="">
                                             <div class="form-group string required certificate_mother_first_name col-xs-3">
                                                 <div class="tooltip-wrapper-mobile"><label class="string required"
                                                                                            for="certificate_mother_first_name">First
@@ -150,7 +256,7 @@
                                             </div>
                                         </div>
 
-                                        <div class="row">
+                                        <div class="">
                                         </div>
 
 
@@ -158,13 +264,13 @@
                                 </div>
                             </section>
                             <section class="section">
-                                <div class="row">
+                                <div class="">
                                     <div class="section__container">
-                                        <h2 class="h2">5. Father of the person on record</h2>
+                                        <h4 class="h4">5. Father of the person on record</h4>
                                         <p class="align-left">Enter the full name of the father of the person on record.
                                             Leave empty if the identity of the father is unknown.</p>
 
-                                        <div class="row">
+                                        <div class="">
                                             <div class="form-group string optional certificate_father_first_name col-xs-4">
                                                 <div class="tooltip-wrapper-mobile"><label class="string optional"
                                                                                            for="certificate_father_first_name">First
@@ -201,26 +307,26 @@
                                                 </div>
                                             </div>
                                         </div>
-
-                                        <input type="submit" name="commit" value="CONTINUE APPLICATION"
-                                               id="continue-button"
-                                               class="btn-primary btn--large is-block disable-resubmit"
-                                               data-disable-with="CONTINUE APPLICATION"/>
-                                        <input type="submit" name="commit" value="SAVE APPLICATION"
-                                               id="save-button"
-                                               class="btn-primary btn--large is-block disable-resubmit"
-                                               data-disable-with="SAVE APPLICATION"/>
+                                        <div class="row justify-content-center pt-5">
+                                            <a th:href="@{/application-3}"><input type="submit" name="commit"
+                                                                                  value="CONTINUE APPLICATION"
+                                                                                  id="continue-button2"
+                                                                                  class="btn-primary btn--large is-block disable-resubmit"
+                                                                                  data-disable-with="CONTINUE APPLICATION"/></a>
+                                            <input type="submit" name="commit" value="SAVE APPLICATION"
+                                                   id="save-button2"
+                                                   class="btn-primary btn--large is-block disable-resubmit"
+                                                   data-disable-with="SAVE APPLICATION"/>
+                                        </div>
                                     </div>
                                 </div>
                             </section>
-
-
                         </fieldset>
                     </form>
-                    <!--<div th:replace="fragment/footer :: footer"></div>-->
+                    <div th:replace="fragments/footer :: footer"></div>
                 </section>
             </field>
-        </form>
-    </sect>
+        </div>
+    </div>
 </body>
 </html>

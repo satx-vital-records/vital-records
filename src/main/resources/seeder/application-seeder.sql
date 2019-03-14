@@ -1,0 +1,1 @@
+INSERT INTO APPLICATIONS (id, city)

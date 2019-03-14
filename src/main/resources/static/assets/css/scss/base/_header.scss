@@ -1,0 +1,25 @@
+/* -----------------------------------------------------
+   Header
+-------------------------------------------------------- */
+header {
+   display: block;
+   width: 100%;
+   padding: 20px 0;
+   text-align: center;
+   background-color: #FFF;
+   box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.1);
+
+   h2 {
+      margin: 0;
+      padding: 25px 0;
+      color: #646360;
+      font-size: 2em;
+      font-weight: 300;
+      letter-spacing: 1px;
+   }
+
+   .project {
+      display: block;
+      padding: 8px 0;
+   }
+}

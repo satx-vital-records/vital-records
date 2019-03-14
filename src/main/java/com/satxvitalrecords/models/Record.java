@@ -1,5 +1,6 @@
 package com.satxvitalrecords.models;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
@@ -26,11 +27,11 @@ public class Record {
   private String last_name;
 
   @Column
-  @DateTimeFormat(pattern = "MM/DD/YYYY")
+  @DateTimeFormat(pattern = "dd/MM/yyyy")
   private Date date_of_birth;
 
   @Column
-  @DateTimeFormat(pattern = "MM/DD/YYYY")
+  @DateTimeFormat(pattern = "dd/MM/yyyy")
   private Date date_of_death;
 
   @Column(length = 10)
@@ -67,7 +68,7 @@ public class Record {
   private String parent2_last_name;
 
   @Column
-  @DateTimeFormat(pattern = "YY/DD/MM hh:mm:ss")
+  @DateTimeFormat(pattern = "YY/MM/DD hh:mm:ss")
   private Date date_of_request;
 
 
@@ -126,6 +127,7 @@ public class Record {
     this.last_name = last_name;
   }
 
+  @JsonFormat(shape=JsonFormat.Shape.STRING, pattern="dd/MM/yyyy")
   public Date getDate_of_birth() {
     return date_of_birth;
   }

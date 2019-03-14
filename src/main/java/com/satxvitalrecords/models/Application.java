@@ -73,7 +73,7 @@ public class Application {
   private String comments;
 
   @Column
-  @DateTimeFormat(pattern = "YY/DD/MM hh:mm:ss")
+  @DateTimeFormat(pattern = "YY/MM/DD hh:mm:ss")
   private Date comment_dateTime;
 
   public Application() {

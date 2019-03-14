@@ -1055,7 +1055,7 @@
         }
 
         var _transition = this._transn;
-        // keep track of onTransitionEnd callback by css property
+        // keep track of onTransitionEnd callback by assets property
         for ( var prop in args.onTransitionEnd ) {
             _transition.onEnd[ prop ] = args.onTransitionEnd[ prop ];
         }
