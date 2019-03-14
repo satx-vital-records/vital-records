@@ -6,7 +6,6 @@ import org.springframework.stereotype.Controller;
 import com.satxvitalrecords.repositories.AddressRepo;
 import com.satxvitalrecords.repositories.ApplicationRepo;
 import com.satxvitalrecords.repositories.UserRepo;
-import com.sun.org.apache.xpath.internal.operations.Mod;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;

@@ -21,20 +21,26 @@ public class ApplicationController {
     private RecordRepo recordDao;
 
 
+
+
     @GetMapping("/application-1")
     public String showApplication1() {
         return "application-1";
     }
 
     @PostMapping("/application-1")
-    public String sendApplication1() {
-      Record record = new Record();
-      return "redirect: application-2";
+    public String showApp2() {
+        return "redirect:/application-2";
     }
 
     @GetMapping("/application-2")
     public String showApplication2() {
         return "application-2";
+    }
+
+    @PostMapping("/application-2")
+    public String showApp3() {
+        return "redirect:/application-3";
     }
 
     @GetMapping("/application-3")
@@ -47,9 +53,19 @@ public class ApplicationController {
     return "redirect:/application-3";
   }
 
+    @PostMapping("/application-3")
+    public String showApp4() {
+        return "redirect:/application-4";
+    }
+
     @GetMapping("/application-4")
     public String showApplication4() {
         return "application-4";
+    }
+
+    @PostMapping("/application-4")
+    public String saveApp() {
+        return "redirect:/";
     }
 
 }

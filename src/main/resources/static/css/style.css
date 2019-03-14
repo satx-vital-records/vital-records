@@ -1,10 +1,4 @@
 
-/*
-  Theme Name: Folio
-  Theme URL: https://bootstrapmade.com/folio-bootstrap-portfolio-template/
-  Author: BootstrapMade.com
-  Author URL: https://bootstrapmade.com
-*/
 
 /*  General Styling
 /*-----------------------------------------------------------------------------------*/
@@ -17,7 +11,6 @@ body {
     line-height: 20px;
     letter-spacing: 0.02em;
     overflow-x: hidden;
-    margin: 0 auto;
     padding: 0;
     -moz-box-sizing: border-box;
     -ms-box-sizing: border-box;
@@ -27,11 +20,11 @@ body {
 }
 .home {
     height: 100%;
-    background-image: url('../img/trees.jpg');
-    background-attachment: fixed;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
+    /*background-image: url('../img/trees.jpg');*/
+    /*background-attachment: fixed;*/
+    /*background-position: center;*/
+    /*background-repeat: no-repeat;*/
+    /*background-size: cover;*/
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -234,7 +227,7 @@ nav {
     display: none;
     -webkit-box-shadow: 0px 2px 92px 0px rgba(0, 0, 0, 0.18);
     -moz-box-shadow: 0px 2px 92px 0px rgba(0, 0, 0, 0.18);
-    box-shadow: 0px 2px 92px 0px rgba(0, 0, 0, 0.18);
+    /*box-shadow: 0px 2px 92px 0px rgba(0, 0, 0, 0.18);*/
 }
 
 .nav-menu {
