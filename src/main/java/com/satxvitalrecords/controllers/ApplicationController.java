@@ -1,4 +1,5 @@
 package com.satxvitalrecords.controllers;
+import com.satxvitalrecords.models.Record;
 import com.satxvitalrecords.repositories.ApplicationRepo;
 import com.satxvitalrecords.repositories.RecordRepo;
 import com.satxvitalrecords.repositories.UserRepo;
@@ -46,6 +47,11 @@ public class ApplicationController {
     public String showApplication3() {
         return "application-3";
     }
+
+  @GetMapping("/app-2/{id}")
+  public String goBacktoPage2(){
+    return "redirect:/application-3";
+  }
 
     @PostMapping("/application-3")
     public String showApp4() {

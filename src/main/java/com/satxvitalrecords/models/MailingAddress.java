@@ -23,7 +23,7 @@ public class MailingAddress {
   @Column(nullable = false)
   private String street;
 
-  @Column(nullable = false)
+  @Column
   private String street_2;
 
   @Column(nullable = false)
