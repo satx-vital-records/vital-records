@@ -79,4 +79,9 @@ public class ApplicationController {
         return "payment";
     }
 
+    @GetMapping("/completed_application")
+    public String completedApplication(){
+        return "completed-application";
+    }
+
 }

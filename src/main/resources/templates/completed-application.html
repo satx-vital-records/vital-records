@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+
+<head th:replace="fragments/header :: header('Completed Application')">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+</head>
+
+<body>
+<div class="container" style="width: 75%; margin: 0 auto; border: 2px solid black;">
+    <!-- Identify Birth or Death Record Information (Part I)-->
+    <div class="part1" style="border: 1px solid gray; padding: .25em;">
+        <div class="row">
+            <div class="col">
+                <p style="text-align: center">Identify Birth or Death Record Information (Part I)</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">Full Name of Person on Record</div>
+            <div class="col">
+                <span>First Name: </span>
+                <p th:text="${records.first_name}">records.first_name</p>
+            </div>
+            <div class="col">
+                <span>Middle Name: </span>
+                <p th:text="${records.mid_name}">records.mid_name</p>
+            </div>
+            <div class="col">
+                <span>Last Name: </span>
+                <p th:text="${records.last_name}">records.last_name</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">Date of Birth/Death</div>
+            <div class="col">
+                <span>Date of Birth: </span>
+                <p th:text="${records.date_of_birth}">records.date_of_birth</p>
+            </div>
+            <div class="col">
+                <span>Date of Death: </span>
+                <p th:text="${records.date_of_death}">records.date_of_death</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">Place of Birth</div>
+            <div class="col">
+                <span>City or Town: </span>
+                <p th:text="${records.birth_city}">records.birth_city</p>
+            </div>
+            <div class="col">
+                <span>County: </span>
+                <p th:text="${records.birth_county}">records.birth_county</p>
+            </div>
+            <div class="col">
+                <span>State: </span>
+                <p style="font-weight: bold">TEXAS</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">Place of Death</div>
+            <div class="col">
+                <span>City or Town:</span>
+                <p th:text="${records.death_city}">records.death_city</p>
+            </div>
+            <div class="col">
+                <span>County: </span>
+                <p th:text="${records.death_county}">records.death_county</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">Full Name of Parent 1</div>
+            <div class="col">
+                <span>First Name: </span>
+                <p th:text="${records.parent1_first_name}">records.parent1_first_name</p>
+            </div>
+            <div class="col">
+                <span>Middle Name: </span>
+                <p th:text="${records.parent1_mid_name}">records.parent1_mid_name</p>
+            </div>
+            <div class="col">
+                <span>Maiden Name/Last Name: </span>
+                <p th:text="${records.parent1_last_name}">records.parent1_last_name</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">Full Name of Parent 2</div>
+            <div class="col">
+                <span>First Name: </span>
+                <p th:text="${records.parent2_first_name}">records.parent2_first_name</p>
+            </div>
+            <div class="col">
+                <span>Middle Name: </span>
+                <p th:text="${records.parent2_mid_name}">records.parent2_mid_name</p>
+            </div>
+            <div class="col">
+                <span>Maiden Name/Last Name: </span>
+                <p th:text="${records.parent2_last_name}">records.parent2_last_name</p>
+            </div>
+        </div>
+    </div>
+
+    <!--Applicant Information (Part II)-->
+    <div class="part2" style="border: 1px solid gray; padding: .25em;">
+        <div class="row">
+            <div class="col" style="text-align: center;">
+                <p>Applicant Information (Part II)</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <span>Applicant Name: </span>
+                <p th:text="${users.first_name + ' ' + users.last_name}">users.first_name + ' ' + users.last_name</p>
+            </div>
+            <div class="col">
+                <span>Telephone #: </span>
+                <p th:text="${users.phone_num}">users.phone_num</p>
+            </div>
+            <div class="col">
+                <span>Email Address: </span>
+                <p th:text="${users.email}">users.email</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <span>Full Mailing Address: </span>
+                <p th:text="${mailing_address.street + ' ' + mailing_address.city + ' ' + mailing_address.state + ' ' + mailing_address.zip}">mailing_address.street + ' ' + mailing_address.city + ' ' + mailing_address.state + ' ' + mailing_address.zip</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <span>Relationship to Person Listed Above: </span>
+                <p th:text="${applications.record_relationship}">applications.record_relationship</p>
+            </div>
+            <div class="col">
+                <span>Purpose for Obtaining this Record: </span>
+                <p th:text="${applications.purpose}">applications.purpose</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <input type="checkbox" />
+                <span style="font-weight: bold">I authorize mailing to the address below. I have verified that the address below will receive my order.</span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <span>Name of Person Receiving Copies, if Different from Applicant: </span>
+                <p th:text="${mailing_address.first_name + ' ' + mailing_address.last_name}">mailing_address.first_name + ' ' + mailing_address.last_name</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <span>Mailing Address for Copies, if Different from Applicant: </span>
+                <p th:text="${mailing_address.street + ' ' + mailing_address.street_2}">mailing_address.street + ' ' + mailing_address.street_2</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <span>City: </span>
+                <p th:text="${mailing_address.city}">mailing_address.city</p>
+            </div>
+            <div class="col">
+                <span>State: </span>
+                <p th:text="${mailing_address.state}">mailing_address.state</p>
+            </div>
+            <div class="col">
+                <span>Zip</span>
+                <p th:text="${mailing_address.zip}">mailing_address.zip</p>
+            </div>
+        </div>
+    </div>
+    
+    <!--AFFIDAVIT OF PERSONAL KNOWLEDGE (MUST BE SIGNED IN PRESENCE OF A NOTARY PUBLIC) (Part III)-->
+    <div class="part3" style="border: 1px solid gray; padding: .25em;">
+        <div class="row">
+            <div class="col" style="text-align: center">AFFIDAVIT OF PERSONAL KNOWLEDGE (MUST BE SIGNED IN PRESENCE OF A NOTARY PUBLIC) (Part III)
+            </div>
+        </div>
+            <div class="row">
+                <div class="col">
+                    <span>STATE OF: </span>
+                </div>
+                <div class="col">
+                    <span>COUNTY OF: </span>
+                </div>
+                <div class="col">
+                    <p>Before me on this day appeared <span style="text-decoration:underline;" th:text="${users.first_name + ' ' + users.last_name}">users.first_name + ' ' + users.last_name</span></p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">now residing at <span style="text-decoration:underline;" th:text="${mailing_address.street + ' ' + mailing_address.city + ' ' + mailing_address.state + ' ' + mailing_address.zip}">mailing_address.street + ' ' + mailing_address.city + ' ' + mailing_address.state + ' ' + mailing_address.zip</span></div>
+            </div>
+            <div class="row">
+                <div class="col">who is related to the person named on Part I as <span style="text-decoration:underline;" th:text="${applications.record_relationship}">applications.record_relationship</span> and who on oath deposes and says that the contents of this affidavit are true and correct. </div>
+            </div>
+            <div class="row">
+                <div class="col">The applicant presented the following type and number of identification: </div>
+            </div>
+            <div class="row">
+                <div class="col">Applicant Signature: </div>
+            </div>
+            <div class="row">
+                <div class="col-2"></div>
+                <div class="col-10">
+                    Sworn to and subscribed before me, this ____ day of ____________ , 20____.
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-2"></div>
+                <div class="col-10">Signature of Notary Public and Notary ID Number: </div>
+            </div>
+            <div class="row">
+                <div class="col-2"></div>
+                <div class="col-10">Typed or Printed Name:</div>
+            </div>
+            <div class="row">
+                <div class="col-2"></div>
+                <div class="col-10">Commission Expires: </div>
+            </div>
+            <div class="row">
+                <div class="col-2"></div>
+                <div class="col-10">Street Address: </div>
+            </div>
+            <div class="row">
+                <div class="col-2"></div>
+                <div class="col-10">City, State, Zip: </div>
+            </div>
+        </div>
+    </div>
+
+    <form>
+        <input type="button" value="Print this page" onClick="window.print()">
+    </form>
+</div>
+
+<footer th:replace="fragments/footer :: footer"></footer>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+</body>
+</html>
