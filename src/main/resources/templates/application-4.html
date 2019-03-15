@@ -3,7 +3,7 @@
 <head th:replace="fragments/header :: header('Application')"/>
 <body>
     <div class="">
-        <form class="">
+        <div class="">
             <field class="">
                 <section class="col-xs-12">
                     <div class="cssProgress">
@@ -13,7 +13,7 @@
                             </div>
                         </div>
                     </div>
-                    <form class="simple_form new_certificate" id="new_certificate" novalidate="novalidate"
+                    <form class="simple_form new_certificate" id="new_certificate4" novalidate="novalidate"
                           action="/application-4" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden"
                                                                                               value="✓"/><input
                             type="hidden" name="authenticity_token"
@@ -171,11 +171,17 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <input type="submit" name="commit" value="FINISH APPLICATION"
-                                               id="continue-button"
-                                               class="btn-primary btn--large is-block disable-resubmit"
-                                               data-disable-with="FINISH APPLICATION"/>
-
+                                        <div class="row justify-content-center pt-5">
+                                            <input type="submit" name="commit"
+                                                                                  value="CONTINUE TO PAYMENT"
+                                                                                  id="continue-button2"
+                                                                                  class="btn-primary btn--large is-block disable-resubmit"
+                                                                                  data-disable-with="CONTINUE APPLICATION"/>
+                                            <input type="submit" name="commit" value="SAVE APPLICATION"
+                                                   id="save-button2"
+                                                   class="btn-primary btn--large is-block disable-resubmit"
+                                                   data-disable-with="SAVE APPLICATION"/>
+                                        </div>
                                     </div>
                                 </div>
                             </section>
@@ -184,7 +190,7 @@
                     <div th:replace="fragments/footer :: footer"></div>
                 </section>
             </field>
-        </form>
+        </div>
     </div>
 </body>
 </html>

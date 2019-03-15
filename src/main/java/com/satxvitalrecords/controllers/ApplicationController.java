@@ -7,7 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
@@ -36,10 +35,12 @@ public class ApplicationController {
 //        return "redirect:/application-2";
 //    }
 
+
+//    @ModelAttribute Record record
     @PostMapping("/application-1")
-    public String saveRecord(@ModelAttribute Record record){
-      System.out.println(record.getDate_of_birth());
-    recordDao.save(record);
+    public String saveRecord(){
+//      System.out.println(record.getDate_of_birth());
+//    recordDao.save(record);
     return "redirect:/application-2";
     }
 
@@ -58,11 +59,6 @@ public class ApplicationController {
         return "application-3";
     }
 
-  @GetMapping("/app-2/{id}")
-  public String goBacktoPage2(){
-    return "redirect:/application-3";
-  }
-
     @PostMapping("/application-3")
     public String showApp4() {
         return "redirect:/application-4";
@@ -75,7 +71,12 @@ public class ApplicationController {
 
     @PostMapping("/application-4")
     public String saveApp() {
-        return "redirect:/";
+        return "redirect:/payment";
+    }
+
+    @GetMapping("/payment")
+    public String showPayments() {
+        return "payment";
     }
 
     @GetMapping("/completed_application")

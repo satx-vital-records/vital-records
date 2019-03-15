@@ -2,7 +2,7 @@
 
 <html xmlns:th="http://www.thymeleaf.org">
 
-<div>
+<div th:fragment="footer">
 
     <footer class="footer disclaimer">
         For the avoidance of doubt, this web site is not endorsed by, directly affiliated with, maintained, authorized, or sponsored by the City of San Antonio. All product and company names are the registered trademarks of their original owners. The use of any trade name or trademark is for identification and reference purposes only and does not imply any association with the trademark holder of their product brand.
@@ -15,6 +15,12 @@
     <script th:src="@{/owl.carousel.js}"></script>
     <script th:src="@{/magnific-popup.min.js}"></script>
     <script th:src="@{/isotope.pkgd.min.js}"></script>
+
+    <!-- Stripe.js v3 for Elements -->
+    <script th:src="@{https://js.stripe.com/v3/}"></script>
+    <!-- Library to render QR codes -->
+    <script th:src="@{https://cdn.rawgit.com/davidshimjs/qrcodejs/gh-pages/qrcode.min.js}"></script>
+
 
     <!-- Template Main Javascript File -->
     <script th:src="@{/final.js}"></script>
