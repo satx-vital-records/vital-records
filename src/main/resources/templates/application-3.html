@@ -2,25 +2,26 @@
 <html xmlns:th="http://www.thymeleaf.org" class="p-5">
 <head th:replace="fragments/header :: header('Application')"/>
 <body>
-  <div class="">
-    <form class="">
-      <field class="">
-        <section class="col-xs-12">
-          <div class="cssProgress">
-            <div class="progress1">
-              <div class="cssProgress-bar" data-percent="55" style="width: 55%;">
-                <span class="cssProgress-label">55%</span>
-              </div>
-            </div>
-          </div>
-          <form class="simple_form new_certificate" id="new_certificate" novalidate="novalidate"
-                action="/application-3" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden"
-                                                                                    value="✓"/><input
-              type="hidden" name="authenticity_token"
-              value="GBkZnnvogYBnoELufrriChXdsyeZ975veN9Q1hrDy5ov+pkPlLS8VIQiZjTnU/pzR6WYK8uVu/UzabA9pT+vYg=="/>
-            <fieldset>
-              <section class="section align-center"><h1 class="h1"> Birth Certificate Order Form</h1>
-              </section>
+    <div class="">
+        <div class="">
+            <field class="">
+                <section class="col-xs-12">
+                    <div class="cssProgress">
+                        <div class="progress1">
+                            <div class="cssProgress-bar" data-percent="55" style="width: 55%;">
+                                <span class="cssProgress-label">55%</span>
+                            </div>
+                        </div>
+                    </div>
+                    <form class="simple_form new_certificate" id="new_certificate3" novalidate="novalidate"
+                          action="/application-3" accept-charset="UTF-8" method="post">
+                        <input name="utf8" type="hidden"
+                                                                                              value="✓"/><input
+                            type="hidden" name="authenticity_token"
+                            value="GBkZnnvogYBnoELufrriChXdsyeZ975veN9Q1hrDy5ov+pkPlLS8VIQiZjTnU/pzR6WYK8uVu/UzabA9pT+vYg=="/>
+                        <fieldset>
+                            <section class="section align-center"><h1 class="h1"> Birth Certificate Order Form</h1>
+                            </section>
 
               <section class="section pb-2">
                 <div class="row">
@@ -306,6 +307,13 @@
                 </div>
               </section>
 
+                        </fieldset>
+                    </form>
+                    <div th:replace="fragments/footer :: footer"></div>
+                </section>
+            </field>
+        </div>
+    </div>
             </fieldset>
           </form>
           <div th:replace="fragments/footer :: footer"></div>

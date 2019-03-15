@@ -2,29 +2,67 @@
 <html xmlns:th="http://www.thymeleaf.org" class="px-5">
 <head th:replace="fragments/header :: header('Registration')"/>
 <body>
-    <h1>Create an account</h1>
+    <div th:replace="fragments/navbar :: navbar"></div>
+    <div class=" pb-5">
+        <div class="container">
+            <div class="">
+                <div class="col-xs-12">
 
-    <form th:action="@{/register}" method="POST" th:object="${user}">
-        <label for="username">Username</label>
-        <input id="username" th:field="*{username}" />
+                    <form th:action="@{/register}" th:method="post" th:object="${user}"
+                          class="simple_form new_certificate mx-auto" style="width: 70%" id="register"
+                          novalidate="novalidate" accept-charset="UTF-8">
+                        <div>
+                            <div class=" text-center py-4"><h3 class="h3"> Create an Account</h3>
+                            </div>
+                            <hr/>
+                            <div class="section__container "></div>
+                            <section class="section pb-2">
+                                <div class="col-sm-12">
 
-        <label for="email">Email</label>
-        <input id="email" th:field="*{email}" />
+                                    <!--<div class="section__container"></div>-->
 
-        <label for="password">Password</label>
-        <input id="password" type="password" th:field="*{password}" />
+                                    <div class="row pt-3 justify-content-between">
+                                        <label for="first_name">First name</label>
+                                        <input id="first_name" th:field="*{first_name}"/>
 
-        <label for="phone_num">Phone Number</label>
-        <input id="phone_num" th:field="*{phone_num}" />
+                                        <label for="last_name">Last Name</label>
+                                        <input id="last_name" th:field="*{last_name}"/>
+                                    </div>
+                                    <div class="row pt-3 justify-content-between">
+                                        <label for="username">Username</label>
+                                        <input id="username" th:field="*{username}"/>
 
-        <label for="first_name">First name</label>
-        <input id="first_name" th:field="*{first_name}" />
+                                        <label for="password">Password</label>
+                                        <input id="password" type="password" th:field="*{password}"/>
+                                    </div>
+                                    <div class="row pt-3 justify-content-between">
+                                        <label for="email">Email</label>
+                                        <input id="email" th:field="*{email}"/>
 
-        <label for="last_name">Last Name</label>
-        <input id="last_name" th:field="*{last_name}" />
+                                        <label for="phone_num">Phone Number</label>
+                                        <input id="phone_num" th:field="*{phone_num}"/>
+                                    </div>
 
-        <input value="Sign me up!" type="submit" />
-    </form>
-    <div th:replace="fragments/footer :: footer"></div>
+                                    <div class="row pt-5 justify-content-center">
+                                        <input class="btn-primary btn--large is-block disable-resubmit" value="Sign up"
+                                               type="submit"/>
+                                    </div>
+
+                                </div>
+                            </section>
+                        </div>
+                    </form>
+                </div>
+                <section class="section">
+                    <div class="">
+                        <form class="section__container">
+                        </form>
+
+                        <div th:replace="fragments/footer :: footer"></div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
