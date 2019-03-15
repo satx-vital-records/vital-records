@@ -40,8 +40,7 @@ public class ApplicationController {
     }
 
     @GetMapping("/application-2")
-    public String showApplication2(@ModelAttribute Record record) {
-    recordDao.findOne(1L);
+    public String showApplication2() {
         return "application-2";
     }
 
