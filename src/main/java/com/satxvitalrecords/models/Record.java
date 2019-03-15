@@ -68,7 +68,7 @@ public class Record {
   private String parent2_last_name;
 
   @Column
-  @DateTimeFormat(pattern = "YY/MM/DD hh:mm:ss")
+  @DateTimeFormat(pattern = "dd/MM/yyyy hh:mm:ss")
   private Date date_of_request;
 
 
@@ -136,6 +136,7 @@ public class Record {
     this.date_of_birth = date_of_birth;
   }
 
+  @JsonFormat(shape=JsonFormat.Shape.STRING, pattern="dd/MM/yyyy")
   public Date getDate_of_death() {
     return date_of_death;
   }
@@ -232,6 +233,7 @@ public class Record {
     this.parent2_last_name = parent2_last_name;
   }
 
+  @JsonFormat(shape=JsonFormat.Shape.STRING, pattern="dd/MM/yyyy")
   public Date getDate_of_request() {
     return date_of_request;
   }
