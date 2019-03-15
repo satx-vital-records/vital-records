@@ -73,4 +73,9 @@ public class ApplicationController {
         return "redirect:/";
     }
 
+    @GetMapping("/completed_application")
+    public String completedApplication(){
+        return "completed-application";
+    }
+
 }
