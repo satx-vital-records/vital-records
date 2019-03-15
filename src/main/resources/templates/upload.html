@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+
+<head th:replace="fragments/header :: header('Welcome Home!')"></head>
+
+<body>
+    <div th:replace="fragments/navbar :: navbar"></div>
+
+    <input type="file" />
+    <div class="controls">
+        <button id="cancel">Cancel</button>
+        <button id="pause">Pause</button>
+        <button id="resume">Resume</button>
+    </div>
+    <div>Progress: <span id="progress"></span></div>
+
+    <footer th:replace="fragments/footer :: footer"></footer>
+    <script src="/static/upload.js"></script>
+    <script src="//static.filestackapi.com/filestack-js/2.x.x/filestack.min.js"></script>
+
+</body>
+</html>
