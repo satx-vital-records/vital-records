@@ -2,9 +2,8 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head th:replace="fragments/header :: header('Application')"/>
 <body>
-    <!--<div th:replace="fragments/navbar :: navbar"></div>-->
-    <div class="paddsection">
-        <div class="col-xs-12">
+    <div class="">
+        <div class="col-xs-12 paddsection">
             <div class="cssProgress mx-auto" style="width: 70%">
                 <div class="progress1">
                     <div class="cssProgress-bar" data-percent="15" style="width: 15%;">
@@ -178,12 +177,11 @@
                             </div>
                         </div>
                     </section>
-                    <section class="section">
-                        <div th:replace="fragments/footer :: footer"></div>
-                    </section>
+
 
             </form>
         </div>
+                        <div th:replace="fragments/footer :: footer"></div>
     </div>
 </body>
 </html>

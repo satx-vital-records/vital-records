@@ -31,7 +31,7 @@ public class ApplicationController {
 
     @PostMapping("/application-1")
     public String saveRecord(@ModelAttribute Record record){
-    recordDao.save(record);
+//    recordDao.save(record);
     return "redirect:/application-2";
     }
 
@@ -42,8 +42,8 @@ public class ApplicationController {
 
     @PostMapping("/application-2")
     public String saveApp2() {
-      Record record1= recordDao.findOne(1L);
-      recordDao.save(record1);
+//      Record record1= recordDao.findOne(1L);
+//      recordDao.save(record1);
       return "redirect:/application-3";
     }
 
