@@ -69,7 +69,7 @@ public class ApplicationController {
 
     @GetMapping("/payment")
     public String showPayments() {
-        return "payment";
+        return "checkout";
     }
 
     @GetMapping("/completed-application")
