@@ -41,8 +41,20 @@ public class ApplicationController {
     }
 
     @PostMapping("/application-2")
-    public String saveApp2() {
+    public String saveApp2(
+            @RequestParam(name="parent1_first_name") String parent1_first_name,@RequestParam(name="parent1_mid_name") String parent1_mid_name,
+            @RequestParam(name="parent1_last_name") String parent1_last_name, @RequestParam(name="parent2_first_name") String parent2_first_name,
+            @RequestParam(name="parent2_mid_name") String parent2_mid_name,
+            @RequestParam(name="parent2_last_name") String parent2_last_name) {
+
+
       Record record1= recordDao.findOne(1L);
+      record1.setParent1_first_name(parent1_first_name);
+      record1.setParent1_mid_name(parent1_mid_name);
+      record1.setParent1_last_name(parent1_last_name);
+      record1.setParent2_first_name(parent2_first_name);
+      record1.setParent2_mid_name(parent2_mid_name);
+      record1.setParent2_last_name(parent2_last_name);
       recordDao.save(record1);
       return "redirect:/application-3";
     }
@@ -72,7 +84,7 @@ public class ApplicationController {
         return "payment";
     }
 
-    @GetMapping("/completed_application")
+    @GetMapping("/completed-application")
     public String completedApplication(){
         return "completed-application";
     }
