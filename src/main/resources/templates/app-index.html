@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+
+<head th:replace="fragments/header :: header('Welcome Home!')"></head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-md-10 ml-auto mr-auto">
+                <h4>
+                    <small>Simple With Actions</small>
+                </h4>
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th class="text-center">#</th>
+                            <th>Name</th>
+                            <th>Job Position</th>
+                            <th>Since</th>
+                            <th class="text-right">Salary</th>
+                            <th class="text-right">Actions</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr th:each="app : ${apps}">
+                            <td th:text="${app.form_type}"></td>
+                            <td>Alex Mike</td>
+                            <td>Design</td>
+                            <td>2010</td>
+                            <td class="text-right">€ 92,144</td>
+                            <td class="td-actions text-right">
+                                <button type="button" rel="tooltip"
+                                        class="btn btn-info btn-link btn-just-icon btn-sm"
+                                        data-original-title="" title="">
+                                    <i class="material-icons">person</i>
+                                </button>
+                                <button type="button" rel="tooltip"
+                                        class="btn btn-success btn-link btn-just-icon btn-sm"
+                                        data-original-title="" title="">
+                                    <i class="material-icons">edit</i>
+                                </button>
+                                <button type="button" rel="tooltip"
+                                        class="btn btn-danger btn-link btn-just-icon btn-sm"
+                                        data-original-title="" title="">
+                                    <i class="material-icons">close</i>
+                                </button>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <footer th:replace="fragments/footer :: footer"></footer>
+        </div>
+    </div>
+</body>
+</html>
