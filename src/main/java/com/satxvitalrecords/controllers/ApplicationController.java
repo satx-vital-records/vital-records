@@ -7,6 +7,7 @@ import com.satxvitalrecords.repositories.AddressRepo;
 import com.satxvitalrecords.repositories.ApplicationRepo;
 import com.satxvitalrecords.repositories.RecordRepo;
 import com.satxvitalrecords.repositories.UserRepo;
+import com.satxvitalrecords.services.PdfStamper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -30,6 +31,8 @@ public class ApplicationController {
     @Autowired
     private AddressRepo mailDao;
 
+    @Autowired
+    private PdfStamper pdfStamper;
 
 //    @GetMapping("/application-1")
 //    public String showApplication1(Model model) {
@@ -111,9 +114,12 @@ public class ApplicationController {
 
     @PostMapping("/application-4")
     public String saveApp4(MailingAddress address) {
-        User user = userDao.findOne(1L);
-        address.setUser(user);
-        mailDao.save(address);
+//        User user = userDao.findOne(1L);
+//        address.setUser(user);
+//        mailDao.save(address);
+        String name = recordDao.findOne(3L).getFirst_name();
+        pdfStamper.preparePdf(name);
+
         return "redirect:/payment";
     }
 
@@ -122,10 +128,10 @@ public class ApplicationController {
         return "checkout";
     }
 
-    @GetMapping("/completed-application")
-    public String completedApplication(){
-        return "completed-application";
-    }
+//    @GetMapping("/completed-application")
+//    public String completedApplication(){
+//        return "completed-application";
+//    }
 
     @GetMapping("/upload")
     public String uploadApplication() { return "upload"; }
