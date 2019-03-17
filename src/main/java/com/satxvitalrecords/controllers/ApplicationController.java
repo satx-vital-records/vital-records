@@ -127,4 +127,7 @@ public class ApplicationController {
         return "completed-application";
     }
 
+    @GetMapping("/upload")
+    public String uploadApplication() { return "upload"; }
+
 }
