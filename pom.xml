@@ -19,6 +19,7 @@
     <properties>
         <java.version>1.8</java.version>
         <skipTests>true</skipTests>
+        <itext.version>RELEASE</itext.version>
     </properties>
 
     <dependencies>
@@ -58,6 +59,12 @@
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.itextpdf</groupId>
+            <artifactId>itext7-core</artifactId>
+            <version>${itext.version}</version>
+            <type>pom</type>
         </dependency>
     </dependencies>
 

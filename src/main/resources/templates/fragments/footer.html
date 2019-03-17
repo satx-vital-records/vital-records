@@ -17,7 +17,9 @@
     <script th:src="@{/isotope.pkgd.min.js}"></script>
 
     <!-- Stripe.js v3 for Elements -->
-    <script th:src="@{https://js.stripe.com/v3/}"></script>
+    <script th:src="@{https://js.stripe.com/v3/}">var stripe = Stripe('pk_test_cCpSblxr0BRLFeYTFRTPQfSN');
+    var elements = stripe.elements();</script>
+
     <!-- Library to render QR codes -->
     <script th:src="@{https://cdn.rawgit.com/davidshimjs/qrcodejs/gh-pages/qrcode.min.js}"></script>
 

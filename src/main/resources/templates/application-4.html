@@ -181,13 +181,12 @@
                                             <script
                                                     src='https://checkout.stripe.com/checkout.js'
                                                     class='stripe-button'
-                                                    th:attr='data-key=${STRIPE_PUBLIC_KEY},
+                                                    th:attr='data-key=${stripePublicKey},
          data-amount=${amount},
          data-currency=${currency}'
-                                                    data-name='Baeldung'
-                                                    data-description='Spring course checkout'
-                                                    data-image
-                                                            ='http://www.baeldung.com/wp-content/themes/baeldung/favicon/android-chrome-192x192.png'
+                                                    data-name='SATX Vital Reconrds'
+                                                    data-description='SATX Vital Reconrds'
+                                                    data-image='imgs/download.jpg'
                                                     data-locale='auto'
                                                     data-zip-code='false'>
                                             </script>

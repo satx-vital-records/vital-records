@@ -127,7 +127,7 @@ public class Record {
     this.last_name = last_name;
   }
 
-  @JsonFormat(shape=JsonFormat.Shape.STRING, pattern="MM/dd/yyyy")
+  @JsonFormat(shape=JsonFormat.Shape.STRING, pattern="dd/MM/yyyy")
   public Date getDate_of_birth() {
     return date_of_birth;
   }

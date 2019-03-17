@@ -73,7 +73,9 @@ public class ApplicationController {
     }
 
     @GetMapping("/completed-application")
-    public String completedApplication(){
+    public String completedApplication(Model model){
+
+        model.addAttribute("record", new Record());
         return "completed-application";
     }
 
