@@ -2,39 +2,39 @@
 <html xmlns:th="http://www.thymeleaf.org" class="p-5">
 <head th:replace="fragments/header :: header('Application')"/>
 <body>
-    <div class="">
-        <div class="">
-            <div class="">
-                <section class="col-xs-12">
-                    <div class="cssProgress">
+
+                <div class="col-xs-12 paddsection">
+                    <div class="cssProgress mx-auto" style="width: 75%;">
                         <div class="progress1">
                             <div class="cssProgress-bar" data-percent="75" style="width: 75%;">
                                 <span class="cssProgress-label">75%</span>
                             </div>
                         </div>
                     </div>
-                    <form class="simple_form new_certificate" id="new_certificate4" novalidate="novalidate"
+                    <form class="simple_form new_certificate mx-auto" id="new_certificate4" novalidate="novalidate" style="width: 70%"
                           th:action="@{/application-4}" accept-charset="UTF-8" th:method="post" th:object="${mailaddress}"><input name="utf8" type="hidden"
                                                                                               value="✓"/><input
                             type="hidden" name="authenticity_token"
                             value="GBkZnnvogYBnoELufrriChXdsyeZ975veN9Q1hrDy5ov+pkPlLS8VIQiZjTnU/pzR6WYK8uVu/UzabA9pT+vYg=="/>
-                        <div>
-                            <section class="section align-center"><h1 class="h1"> Birth Certificate Order Form</h1>
-                            </section>
-                            <section class="section">
+                            <div class="text-center py-4"><h2 class="h2"> Birth Certificate Order Form</h2>
+                            </div>
+                      <hr />
+                            <div class="section pb-2">
                                 <div class="row">
                                     <div class="section__container">
-                                        <h2 class="h2">7. Address of delivery</h2>
+                                        <h4 class="h4">7. Address of delivery</h4>
                                         <p class="align-left">Please enter the physical address where you need the
                                             certificate to be delivered.</p>
-
-                                        <div class="form-group string required certificate_delivery_address_1">
+<div class="row justify-content-between">
+                                        <div class="d-inline form-group string required certificate_delivery_address_1">
                                             <div class="tooltip-wrapper-mobile"><label class="string required"
                                                                                        for="certificate_delivery_address_1">Address
                                                 1 (Street number and street name)</label><a
                                                     class="fa fa-question-circle tooltip-trigger" data-tippy=""
                                                     data-original-title="Please indicate the the street number and street name where you need the certificate to be delivered."></a>
                                             </div>
+                                        </div>
+
                                             <div class="tooltip-wrapper"><input data-validate="" class="string required"
                                                                                 type="text"
                                                                                 th:field="*{street}"
@@ -144,6 +144,7 @@
                                                                data-tippy=""
                                                                data-original-title="Enter the Zip code where you need the birth certificate to be delivered"></a>
                                             </div>
+
                                             <div class="tooltip-wrapper"><input data-validate="" class="string required"
                                                                                 type="text"
                                                                                 th:field="*{zip}"
@@ -171,7 +172,8 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="row justify-content-center pt-5">
+                                        <div class="col pt-5">
+                                        <div class="align-content-center">
                                             <!--<input type="submit" name="commit"-->
                                                                                   <!--value="CONTINUE TO PAYMENT"-->
                                                                                   <!--id="continue-button2"-->
@@ -198,18 +200,16 @@
                                             <!--</form>-->
                                             <input type="submit" name="commit" value="SAVE APPLICATION"
                                                    id="save-and-print"
-                                                   class="btn-primary btn--large is-block disable-resubmit"
+                                                   class=" p-2 btn-primary btn--large is-block disable-resubmit"
                                                    data-disable-with="SAVE APPLICATION"/>
                                         </div>
                                     </div>
                                 </div>
-                            </section>
+                            </div>
                         </div>
                     </form>
                     <div th:replace="fragments/footer :: footer"></div>
-                </section>
-            </div>
-        </div>
-    </div>
+                </div>
+
 </body>
 </html>
