@@ -8,11 +8,10 @@ import com.satxvitalrecords.repositories.ApplicationRepo;
 import com.satxvitalrecords.repositories.UserRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
+@SessionAttributes("user")
 public class UserController {
 
   private Users users;
@@ -40,6 +39,11 @@ public class UserController {
 //  -----------------------------------------------------------------
 
 
+  @ModelAttribute("user")
+  public User setUpUser() {
+    return userDao.findOne(1L);
+  }
+
   @GetMapping("/register")
   public String showRegisterForm(Model model){
     model.addAttribute("user", new User());
@@ -50,14 +54,14 @@ public class UserController {
   public String saveUser(@ModelAttribute User user){
 //    String hash = passwordEncoder.encode(user.getPassword());
 //    user.setPassword(hash);
-    System.out.println(user.getFirst_name());
-    System.out.println(user.getEmail());
-    System.out.println(user.getId());
-    System.out.println(user.getLast_name());
-    System.out.println(user.getPassword());
-    System.out.println(user.getPhone_num());
-    System.out.println(user.getRole());
-    System.out.println(user.getUsername());
+//    System.out.println(user.getFirst_name());
+//    System.out.println(user.getEmail());
+//    System.out.println(user.getId());
+//    System.out.println(user.getLast_name());
+//    System.out.println(user.getPassword());
+//    System.out.println(user.getPhone_num());
+//    System.out.println(user.getRole());
+//    System.out.println(user.getUsername());
     userDao.save(user);
     return "redirect:login";
   }

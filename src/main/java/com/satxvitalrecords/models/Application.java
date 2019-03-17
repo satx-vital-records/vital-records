@@ -24,28 +24,28 @@ public class Application {
   @GeneratedValue
   private long id;
 
-  @Column(nullable = false)
+  @Column
   private String first_name;
 
   @Column
   private String mid_name;
 
-  @Column(nullable = false)
+  @Column
   private String last_name;
 
-  @Column(nullable = false)
+  @Column
   private String street;
 
   @Column
   private String street2;
 
-  @Column(nullable = false)
+  @Column
   private String city;
 
-  @Column(nullable = false)
+  @Column
   private String state;
 
-  @Column(nullable = false)
+  @Column
   private String zip;
 
   @Column
@@ -89,6 +89,19 @@ public class Application {
     this.state = state;
     this.zip = zip;
   }
+
+  public Application(String first_name, String mid_name, String last_name, String street, String street2, String city, String state, String zip, User user) {
+    this.first_name = first_name;
+    this.mid_name = mid_name;
+    this.last_name = last_name;
+    this.street = street;
+    this.street2 = street2;
+    this.city = city;
+    this.state = state;
+    this.zip = zip;
+    this.user= user;
+  }
+
 
   public long getId() {
     return id;
@@ -232,5 +245,13 @@ public class Application {
 
   public void setComment_dateTime(Date comment_dateTime) {
     this.comment_dateTime = comment_dateTime;
+  }
+
+  public User getUser() {
+    return user;
+  }
+
+  public void setUser(User user) {
+    this.user = user;
   }
 }

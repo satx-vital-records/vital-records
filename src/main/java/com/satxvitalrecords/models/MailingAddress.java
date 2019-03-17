@@ -14,25 +14,25 @@ public class MailingAddress {
   @GeneratedValue
   private long id;
 
-  @Column(nullable = false)
+  @Column
   private String first_name;
 
-  @Column(nullable = false)
+  @Column
   private String last_name;
 
-  @Column(nullable = false)
+  @Column
   private String street;
 
   @Column
   private String street_2;
 
-  @Column(nullable = false)
+  @Column
   private String city;
 
-  @Column(nullable = false)
+  @Column
   private String state;
 
-  @Column(nullable = false)
+  @Column
   private String zip;
 
 
@@ -111,5 +111,13 @@ public class MailingAddress {
 
   public void setZip(String zip) {
     this.zip = zip;
+  }
+
+  public User getUser() {
+    return user;
+  }
+
+  public void setUser(User user) {
+    this.user = user;
   }
 }
