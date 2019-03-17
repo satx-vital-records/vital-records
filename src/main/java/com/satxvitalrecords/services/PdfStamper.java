@@ -22,6 +22,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Configurable;
 import org.springframework.context.annotation.Import;
 import org.springframework.context.annotation.aspectj.EnableSpringConfigured;
+import org.springframework.stereotype.Service;
 
 import java.io.File;
 import java.io.IOException;
@@ -33,6 +34,7 @@ import java.util.HashMap;
  */
 
 @WrapToTest
+@Service
 public class PdfStamper {
 
     @Autowired
@@ -50,18 +52,23 @@ public class PdfStamper {
     public static final String DEST = "src/main/resources/pdf/edited_COSA-Mail-Application.pdf";
 
 
-    public static void main(String args[]) throws IOException {
+//    public static void main(String args[]) throws IOException {
 
+    public void preparePdf(String name){
         File file = new File(DEST);
 
         file.getParentFile().mkdirs();
 
-        new PdfStamper().manipulatePdf(SRC, DEST);
+        try {
+            new PdfStamper().manipulatePdf(SRC, DEST, name);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
     }
 
 
-    public void manipulatePdf(String src, String dest) throws IOException {
+    public void manipulatePdf(String src, String dest, String name) throws IOException {
 
 
         PdfReader reader = new PdfReader(src);
@@ -71,8 +78,10 @@ public class PdfStamper {
         PdfAcroForm form = PdfAcroForm.getAcroForm(pdf, true);
 
         PdfFormField tf = form.getFormFields().get("First Name");
-        String fname = "dwallace";
-        tf.setValue(fname);
+//        String fname = recordDao.findOne(1L).getFirst_name();
+//        String fname = "sarah";
+        System.out.println(name);
+        tf.setValue(name);
 
 
         pdf.close();
