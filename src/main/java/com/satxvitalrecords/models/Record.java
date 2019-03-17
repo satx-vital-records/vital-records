@@ -49,7 +49,7 @@ public class Record {
   @Column
   private String death_county;
 
-  @Column(nullable= true)
+  @Column
   private String parent1_first_name;
 
   @Column
