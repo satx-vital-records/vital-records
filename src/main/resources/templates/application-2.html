@@ -7,14 +7,14 @@
     <div class="col-xs-12">
       <div class="cssProgress mx-auto" style="width: 70%">
         <div class="progress1">
-          <div class="cssProgress-bar" data-percent="15" style="width: 15%;">
-            <span class="cssProgress-label">15%</span>
+          <div class="cssProgress-bar" data-percent="35" style="width: 35%;">
+            <span class="cssProgress-label">35%</span>
           </div>
         </div>
       </div>
 
       <form th:action="@{/application-2}" th:method="post" th:object="${record}"
-            class="  mx-auto" style="width: 70%" id="new_certificate1"
+            class="simple_form new_certificate mx-auto" style="width: 70%" id="new_certificate2"
             novalidate="novalidate" accept-charset="UTF-8"><input name="utf8" type="hidden"
                                                                   value="✓"/><input
           type="hidden" name="authenticity_token"
@@ -35,7 +35,7 @@
 
                 <div class="d-inline form-group string required certificate_birth_city">
                   <div class="tooltip-wrapper-mobile"><label class="string required"
-                                                             for="certificate_birth_city1">City
+                                                             for="certificate_birth_city2">City
                     of birth</label><a class="fa fa-question-circle tooltip-trigger"
                                        data-tippy=""
                                        data-original-title="Please specify the city where the birth occurred."></a>
@@ -43,7 +43,7 @@
                   <div class="tooltip-wrapper"><input data-validate="" class="string required"
                                                       type="text"
                                                       th:field="*{birth_city}"
-                                                      id="certificate_birth_city1"/><a
+                                                      id="certificate_birth_city2"/><a
                       class="fa fa-question-circle tooltip-trigger" data-tippy=""
                       data-original-title="Please specify the city where the birth occurred."></a>
                   </div>
@@ -178,12 +178,10 @@
             </div>
           </div>
         </section>
-        <section class="section">
-          <div th:replace="fragments/footer :: footer"></div>
-        </section>
 
       </form>
     </div>
+          <div th:replace="fragments/footer :: footer"></div>
   </div>
 </body>
 </html>
