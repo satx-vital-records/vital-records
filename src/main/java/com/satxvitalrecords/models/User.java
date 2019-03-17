@@ -1,5 +1,6 @@
 package com.satxvitalrecords.models;
 
+import org.springframework.web.bind.annotation.ModelAttribute;
 import javax.persistence.*;
 import java.util.List;
 
