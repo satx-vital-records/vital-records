@@ -4,7 +4,7 @@
 <body>
     <div class="">
         <div class="">
-            <field class="">
+            <div class="">
                 <section class="col-xs-12">
                     <div class="cssProgress">
                         <div class="progress1">
@@ -14,11 +14,11 @@
                         </div>
                     </div>
                     <form class="simple_form new_certificate" id="new_certificate4" novalidate="novalidate"
-                          action="/application-4" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden"
+                          th:action="@{/application-4}" accept-charset="UTF-8" th:method="post" th:object="${mailaddress}"><input name="utf8" type="hidden"
                                                                                               value="✓"/><input
                             type="hidden" name="authenticity_token"
                             value="GBkZnnvogYBnoELufrriChXdsyeZ975veN9Q1hrDy5ov+pkPlLS8VIQiZjTnU/pzR6WYK8uVu/UzabA9pT+vYg=="/>
-                        <fieldset>
+                        <div>
                             <section class="section align-center"><h1 class="h1"> Birth Certificate Order Form</h1>
                             </section>
                             <section class="section">
@@ -37,7 +37,7 @@
                                             </div>
                                             <div class="tooltip-wrapper"><input data-validate="" class="string required"
                                                                                 type="text"
-                                                                                name="certificate[delivery_address_1]"
+                                                                                th:field="*{street}"
                                                                                 id="certificate_delivery_address_1"/><a
                                                     class="fa fa-question-circle tooltip-trigger" data-tippy=""
                                                     data-original-title="Please indicate the the street number and street name where you need the certificate to be delivered."></a>
@@ -52,7 +52,7 @@
                                             </div>
                                             <div class="tooltip-wrapper"><input data-validate="" class="string optional"
                                                                                 type="text"
-                                                                                name="certificate[delivery_address_2]"
+                                                                                th:field="*{street_2}"
                                                                                 id="certificate_delivery_address_2"/><a
                                                     class="fa fa-question-circle tooltip-trigger" data-tippy=""
                                                     data-original-title="Please enter, if applicable, the apartment number, suite number or floor where you need the certificate to be delivered."></a>
@@ -66,7 +66,7 @@
                                             </div>
                                             <div class="tooltip-wrapper"><input data-validate="" class="string required"
                                                                                 type="text"
-                                                                                name="certificate[delivery_city]"
+                                                                                th:field="*{city}"
                                                                                 id="certificate_delivery_city"/><a
                                                     class="fa fa-question-circle tooltip-trigger" data-tippy=""
                                                     data-original-title="Please indicate the name of the city where you need the certificate to be delivered."></a>
@@ -80,59 +80,59 @@
                                             </div>
                                             <div class="tooltip-wrapper"><select data-validate=""
                                                                                  class="select required"
-                                                                                 name="certificate[delivery_state]"
+                                                                                 th:field="*{state}"
                                                                                  id="certificate_delivery_state">
                                                 <option value="">Please select</option>
-                                                <option value="AL">Alabama</option>
-                                                <option value="AK">Alaska</option>
-                                                <option value="AR">Arkansas</option>
-                                                <option value="AZ">Arizona</option>
-                                                <option value="CA">California</option>
-                                                <option value="CO">Colorado</option>
-                                                <option value="CT">Connecticut</option>
-                                                <option value="DE">Delaware</option>
-                                                <option value="FL">Florida</option>
-                                                <option value="GA">Georgia</option>
-                                                <option value="HI">Hawaii</option>
-                                                <option value="ID">Idaho</option>
-                                                <option value="IL">Illinois</option>
-                                                <option value="IN">Indiana</option>
-                                                <option value="IA">Iowa</option>
-                                                <option value="KS">Kansas</option>
-                                                <option value="KY">Kentucky</option>
-                                                <option value="LA">Louisiana</option>
-                                                <option value="ME">Maine</option>
-                                                <option value="MD">Maryland</option>
-                                                <option value="MA">Massachusetts</option>
-                                                <option value="MI">Michigan</option>
-                                                <option value="MN">Minnesota</option>
-                                                <option value="MS">Mississippi</option>
-                                                <option value="MO">Missouri</option>
-                                                <option value="MT">Montana</option>
-                                                <option value="NE">Nebraska</option>
-                                                <option value="NV">Nevada</option>
-                                                <option value="NH">New Hampshire</option>
-                                                <option value="NJ">New Jersey</option>
-                                                <option value="NM">New Mexico</option>
-                                                <option value="NY">New York</option>
-                                                <option value="NC">North Carolina</option>
-                                                <option value="ND">North Dakota</option>
-                                                <option value="OH">Ohio</option>
-                                                <option value="OK">Oklahoma</option>
-                                                <option value="OR">Oregon</option>
-                                                <option value="PA">Pennsylvania</option>
-                                                <option value="RI">Rhode Island</option>
-                                                <option value="SC">South Carolina</option>
-                                                <option value="SD">South Dakota</option>
-                                                <option value="TN">Tennessee</option>
-                                                <option value="TX">Texas</option>
-                                                <option value="UT">Utah</option>
-                                                <option value="VT">Vermont</option>
-                                                <option value="VA">Virginia</option>
-                                                <option value="WA">Washington</option>
-                                                <option value="WV">West Virginia</option>
-                                                <option value="WI">Wisconsin</option>
-                                                <option value="WY">Wyoming</option>
+                                                <option th:value="AL">Alabama</option>
+                                                <option th:value="AK">Alaska</option>
+                                                <option th:value="AR">Arkansas</option>
+                                                <option th:value="AZ">Arizona</option>
+                                                <option th:value="CA">California</option>
+                                                <option th:value="CO">Colorado</option>
+                                                <option th:value="CT">Connecticut</option>
+                                                <option th:value="DE">Delaware</option>
+                                                <option th:value="FL">Florida</option>
+                                                <option th:value="GA">Georgia</option>
+                                                <option th:value="HI">Hawaii</option>
+                                                <option th:value="ID">Idaho</option>
+                                                <option th:value="IL">Illinois</option>
+                                                <option th:value="IN">Indiana</option>
+                                                <option th:value="IA">Iowa</option>
+                                                <option th:value="KS">Kansas</option>
+                                                <option th:value="KY">Kentucky</option>
+                                                <option th:value="LA">Louisiana</option>
+                                                <option th:value="ME">Maine</option>
+                                                <option th:value="MD">Maryland</option>
+                                                <option th:value="MA">Massachusetts</option>
+                                                <option th:value="MI">Michigan</option>
+                                                <option th:value="MN">Minnesota</option>
+                                                <option th:value="MS">Mississippi</option>
+                                                <option th:value="MO">Missouri</option>
+                                                <option th:value="MT">Montana</option>
+                                                <!--<option th:value="NE">Nebraska</option>-->
+                                                <option th:value="NV">Nevada</option>
+                                                <option th:value="NH">New Hampshire</option>
+                                                <option th:value="NJ">New Jersey</option>
+                                                <option th:value="NM">New Mexico</option>
+                                                <option th:value="NY">New York</option>
+                                                <option th:value="NC">North Carolina</option>
+                                                <option th:value="ND">North Dakota</option>
+                                                <option th:value="OH">Ohio</option>
+                                                <option th:value="OK">Oklahoma</option>
+                                                <!--<option th:value="OR">Oregon</option>-->
+                                                <option th:value="PA">Pennsylvania</option>
+                                                <option th:value="RI">Rhode Island</option>
+                                                <option th:value="SC">South Carolina</option>
+                                                <option th:value="SD">South Dakota</option>
+                                                <option th:value="TN">Tennessee</option>
+                                                <option th:value="TX">Texas</option>
+                                                <option th:value="UT">Utah</option>
+                                                <option th:value="VT">Vermont</option>
+                                                <option th:value="VA">Virginia</option>
+                                                <option th:value="WA">Washington</option>
+                                                <option th:value="WV">West Virginia</option>
+                                                <option th:value="WI">Wisconsin</option>
+                                                <option th:value="WY">Wyoming</option>
                                             </select><a class="fa fa-question-circle tooltip-trigger" data-tippy=""
                                                         data-original-title="Please specify the state to which you need the certificate to be delivered."></a>
                                             </div>
@@ -146,7 +146,7 @@
                                             </div>
                                             <div class="tooltip-wrapper"><input data-validate="" class="string required"
                                                                                 type="text"
-                                                                                name="certificate[delivery_zip_code]"
+                                                                                th:field="*{zip}"
                                                                                 id="certificate_delivery_zip_code"/><a
                                                     class="fa fa-question-circle tooltip-trigger" data-tippy=""
                                                     data-original-title="Enter the Zip code where you need the birth certificate to be delivered"></a>
@@ -178,37 +178,37 @@
                                                                                   <!--class="btn-primary btn&#45;&#45;large is-block disable-resubmit"-->
                                                                                   <!--data-disable-with="CONTINUE APPLICATION"/>-->
 
-                                            <form action='/charge' method='POST' id='checkout-form'>
-                                                <input type='hidden' th:value='${amount}' name='amount' />
-                                                <!--<label>Price:<span th:text='${amount/100}' /></label>-->
-                                                <!-- NOTE: data-key/data-amount/data-currency will be rendered by Thymeleaf -->
-                                                <script
-                                                        src='https://checkout.stripe.com/checkout.js'
-                                                        class='stripe-button'
-                                                        th:attr='data-key=${stripePublicKey},
-         data-amount=${amount},
-         data-currency=${currency}'
-                                                        data-name='Baeldung'
-                                                        data-description='Spring course checkout'
-                                                        data-image
-                                                                ='http://www.baeldung.com/wp-content/themes/baeldung/favicon/android-chrome-192x192.png'
-                                                        data-locale='auto'
-                                                        data-zip-code='false'>
-                                                </script>
-                                            </form>
+                                            <!--<form action='/charge' method='POST' id='checkout-form' >-->
+                                                <!--<input type='hidden' th:value='${amount}' name='amount' />-->
+                                                <!--&lt;!&ndash;<label>Price:<span th:text='${amount/100}' /></label>&ndash;&gt;-->
+                                                <!--&lt;!&ndash; NOTE: data-key/data-amount/data-currency will be rendered by Thymeleaf &ndash;&gt;-->
+                                                <!--<script-->
+                                                        <!--src='https://checkout.stripe.com/checkout.js'-->
+                                                        <!--class='stripe-button'-->
+                                                        <!--th:attr='data-key=${stripePublicKey},-->
+         <!--data-amount=${amount},-->
+         <!--data-currency=${currency}'-->
+                                                        <!--data-name='Baeldung'-->
+                                                        <!--data-description='Spring course checkout'-->
+                                                        <!--data-image-->
+                                                                <!--='http://www.baeldung.com/wp-content/themes/baeldung/favicon/android-chrome-192x192.png'-->
+                                                        <!--data-locale='auto'-->
+                                                        <!--data-zip-code='false'>-->
+                                                <!--</script>-->
+                                            <!--</form>-->
                                             <input type="submit" name="commit" value="SAVE APPLICATION"
-                                                   id="save-button2"
+                                                   id="save-and-print"
                                                    class="btn-primary btn--large is-block disable-resubmit"
                                                    data-disable-with="SAVE APPLICATION"/>
                                         </div>
                                     </div>
                                 </div>
                             </section>
-                        </fieldset>
+                        </div>
                     </form>
                     <div th:replace="fragments/footer :: footer"></div>
                 </section>
-            </field>
+            </div>
         </div>
     </div>
 </body>
