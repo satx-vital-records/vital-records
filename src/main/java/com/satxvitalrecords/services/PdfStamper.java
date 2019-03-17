@@ -37,14 +37,14 @@ import java.util.HashMap;
 @Service
 public class PdfStamper {
 
-    @Autowired
-    private ApplicationRepo appDao;
-    @Autowired
-    private UserRepo userDao;
-    @Autowired
-    private RecordRepo recordDao;
-    @Autowired
-    private AddressRepo mailDao;
+//    @Autowired
+//    private ApplicationRepo appDao;
+//    @Autowired
+//    private UserRepo userDao;
+//    @Autowired
+//    private RecordRepo recordDao;
+//    @Autowired
+//    private AddressRepo mailDao;
 
 
     public static final String SRC = "src/main/resources/pdf/COSA-Mail-Application.pdf";
@@ -54,13 +54,13 @@ public class PdfStamper {
 
 //    public static void main(String args[]) throws IOException {
 
-    public void preparePdf(String name){
+    public void preparePdf(Record record){
         File file = new File(DEST);
 
         file.getParentFile().mkdirs();
 
         try {
-            new PdfStamper().manipulatePdf(SRC, DEST, name);
+            new PdfStamper().manipulatePdf(SRC, DEST, record);
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -68,7 +68,7 @@ public class PdfStamper {
     }
 
 
-    public void manipulatePdf(String src, String dest, String name) throws IOException {
+    public void manipulatePdf(String src, String dest, Record record) throws IOException {
 
 
         PdfReader reader = new PdfReader(src);
@@ -77,11 +77,39 @@ public class PdfStamper {
 
         PdfAcroForm form = PdfAcroForm.getAcroForm(pdf, true);
 
-        PdfFormField tf = form.getFormFields().get("First Name");
+        PdfFormField fn = form.getFormFields().get("First Name").setValue(record.getFirst_name());
+        PdfFormField mn = form.getFormFields().get("Middle Name").setValue(record.getMid_name());
+        PdfFormField ln = form.getFormFields().get("Last Name").setValue(record.getLast_name());
+
+// PARSING DOB IN RECORD TABLE TO POPULATE SEPARATE FIELDS
+        String db_month = record.getDate_of_birth().toString().substring(5,7);
+        String db_day = record.getDate_of_birth().toString().substring(8,10);
+        String db_year = record.getDate_of_birth().toString().substring(0,4);
+// ------------  END OF PARSING ----------------------------
+
+        PdfFormField month = form.getFormFields().get("Month").setValue(db_month);
+        PdfFormField day = form.getFormFields().get("Day").setValue(db_day);
+        PdfFormField year = form.getFormFields().get("Year").setValue(db_year);
+        PdfFormField sex = form.getFormFields().get("Sex").setValue(record.getSex());
+        PdfFormField city = form.getFormFields().get("City or Town").setValue(record.getBirth_city());
+        PdfFormField county = form.getFormFields().get("County").setValue(record.getBirth_county());
+        PdfFormField parent1_fn = form.getFormFields().get("First Name_2").setValue(record.getParent1_first_name());
+        PdfFormField parent1_mn = form.getFormFields().get("Middle Name_2").setValue(record.getParent1_mid_name());
+        PdfFormField parent1_ln = form.getFormFields().get("Maiden NameLast Name").setValue(record.getParent1_last_name());
+        PdfFormField parent2_fn = form.getFormFields().get("First Name_3").setValue(record.getParent2_first_name());
+        PdfFormField parent2_mn = form.getFormFields().get("Middle Name_3").setValue(record.getParent2_mid_name());
+        PdfFormField parent2_ln = form.getFormFields().get("Maiden NameLast Name_2").setValue(record.getParent2_last_name());
+
+
+
+
+
 //        String fname = recordDao.findOne(1L).getFirst_name();
 //        String fname = "sarah";
-        System.out.println(name);
-        tf.setValue(name);
+
+//        System.out.println(fn);
+//        System.out.println(ln);
+//        tf.setValue(name);
 
 
         pdf.close();
