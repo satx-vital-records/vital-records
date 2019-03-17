@@ -5,29 +5,37 @@
 <body>
     <div class="container">
         <div class="row">
-            <div class="col-lg-8 col-md-10 ml-auto mr-auto">
+            <div class="col-xs-12 paddsection ml-auto mr-auto">
                 <h4>
-                    <small>Simple With Actions</small>
+                    <small>Administrator Portal</small>
                 </h4>
                 <div class="table-responsive">
                     <table class="table">
                         <thead>
                         <tr>
                             <th class="text-center">#</th>
+                            <th>Record Type</th>
+                            <th>Request Date</th>
                             <th>Name</th>
-                            <th>Job Position</th>
-                            <th>Since</th>
-                            <th class="text-right">Salary</th>
+                            <th>Form-Type</th>
+                            <th>DOB</th>
+                            <th>Requestor</th>
+                            <th>Relationship</th>
+                            <th class="text-right">Status</th>
                             <th class="text-right">Actions</th>
                         </tr>
                         </thead>
                         <tbody>
                         <tr th:each="app : ${apps}">
+                            <td th:text="${app.id}"></td>
+                            <td th:text="${app.record_type}"></td>
+                            <td>Date of Request</td>
+                            <td th:text="${app.last_name}"></td>
                             <td th:text="${app.form_type}"></td>
-                            <td>Alex Mike</td>
-                            <td>Design</td>
-                            <td>2010</td>
-                            <td class="text-right">€ 92,144</td>
+                            <td>Date of Birth</td>
+                            <td>Requestor</td>
+                            <td th:text="${app.record_relationship}"></td>
+                            <td>Current Status</td>
                             <td class="td-actions text-right">
                                 <button type="button" rel="tooltip"
                                         class="btn btn-info btn-link btn-just-icon btn-sm"
