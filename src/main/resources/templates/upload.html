@@ -4,19 +4,30 @@
 <head th:replace="fragments/header :: header('Welcome Home!')"></head>
 
 <body>
-    <div th:replace="fragments/navbar :: navbar"></div>
-
-    <input type="file" />
-    <div class="controls">
-        <button id="cancel">Cancel</button>
-        <button id="pause">Pause</button>
-        <button id="resume">Resume</button>
+    <div class="box">
+        <form id="pick-form">
+            <div class="field">
+                <div class="control">
+                    <button class="button" type="button" id="picker">Pick file</button>
+                    <input type="hidden" id="fileupload" />
+                </div>
+                <div class="control" id="nameBox"></div>
+                <div class="control" id="urlBox"></div>
+            </div>
+            <div class="field">
+                <div class="control">
+                    <input class="button" type="submit" value="Submit" />
+                </div>
+            </div>
+        </form>
     </div>
-    <div>Progress: <span id="progress"></span></div>
 
-    <footer th:replace="fragments/footer :: footer"></footer>
-    <script src="/static/upload.js"></script>
-    <script src="//static.filestackapi.com/filestack-js/2.x.x/filestack.min.js"></script>
+    <!--<footer th:replace="fragments/footer :: footer"></footer>-->
+    <script th:src="@{/lib/jquery.min.js}"></script>
+    <script th:src="@{/lib/jquery-migrate.min.js}"></script>
+    <script th:src="@{/lib/bootstrap/js/bootstrap.bundle.min.js}"></script>
+    <script th:src="@{/js/loading.js}"></script>
+    <script th:src="@{//static.filestackapi.com/filestack-js/1.x.x/filestack.min.js}"></script>
 
 </body>
 </html>
