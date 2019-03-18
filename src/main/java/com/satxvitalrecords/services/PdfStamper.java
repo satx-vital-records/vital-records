@@ -12,6 +12,7 @@ import com.itextpdf.test.annotations.WrapToTest;
 import com.itextpdf.kernel.pdf.*;
 import com.satxvitalrecords.SatxvitalrecordsApplication;
 import com.satxvitalrecords.models.Application;
+import com.satxvitalrecords.models.MailingAddress;
 import com.satxvitalrecords.models.Record;
 import com.satxvitalrecords.models.User;
 import com.satxvitalrecords.repositories.AddressRepo;
@@ -46,12 +47,12 @@ public class PdfStamper {
 
 //    public static void main(String args[]) throws IOException {
 
-    public void preparePdf(Record record, Application app, User user){
+    public void preparePdf(Record record, Application app, User user, MailingAddress address){
         File file = new File(DEST);
 
         file.getParentFile().mkdirs();
         try {
-            new PdfStamper().manipulatePdf(SRC, DEST, record, app, user);
+            new PdfStamper().manipulatePdf(SRC, DEST, record, app, user, address);
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -59,7 +60,7 @@ public class PdfStamper {
     }
 
 
-    public void manipulatePdf(String src, String dest, Record record, Application app, User user) throws IOException {
+    public void manipulatePdf(String src, String dest, Record record, Application app, User user, MailingAddress address) throws IOException {
         PdfReader reader = new PdfReader(src);
         PdfDocument pdf = new PdfDocument(reader, new PdfWriter(dest));
         PdfAcroForm form = PdfAcroForm.getAcroForm(pdf, true);
@@ -93,22 +94,31 @@ public class PdfStamper {
 //  -- START OF ASSIGNING APP/USER OBJECT DETAILS TO FIELDS IN PDF ----
 
 
-//  BINDING APPLICANT NAME TO PDF
+//  BINDING APPLICANT INFO TO PDF
         form.getFormFields().get("Applicant Name").setValue(getApplicantName(app));
 
         form.getFormFields().get("Telephone").setValue(user.getPhone_num());
+        form.getFormFields().get("Email Address").setValue(user.getEmail());
+        form.getFormFields().get("Street Address").setValue(getAppAddress(app));
+        form.getFormFields().get("City").setValue(app.getCity());
+        form.getFormFields().get("State").setValue(app.getState());
+        form.getFormFields().get("Zip").setValue(app.getZip());
+        form.getFormFields().get("Relationship to person listed above").setValue(app.getRecord_relationship());
+        form.getFormFields().get("Purpose for obtaining this record").setValue(app.getPurpose());
 
+//        BINDING MAILING ADDRESS TO PDF
+// try to get authorizing mailing to the address below to populate
 
+        String mailing_name = app.getFirst_name() + " " + app.getLast_name();
 
+        form.getFormFields().get("Name of Person Receiving Copies if Different from Applicant").setValue(mailing_name);
+        form.getFormFields().get("Mailing Address for Copies if Different from Applicant").setValue(getMailingAddress(address));
+        form.getFormFields().get("City_2").setValue(address.getCity());
+        form.getFormFields().get("State_2").setValue(address.getState());
+        form.getFormFields().get("Zip_2").setValue(address.getZip());
 
-
-
-//        String fname = recordDao.findOne(1L).getFirst_name();
-//        String fname = "sarah";
-
-//        System.out.println(fn);
-//        System.out.println(ln);
-
+//  flattenFields function below disables the ability for the user to edit form after being populated
+//        form.flattenFields();
         pdf.close();
 
 
@@ -121,5 +131,23 @@ public class PdfStamper {
         }
         return app.getFirst_name() + " " + app.getMid_name() + " " + app.getLast_name();
     }
+
+    //    HELPER FUNCTION TO RETURN APP ADDRESS WITH NO NULLS
+    private static String getAppAddress(Application app){
+        if(app.getStreet2() == null){
+            return app.getStreet();
+        }
+        return app.getStreet() + " " + app.getStreet2();
+    }
+
+    //    HELPER FUNCTION TO RETURN MAILING ADDRESS WITH NO NULLS
+    private static String getMailingAddress(MailingAddress address){
+        if(address.getStreet_2() == null){
+            return address.getStreet();
+        }
+        return address.getStreet() + " " + address.getStreet_2();
+    }
+
+
 
 }

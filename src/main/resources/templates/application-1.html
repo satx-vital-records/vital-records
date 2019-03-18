@@ -42,36 +42,37 @@
                                             data-original-title="If you are requesting the  birth certificate for yourself, please select “Myself”. In all other cases, please specify your relationship to the person on record. For example if you are a mother requesting the certificate for your child, select &quot;I am the Mother&quot;. It is important to note that if you are not a direct family member, you may have to provide additional proof of your relationship with the person on record."></a>
                                     </div>
                                     <div class="tooltip-wrapper">
-                                        <input type="text" th:field="*{record_relationship}" name="record_relationship"
-                                               id="certificate_record_person_relationship"/>
 
-                                        <!--<select class="select required"-->
-                                        <!--data-validate=""-->
-                                        <!--id="certificate_record_person_relationship"-->
-                                        <!--name="certificate[record_person_relationship]">-->
-                                        <!--<option value="">Please select</option>-->
-                                        <!--<option value="Myself">Myself</option>-->
-                                        <!--<option value="I am the Son">I am the Son</option>-->
-                                        <!--<option value="I am the Daughter">I am the Daughter</option>-->
-                                        <!--<option value="I am the Father">I am the Father</option>-->
-                                        <!--<option value="I am the Mother">I am the Mother</option>-->
-                                        <!--<option value="I am the Spouse">I am the Spouse</option>-->
-                                        <!--<option value="I am the Brother">I am the Brother</option>-->
-                                        <!--<option value="I am the Sister">I am the Sister</option>-->
-                                        <!--<option value="I am the Grandchild">I am the Grandchild</option>-->
-                                        <!--<option value="I am the Maternal Grandparent">I am the Maternal-->
-                                        <!--Grandparent-->
-                                        <!--</option>-->
-                                        <!--<option value="I am the Paternal Grandparent">I am the Paternal-->
-                                        <!--Grandparent-->
-                                        <!--</option>-->
-                                        <!--<option value="I am the Legal guardian">I am the Legal guardian</option>-->
-                                        <!--<option value="I am the Legal representative">I am the Legal-->
-                                        <!--representative-->
-                                        <!--</option>-->
-                                        <!--<option value="Other (specify)">Other (specify)</option>-->
-                                        <!--</select><a class="fa fa-question-circle tooltip-trigger" data-original-title="If you are requesting the  birth certificate for yourself, please select “Myself”. In all other cases, please specify your relationship to the person on record. For example if you are a mother requesting the certificate for your child, select &quot;I am the Mother&quot;. It is important to note that if you are not a direct family member, you may have to provide additional proof of your relationship with the person on record."-->
-                                        <!--data-tippy=""></a>-->
+
+                                        <!--<input type="text" th:field="*{record_relationship}" name="record_relationship"-->
+                                               <!--id="certificate_record_person_relationship"/>-->
+
+                                        <select class="select required"
+                                        data-validate=""
+                                        id="certificate_record_person_relationship"
+                                        th:field="*{record_relationship}">
+                                        <option value="">Please select</option>
+                                        <option th:value="Myself">Myself</option>
+                                        <option th:value="Son">I am the Son</option>
+                                        <option th:value="Daughter">I am the Daughter</option>
+                                        <option th:value="Father">I am the Father</option>
+                                        <option th:value="Mother">I am the Mother</option>
+                                        <option th:value="Spouse">I am the Spouse</option>
+                                        <option th:value="Brother">I am the Brother</option>
+                                        <option th:value="Sister">I am the Sister</option>
+                                        <option th:value="Grandchild">I am the Grandchild</option>
+                                        <option th:value="Maternal_Grandparent">I am the Maternal Grandparent
+                                        </option>
+                                        <option th:value="Paternal_Grandparent">I am the Paternal
+                                        Grandparent
+                                        </option>
+                                        <option th:value="Legal_guardian">I am the Legal guardian</option>
+                                        <option th:value="Legal_representative">I am the Legal
+                                        representative
+                                        </option>
+                                        <option th:value="Other">Other </option>
+                                        </select><a class="fa fa-question-circle tooltip-trigger" data-original-title="If you are requesting the  birth certificate for yourself, please select “Myself”. In all other cases, please specify your relationship to the person on record. For example if you are a mother requesting the certificate for your child, select &quot;I am the Mother&quot;. It is important to note that if you are not a direct family member, you may have to provide additional proof of your relationship with the person on record."
+                                        data-tippy=""></a>
                                     </div>
                                 </div>
 
@@ -100,18 +101,19 @@
                                             data-original-title="Standard size format is the most commonly issued because it satisfies most purposes,; Long Form is used most often to obtain a passport, for purposes of dual citizenship, Indian Registry and immigration"
                                             data-tippy=""></a>
                                     </div>
-                                    <input type="text" th:field="*{form_type}" name="form_type"/>
-                                    <!--<div class="tooltip-wrapper"><select class="select required"-->
-                                    <!--data-validate=""-->
-                                    <!--id="certificate_type_long_standard"-->
-                                    <!--name="certificate_type_long_standard">-->
-                                    <!--<option value="">Please select</option>-->
-                                    <!--<option value="Standard size">Standard size</option>-->
-                                    <!--<option value="Long form">Long form</option>-->
+                                    <!--<input type="text" th:field="*{form_type}" name="form_type"/>-->
+                                    <div class="tooltip-wrapper"><select class="select required"
+                                    data-validate=""
+                                    id="certificate_type_long_standard"
+                                    th:field="*{form_type}">
+                                    <option value="">Please select</option>
+                                    <option th:value="Short_abstract">Standard size</option>
+                                    <option th:value="Long">Long form</option>
+                                    <option th:value="certified_copy">Certified Copy (Death certificates only)</option>
 
-                                    <!--</select><a class="fa fa-question-circle tooltip-trigger" data-original-title="Standard size format is the most commonly issued because it satisfies most purposes,; Long Form is used most often to obtain a passport, for purposes of dual citizenship, Indian Registry and immigration"-->
-                                    <!--data-tippy=""></a>-->
-                                    <!--</div>-->
+                                    </select><a class="fa fa-question-circle tooltip-trigger" data-original-title="Standard size format is the most commonly issued because it satisfies most purposes,; Long Form is used most often to obtain a passport, for purposes of dual citizenship, Indian Registry and immigration"
+                                    data-tippy=""></a>
+                                    </div>
                                 </div>
 
                                 <div id="certificate_type" style="display: none;">
@@ -140,38 +142,39 @@
                                             data-original-title="This information is required by the Health Department. If the reason for applying is not listed here, please select “other."
                                             data-tippy=""></a>
                                     </div>
-                                    <input type="text" th:field="*{purpose}" name="purpose"/>
-                                    <!--<div class="tooltip-wrapper"><select class="select required"-->
-                                    <!--data-validate=""-->
-                                    <!--id="certificate_purpose"-->
-                                    <!--name="certificate_purpose">-->
-                                    <!--<option value="">Please select</option>-->
-                                    <!--<option value="Passport">Passport</option>-->
-                                    <!--<option value="Social Security">Social Security</option>-->
-                                    <!--<option value="Retirement">Retirement</option>-->
-                                    <!--<option value="Employment">Employment</option>-->
-                                    <!--<option value="Working Papers">Working Papers</option>-->
-                                    <!--<option value="School Entrance">School Entrance</option>-->
-                                    <!--<option value="Driver's License">Driver's License</option>-->
-                                    <!--<option value="Marriage License">Marriage License</option>-->
-                                    <!--<option value="Welfare Assistance">Welfare Assistance</option>-->
-                                    <!--<option value="Veteran's Benefits">Veteran's Benefits-->
-                                    <!--</option>-->
-                                    <!--<option value="Court Proceeding">Court Proceeding-->
+                                    <!--<input type="text" th:field="*{purpose}" name="purpose"/>-->
 
-                                    <!--</option>-->
-                                    <!--<option value="Entrance into Armed Forces">Entrance into Armed Forces</option>-->
-                                    <!--<option value="International Use">International Use-->
-                                    <!--</option>-->
-                                    <!--<option value="Insurance">Insurance-->
-                                    <!--</option>-->
-                                    <!--<option value="Genealogy">Genealogy-->
-                                    <!--</option>-->
-                                    <!--<option value="Other (specify)">Other</option>-->
-                                    <!--</select><a class="fa fa-question-circle tooltip-trigger" data-original-title="If you are requesting the  birth certificate for yourself, please select “Myself”. In all other cases, please specify your relationship to the person on record. For example if you are a mother requesting the certificate for your child, select &quot;I am the Mother&quot;. It is important to note that if you are not a direct family member, you may have to provide additional proof of your relationship with the person on record."-->
-                                    <!--data-tippy=""></a>-->
-                                    <!--</div>-->
-                                    <!--</div>-->
+                                    <div class="tooltip-wrapper"><select class="select required"
+                                    data-validate=""
+                                    id="certificate_purpose"
+                                    th:field="*{purpose}">
+                                    <option value="">Please select</option>
+                                    <option th:value="Passport">Passport</option>
+                                    <option th:value="Social_Security">Social Security</option>
+                                    <option th:value="Retirement">Retirement</option>
+                                    <option th:value="Employment">Employment</option>
+                                    <option th:value="Working_Papers">Working Papers</option>
+                                    <option th:value="School_Entrance">School Entrance</option>
+                                    <option th:value="Drivers_License">Driver's License</option>
+                                    <option th:value="Marriage_License">Marriage License</option>
+                                    <option th:value="Welfare_Assistance">Welfare Assistance</option>
+                                    <option th:value="Veterans_Benefits">Veteran's Benefits
+                                    </option>
+                                    <option th:value="Court_Proceeding">Court Proceeding
+
+                                    </option>
+                                    <option th:value="Entrance_into_Armed_Forces">Entrance into Armed Forces</option>
+                                    <option th:value="International_Use">International Use
+                                    </option>
+                                    <option th:value="Insurance">Insurance
+                                    </option>
+                                    <option th:value="Genealogy">Genealogy
+                                    </option>
+                                    <option th:value="Other">Other</option>
+                                    </select><a class="fa fa-question-circle tooltip-trigger" data-original-title="If you are requesting the  birth certificate for yourself, please select “Myself”. In all other cases, please specify your relationship to the person on record. For example if you are a mother requesting the certificate for your child, select &quot;I am the Mother&quot;. It is important to note that if you are not a direct family member, you may have to provide additional proof of your relationship with the person on record."
+                                    data-tippy=""></a>
+                                    </div>
+                                    </div>
 
                                     <div id="certificate_purpose_reason" style="display: none;">
                                         <div class="form-group string optional certificate_purpose_specify">
@@ -216,7 +219,7 @@
 
                                 </div>
                             </div>
-                        </div>
+                        <!--</div>-->
                 </section>
                 <hr/>
 

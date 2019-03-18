@@ -123,8 +123,9 @@ public class ApplicationController {
         Record record = recordDao.findOne(1L);
         Application app = appDao.findOne(1l);
         User user = userDao.findOne(1L);
+        MailingAddress address1 = mailDao.findOne(1L);
 
-        pdfStamper.preparePdf(record, app, user);
+        pdfStamper.preparePdf(record, app, user, address1);
         return "redirect:/completed-application";
     }
 
