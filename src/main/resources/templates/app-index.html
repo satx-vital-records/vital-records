@@ -30,36 +30,68 @@
                             <td th:text="${app.id}"></td>
                             <td th:text="${app.record_type}"></td>
                             <td>Date of Request</td>
-                            <td th:text="${app.last_name}"></td>
+                            <td>Requestor</td>
                             <td th:text="${app.form_type}"></td>
                             <td>Date of Birth</td>
-                            <td>Requestor</td>
+                            <td th:text="${app.last_name} + ' ' + ${app.first_name}"></td>
                             <td th:text="${app.record_relationship}"></td>
                             <td>Current Status</td>
                             <td class="td-actions text-right">
                                 <button type="button" rel="tooltip"
                                         class="btn btn-info btn-link btn-just-icon btn-sm"
                                         data-original-title="" title="">
-                                    <i class="material-icons">person</i>
+                                    <i class="material-icons">assignment_ind</i>
                                 </button>
                                 <button type="button" rel="tooltip"
-                                        class="btn btn-success btn-link btn-just-icon btn-sm"
+                                        data-toggle="modal" data-target="#exampleModalLong"
+                                        class="btn btn-warning btn-link btn-just-icon btn-sm"
                                         data-original-title="" title="">
                                     <i class="material-icons">edit</i>
                                 </button>
-                                <button type="button" rel="tooltip"
-                                        class="btn btn-danger btn-link btn-just-icon btn-sm"
-                                        data-original-title="" title="">
-                                    <i class="material-icons">close</i>
-                                </button>
+                                <!--<button type="button" rel="tooltip"-->
+                                        <!--class="btn btn-danger btn-link btn-just-icon btn-sm"-->
+                                        <!--data-original-title="" title="">-->
+                                    <!--<i class="material-icons">close</i>-->
+                                <!--</button>-->
                             </td>
                         </tr>
                         </tbody>
                     </table>
+
+
+
+
+                    <!--<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalLong">-->
+                        <!--Launch demo modal-->
+                    <!--</button>-->
+
+                    <!-- Modal -->
+                    <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title">Comments</h5>
+                                    <!--<button type="button" class="close" data-dismiss="modal" aria-label="Close">-->
+                                        <!--<span aria-hidden="true">&times;</span>-->
+                                    <!--</button>-->
+                                </div>
+                                <div class="modal-body">
+                                    Enter comments here...
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn-sm btn-secondary" data-dismiss="modal">Close</button>
+                                    <button type="button" class="btn-sm btn-primary">Save changes</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+
                 </div>
             </div>
-            <footer th:replace="fragments/footer :: footer"></footer>
         </div>
+            <footer th:replace="fragments/footer :: footer"></footer>
     </div>
 </body>
 </html>
