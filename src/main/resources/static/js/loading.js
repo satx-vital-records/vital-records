@@ -8,7 +8,7 @@ $(document).ready(function () {
         accept: '.pdf',
         uploadInBackground: false,
         storeTo: {
-            path:
+            path: '/uploadedFiles/'
         }
     };
     const picker = client.picker(options);
@@ -20,7 +20,6 @@ $(document).ready(function () {
 
         $('#picker').click(function (e) {
             e.preventDefault();
-            console.log('hello');
             picker.open();
         });
 
