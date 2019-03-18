@@ -13,6 +13,7 @@ import com.itextpdf.kernel.pdf.*;
 import com.satxvitalrecords.SatxvitalrecordsApplication;
 import com.satxvitalrecords.models.Application;
 import com.satxvitalrecords.models.Record;
+import com.satxvitalrecords.models.User;
 import com.satxvitalrecords.repositories.AddressRepo;
 import com.satxvitalrecords.repositories.ApplicationRepo;
 import com.satxvitalrecords.repositories.RecordRepo;
@@ -37,15 +38,6 @@ import java.util.HashMap;
 @Service
 public class PdfStamper {
 
-//    @Autowired
-//    private ApplicationRepo appDao;
-//    @Autowired
-//    private UserRepo userDao;
-//    @Autowired
-//    private RecordRepo recordDao;
-//    @Autowired
-//    private AddressRepo mailDao;
-
 
     public static final String SRC = "src/main/resources/pdf/COSA-Mail-Application.pdf";
 
@@ -54,13 +46,12 @@ public class PdfStamper {
 
 //    public static void main(String args[]) throws IOException {
 
-    public void preparePdf(Record record){
+    public void preparePdf(Record record, Application app, User user){
         File file = new File(DEST);
 
         file.getParentFile().mkdirs();
-
         try {
-            new PdfStamper().manipulatePdf(SRC, DEST, record);
+            new PdfStamper().manipulatePdf(SRC, DEST, record, app, user);
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -68,20 +59,19 @@ public class PdfStamper {
     }
 
 
-    public void manipulatePdf(String src, String dest, Record record) throws IOException {
-
-
+    public void manipulatePdf(String src, String dest, Record record, Application app, User user) throws IOException {
         PdfReader reader = new PdfReader(src);
-
         PdfDocument pdf = new PdfDocument(reader, new PdfWriter(dest));
-
         PdfAcroForm form = PdfAcroForm.getAcroForm(pdf, true);
+
+
+//  -- START OF ASSIGNING RECORD OBJECT DETAILS TO FIELDS IN PDF ----
 
         PdfFormField fn = form.getFormFields().get("First Name").setValue(record.getFirst_name());
         PdfFormField mn = form.getFormFields().get("Middle Name").setValue(record.getMid_name());
         PdfFormField ln = form.getFormFields().get("Last Name").setValue(record.getLast_name());
 
-// PARSING DOB IN RECORD TABLE TO POPULATE SEPARATE FIELDS
+// PARSING DOB IN RECORD DB_TABLE TO POPULATE SEPARATE FIELDS
         String db_month = record.getDate_of_birth().toString().substring(5,7);
         String db_day = record.getDate_of_birth().toString().substring(8,10);
         String db_year = record.getDate_of_birth().toString().substring(0,4);
@@ -100,6 +90,15 @@ public class PdfStamper {
         PdfFormField parent2_mn = form.getFormFields().get("Middle Name_3").setValue(record.getParent2_mid_name());
         PdfFormField parent2_ln = form.getFormFields().get("Maiden NameLast Name_2").setValue(record.getParent2_last_name());
 
+//  -- START OF ASSIGNING APP/USER OBJECT DETAILS TO FIELDS IN PDF ----
+
+
+//  BINDING APPLICANT NAME TO PDF
+        form.getFormFields().get("Applicant Name").setValue(getApplicantName(app));
+
+        form.getFormFields().get("Telephone").setValue(user.getPhone_num());
+
+
 
 
 
@@ -109,12 +108,18 @@ public class PdfStamper {
 
 //        System.out.println(fn);
 //        System.out.println(ln);
-//        tf.setValue(name);
-
 
         pdf.close();
 
 
+    }
+
+//    HELPER FUNCTION TO RETURN NAME WITH NO NULLS
+    private static String getApplicantName(Application app){
+        if(app.getMid_name() == null){
+            return app.getFirst_name() + " " + app.getLast_name();
+        }
+        return app.getFirst_name() + " " + app.getMid_name() + " " + app.getLast_name();
     }
 
 }
