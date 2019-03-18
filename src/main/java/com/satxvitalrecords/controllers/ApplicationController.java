@@ -74,7 +74,7 @@ public class ApplicationController {
     }
 
     @PostMapping("/application-2")
-    public String saveApp2(Record record){
+    public String continueApp2(Record record){
         Application app= appDao.findOne(1L);
         record.setApplication(app);
         System.out.println(record);
@@ -82,6 +82,7 @@ public class ApplicationController {
         recordDao.save(record);
       return "redirect:/application-3";
     }
+
 
     @GetMapping("/application-3")
     public String showApplication3(Model model) {
@@ -114,6 +115,7 @@ public class ApplicationController {
 
     @PostMapping("/application-4")
     public String saveApp4(MailingAddress address) {
+//   below saves the address object to table!:
 //        User user = userDao.findOne(1L);
 //        address.setUser(user);
 //        mailDao.save(address);
