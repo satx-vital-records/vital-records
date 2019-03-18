@@ -125,18 +125,21 @@ public class ApplicationController {
         User user = userDao.findOne(1L);
 
         pdfStamper.preparePdf(record, app, user);
-        return "redirect:/payment";
+        return "redirect:/completed-application";
     }
 
-    @GetMapping("/payment")
-    public String showPayments() {
-        return "checkout";
+    @GetMapping("/completed-application")
+    public String reviewApplication(Model model) {
+        model.addAttribute("app", new Application());
+        model.addAttribute("record", new Record());
+        model.addAttribute("mailaddress", new MailingAddress());
+        return "completed-application";
     }
 
-//    @GetMapping("/completed-application")
-//    public String completedApplication(){
-//        return "completed-application";
-//    }
+    @PostMapping("/completed-application")
+    public String confirmationOfApplication(){
+        return "redirect:/checkout";
+    }
 
     @GetMapping("/upload")
     public String uploadApplication() { return "upload"; }
