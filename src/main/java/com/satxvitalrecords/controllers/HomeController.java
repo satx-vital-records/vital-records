@@ -21,22 +21,21 @@ public class HomeController {
     @Autowired
     private UserRepo userDao;
 
+
+//  ----  RELOCATED TO USER CONTROLLER ----
+
 //    @GetMapping("/")
-//    public String home() {
+//    public String showHomePageForm(Model model){
+//        model.addAttribute("user", new User());
 //        return "index";
 //    }
 
-    @GetMapping("/")
-    public String showRegisterForm(Model model){
-        model.addAttribute("user", new User());
-        return "index";
-    }
+//    @PostMapping("/")
+//    public String saveUserHome(@ModelAttribute User user) {
+//        userDao.save(user);
+//        return "redirect: login";
+//    }
 
-    @PostMapping("/")
-    public String registerHome(@ModelAttribute User user) {
-        userDao.save(user);
-        return "redirect: application-1";
-    }
 
     @GetMapping("/app-view")
     public String showSingleApp(Model model){
@@ -61,7 +60,6 @@ public class HomeController {
 //        postDao.delete(deleteId);
 //        return "redirect:/posts";
 //    }
-
 
 
 
