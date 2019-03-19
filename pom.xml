@@ -67,6 +67,7 @@
             <type>pom</type>
         </dependency>
         <dependency>
+
             <groupId>com.itextpdf</groupId>
             <artifactId>pdftest</artifactId>
             <version>7.1.0</version>
@@ -74,11 +75,13 @@
         <!-- Thanks for using https://jar-download.com -->
 
 
-        <dependency>
+
+  <depencency>
             <groupId>com.twilio.sdk</groupId>
             <artifactId>twilio</artifactId>
             <version>7.36.2</version>
         </dependency>
+
     </dependencies>
 
     <build>
