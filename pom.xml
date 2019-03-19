@@ -66,6 +66,11 @@
             <version>${itext.version}</version>
             <type>pom</type>
         </dependency>
+        <dependency>
+            <groupId>com.twilio.sdk</groupId>
+            <artifactId>twilio</artifactId>
+            <version>7.36.2</version>
+        </dependency>
     </dependencies>
 
     <build>
