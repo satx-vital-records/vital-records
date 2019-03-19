@@ -1,41 +1,21 @@
 package com.satxvitalrecords.services;
 
-//import com.itextpdf.forms.fields.PdfTextFormField;
-
 import com.itextpdf.forms.fields.PdfFormField;
 import com.itextpdf.forms.PdfAcroForm;
-//import com.itextpdf.kernel.colors.ColorConstants;
-//import com.itextpdf.kernel.pdf.PdfDocument;
-//import com.itextpdf.kernel.pdf.PdfReader;
-//import com.itextpdf.kernel.pdf.PdfWriter;
-import com.itextpdf.test.annotations.WrapToTest;
 import com.itextpdf.kernel.pdf.*;
-import com.satxvitalrecords.SatxvitalrecordsApplication;
 import com.satxvitalrecords.models.Application;
 import com.satxvitalrecords.models.MailingAddress;
 import com.satxvitalrecords.models.Record;
 import com.satxvitalrecords.models.User;
-import com.satxvitalrecords.repositories.AddressRepo;
-import com.satxvitalrecords.repositories.ApplicationRepo;
-import com.satxvitalrecords.repositories.RecordRepo;
-import com.satxvitalrecords.repositories.UserRepo;
-import org.springframework.beans.factory.annotation.Autowire;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Configurable;
-import org.springframework.context.annotation.Import;
-import org.springframework.context.annotation.aspectj.EnableSpringConfigured;
 import org.springframework.stereotype.Service;
-
 import java.io.File;
 import java.io.IOException;
-import java.util.Map;
-import java.util.HashMap;
+
 
 /**
  * Simple filling out form example.
  */
 
-@WrapToTest
 @Service
 public class PdfStamper {
 
