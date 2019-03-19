@@ -75,13 +75,6 @@
         <!-- Thanks for using https://jar-download.com -->
 
 
-
-  <depencency>
-            <groupId>com.twilio.sdk</groupId>
-            <artifactId>twilio</artifactId>
-            <version>7.36.2</version>
-        </dependency>
-
     </dependencies>
 
     <build>
