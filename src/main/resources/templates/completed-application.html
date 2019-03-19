@@ -2,14 +2,29 @@
 <html xmlns:th="http://www.thymeleaf.org" lang="en">
 
 
-<head th:replace="fragments/header :: header('Completed Application')"/>
+<head th:replace="fragments/test-header :: test-header('Application')"/>
 <body>
-    <div class=" container ">
-        <header>
-            <a class="shop" href="/">Back</a>
-            <a class="github" href="/">Exit Application</a>
-        </header>
-        <div class="col-xs-12 paddsection">
+    <div class=" navbar-fixed-top">
+        <div class="navbar-inner">
+            <div class="container"></div>
+        </div>
+    </div>
+    <div id="body-container">
+        <div id="body-content">
+            <section class="nav nav-page">
+                <div class="container">
+                    <div class="row">
+                        <div class="span7">
+                            <header class="page-header">
+                                <h3>Records Application<br/>
+                                    <small>Vital Records City of San Antonio</small>
+                                </h3>
+                            </header>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        <div class="page container">
             <div class="cssProgress mx-auto" style="width: 70%;">
                 <div class="progress1">
                     <div class="cssProgress-bar" data-percent="90" style="width: 90%;">
@@ -17,9 +32,9 @@
                     </div>
                 </div>
             </div>
-            <form accept-charset="UTF-8" action="/application-1" class="simple_form new_certificate mx-auto"
+            <form accept-charset="UTF-8" th:action="@{/application-1}" class="simple_form new_certificate mx-auto"
                   style="width:70%"
-                  id="new_certificate1" method="post" th:object="${app}" novalidate="novalidate">
+                  id="new_certificate1" th:method="post" th:object="${app}" novalidate="novalidate">
                 <input name="utf8" type="hidden"
                        value="✓"/><input
                     name="authenticity_token" type="hidden"
@@ -39,7 +54,7 @@
                                     <div class="tooltip-wrapper-mobile"><label class="select required pr-1"
                                                                                for="certificate_record_person_relationship">What
                                         is your relationship with the person listed on record?</label><a
-                                            class="fa fa-question-circle tooltip-trigger"
+
                                             data-original-title="If you are requesting the  birth certificate for yourself, please select “Myself”. In all other cases, please specify your relationship to the person on record. For example if you are a mother requesting the certificate for your child, select &quot;I am the Mother&quot;. It is important to note that if you are not a direct family member, you may have to provide additional proof of your relationship with the person on record."></a>
                                     </div>
                                     <div class="tooltip-wrapper">
@@ -70,7 +85,8 @@
                                     <div class="tooltip-wrapper-mobile"><label class="select required"
                                                                                for="certificate_record_person_relationship">Please
                                         select the certificate type you require</label><a
-                                            class="fa fa-question-circle tooltip-trigger"
+
+
                                             data-original-title="Standard size format is the most commonly issued because it satisfies most purposes,; Long Form is used most often to obtain a passport, for purposes of dual citizenship, Indian Registry and immigration"
                                             data-tippy=""></a>
                                     </div>
@@ -100,7 +116,7 @@
                                                                                for="certificate_record_person_relationship">Why
                                         are
                                         you applying for a certificate?</label><a
-                                            class="fa fa-question-circle tooltip-trigger"
+
                                             data-original-title="This information is required by the Health Department. If the reason for applying is not listed here, please select “other."
                                             data-tippy=""></a>
                                     </div>
@@ -128,7 +144,7 @@
                                     <div class="tooltip-wrapper-mobile"><label class="select required"
                                                                                for="certificate_record_copies">Number
                                         of Certified Copies needed</label><a
-                                            class="fa fa-question-circle tooltip-trigger"
+
                                             data-original-title="Indicate how many copies of the certificate you need. A certified copy is a copy of a primary document, that has on it an endorsement or certificate marking that it is a true copy of the primary document. It does not certify that the primary document is genuine. It is only a true copy of the primary document. A certified copy may be required for official government or court purposes and for commercial purposes."
                                             data-tippy=""></a>
                                     </div>
@@ -141,7 +157,7 @@
                                         <option value="2">2</option>
                                         <option value="3">3</option>
                                         <option value="4">4</option>
-                                    </select><a class="fa fa-question-circle tooltip-trigger"
+                                    </select><a
                                                 data-original-title="Indicate how many copies of the certificate you need. A certified copy is a copy of a primary document, that has on it an endorsement or certificate marking that it is a true copy of the primary document. It does not certify that the primary document is genuine. It is only a true copy of the primary document. A certified copy may be required for official government or court purposes and for commercial purposes."
                                                 data-tippy=""></a>
                                     </div>
@@ -150,6 +166,7 @@
                             </div>
                         </div>
                     </div>
+                    <button type="submit" id="update">Update Information</button>
                 </section>
                 <hr/>
             </form>
@@ -181,7 +198,7 @@
                                 <div class="d-inline form-group string required certificate_birth_city">
                                     <div class="tooltip-wrapper-mobile"><label class="string required"
                                                                                for="certificate_birth_city2">City
-                                        of birth</label><a class="fa fa-question-circle tooltip-trigger"
+                                        of birth</label><a
                                                            data-tippy=""
                                                            data-original-title="Please specify the city where the birth occurred."></a>
                                     </div>
@@ -189,7 +206,7 @@
                                                                         type="text"
                                                                         th:field="*{birth_city}"
                                                                         id="certificate_birth_city2"/><a
-                                            class="fa fa-question-circle tooltip-trigger" data-tippy=""
+                                            data-tippy=""
                                             data-original-title="Please specify the city where the birth occurred."></a>
                                     </div>
                                 </div>
@@ -197,7 +214,7 @@
                                 <div class="d-inline form-group string required certificate_birth_county">
                                     <div class="tooltip-wrapper-mobile"><label class="string required"
                                                                                for="certificate_birth_county">County
-                                        of birth</label><a class="fa fa-question-circle tooltip-trigger"
+                                        of birth</label><a
                                                            data-tippy=""
                                                            data-original-title="Please specify the county where the birth occurred."></a>
                                     </div>
@@ -205,7 +222,7 @@
                                                                         type="text"
                                                                         th:field="*{birth_county}"
                                                                         id="certificate_birth_county"/><a
-                                            class="fa fa-question-circle tooltip-trigger" data-tippy=""
+                                             data-tippy=""
                                             data-original-title="Please specify the county where the birth occurred."></a>
                                     </div>
                                 </div>
@@ -214,9 +231,8 @@
                                     <div class="tooltip-wrapper-mobile"><label class="date required"
                                                                                for="birth_date">Date
                                         of birth</label>
-                                        <a class="fa fa-question-circle tooltip-trigger"
-                                           data-tippy=""
-                                           data-original-title="Please specify the date of birth."></a>
+
+
                                     </div>
                                     <div class="tooltip-wrapper">
                                         <input
@@ -225,7 +241,7 @@
                                                 id="birth_date"
                                                 class="date-picker-style"/>
 
-                                        <a class="fa fa-question-circle tooltip-trigger"
+                                        <a
                                            data-tippy=""
                                            data-original-title="Please specify the date of birth."></a>
                                     </div>
@@ -266,7 +282,7 @@
                                 <div class="d-inline form-group string required certificate_person_last_name col-xs-4">
                                     <div class="tooltip-wrapper-mobile"><label class="string required"
                                                                                for="certificate_person_last_name">Last
-                                        name</label><a class="fa fa-question-circle tooltip-trigger"
+                                        name</label><a
                                                        data-tippy=""
                                                        data-original-title="Enter the full name of the person on record at the time of birth. Leave middle name empty if unknown."></a>
                                     </div>
@@ -274,36 +290,38 @@
                                                                         class="string required" type="text"
                                                                         name="certificate[person_last_name]"
                                                                         id="certificate_person_last_name"/><a
-                                            class="fa fa-question-circle tooltip-trigger" data-tippy=""
+                                            data-tippy=""
                                             data-original-title="Enter the full name of the person on record at the time of birth. Leave middle name empty if unknown."></a>
                                     </div>
                                 </div>
                             </div>
                             <div class="pt-5 row justify-content-center form-group radio_buttons required certificate_person_sex">
-                                <div class="tooltip-wrapper-mobile"><label
-                                        class="radio_buttons required pr-3">Gender</label><a
-                                        class="fa fa-question-circle tooltip-trigger" data-tippy=""
-                                        data-original-title="Please specify the gender of the person on record at the time of their birth."></a>
+                                <div class="d-inline tooltip-wrapper-mobile">
+                                    <label class="radio_buttons required pr-3">Gender</label>
                                 </div>
-                                <div class="tooltip-wrapper"><input type="hidden"
-                                                                    name="certificate[person_sex]"
-                                                                    value=""/><input
-                                        class="radio_buttons required" type="radio" value="Female"
-                                        name="certificate[person_sex]"
-                                        id="certificate_person_sex_female"/><label
-                                        class="collection_radio_buttons pr-3"
-                                        for="certificate_person_sex_female">Female</label><input
-                                        class="radio_buttons required" type="radio" value="Male"
-                                        name="certificate[person_sex]"
-                                        id="certificate_person_sex_male"/><label
-                                        class="collection_radio_buttons"
-                                        for="certificate_person_sex_male">Male</label><a
-                                        class="fa fa-question-circle tooltip-trigger" data-tippy=""
-                                        data-original-title="Please specify the gender of the person on record at the time of their birth."></a>
+                                <div class="d-inline tooltip-wrapper">
+                                    <input type="hidden"
+                                           name="certificate[person_sex]"
+                                           value=""/>
+                                    <input class="d-inline radio_buttons required" type="radio" value="Female"
+                                           name="certificate[person_sex]"
+                                           id="certificate_person_sex_female"/>
+                                    <label
+                                            class="d-inline collection_radio_buttons pr-3"
+                                            for="certificate_person_sex_female">Female</label>
+                                    <input
+                                            class="d-inline radio_buttons required" type="radio" value="Male"
+                                            name="certificate[person_sex]"
+                                            id="certificate_person_sex_male"/>
+                                    <label
+                                            class="d-inline collection_radio_buttons"
+                                            for="certificate_person_sex_male">Male</label>
+
                                 </div>
                             </div>
                         </div>
                     </div>
+                    <button type="submit" id="update">Update Information</button>
                 </section>
 
             </form>
@@ -355,14 +373,14 @@
                                     <div class="tooltip-wrapper-mobile"><label class="string required"
                                                                                for="certificate_mother_maiden_or_last_name">Last
                                         name before any marriage</label><a
-                                            class="fa fa-question-circle tooltip-trigger" data-tippy=""
+                                  data-tippy=""
                                             data-original-title="Enter the full maiden name of the mother of the person on record, at the time of birth."></a>
                                     </div>
                                     <div class="tooltip-wrapper"><input data-validate=""
                                                                         class="string required" type="text"
                                                                         th:field="*{parent1_last_name}"
                                                                         id="certificate_mother_maiden_or_last_name"/><a
-                                            class="fa fa-question-circle tooltip-trigger" data-tippy=""
+                                             data-tippy=""
                                             data-original-title="Enter the full maiden name of the mother of the person on record, at the time of birth."></a>
                                     </div>
                                 </div>
@@ -371,7 +389,7 @@
                         </div>
                     </div>
 
-
+                    <button type="submit" id="update">Update Information</button>
                 </section>
                 <hr/>
                 <section class="section pt-2">
@@ -405,7 +423,7 @@
                                 <div class="d-inline form-group string optional certificate_father_last_name col-xs-4">
                                     <div class="tooltip-wrapper-mobile"><label class="string optional"
                                                                                for="certificate_father_last_name">Last
-                                        name</label><a class="fa fa-question-circle tooltip-trigger"
+                                        name</label><a
                                                        data-tippy=""
                                                        data-original-title="Enter the full name of the father of the person on record at the time of birth. Leave empty if the identity of the father is unknown."></a>
                                     </div>
@@ -413,13 +431,14 @@
                                                                         class="string optional" type="text"
                                                                         th:field="*{parent2_last_name}"
                                                                         id="certificate_father_last_name"/><a
-                                            class="fa fa-question-circle tooltip-trigger" data-tippy=""
+                                         data-tippy=""
                                             data-original-title="Enter the full name of the father of the person on record at the time of birth. Leave empty if the identity of the father is unknown."></a>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
+                    <button type="submit" id="update">Update Information</button>
                 </section>
             </form>
 
@@ -447,7 +466,7 @@
                                     <div class="tooltip-wrapper-mobile"><label class="string required"
                                                                                for="certificate_delivery_address_1">Address
                                         1 (Street number and street name)</label><a
-                                            class="fa fa-question-circle tooltip-trigger" data-tippy=""
+                                          data-tippy=""
                                             data-original-title="Please indicate the the street number and street name where you need the certificate to be delivered."></a>
                                     </div>
 
@@ -455,7 +474,7 @@
                                                                         type="text"
                                                                         th:field="*{street}"
                                                                         id="certificate_delivery_address_1"/><a
-                                            class="fa fa-question-circle tooltip-trigger" data-tippy=""
+                                            data-tippy=""
                                             data-original-title="Please indicate the the street number and street name where you need the certificate to be delivered."></a>
                                     </div>
                                 </div>
@@ -463,13 +482,13 @@
                                     <div class="tooltip-wrapper-mobile"><label class="string optional"
                                                                                for="certificate_delivery_address_2">Address
                                         2 (if applicable: Apt, suite, floor)</label><a
-                                            class="fa fa-question-circle tooltip-trigger" data-tippy=""
+                                            data-tippy=""
                                             data-original-title="Please enter, if applicable, the apartment number, suite number or floor where you need the certificate to be delivered."></a>
                                         <div class="tooltip-wrapper"><input data-validate="" class="string optional"
                                                                             type="text"
                                                                             th:field="*{street_2}"
                                                                             id="certificate_delivery_address_2"/><a
-                                                class="fa fa-question-circle tooltip-trigger" data-tippy=""
+                                                data-tippy=""
                                                 data-original-title="Please enter, if applicable, the apartment number, suite number or floor where you need the certificate to be delivered."></a>
                                         </div>
                                     </div>
@@ -478,6 +497,7 @@
                             </div>
                         </div>
                     </div>
+                    <button type="submit" id="update">Update Information</button>
                 </section>
                 <hr/>
                 <section class="section pt-2">
@@ -487,21 +507,21 @@
                                 <div class="d-inline form-group string required certificate_delivery_city">
                                     <div class="tooltip-wrapper-mobile"><label class="string required"
                                                                                for="certificate_delivery_city">City</label><a
-                                            class="fa fa-question-circle tooltip-trigger" data-tippy=""
+                                             data-tippy=""
                                             data-original-title="Please indicate the name of the city where you need the certificate to be delivered."></a>
                                     </div>
                                     <div class="tooltip-wrapper"><input data-validate="" class="string required"
                                                                         type="text"
                                                                         th:field="*{city}"
                                                                         id="certificate_delivery_city"/><a
-                                            class="fa fa-question-circle tooltip-trigger" data-tippy=""
+                                          data-tippy=""
                                             data-original-title="Please indicate the name of the city where you need the certificate to be delivered."></a>
                                     </div>
                                 </div>
                                 <div class=" d-inline form-group select required certificate_delivery_state">
                                     <div class="tooltip-wrapper-mobile"><label class="select required"
                                                                                for="certificate_delivery_state">State</label><a
-                                            class="fa fa-question-circle tooltip-trigger" data-tippy=""
+                                            data-tippy=""
                                             data-original-title="Please specify the state to which you need the certificate to be delivered."></a>
                                     </div>
                                     <div class="tooltip-wrapper"><select data-validate=""
@@ -559,14 +579,14 @@
                                         <option th:value="WV">West Virginia</option>
                                         <option th:value="WI">Wisconsin</option>
                                         <option th:value="WY">Wyoming</option>
-                                    </select><a class="fa fa-question-circle tooltip-trigger" data-tippy=""
+                                    </select><a  data-tippy=""
                                                 data-original-title="Please specify the state to which you need the certificate to be delivered."></a>
                                     </div>
                                 </div>
                                 <div class="d-inline form-group string required certificate_delivery_zip_code">
                                     <div class="tooltip-wrapper-mobile"><label class="string required"
                                                                                for="certificate_delivery_zip_code">Zip
-                                        code</label><a class="fa fa-question-circle tooltip-trigger"
+                                        code</label><a
                                                        data-tippy=""
                                                        data-original-title="Enter the Zip code where you need the birth certificate to be delivered"></a>
                                     </div>
@@ -575,7 +595,7 @@
                                                                         type="text"
                                                                         th:field="*{zip}"
                                                                         id="certificate_delivery_zip_code"/><a
-                                            class="fa fa-question-circle tooltip-trigger" data-tippy=""
+                                           data-tippy=""
                                             data-original-title="Enter the Zip code where you need the birth certificate to be delivered"></a>
                                     </div>
                                 </div>
@@ -627,19 +647,20 @@
 
                                     <a th:href="@{/checkout}"><input type="submit" name="commit" value="CONFIRM"
                                            id="save-and-print"
-                                           class=" p-2 btn-primary btn--large is-block disable-resubmit"
+                                           class=" p-2 btn-sun btn--large is-block disable-resubmit"
                                                                           data-disable-with="CONFIRM"/></a>
 
                                 </div>
                             </div>
                         </div>
                     </div>
+                    <button type="submit" id="update">Update Information</button>
                 </section>
             </form>
-
+        </div>
 
         </div>
-        <div th:replace="fragments/footer :: footer"></div>
+        <div th:replace="fragments/admin-footer :: admin-footer"></div>
     </div>
 
 </body>

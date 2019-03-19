@@ -1,5 +1,6 @@
 package com.satxvitalrecords.controllers;
 
+import com.satxvitalrecords.models.Application;
 import com.satxvitalrecords.models.User;
 import com.satxvitalrecords.repositories.ApplicationRepo;
 import com.satxvitalrecords.repositories.UserRepo;
@@ -37,6 +38,17 @@ public class HomeController {
         return "redirect: application-1";
     }
 
+    @GetMapping("/app-view")
+    public String showSingleApp(Model model){
+        model.addAttribute("app", new Application());
+        return "app-view";
+    }
+
+    @PostMapping("/app-view")
+    public String updateSingleApp(@ModelAttribute Application app) {
+        appDao.save(app);
+        return "redirect: app-index";
+    }
 
     @GetMapping("/app-index")
     public String viewAllApps(Model model){
