@@ -27,3 +27,5 @@ HELP.md
 
 
 src/main/resources/application.properties
+
+*sendgrid.env
