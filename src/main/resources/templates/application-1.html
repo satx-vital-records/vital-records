@@ -114,26 +114,20 @@
                                             data-original-title="Standard size format is the most commonly issued because it satisfies most purposes,; Long Form is used most often to obtain a passport, for purposes of dual citizenship, Indian Registry and immigration"
                                             data-tippy=""></a>
                                     </div>
-                                    <input type="text" th:field="*{form_type}" name="form_type"/>
+                                    <!--<input type="text" th:field="*{form_type}" name="form_type"/>-->
+                                    <div class="tooltip-wrapper"><select class="select required"
+                                    data-validate=""
+                                    id="certificate_type_long_standard"
+                                    th:field="*{form_type}">
+                                    <option value="">Please select</option>
+                                    <option th:value="Short_abstract">Standard size</option>
+                                    <option th:value="Long">Long form</option>
+                                    <option th:value="certified_copy">Certified Copy (Death certificates only)</option>
 
+                                    </select><a class="fa fa-question-circle tooltip-trigger" data-original-title="Standard size format is the most commonly issued because it satisfies most purposes,; Long Form is used most often to obtain a passport, for purposes of dual citizenship, Indian Registry and immigration"
+                                    data-tippy=""></a>
+                                    </div>
                                 </div>
-
-                                <!--<div id="certificate_type" style="display: none;">-->
-                                <!--<div class="form-group string optional certificate_record_person_relationship_specify">-->
-                                <!--<div class="tooltip-wrapper-mobile"><label-->
-                                <!--class="string optional required"-->
-                                <!--for="certificate_record_person_relationship_specify">Specify</label>-->
-                                <!--</div>-->
-                                <!--<div class="tooltip-wrapper"><input class="string optional"-->
-                                <!--data-validate=""-->
-                                <!--id="certificate_type_"-->
-                                <!--maxlength="45"-->
-                                <!--name="certificate_type"-->
-                                <!--size="45"-->
-                                <!--type="text"/>-->
-                                <!--</div>-->
-                                <!--</div>-->
-                                <!--</div>-->
 
 
                                 <div class="d-inline p-2 form-group select required certificate_record_person_relationship">

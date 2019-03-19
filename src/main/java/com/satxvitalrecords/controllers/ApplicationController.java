@@ -117,9 +117,15 @@ public class ApplicationController {
 //        User user = userDao.findOne(1L);
 //        address.setUser(user);
 //        mailDao.save(address);
-        String name = recordDao.findOne(3L).getFirst_name();
-        pdfStamper.preparePdf(name);
 
+// -----START OF GETTING FORM FIELDS POPULATED BY DB -------
+// passing thru a record and app object - separating thru preparepdf function
+        Record record = recordDao.findOne(1L);
+        Application app = appDao.findOne(1l);
+        User user = userDao.findOne(1L);
+        MailingAddress address1 = mailDao.findOne(1L);
+
+        pdfStamper.preparePdf(record, app, user, address1);
         return "redirect:/completed-application";
     }
 
