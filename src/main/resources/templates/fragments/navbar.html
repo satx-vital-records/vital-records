@@ -2,27 +2,69 @@
 <html xmlns:th="http://www.thymeleaf.org" lang="en" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
 <body>
     <th:block th:fragment="navbar">
-        <nav id="main-nav" style="display:block;">
-            <div class="row">
+        <div class="navbar navbar-fixed-top">
+            <div class="navbar-inner">
                 <div class="container">
-                    <div class=" logo smoothScroll mt-3 section-tItle"><a th:href="@{/}"><h6 class="name-logo">SATX Vital Records</h6></a>
+                    <!--<button class="btn btn-navbar" data-toggle="collapse" data-target="#app-nav-top-bar">-->
+                    <!--<span class="icon-bar"></span>-->
+                    <!--<span class="icon-bar"></span>-->
+                    <!--<span class="icon-bar"></span>-->
+                    <!--</button>-->
+                    <a href="dashboard.html" class="brand">SATX Vital Records</a>
+                    <!--<div id="app-nav-top-bar" class="nav-collapse">-->
+                    <!--<ul class="nav">-->
 
-                    </div>
-                    <div class="responsive"><i data-icon="m" class="ion-navicon-round"></i></div>
-                    <ul class="nav-menu list-unstyled">
-                        <li><a th:href="@{/}" class="smoothScroll">Home</a></li>
-                        <li><a th:href="@{/birth-certificate}" class="smoothScroll">Birth Certificates</a></li>
-                        <li><a th:href="@{/death-certificate}" class="smoothScroll">Death Certificates</a></li>
-                        <li><a th:href="@{/contact}" class="smoothScroll">Contact Us</a></li>
-                        <!--<li>-->
-                            <!--<form sec:authorize="isAuthenticated()" th:action="@{/logout}" th:method="post">-->
-                                <!--<button class="nav-btn btn-sm" style="margin-top: -10px">Logout</button>-->
-                            <!--</form>-->
-                        <!--</li>-->
-                    </ul>
+                    <!--<li class="dropdown">-->
+                    <!--<a href="#" class="dropdown-toggle" data-toggle="dropdown">TRY ME!-->
+                    <!--<b class="caret hidden-phone"></b>-->
+                    <!--</a>-->
+                    <!--<ul class="dropdown-menu">-->
+                    <!--<li>-->
+                    <!--<a href="dashboard.html">Dashboard</a>-->
+                    <!--</li>-->
+                    <!--<li>-->
+                    <!--<a href="form.html">Form</a>-->
+                    <!--</li>-->
+                    <!--<li>-->
+                    <!--<a href="custom-view.html">Custom View</a>-->
+                    <!--</li>-->
+                    <!--<li>-->
+                    <!--<a href="login.html">Login Page</a>-->
+                    <!--</li>-->
+                    <!--</ul>-->
+                    <!--</li>-->
+                    <!--<li class="dropdown">-->
+                    <!--<a href="#" class="dropdown-toggle" data-toggle="dropdown">CHANGE NAV BAR-->
+                    <!--<b class="caret hidden-phone"></b>-->
+                    <!--</a>-->
+                    <!--<ul class="dropdown-menu">-->
+                    <!--<li>-->
+                    <!--<a href="demo-horizontal-nav.html">Horizontal</a>-->
+                    <!--</li>-->
+                    <!--<li>-->
+                    <!--<a href="demo-horizontal-fixed-nav.html">Horizontal Fixed</a>-->
+                    <!--</li>-->
+                    <!--<li>-->
+                    <!--<a href="demo-vertical-nav.html">Vertical</a>-->
+                    <!--</li>-->
+                    <!--<li>-->
+                    <!--<a href="demo-vertical-fixed-nav.html">Vertical Fixed</a>-->
+                    <!--</li>-->
+                    <!--</ul>-->
+                    <!--</li>-->
+
+                    <!--</ul>-->
+                    <!--<ul class="nav pull-right">-->
+                    <!--<li>-->
+                    <!--<a href="login.html">Logout</a>-->
+                    <!--</li>-->
+
+                    <!--</ul>-->
+                    <!--</div>-->
                 </div>
             </div>
-        </nav>
+        </div>
+
     </th:block>
 </body>
 </html>

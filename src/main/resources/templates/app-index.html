@@ -1,13 +1,152 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" lang="en">
 
-<head th:replace="fragments/header :: header('Welcome Home!')"></head>
+<!--<head th:replace="fragments/header :: header('Welcome Home!')"></head>-->
+<head th:replace="fragments/admin-header :: admin-header('Welcome Home!')"></head>
 <body>
+    <div class=" navbar-fixed-top">
+        <div class="navbar-inner">
+            <div class="container">
+                <!--<button class="btn btn-navbar" data-toggle="collapse" data-target="#app-nav-top-bar">-->
+                <!--<span class="icon-bar"></span>-->
+                <!--<span class="icon-bar"></span>-->
+                <!--<span class="icon-bar"></span>-->
+                <!--</button>-->
+                <a href="dashboard.html" class="brand">SATX Vital Records</a>
+                <!--<div id="app-nav-top-bar" class="nav-collapse">-->
+                <!--<ul class="nav">-->
+
+                <!--<li class="dropdown">-->
+                <!--<a href="#" class="dropdown-toggle" data-toggle="dropdown">TRY ME!-->
+                <!--<b class="caret hidden-phone"></b>-->
+                <!--</a>-->
+                <!--<ul class="dropdown-menu">-->
+                <!--<li>-->
+                <!--<a href="dashboard.html">Dashboard</a>-->
+                <!--</li>-->
+                <!--<li>-->
+                <!--<a href="form.html">Form</a>-->
+                <!--</li>-->
+                <!--<li>-->
+                <!--<a href="custom-view.html">Custom View</a>-->
+                <!--</li>-->
+                <!--<li>-->
+                <!--<a href="login.html">Login Page</a>-->
+                <!--</li>-->
+                <!--</ul>-->
+                <!--</li>-->
+                <!--<li class="dropdown">-->
+                <!--<a href="#" class="dropdown-toggle" data-toggle="dropdown">CHANGE NAV BAR-->
+                <!--<b class="caret hidden-phone"></b>-->
+                <!--</a>-->
+                <!--<ul class="dropdown-menu">-->
+                <!--<li>-->
+                <!--<a href="demo-horizontal-nav.html">Horizontal</a>-->
+                <!--</li>-->
+                <!--<li>-->
+                <!--<a href="demo-horizontal-fixed-nav.html">Horizontal Fixed</a>-->
+                <!--</li>-->
+                <!--<li>-->
+                <!--<a href="demo-vertical-nav.html">Vertical</a>-->
+                <!--</li>-->
+                <!--<li>-->
+                <!--<a href="demo-vertical-fixed-nav.html">Vertical Fixed</a>-->
+                <!--</li>-->
+                <!--</ul>-->
+                <!--</li>-->
+
+                <!--</ul>-->
+                <!--<ul class="nav pull-right">-->
+                <!--<li>-->
+                <!--<a href="login.html">Logout</a>-->
+                <!--</li>-->
+
+                <!--</ul>-->
+                <!--</div>-->
+            </div>
+        </div>
+    </div>
+
+    <div id="body-container">
+        <div id="body-content">
+
+            <!--<div class="body-nav body-nav-horizontal body-nav-fixed">-->
+            <!--<div class="container">-->
+            <!--<ul>-->
+            <!--<li>-->
+            <!--<a href="#">-->
+            <!--<i class="icon-dashboard icon-large"></i> Dashboard-->
+            <!--</a>-->
+            <!--</li>-->
+            <!--<li>-->
+            <!--<a href="#">-->
+            <!--<i class="icon-calendar icon-large"></i> Schedule-->
+            <!--</a>-->
+            <!--</li>-->
+            <!--<li>-->
+            <!--<a href="#">-->
+            <!--<i class="icon-map-marker icon-large"></i> Map It-->
+            <!--</a>-->
+            <!--</li>-->
+            <!--<li>-->
+            <!--<a href="#">-->
+            <!--<i class="icon-tasks icon-large"></i> Widgets-->
+            <!--</a>-->
+            <!--</li>-->
+            <!--<li>-->
+            <!--<a href="#">-->
+            <!--<i class="icon-cogs icon-large"></i> Settings-->
+            <!--</a>-->
+            <!--</li>-->
+            <!--<li>-->
+            <!--<a href="#">-->
+            <!--<i class="icon-list-alt icon-large"></i> Forms-->
+            <!--</a>-->
+            <!--</li>-->
+            <!--<li>-->
+            <!--<a href="#">-->
+            <!--<i class="icon-bar-chart icon-large"></i> Charts-->
+            <!--</a>-->
+            <!--</li>-->
+            <!--</ul>-->
+            <!--</div>-->
+            <!--</div>-->
+
+
+            <section class="nav nav-page">
+                <div class="container">
+                    <div class="row">
+                        <div class="span7">
+                            <header class="page-header">
+                                <h3>Admin Dashboard<br/>
+                                    <small>Vital Records City of San Antonio</small>
+                                </h3>
+                            </header>
+                        </div>
+                        <div class="page-nav-options">
+                            <div class="span9">
+                                <!--<ul class="nav nav-pills">-->
+                                <!--<li>-->
+                                <!--<a href="#"></a>-->
+                                <!--</li>-->
+                                <!--</ul>-->
+                                <ul class="nav nav-tabs">
+                                    <li class="active">
+                                        <a href="#">All Applications</a>
+                                    </li>
+                                    <!--<li><a href="#">Maps</a></li>-->
+                                    <li><a href="#">Last Viewed Application</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
     <div class="container">
         <div class="row">
             <div class="col-xs-12 paddsection ml-auto mr-auto">
                 <h4>
-                    <small>Administrator Portal</small>
+                    <!--<small>Administrator Portal</small>-->
                 </h4>
                 <div class="table-responsive">
                     <table class="table">
@@ -42,10 +181,7 @@
                                         data-original-title="" title="">
                                     <i class="material-icons">assignment_ind</i>
                                 </button>
-                                <button type="button" rel="tooltip"
-                                        data-toggle="modal" data-target="#exampleModalLong"
-                                        class="btn btn-warning btn-link btn-just-icon btn-sm"
-                                        data-original-title="" title="">
+                                <button type="button"   class="btn btn-warning btn-link btn-just-icon btn-sm" data-toggle="modal" data-target="#exampleModalScrollable">
                                     <i class="material-icons">edit</i>
                                 </button>
                                 <!--<button type="button" rel="tooltip"-->
@@ -66,32 +202,33 @@
                     <!--</button>-->
 
                     <!-- Modal -->
-                    <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
-                        <div class="modal-dialog" role="document">
+                    <div class="modal fade" id="exampleModalScrollable" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-scrollable" role="document">
                             <div class="modal-content">
                                 <div class="modal-header">
-                                    <h5 class="modal-title">Comments</h5>
-                                    <!--<button type="button" class="close" data-dismiss="modal" aria-label="Close">-->
-                                        <!--<span aria-hidden="true">&times;</span>-->
-                                    <!--</button>-->
+                                    <h5 class="modal-title" id="exampleModalScrollableTitle">Comments</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
                                 </div>
                                 <div class="modal-body">
-                                    Enter comments here...
+                                    ...
                                 </div>
                                 <div class="modal-footer">
-                                    <button type="button" class="btn-sm btn-secondary" data-dismiss="modal">Close</button>
-                                    <button type="button" class="btn-sm btn-primary">Save changes</button>
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                    <button type="button" class="btn btn-primary">Save changes</button>
                                 </div>
                             </div>
                         </div>
                     </div>
+                    </div>
+                </div>
 
-
-
+</div>
                 </div>
             </div>
         </div>
-            <footer th:replace="fragments/footer :: footer"></footer>
-    </div>
+            <!--<footer th:replace="fragments/footer :: footer"></footer>-->
+            <footer th:replace="fragments/admin-footer :: admin-footer"></footer>
 </body>
 </html>
