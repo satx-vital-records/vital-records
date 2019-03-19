@@ -66,6 +66,14 @@
             <version>${itext.version}</version>
             <type>pom</type>
         </dependency>
+        <dependency>
+            <groupId>com.itextpdf</groupId>
+            <artifactId>pdftest</artifactId>
+            <version>7.1.0</version>
+        </dependency>
+        <!-- Thanks for using https://jar-download.com -->
+
+
     </dependencies>
 
     <build>
