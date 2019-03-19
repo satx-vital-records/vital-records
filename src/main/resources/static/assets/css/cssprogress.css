@@ -37,8 +37,8 @@
   display: block;
   float: left;
   width: 0%;
-  height: 100%;
-  background: #3798d9;
+  height: 120%;
+  background: #0bb8e4;
   box-shadow: inset 0px -1px 2px rgba(0, 0, 0, 0.1);
   -webkit-transition: width 0.8s ease-in-out;
           transition: width 0.8s ease-in-out;
@@ -48,8 +48,9 @@
   overflow: hidden;
   left: 0px;
   right: 0px;
-  color: rgba(0, 0, 0, 0.6);
-  font-size: 0.7em;
+  color: white;
+  /*color: rgba(0, 0, 0, 0.6);*/
+  font-size: 0.9em;
   text-align: center;
   text-shadow: 0px 1px rgba(0, 0, 0, 0.3);
 }
@@ -406,3 +407,37 @@
     box-shadow: 1px 0px 4px 0px #ffb74d;
   }
 }
+.btn-sun {
+  color: white;
+  background-color: #0bb8e4;
+  border-radius: 5px;
+  border: solid #1f3a4d 1px;
+}
+body{
+  height:100%;
+}
+.bdy-img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  position: relative;
+}
+
+.bdy-img::after {
+  content: "";
+  /*height: 100%;*/
+  background-image: url('../../imgs/images.jpg');
+  opacity: 0.3;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: absolute;
+  z-index: -1;
+
+}
+
