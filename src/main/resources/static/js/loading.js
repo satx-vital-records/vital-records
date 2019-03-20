@@ -5,7 +5,10 @@ $(document).ready(function () {
     const options = {
         onUploadDone: updateForm,
         maxSize: 10 * 1024 * 1024,
-        accept: '.pdf',
+        accept: [
+            '.pdf',
+            'image/*'
+        ],
         uploadInBackground: false,
         storeTo: {
             path: '/uploadedFiles/'
@@ -26,6 +29,7 @@ $(document).ready(function () {
         form.addEventListener('submit', function (e) {
             e.preventDefault();
             alert('Submitting: ' + fileInput.value);
+            console.log(fileInput.value);
         });
 
         function updateForm (result) {
