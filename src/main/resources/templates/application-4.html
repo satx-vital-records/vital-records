@@ -56,6 +56,36 @@
                                 <p class="align-left">Please enter the physical address where you need the
                                     certificate to be delivered.</p>
                                 <div class="row justify-content-between">
+                                    <div class="d-inline form-group string required certificate_delivery_name_1">
+                                        <div class="tooltip-wrapper-mobile"><label class="string required"
+                                                                                   for="certificate_delivery_first_name">First Name of Recipient</label><a
+                                            class="fa fa-question-circle tooltip-trigger" data-tippy=""
+                                            data-original-title="Please indicate the first name of the person receiving the document."></a>
+                                        </div>
+                                        <div class="tooltip-wrapper"><input data-validate="" class="string required"
+                                                                            type="text"
+                                                                            th:field="*{first_name}"
+                                                                            id="certificate_delivery_first_name"/><a
+                                            class="fa fa-question-circle tooltip-trigger" data-tippy=""
+                                            data-original-title="Please indicate the last name of the person receiving the document."></a>
+                                        </div>
+                                    </div>
+                                    <div class="d-inline form-group string required certificate_delivery_name_2">
+                                        <div class="tooltip-wrapper-mobile"><label class="string required"
+                                                                                   for="certificate_delivery_last_name">Last Name of Recipient</label><a
+                                            class="fa fa-question-circle tooltip-trigger" data-tippy=""
+                                            data-original-title="Please indicate the last name of the person receiving the document."></a>
+                                        </div>
+                                        <div class="tooltip-wrapper"><input data-validate="" class="string required"
+                                                                            type="text"
+                                                                            th:field="*{last_name}"
+                                                                            id="certificate_delivery_last_name"/><a
+                                            class="fa fa-question-circle tooltip-trigger" data-tippy=""
+                                            data-original-title="Please indicate the last name of the person receiving the document."></a>
+                                        </div>
+                                    </div>
+
+
                                     <div class="d-inline form-group string required certificate_delivery_address_1">
                                         <div class="tooltip-wrapper-mobile"><label class="string required"
                                                                                    for="certificate_delivery_address_1">Address
