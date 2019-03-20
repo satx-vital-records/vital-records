@@ -56,6 +56,12 @@ public class HomeController {
         return "app-index";
     }
 
+    @PostMapping("/app-index")
+    public String leaveComment(@ModelAttribute Application app) {
+        appDao.save(app);
+        return "redirect: app-index";
+    }
+
     @GetMapping("/bc-info")
     public String showBcInfoPage() {
         return "bc-info";
