@@ -157,4 +157,12 @@ public class ApplicationController {
         return "redirect:/upload";
     }
 
+    @GetMapping("/confirmation")
+    public String showConfirmation() {
+        return "confirmation";
+    }
+
+
+
+
 }
