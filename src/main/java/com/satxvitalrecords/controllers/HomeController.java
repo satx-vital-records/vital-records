@@ -56,11 +56,33 @@ public class HomeController {
         return "app-index";
     }
 
-//    @PostMapping("/app-index")
-//    public String viewAllApps( @RequestParam int deleteId) {
-//        postDao.delete(deleteId);
-//        return "redirect:/posts";
-//    }
+    @PostMapping("/app-index")
+    public String leaveComment(@ModelAttribute Application app) {
+        appDao.save(app);
+        return "redirect: app-index";
+    }
+
+    @GetMapping("/bc-info")
+    public String showBcInfoPage() {
+        return "bc-info";
+    }
+
+    @PostMapping("/bc-info")
+    public String startBcApp(@ModelAttribute Application app) {
+        appDao.save(app);
+        return "redirect: application-1";
+    }
+
+    @GetMapping("/dc-info")
+    public String showDcInfoPage() {
+        return "dc-info";
+    }
+
+    @PostMapping("/dc-info")
+    public String startDcApp(@ModelAttribute Application app) {
+        appDao.save(app);
+        return "redirect: application-1";
+    }
 
 
 
