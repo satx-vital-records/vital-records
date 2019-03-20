@@ -20,6 +20,7 @@ $(document).ready(function () {
         const fileInput = document.getElementById('fileupload');
         const nameBox = document.getElementById('nameBox');
         const urlBox = document.getElementById('urlBox');
+        let newUploadedFile ="";
 
         $('#picker').click(function (e) {
             e.preventDefault();
@@ -28,9 +29,13 @@ $(document).ready(function () {
 
         form.addEventListener('submit', function (e) {
             e.preventDefault();
-            alert('Submitting: ' + fileInput.value);
-            console.log(fileInput.value);
+            alert('The following documents are being submitted to SATX Vital Records: ' + fileInput.value);
+
+            newUploadedFile = fileInput.value;
+            $('#fileupload').val(newUploadedFile);
         });
+
+
 
         function updateForm (result) {
             const fileData = result.filesUploaded[0];
