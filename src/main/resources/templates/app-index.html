@@ -142,93 +142,154 @@
                     </div>
                 </div>
             </section>
-    <div class="container">
-        <div class="row">
-            <div class="col-xs-12 paddsection ml-auto mr-auto">
-                <h4>
-                    <!--<small>Administrator Portal</small>-->
-                </h4>
-                <div class="table-responsive">
-                    <table class="table">
-                        <thead>
-                        <tr>
-                            <th class="text-center">#</th>
-                            <th>Record Type</th>
-                            <th>Request Date</th>
-                            <th>Name</th>
-                            <th>Form-Type</th>
-                            <th>DOB</th>
-                            <th>Requestor</th>
-                            <th>Relationship</th>
-                            <th class="text-right">Status</th>
-                            <th class="text-right">Actions</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        <tr th:each="app : ${apps}">
-                            <td th:text="${app.id}"></td>
-                            <td th:text="${app.record_type}"></td>
-                            <td>Date of Request</td>
-                            <td>Requestor</td>
-                            <td th:text="${app.form_type}"></td>
-                            <td>Date of Birth</td>
-                            <td th:text="${app.last_name} + ' ' + ${app.first_name}"></td>
-                            <td th:text="${app.record_relationship}"></td>
-                            <td>Current Status</td>
-                            <td class="td-actions text-right">
-                                <button type="button" rel="tooltip"
-                                        class="btn btn-info btn-link btn-just-icon btn-sm"
-                                        data-original-title="" title="">
-                                    <i class="material-icons">assignment_ind</i>
-                                </button>
-                                <button type="button"   class="btn btn-warning btn-link btn-just-icon btn-sm" data-toggle="modal" data-target="#exampleModalScrollable">
-                                    <i class="material-icons">edit</i>
-                                </button>
-                                <!--<button type="button" rel="tooltip"-->
+            <div class="page container">
+                <div class="row">
+                    <div class="span18 text-center">
+                        <div class="blockoff-left">
+                            <legend class="lead">
+                                Welcome Sarah
+                            </legend>
+                            <p>
+                                Admin blurb.... Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                                tempor
+                                incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+                                exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <script type="text/javascript">
+                    google.load('visualization', '1', {'packages': ['corechart']});
+                    google.setOnLoadCallback(drawVisualization);
+
+                    function drawVisualization() {
+                        visualization_data = new google.visualization.DataTable();
+
+                        visualization_data.addColumn('string', 'Task');
+
+                        visualization_data.addColumn('number', 'Hours per Day');
+
+
+                        visualization_data.addRow(['Completed', 11]);
+
+                        visualization_data.addRow(['Pending', 2]);
+
+                        visualization_data.addRow(['Mailed', 2]);
+
+                        visualization_data.addRow(['Approved', 2]);
+
+                        visualization_data.addRow(['In Progress', 7]);
+
+
+                        visualization = new google.visualization.PieChart(document.getElementById('piechart'));
+
+
+                        visualization.draw(visualization_data, {title: 'My Daily Activities', height: 260});
+
+                    }
+                </script>
+
+                <div class="box">
+                    <!--<div class="box-header">-->
+                        <!--<i class="icon-bar-chart"></i>-->
+                        <!--<h5>SATXVR Chart</h5>-->
+                    <!--</div>-->
+                    <div class="box-content">
+                        <div id="piechart"></div>
+                    </div>
+                </div>
+
+
+                <div class="row">
+                    <div class="col-xs-12 paddsection ml-auto mr-auto">
+                        <h4>
+                            <!--<small>Administrator Portal</small>-->
+                        </h4>
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead>
+                                <tr>
+                                    <th class="text-center">#</th>
+                                    <th>Record Type</th>
+                                    <th>Request Date</th>
+                                    <th>Name</th>
+                                    <th>Form-Type</th>
+                                    <th>DOB</th>
+                                    <th>Requestor</th>
+                                    <th>Relationship</th>
+                                    <th class="text-right">Status</th>
+                                    <th class="text-right">Actions</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr th:each="app : ${apps}">
+                                    <td th:text="${app.id}"></td>
+                                    <td th:text="${app.record_type}"></td>
+                                    <td>Date of Request</td>
+                                    <td>Requestor</td>
+                                    <td th:text="${app.form_type}"></td>
+                                    <td>Date of Birth</td>
+                                    <td th:text="${app.last_name} + ' ' + ${app.first_name}"></td>
+                                    <td th:text="${app.record_relationship}"></td>
+                                    <td>Current Status</td>
+                                    <td class="td-actions text-right">
+                                        <button type="button" rel="tooltip"
+                                                class="btn btn-info btn-link btn-just-icon btn-sm"
+                                                data-original-title="" title="">
+                                            <i class="material-icons">assignment_ind</i>
+                                        </button>
+                                        <button type="button" class="btn btn-warning btn-link btn-just-icon btn-sm"
+                                                data-toggle="modal" data-target="#exampleModalScrollable">
+                                            <i class="material-icons">edit</i>
+                                        </button>
+                                        <!--<button type="button" rel="tooltip"-->
                                         <!--class="btn btn-danger btn-link btn-just-icon btn-sm"-->
                                         <!--data-original-title="" title="">-->
-                                    <!--<i class="material-icons">close</i>-->
-                                <!--</button>-->
-                            </td>
-                        </tr>
-                        </tbody>
-                    </table>
+                                        <!--<i class="material-icons">close</i>-->
+                                        <!--</button>-->
+                                    </td>
+                                </tr>
+                                </tbody>
+                            </table>
 
 
+                            <!--<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalLong">-->
+                            <!--Launch demo modal-->
+                            <!--</button>-->
 
-
-                    <!--<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalLong">-->
-                        <!--Launch demo modal-->
-                    <!--</button>-->
-
-                    <!-- Modal -->
-                    <div class="modal fade" id="exampleModalScrollable" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
-                        <div class="modal-dialog modal-dialog-scrollable" role="document">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h5 class="modal-title" id="exampleModalScrollableTitle">Comments</h5>
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
-                                </div>
-                                <div class="modal-body">
-                                    ...
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                    <button type="button" class="btn btn-primary">Save changes</button>
+                            <!-- Modal -->
+                            <div class="modal fade" id="exampleModalScrollable" tabindex="-1" role="dialog"
+                                 aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
+                                <div class="modal-dialog modal-dialog-scrollable" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="exampleModalScrollableTitle">Comments</h5>
+                                            <button type="button" class="close" data-dismiss="modal"
+                                                    aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body">
+                                            ...
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">
+                                                Close
+                                            </button>
+                                            <button type="button" class="btn btn-primary">Save changes</button>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    </div>
-                </div>
 
-</div>
                 </div>
             </div>
         </div>
-            <footer th:replace="fragments/admin-footer :: admin-footer"></footer>
-            <!--<footer th:replace="fragments/test-footer :: test-footer"></footer>-->
+    </div>
+    <footer th:replace="fragments/admin-footer :: admin-footer"></footer>
+    <!--<footer th:replace="fragments/test-footer :: test-footer"></footer>-->
+
 </body>
 </html>

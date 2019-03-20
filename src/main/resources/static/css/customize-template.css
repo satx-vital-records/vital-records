@@ -10919,7 +10919,7 @@ body > #body-container {
         margin-left: 0;
     }
     body .nav-page .page-nav-options {
-        height: auto;
+        height: auto !important;
     }
     body .nav-page .btn-navbar {
         font-size: 18px;
