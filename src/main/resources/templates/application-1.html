@@ -22,8 +22,7 @@
                                         <form th:action="@{/login}" th:method="get"><button class="btn-link btn" style="margin-top: 8px">Login</button></form>
                                     </li>
                                     <li sec:authorize="!isAuthenticated()">
-                                        <form th:action="@{/logout}" th:method="post">
-                                            <button class="btn-link btn" style="margin-top: 8px">Logout</button>
+                                        <form th:action="@{/logout}" th:method="post"><button class="btn-link btn" style="margin-top: 8px">Logout</button>
                                         </form>
                                     </li>
                                 </ul>
@@ -212,7 +211,7 @@
                                     <div class="tooltip-wrapper"><select class="select required"
                                                                          data-validate=""
                                                                          id="certificate_record_copies"
-                                                                         th:field="${num_of_copies}">
+                                                                         th:text="${num_of_copies}">
                                         <option value="">Please select</option>
                                         <option th:value="1">1</option>
                                         <option th:value="2">2</option>

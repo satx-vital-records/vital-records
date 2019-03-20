@@ -56,6 +56,7 @@ public class ApplicationController {
 
     @PostMapping("/application-1")
     public String saveRecord(Application app){
+
         User user = userDao.findOne(1L);
         app.setUser(user);
         appDao.save(app);
