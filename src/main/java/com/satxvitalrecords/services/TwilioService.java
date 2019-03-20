@@ -4,8 +4,11 @@ import com.satxvitalrecords.models.User;
 import com.twilio.Twilio;
 import com.twilio.rest.api.v2010.account.Message;
 import com.twilio.type.PhoneNumber;
+import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 
+
+@Service ("textService")
 public class TwilioService {
 
     public static final String ACCOUNT_SID = "ACcc5401977e40cf09d248c89beac282bf";
