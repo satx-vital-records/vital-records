@@ -35,8 +35,8 @@ public class ApplicationController {
     @Autowired
     private PdfStamper pdfStamper;
 
-    @Autowired
-    private GooglePlacesTest googlePlace;
+//    @Autowired
+//    private GooglePlacesTest googlePlace;
 
 
 //    @GetMapping("/application-1")
