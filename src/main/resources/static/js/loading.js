@@ -3,13 +3,10 @@ $(document).ready(function () {
     const apikey = 'AwfYCrCySAKmnFDNDv0Uiz';
     const client = filestack.init(apikey);
     const options = {
-        onUploadDone: updateForm,
-        maxSize: 10 * 1024 * 1024,
-        accept: '.pdf',
+        maxFiles: 20,
         uploadInBackground: false,
-        storeTo: {
-            path: '/uploadedFiles/'
-        }
+        onOpen: () => console.log('opened!'),
+        onUploadDone: (res) => console.log(res), updateForm,
     };
     const picker = client.picker(options);
 
@@ -46,5 +43,7 @@ $(document).ready(function () {
             urlBox.appendChild(document.createTextNode('Uploaded to: '));
             urlBox.appendChild(url);
         }
+
+
 });
 
