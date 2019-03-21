@@ -254,4 +254,20 @@ public class Application {
   public void setUser(User user) {
     this.user = user;
   }
+
+  public Status getStatus() {
+    return status;
+  }
+
+  public void setStatus(Status status) {
+    this.status = status;
+  }
+
+  public Record getRecord() {
+    return record;
+  }
+
+  public void setRecord(Record record) {
+    this.record = record;
+  }
 }

@@ -75,18 +75,15 @@
             <artifactId>twilio</artifactId>
             <version>7.36.2</version>
         </dependency>
-
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-mail</artifactId>
             <version>2.1.2.RELEASE</version>
         </dependency>
-
-            <dependency>
-                <groupId>se.walkercrou</groupId>
-                <artifactId>google-places-api-java</artifactId>
-                <version>2.1.7</version>
-            </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-security</artifactId>
+        </dependency>
 
     </dependencies>
     <build>
