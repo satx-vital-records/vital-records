@@ -27,6 +27,13 @@
 
                 <div class="row justify-content-center">
 
+                    <div th:if="${param.error}">
+                        Invalid Username and/or Password
+                    </div>
+                    <div th:if="${param.logout}">
+                        You have been logged out.
+                    </div>
+
                     <form th:action="@{/login}" method="post">
                         <div class="row mt-5 form-bgc">
                             <div class="row align-items-center">
