@@ -82,6 +82,12 @@
             <version>2.1.2.RELEASE</version>
         </dependency>
 
+            <dependency>
+                <groupId>se.walkercrou</groupId>
+                <artifactId>google-places-api-java</artifactId>
+                <version>2.1.7</version>
+            </dependency>
+
     </dependencies>
     <build>
         <plugins>
