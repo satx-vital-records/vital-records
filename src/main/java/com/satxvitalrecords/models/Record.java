@@ -116,6 +116,28 @@ public class Record {
     this.application = application;
   }
 
+  public Record(Long id, Application application, String first_name, String mid_name, String last_name, Date date_of_birth, Date date_of_death, String sex, String birth_city, String birth_county, String death_city, String death_county, String parent1_first_name, String parent1_mid_name, String parent1_last_name, String parent2_first_name, String parent2_mid_name, String parent2_last_name, Date date_of_request) {
+    this.id = id;
+    this.application = application;
+    this.first_name = first_name;
+    this.mid_name = mid_name;
+    this.last_name = last_name;
+    this.date_of_birth = date_of_birth;
+    this.date_of_death = date_of_death;
+    this.sex = sex;
+    this.birth_city = birth_city;
+    this.birth_county = birth_county;
+    this.death_city = death_city;
+    this.death_county = death_county;
+    this.parent1_first_name = parent1_first_name;
+    this.parent1_mid_name = parent1_mid_name;
+    this.parent1_last_name = parent1_last_name;
+    this.parent2_first_name = parent2_first_name;
+    this.parent2_mid_name = parent2_mid_name;
+    this.parent2_last_name = parent2_last_name;
+    this.date_of_request = date_of_request;
+  }
+
   public long getId() {
     return id;
   }
@@ -270,4 +292,7 @@ public class Record {
   public void setApplication(Application application) {
     this.application = application;
   }
+
+
+
 }

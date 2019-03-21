@@ -1,354 +1,428 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
 <head th:replace="fragments/test-header :: test-header('Application')"/>
 <body>
-    <div class=" navbar-fixed-top">
-        <div class="navbar-inner">
-            <div class="container"></div>
-        </div>
+  <div class=" navbar-fixed-top">
+    <div class="navbar-inner">
+      <div class="container"></div>
     </div>
-    <div id="body-container">
-        <div id="body-content">
-            <section class="nav nav-page">
-                <div class="container">
-                    <div class="row">
-                        <div class="span7">
-                            <header class="page-header">
-                                <h3>Records Application<br/>
-                                    <small>Vital Records City of San Antonio</small>
-                                </h3>
-                            </header>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-
-            <div class="page container">
-                <!--<section class=" paddsection">-->
-                <div class="cssProgress ">
-                    <div class="progress1">
-                        <div class="cssProgress-bar" data-percent="15" style="width: 15%;">
-                            <span class="cssProgress-label">15%</span>
-                        </div>
-                    </div>
-                </div>
-                <form accept-charset="UTF-8" th:action="@{/application-1}"
-                      class="simple_form new_certificate"
-                      id="new_certificate1" th:method="post" th:object="${app}" novalidate="novalidate">
-                    <!--<input name="utf8" type="hidden" value="✓"/><input-->
-                    <!--name="authenticity_token" type="hidden"-->
-                    <!--value="GBkZnnvogYBnoELufrriChXdsyeZ975veN9Q1hrDy5ov+pkPlLS8VIQiZjTnU/pzR6WYK8uVu/UzabA9pT+vYg=="/>-->
-                    <div class="text-center py-4"><h2 class="h2"> Birth Certificate Order Form</h2></div>
-                    <hr/>
-
-                    <section class="section pb-2">
-                        <div class="row">
-                            <div class="section__container">
-                            <h4 class="h4">1. Your relationship with person on record</h4>
-                            <div class=" row justify-content-between">
-
-                                <div class="d-inline p-2 form-group select required certificate_record_person_relationship">
-                                    <div class="tooltip-wrapper-mobile"><label
-                                            class="select required pr-1"
-                                            for="certificate_record_person_relationship">Relationship with the person
-                                        listed on record?</label><a
-                                            data-original-title="If you are requesting the  birth certificate for yourself, please select “Myself”. In all other cases, please specify your relationship to the person on record. For example if you are a mother requesting the certificate for your child, select &quot;I am the Mother&quot;. It is important to note that if you are not a direct family member, you may have to provide additional proof of your relationship with the person on record."></a>
-                                    </div>
-                                    <div class="tooltip-wrapper">
-                                        <input type="text" th:field="*{record_relationship}"
-                                               name="record_relationship"
-                                               id="certificate_record_person_relationship"/>
-
-                                        <!--<select class="select required"-->
-                                        <!--data-validate=""-->
-                                        <!--id="certificate_record_person_relationship"-->
-                                        <!--name="certificate[record_person_relationship]">-->
-                                        <!--<option value="">Please select</option>-->
-                                        <!--<option value="Myself">Myself</option>-->
-                                        <!--<option value="I am the Son">I am the Son</option>-->
-                                        <!--<option value="I am the Daughter">I am the Daughter</option>-->
-                                        <!--<option value="I am the Father">I am the Father</option>-->
-                                        <!--<option value="I am the Mother">I am the Mother</option>-->
-                                        <!--<option value="I am the Spouse">I am the Spouse</option>-->
-                                        <!--<option value="I am the Brother">I am the Brother</option>-->
-                                        <!--<option value="I am the Sister">I am the Sister</option>-->
-                                        <!--<option value="I am the Grandchild">I am the Grandchild</option>-->
-                                        <!--<option value="I am the Maternal Grandparent">I am the Maternal-->
-                                        <!--Grandparent-->
-                                        <!--</option>-->
-                                        <!--<option value="I am the Paternal Grandparent">I am the Paternal-->
-                                        <!--Grandparent-->
-                                        <!--</option>-->
-                                        <!--<option value="I am the Legal guardian">I am the Legal guardian</option>-->
-                                        <!--<option value="I am the Legal representative">I am the Legal-->
-                                        <!--representative-->
-                                        <!--</option>-->
-                                        <!--<option value="Other (specify)">Other (specify)</option>-->
-                                        <!--</select><a class="fa fa-question-circle tooltip-trigger" data-original-title="If you are requesting the  birth certificate for yourself, please select “Myself”. In all other cases, please specify your relationship to the person on record. For example if you are a mother requesting the certificate for your child, select &quot;I am the Mother&quot;. It is important to note that if you are not a direct family member, you may have to provide additional proof of your relationship with the person on record."-->
-                                        <!--data-tippy=""></a>-->
-                                    </div>
-                                </div>
-
-                                <!--<div id="record_person_relationship_specify" style="display: none;">-->
-                                <!--<div class="d-inline form-group string optional certificate_record_person_relationship_specify">-->
-                                <!--<div class="tooltip-wrapper-mobile"><label-->
-                                <!--class="string optional required"-->
-                                <!--for="certificate_record_person_relationship_specify">Specify</label>-->
-                                <!--</div>-->
-                                <!--<div class="tooltip-wrapper"><input class="string optional"-->
-                                <!--data-validate=""-->
-                                <!--id="certificate_record_person_relationship_specify"-->
-                                <!--maxlength="45"-->
-                                <!--name="certificate[record_person_relationship_specify]"-->
-                                <!--size="45"-->
-                                <!--type="text"/>-->
-                                <!--</div>-->
-                                <!--</div>-->
-                                <!--</div>-->
-                                <div class="d-inline p-2 form-group select required certificate_record_person_relationship">
-                                    <div class="tooltip-wrapper-mobile"><label class="select required"
-                                                                               for="certificate_record_person_relationship">Please
-                                        select the certificate type you require</label><a
-
-                                            data-original-title="Standard size format is the most commonly issued because it satisfies most purposes,; Long Form is used most often to obtain a passport, for purposes of dual citizenship, Indian Registry and immigration"
-                                            data-tippy=""></a>
-                                    </div>
-                                    <!--<input type="text" th:field="*{form_type}" name="form_type"/>-->
-                                    <div class="tooltip-wrapper"><select class="select required"
-                                    data-validate=""
-                                    id="certificate_type_long_standard"
-                                    th:field="*{form_type}">
-                                    <option value="">Please select</option>
-                                    <option th:value="Short_abstract">Standard size</option>
-                                    <option th:value="Long">Long form</option>
-                                    <option th:value="certified_copy">Certified Copy (Death certificates only)</option>
-
-                                    </select><a class="fa fa-question-circle tooltip-trigger" data-original-title="Standard size format is the most commonly issued because it satisfies most purposes,; Long Form is used most often to obtain a passport, for purposes of dual citizenship, Indian Registry and immigration"
-                                    data-tippy=""></a>
-                                    </div>
-                                </div>
-
-
-                                <div class="d-inline p-2 form-group select required certificate_record_person_relationship">
-                                    <div class="tooltip-wrapper-mobile"><label class="select required"
-                                                                               for="certificate_record_person_relationship">Why
-                                        are
-                                        you applying for a certificate?</label><a
-                                            data-original-title="This information is required by the Health Department. If the reason for applying is not listed here, please select “other."
-                                            data-tippy=""></a>
-                                    </div>
-                                    <input type="text" th:field="*{purpose}" name="purpose"/>
-                                    <!--<div class="tooltip-wrapper"><select class="select required"-->
-                                    <!--data-validate=""-->
-                                    <!--id="certificate_purpose"-->
-                                    <!--name="certificate_purpose">-->
-                                    <!--<option value="">Please select</option>-->
-                                    <!--<option value="Passport">Passport</option>-->
-                                    <!--<option value="Social Security">Social Security</option>-->
-                                    <!--<option value="Retirement">Retirement</option>-->
-                                    <!--<option value="Employment">Employment</option>-->
-                                    <!--<option value="Working Papers">Working Papers</option>-->
-                                    <!--<option value="School Entrance">School Entrance</option>-->
-                                    <!--<option value="Driver's License">Driver's License</option>-->
-                                    <!--<option value="Marriage License">Marriage License</option>-->
-                                    <!--<option value="Welfare Assistance">Welfare Assistance</option>-->
-                                    <!--<option value="Veteran's Benefits">Veteran's Benefits-->
-                                    <!--</option>-->
-                                    <!--<option value="Court Proceeding">Court Proceeding-->
-
-                                    <!--</option>-->
-                                    <!--<option value="Entrance into Armed Forces">Entrance into Armed Forces</option>-->
-                                    <!--<option value="International Use">International Use-->
-                                    <!--</option>-->
-                                    <!--<option value="Insurance">Insurance-->
-                                    <!--</option>-->
-                                    <!--<option value="Genealogy">Genealogy-->
-                                    <!--</option>-->
-                                    <!--<option value="Other (specify)">Other</option>-->
-                                    <!--</select><a class="fa fa-question-circle tooltip-trigger" data-original-title="If you are requesting the  birth certificate for yourself, please select “Myself”. In all other cases, please specify your relationship to the person on record. For example if you are a mother requesting the certificate for your child, select &quot;I am the Mother&quot;. It is important to note that if you are not a direct family member, you may have to provide additional proof of your relationship with the person on record."-->
-                                    <!--data-tippy=""></a>-->
-                                    <!--</div>-->
-                                    <!--</div>-->
-
-                                    <div id="certificate_purpose_reason" style="display: none;">
-                                        <div class="form-group string optional certificate_purpose_specify">
-                                            <div class="tooltip-wrapper-mobile"><label
-                                                    class="string optional required"
-                                            >Specify</label>
-                                            </div>
-                                            <div class="tooltip-wrapper"><input class="string optional"
-                                                                                data-validate=""
-                                                                                id="certificate_purpose-specify"
-                                                                                maxlength="45"
-                                                                                name="certificate[record_person_relationship_specify]"
-                                                                                size="45"
-                                                                                type="text"/>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-
-                            <div class="row justify-content-center">
-                                <div class="d-inline p-2 form-group select required certificate_record_copies">
-                                    <div class="tooltip-wrapper-mobile"><label class="select required"
-                                                                               for="certificate_record_copies">Number
-                                        of Certified Copies needed</label><a
-                                            data-original-title="Indicate how many copies of the certificate you need. A certified copy is a copy of a primary document, that has on it an endorsement or certificate marking that it is a true copy of the primary document. It does not certify that the primary document is genuine. It is only a true copy of the primary document. A certified copy may be required for official government or court purposes and for commercial purposes."
-                                            data-tippy=""></a>
-                                    </div>
-                                    <div class="tooltip-wrapper"><select class="select required"
-                                                                         data-validate=""
-                                                                         id="certificate_record_copies"
-                                                                         name="certificate[record_copies]">
-                                        <option value="">Please select</option>
-                                        <option value="1">1</option>
-                                        <option value="2">2</option>
-                                        <option value="3">3</option>
-                                        <option value="4">4</option>
-                                    </select><a
-                                            data-original-title="Indicate how many copies of the certificate you need. A certified copy is a copy of a primary document, that has on it an endorsement or certificate marking that it is a true copy of the primary document. It does not certify that the primary document is genuine. It is only a true copy of the primary document. A certified copy may be required for official government or court purposes and for commercial purposes."
-                                            data-tippy=""></a>
-                                    </div>
-                                </div>
-
-                            </div>
-                            </div>
-                        </div>
-                        <!--</div>-->
-                    </section>
-                    <hr/>
-
-                    <!--<section class="section pt-2">-->
-                    <!--<div class="row">-->
-                    <!--<div class="section__container">-->
-                    <!--<h4 class="h4">6. Contact information</h4>-->
-                    <!--<p class="align-left">Enter your full name as shown on your ID/driver's license,-->
-                    <!--as well as your contact information.</p>-->
-
-                    <!--<div class="">-->
-                    <!--<div class="form-group string required certificate_contact_first_name col-xs-4">-->
-                    <!--<div class="tooltip-wrapper-mobile"><label class="string required"-->
-                    <!--for="certificate_contact_first_name">First-->
-                    <!--name</label></div>-->
-                    <!--<div class="tooltip-wrapper"><input class="string required"-->
-                    <!--data-validate="" id="certificate_contact_first_name"-->
-                    <!--th:field="*{first_name}"-->
-                    <!--type="text"/>-->
-                    <!--</div>-->
-                    <!--</div>-->
-                    <!--<div class="form-group string optional certificate_contact_middle_name col-xs-4">-->
-                    <!--<div class="tooltip-wrapper-mobile"><label class="string optional"-->
-                    <!--for="certificate_contact_middle_name">Middle-->
-                    <!--name</label></div>-->
-                    <!--<div class="tooltip-wrapper"><input class="string optional"-->
-                    <!--data-validate="" id="certificate_contact_middle_name"-->
-                    <!--name="certificate[contact_middle_name]"-->
-                    <!--type="text"/>-->
-                    <!--</div>-->
-                    <!--</div>-->
-                    <!--<div class="form-group string required certificate_contact_last_name col-xs-4">-->
-                    <!--<div class="tooltip-wrapper-mobile"><label class="string required"-->
-                    <!--for="certificate_contact_last_name">Last-->
-                    <!--name</label><a class="fa fa-question-circle tooltip-trigger"-->
-                    <!--data-original-title="Enter your full name as shown on your ID or driver´s license. Leave middle name empty if unknown."-->
-                    <!--data-tippy=""></a>-->
-                    <!--</div>-->
-                    <!--<div class="tooltip-wrapper"><input class="string required"-->
-                    <!--data-validate="" id="certificate_contact_last_name"-->
-                    <!--th:field="*{last_name}"-->
-                    <!--type="text"/><a-->
-                    <!--class="fa fa-question-circle tooltip-trigger"-->
-                    <!--data-original-title="Enter your full name as shown on your ID or driver´s license. Leave middle name empty if unknown."-->
-                    <!--data-tippy=""></a>-->
-                    <!--</div>-->
-                    <!--</div>-->
-                    <!--</div>-->
-
-
-                    <!--<div class="form-group tel required certificate_contact_phone">-->
-                    <!--<div class="tooltip-wrapper-mobile"><label class="tel required"-->
-                    <!--for="certificate_contact_phone">Phone-->
-                    <!--number</label><a class="fa fa-question-circle tooltip-trigger"-->
-                    <!--data-original-title="Please enter a valid contact phone number in case an agent needs to reach you regarding your application."-->
-                    <!--data-tippy=""></a>-->
-                    <!--</div>-->
-                    <!--<div class="tooltip-wrapper"><input class="string tel required phone-format"-->
-                    <!--data-validate=""-->
-                    <!--id="certificate_contact_phone"-->
-                    <!--maxlength="14"-->
-                    <!--th:field="*{last_name}"-->
-                    <!--type="text"/><a-->
-                    <!--class="fa fa-question-circle tooltip-trigger"-->
-                    <!--data-original-title="Please enter a valid contact phone number in case an agent needs to reach you regarding your application."-->
-                    <!--data-tippy=""></a>-->
-                    <!--</div>-->
-                    <!--</div>-->
-
-                    <!--<div class="form-group email required certificate_contact_email">-->
-                    <!--<div class="tooltip-wrapper-mobile"><label class="email required"-->
-                    <!--for="certificate_contact_email">Email-->
-                    <!--address</label><a class="fa fa-question-circle tooltip-trigger"-->
-                    <!--data-original-title="Specify your email address. It is very important that you provide a valid email, as all communication will be done via email, including your application package If the email address is incorrect, you will not be able to finalize your order and birth certificate will not be delivered."-->
-                    <!--data-tippy=""></a>-->
-                    <!--</div>-->
-                    <!--<div class="tooltip-wrapper"><input class="string email required"-->
-                    <!--data-validate=""-->
-                    <!--id="certificate_contact_email"-->
-                    <!--th:field="*{last_name}"-->
-                    <!--type="email"/><a-->
-                    <!--class="fa fa-question-circle tooltip-trigger"-->
-                    <!--data-original-title="Specify your email address. It is very important that you provide a valid email, as all communication will be done via email, including your application package If the email address is incorrect, you will not be able to finalize your order and birth certificate will not be delivered."-->
-                    <!--data-tippy=""></a>-->
-                    <!--</div>-->
-                    <!--</div>-->
-                    <!--<div class="form-group email required certificate_contact_email_confirmation">-->
-                    <!--<div class="tooltip-wrapper-mobile"><label class="email required"-->
-                    <!--for="certificate_contact_email_confirmation">Confirm-->
-                    <!--email address</label><a class="fa fa-question-circle tooltip-trigger"-->
-                    <!--data-original-title="Please re-enter your email address."-->
-                    <!--data-tippy=""></a>-->
-                    <!--</div>-->
-                    <!--<div class="tooltip-wrapper"><input class="string email required"-->
-                    <!--data-validate=""-->
-                    <!--id="certificate_contact_email_confirmation"-->
-                    <!--name="certificate[contact_email_confirmation]"-->
-                    <!--type="email"/><a-->
-                    <!--class="fa fa-question-circle tooltip-trigger"-->
-                    <!--data-original-title="Please re-enter your email address."-->
-                    <!--data-tippy=""></a></div>-->
-                    <div class="row justify-content-around pt-5">
-                        <div class=" d-flex align-content-center flex-wrap">
-                            <a th:href="@{/application-1}"><input type="submit" name="commit"
-                                                                  value="CONTINUE APPLICATION"
-                                                                  id="continue-button1"
-                                                                  class="p-2 btn-sun btn--large is-block disable-resubmit"
-                                                                  data-disable-with="CONTINUE APPLICATION"/></a>
-                        </div>
-                        <div class=" d-flex align-content-center flex-wrap">
-
-                            <input type="submit" name="commit"
-                                   value="SAVE APPLICATION"
-                                   id="save-button1"
-                                   class="p-2 btn-sun btn--large is-block disable-resubmit"
-                                   data-disable-with="SAVE APPLICATION"/>
-                        </div>
-                    </div>
-                    <!--</div>-->
-                    <!--</div>-->
-
-                    <!--</section>-->
-                </form>
-
-                <!--</section>-->
-                <!--</div>-->
-                <!--</div>-->
+  </div>
+  <div id="body-container">
+    <div id="body-content">
+      <section class="nav nav-page">
+        <div class="container">
+          <div class="row">
+            <div class="span7">
+              <header class="page-header">
+                <h3>Records Application<br/>
+                  <small>Vital Records City of San Antonio</small>
+                </h3>
+                <ul>
+                  <li sec:authorize="isAuthenticated()">
+                    <form th:action="@{/login}" th:method="get">
+                      <button class="btn-link btn" style="margin-top: 8px">Login</button>
+                    </form>
+                  </li>
+                  <li sec:authorize="!isAuthenticated()">
+                    <form th:action="@{/logout}" th:method="post">
+                      <button class="btn-link btn" style="margin-top: 8px">Logout</button>
+                    </form>
+                  </li>
+                </ul>
+              </header>
             </div>
+          </div>
         </div>
-        <div th:replace="fragments/admin-footer :: admin-footer"></div>
+      </section>
+
+
+      <div class="page container">
+        <!--<section class=" paddsection">-->
+        <div class="cssProgress ">
+          <div class="progress1">
+            <div class="cssProgress-bar" data-percent="15" style="width: 15%;">
+              <span class="cssProgress-label">15%</span>
+            </div>
+          </div>
+        </div>
+        <form accept-charset="UTF-8" th:action="@{/application-1}"
+              class="simple_form new_certificate"
+              id="new_certificate1" th:method="post" th:object="${app}" novalidate="novalidate">
+          <!--<input name="utf8" type="hidden" value="✓"/><input-->
+          <!--name="authenticity_token" type="hidden"-->
+          <!--value="GBkZnnvogYBnoELufrriChXdsyeZ975veN9Q1hrDy5ov+pkPlLS8VIQiZjTnU/pzR6WYK8uVu/UzabA9pT+vYg=="/>-->
+          <div class="text-center py-4"><h2 class="h2"> Birth Certificate Order Form</h2></div>
+          <hr/>
+
+          <section class="section pb-2">
+            <div class="row">
+              <div class="section__container">
+                <h4 class="h4">1. Your relationship with person on record</h4>
+                <div class=" row justify-content-between">
+
+                  <div class="d-inline p-2 form-group select required certificate_record_person_relationship">
+                    <div class="tooltip-wrapper-mobile"><label
+                        class="select required pr-1"
+                        for="certificate_record_person_relationship">Relationship with the person
+                      listed on record?</label><a
+                        data-original-title="If you are requesting the  birth certificate for yourself, please select “Myself”. In all other cases, please specify your relationship to the person on record. For example if you are a mother requesting the certificate for your child, select &quot;I am the Mother&quot;. It is important to note that if you are not a direct family member, you may have to provide additional proof of your relationship with the person on record."></a>
+                    </div>
+                    <div class="tooltip-wrapper">
+                      <!--<input type="text" th:field="*{record_relationship}"-->
+                      <!--name="record_relationship"-->
+                      <!--id="certificate_record_person_relationship"/>-->
+
+                      <select class="select required"
+                              data-validate=""
+                              id="certificate_record_person_relationship"
+                              th:field="*{record_relationship}">
+                        <option value="">Please select</option>
+                        <option th:value="Myself">Myself</option>
+                        <option th:value="Son">I am the Son</option>
+                        <option th:value="Daughter">I am the Daughter</option>
+                        <option th:value="Father">I am the Father</option>
+                        <option th:value="Mother">I am the Mother</option>
+                        <option th:value="Spouse">I am the Spouse</option>
+                        <option th:value="Brother">I am the Brother</option>
+                        <option th:value="Sister">I am the Sister</option>
+                        <option th:value="Grandchild">I am the Grandchild</option>
+                        <option th:value="Maternal_Grandparent">I am the Maternal
+                          Grandparent
+                        </option>
+                        <option th:value="Paternal_Grandparent">I am the Paternal
+                          Grandparent
+                        </option>
+                        <option th:value="Legal_guardian">I am the Legal guardian</option>
+                        <option th:value="Legal_representative">I am the Legal
+                          representative
+                        </option>
+                        <option th:value="Other">Other (specify)</option>
+                      </select><a class="fa fa-question-circle tooltip-trigger"
+                                  data-original-title="If you are requesting the  birth certificate for yourself, please select “Myself”. In all other cases, please specify your relationship to the person on record. For example if you are a mother requesting the certificate for your child, select &quot;I am the Mother&quot;. It is important to note that if you are not a direct family member, you may have to provide additional proof of your relationship with the person on record."
+                                  data-tippy=""></a>
+                    </div>
+                  </div>
+
+                  <!--<div id="record_person_relationship_specify" style="display: none;">-->
+                  <!--<div class="d-inline form-group string optional certificate_record_person_relationship_specify">-->
+                  <!--<div class="tooltip-wrapper-mobile"><label-->
+                  <!--class="string optional required"-->
+                  <!--for="certificate_record_person_relationship_specify">Specify</label>-->
+                  <!--</div>-->
+                  <!--<div class="tooltip-wrapper"><input class="string optional"-->
+                  <!--data-validate=""-->
+                  <!--id="certificate_record_person_relationship_specify"-->
+                  <!--maxlength="45"-->
+                  <!--name="certificate[record_person_relationship_specify]"-->
+                  <!--size="45"-->
+                  <!--type="text"/>-->
+                  <!--</div>-->
+                  <!--</div>-->
+                  <!--</div>-->
+                  <div class="d-inline p-2 form-group select required certificate_record_person_relationship">
+                    <div class="tooltip-wrapper-mobile"><label class="select required"
+                                                               for="certificate_record_person_relationship">Please
+                      select the certificate type you require</label><a
+
+                        data-original-title="Standard size format is the most commonly issued because it satisfies most purposes,; Long Form is used most often to obtain a passport, for purposes of dual citizenship, Indian Registry and immigration"
+                        data-tippy=""></a>
+                    </div>
+                    <!--<input type="text" th:field="*{form_type}" name="form_type"/>-->
+                    <div class="tooltip-wrapper"><select class="select required"
+                                                         data-validate=""
+                                                         id="certificate_type_long_standard"
+                                                         th:field="*{form_type}">
+                      <option value="">Please select</option>
+                      <option th:value="Abstract">Abstract (Standard)</option>
+                      <option th:value="Long">Long form ( Passport, Dual Citizenship, Indian Registry, Immigration
+                        purposes)
+                      </option>
+                      <option th:value="certified_copy">Certified Copy (Death certificates only)</option>
+
+                    </select><a class="fa fa-question-circle tooltip-trigger"
+                                data-original-title="Standard size format is the most commonly issued because it satisfies most purposes,; Long Form is used most often to obtain a passport, for purposes of dual citizenship, Indian Registry and immigration"
+                                data-tippy=""></a>
+                    </div>
+                  </div>
+
+
+                  <div class="d-inline p-2 form-group select required certificate_record_person_relationship">
+                    <div class="tooltip-wrapper-mobile"><label class="select required"
+                                                               for="certificate_record_person_relationship">Why
+                      are
+                      you applying for a certificate?</label><a
+                        data-original-title="This information is required by the Health Department. If the reason for applying is not listed here, please select “other."
+                        data-tippy=""></a>
+                    </div>
+                    <!--<input type="text" th:field="*{purpose}" name="purpose"/>-->
+
+                    <div class="tooltip-wrapper"><select class="select required"
+                                                         data-validate=""
+                                                         id="certificate_purpose" th:field="*{purpose}">
+                      <option value="">Please select</option>
+                      <option th:value="Passport">Passport</option>
+                      <option th:value="Social_Security">Social Security</option>
+                      <option th:value="Retirement">Retirement</option>
+                      <option th:value="Employment">Employment</option>
+                      <option th:value="Working_Papers">Working Papers</option>
+                      <option th:value="School_Entrance">School Entrance</option>
+                      <option th:value="Driver_License">Driver's License</option>
+                      <option th:value="Marriage_License">Marriage License</option>
+                      <option th:value="Welfare_Assistance">Welfare Assistance</option>
+                      <option th:value="Veteran_Benefits">Veteran's Benefits
+                      </option>
+                      <option th:value="Court_Proceeding">Court Proceeding
+
+                      </option>
+                      <option th:value="Entry_into_Armed_Forces">Entrance into Armed Forces</option>
+                      <option th:value="International_Use">International Use
+                      </option>
+                      <option th:value="Insurance">Insurance
+                      </option>
+                      <option th:value="Genealogy">Genealogy
+                      </option>
+                      <option th:value="Other">Other</option>
+                    </select><a class="fa fa-question-circle tooltip-trigger"
+                                data-original-title="If you are requesting the  birth certificate for yourself, please select “Myself”. In all other cases, please specify your relationship to the person on record. For example if you are a mother requesting the certificate for your child, select &quot;I am the Mother&quot;. It is important to note that if you are not a direct family member, you may have to provide additional proof of your relationship with the person on record."
+                                data-tippy=""></a>
+                    </div>
+                  </div>
+
+                  <div id="certificate_purpose_reason" style="display: none;">
+                    <div class="form-group string optional certificate_purpose_specify">
+                      <div class="tooltip-wrapper-mobile"><label
+                          class="string optional required"
+                      >Specify</label>
+                      </div>
+                      <div class="tooltip-wrapper"><input class="string optional"
+                                                          data-validate=""
+                                                          id="certificate_purpose-specify"
+                                                          maxlength="45"
+                                                          name="certificate[record_person_relationship_specify]"
+                                                          size="45"
+                                                          type="text"/>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+
+              <div class="row justify-content-center">
+                <div class="d-inline p-2 form-group select required certificate_record_copies">
+                  <div class="tooltip-wrapper-mobile"><label class="select required"
+                                                             for="certificate_record_copies">Number
+                    of Certified Copies needed</label><a
+                      data-original-title="Indicate how many copies of the certificate you need. A certified copy is a copy of a primary document, that has on it an endorsement or certificate marking that it is a true copy of the primary document. It does not certify that the primary document is genuine. It is only a true copy of the primary document. A certified copy may be required for official government or court purposes and for commercial purposes."
+                      data-tippy=""></a>
+                  </div>
+                  <div class="tooltip-wrapper"><select class="select required"
+                                                       data-validate=""
+                                                       id="certificate_record_copies"
+                                                       name="num_of_copies">
+                    <option value="">Please select</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                  </select><a
+                      data-original-title="Indicate how many copies of the certificate you need. A certified copy is a copy of a primary document, that has on it an endorsement or certificate marking that it is a true copy of the primary document. It does not certify that the primary document is genuine. It is only a true copy of the primary document. A certified copy may be required for official government or court purposes and for commercial purposes."
+                      data-tippy=""></a>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+          </section>
+          <hr/>
+
+          <section class="section pt-2">
+            <div class="row">
+              <div class="section__container">
+                <h4 class="h4">2. Requestor information</h4>
+                <p class="align-left">Enter the name of the requestor as shown on the ID/driver's license.</p>
+
+                <div class="">
+                  <div class="form-group string required certificate_contact_first_name col-xs-4">
+                    <div class="tooltip-wrapper-mobile"><label class="string required"
+                                                               for="certificate_contact_first_name">First
+                      name</label></div>
+                    <div class="tooltip-wrapper"><input class="string required"
+                                                        data-validate="" id="certificate_contact_first_name"
+                                                        th:field="*{first_name}"
+                                                        type="text"/>
+                    </div>
+                  </div>
+                  <div class="form-group string optional certificate_contact_middle_name col-xs-4">
+                    <div class="tooltip-wrapper-mobile"><label class="string optional"
+                                                               for="certificate_contact_middle_name">Middle
+                      name</label></div>
+                    <div class="tooltip-wrapper"><input class="string optional"
+                                                        data-validate="" id="certificate_contact_middle_name"
+                                                        th:field="*{mid_name}"
+                                                        type="text"/>
+                    </div>
+                  </div>
+                  <div class="form-group string required certificate_contact_last_name col-xs-4">
+                    <div class="tooltip-wrapper-mobile"><label class="string required"
+                                                               for="certificate_contact_last_name">Last
+                      name</label>
+                    </div>
+                    <div class="tooltip-wrapper"><input class="string required"
+                                                        data-validate="" id="certificate_contact_last_name"
+                                                        th:field="*{last_name}"
+                                                        type="text"/>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+
+          <section class="section pt-2">
+            <div class="row">
+              <div class="section__container">
+                <h4 class="h4">3. Requestor Address</h4>
+                <p class="align-left">Enter the address of the requestor as shown on the ID/driver's license.</p>
+
+                <div class="">
+                  <div class="form-group string required certificate_contact_street col-xs-4">
+                    <div class="tooltip-wrapper-mobile"><label class="string required"
+                                                               for="certificate_contact_street">Street Address</label></div>
+                    <div class="tooltip-wrapper"><input class="string required"
+                                                        data-validate="" id="certificate_contact_street"
+                                                        th:field="*{street}"
+                                                        type="text"/>
+                    </div>
+                  </div>
+                  <div class="form-group string optional certificate_contact_street2 col-xs-4">
+                    <div class="tooltip-wrapper-mobile"><label class="string optional"
+                                                               for="certificate_contact_street2">Street Address 2 (Apt, Bldg, etc)</label></div>
+                    <div class="tooltip-wrapper"><input class="string optional"
+                                                        data-validate="" id="certificate_contact_street2"
+                                                        th:field="*{street2}"
+                                                        type="text"/>
+                    </div>
+                  </div>
+                  <div class="form-group string required certificate_contact_city col-xs-4">
+                    <div class="tooltip-wrapper-mobile"><label class="string required"
+                                                               for="certificate_contact_city">City</label>
+                    </div>
+                    <div class="tooltip-wrapper"><input class="string required"
+                                                        data-validate="" id="certificate_contact_city"
+                                                        th:field="*{city}"
+                                                        type="text"/>
+                    </div>
+                  </div>
+                  <div class=" d-inline form-group select required certificate_delivery_state">
+                    <div class="tooltip-wrapper-mobile"><label class="select required"
+                                                               for="certificate_contact_state">State</label>
+                    </div>
+                    <div class="tooltip-wrapper"><select data-validate=""
+                                                         class="select required"
+                                                         th:field="*{state}"
+                                                         id="certificate_contact_state">
+                      <option value="">Please select</option>
+                      <option th:value="AL">Alabama</option>
+                      <option th:value="AK">Alaska</option>
+                      <option th:value="AR">Arkansas</option>
+                      <option th:value="AZ">Arizona</option>
+                      <option th:value="CA">California</option>
+                      <option th:value="CO">Colorado</option>
+                      <option th:value="CT">Connecticut</option>
+                      <option th:value="DE">Delaware</option>
+                      <option th:value="FL">Florida</option>
+                      <option th:value="GA">Georgia</option>
+                      <option th:value="HI">Hawaii</option>
+                      <option th:value="ID">Idaho</option>
+                      <option th:value="IL">Illinois</option>
+                      <option th:value="IN">Indiana</option>
+                      <option th:value="IA">Iowa</option>
+                      <option th:value="KS">Kansas</option>
+                      <option th:value="KY">Kentucky</option>
+                      <option th:value="LA">Louisiana</option>
+                      <option th:value="ME">Maine</option>
+                      <option th:value="MD">Maryland</option>
+                      <option th:value="MA">Massachusetts</option>
+                      <option th:value="MI">Michigan</option>
+                      <option th:value="MN">Minnesota</option>
+                      <option th:value="MS">Mississippi</option>
+                      <option th:value="MO">Missouri</option>
+                      <option th:value="MT">Montana</option>
+                      <!--<option th:value="NE">Nebraska</option>-->
+                      <option th:value="NV">Nevada</option>
+                      <option th:value="NH">New Hampshire</option>
+                      <option th:value="NJ">New Jersey</option>
+                      <option th:value="NM">New Mexico</option>
+                      <option th:value="NY">New York</option>
+                      <option th:value="NC">North Carolina</option>
+                      <option th:value="ND">North Dakota</option>
+                      <option th:value="OH">Ohio</option>
+                      <option th:value="OK">Oklahoma</option>
+                      <!--<option th:value="OR">Oregon</option>-->
+                      <option th:value="PA">Pennsylvania</option>
+                      <option th:value="RI">Rhode Island</option>
+                      <option th:value="SC">South Carolina</option>
+                      <option th:value="SD">South Dakota</option>
+                      <option th:value="TN">Tennessee</option>
+                      <option th:value="TX">Texas</option>
+                      <option th:value="UT">Utah</option>
+                      <option th:value="VT">Vermont</option>
+                      <option th:value="VA">Virginia</option>
+                      <option th:value="WA">Washington</option>
+                      <option th:value="WV">West Virginia</option>
+                      <option th:value="WI">Wisconsin</option>
+                      <option th:value="WY">Wyoming</option>
+                    </select>
+                    </div>
+                  </div>
+                  <div class="form-group string optional certificate_contact_zip col-xs-4">
+                    <div class="tooltip-wrapper-mobile"><label class="string optional"
+                                                               for="certificate_contact_zip">Zip Code</label></div>
+                    <div class="tooltip-wrapper"><input class="string optional"
+                                                        data-validate="" id="certificate_contact_zip"
+                                                        th:field="*{zip}"
+                                                        type="text"/>
+                    </div>
+
+                </div>
+              </div>
+            </div>
+            </div>
+          </section>
+
+          <div class="row justify-content-around pt-5">
+            <div class=" d-flex align-content-center flex-wrap">
+              <a th:href="@{/application-1}"><input type="submit" name="commit"
+                                                    value="CONTINUE APPLICATION"
+                                                    id="continue-button1"
+                                                    class="p-2 btn-sun btn--large is-block disable-resubmit"
+                                                    data-disable-with="CONTINUE APPLICATION"/></a>
+            </div>
+            <div class=" d-flex align-content-center flex-wrap">
+
+              <input type="submit" name="commit"
+                     value="SAVE APPLICATION"
+                     id="save-button1"
+                     class="p-2 btn-sun btn--large is-block disable-resubmit"
+                     data-disable-with="SAVE APPLICATION"/>
+            </div>
+          </div>
+          <!--</div>-->
+          <!--</div>-->
+
+          <!--</section>-->
+        </form>
+
+        <!--</section>-->
+        <!--</div>-->
+        <!--</div>-->
+      </div>
     </div>
+    <div th:replace="fragments/admin-footer :: admin-footer"></div>
+  </div>
 
 </body>
 </html>

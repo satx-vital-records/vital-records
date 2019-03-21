@@ -51,6 +51,31 @@ public class User {
     this.phone_num = phone_num;
   }
 
+  public User(Long id, List<Application> apps, List<MailingAddress> mailingAddresses, String first_name, String last_name, String username, String email, String password, int role, String phone_num) {
+    this.id= id;
+    this.apps = apps;
+    this.mailingAddresses = mailingAddresses;
+    this.first_name = first_name;
+    this.last_name = last_name;
+    this.username = username;
+    this.email = email;
+    this.password = password;
+    this.phone_num = phone_num;
+  }
+
+  public User(User copy){
+    id =copy.id;
+    email = copy.email;
+    first_name = copy.first_name;
+    last_name = copy.last_name;
+    username = copy.username;
+    password = copy.password;
+    apps = copy.apps;
+    mailingAddresses = copy.mailingAddresses;
+    phone_num = copy.phone_num;
+  }
+
+
   public long getId() {
     return id;
   }
@@ -114,4 +139,8 @@ public class User {
   public void setPhone_num(String phone_num) {
     this.phone_num = phone_num;
   }
+
+
+
+
 }
