@@ -2,7 +2,7 @@ package com.satxvitalrecords.services;
 
 import com.satxvitalrecords.models.User;
 import com.satxvitalrecords.models.UserWithRoles;
-import com.satxvitalrecords.models.Users;
+import com.satxvitalrecords.repositories.Users;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;

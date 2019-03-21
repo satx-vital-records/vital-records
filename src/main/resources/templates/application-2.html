@@ -30,74 +30,6 @@
         <section class="section pb-2">
           <div class="row">
             <div class="section__container">
-              <h4 class="h4">2. Birth information of the person on record</h4>
-              <p class="align-left">Enter the birth information of the person needing the
-                birth certificate. If you are applying for someone else (i.e. your child),
-                enter their birth information here.</p>
-
-
-              <div class="row justify-content-between">
-
-                <div class="d-inline form-group string required certificate_birth_city">
-                  <div class="tooltip-wrapper-mobile"><label class="string required"
-                                                             for="certificate_birth_city2">City
-                    of birth</label><a class="fa fa-question-circle tooltip-trigger"
-                                       data-tippy=""
-                                       data-original-title="Please specify the city where the birth occurred."></a>
-                  </div>
-                  <div class="tooltip-wrapper"><input data-validate="" class="string required"
-                                                      type="text"
-                                                      th:field="*{birth_city}"
-                                                      id="certificate_birth_city2"/><a
-                      class="fa fa-question-circle tooltip-trigger" data-tippy=""
-                      data-original-title="Please specify the city where the birth occurred."></a>
-                  </div>
-                </div>
-
-                <div class="d-inline form-group string required certificate_birth_county">
-                  <div class="tooltip-wrapper-mobile"><label class="string required"
-                                                             for="certificate_birth_county">County
-                    of birth</label><a class="fa fa-question-circle tooltip-trigger"
-                                       data-tippy=""
-                                       data-original-title="Please specify the county where the birth occurred."></a>
-                  </div>
-                  <div class="tooltip-wrapper"><input data-validate="" class="string required"
-                                                      type="text"
-                                                      th:field="*{birth_county}"
-                                                      id="certificate_birth_county"/><a
-                      class="fa fa-question-circle tooltip-trigger" data-tippy=""
-                      data-original-title="Please specify the county where the birth occurred."></a>
-                  </div>
-                </div>
-
-                <div class="d-inline form-group date required certificate_birth_date">
-                  <div class="tooltip-wrapper-mobile"><label class="date required"
-                                                             for="birth_date">Date
-                    of birth</label>
-                    <a class="fa fa-question-circle tooltip-trigger"
-                       data-tippy=""
-                       data-original-title="Please specify the date of birth."></a>
-                  </div>
-                  <div class="tooltip-wrapper">
-                    <input
-                        th:field="*{date_of_birth}"
-                        type="text"
-                        id="birth_date"
-                        class="date-picker-style"/>
-
-                    <a class="fa fa-question-circle tooltip-trigger"
-                       data-tippy=""
-                       data-original-title="Please specify the date of birth."></a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-        <hr/>
-        <section class="section pt-2">
-          <div class="row">
-            <div class="section__container">
               <h4 class="h4">3. Full name of the person on record</h4>
               <p class="align-left">Enter the full name of the person on record at the time of
                 birth. Leave middle name empty if unknown.</p>
@@ -126,42 +58,92 @@
                 <div class="d-inline form-group string required certificate_person_last_name col-xs-4">
                   <div class="tooltip-wrapper-mobile"><label class="string required"
                                                              for="certificate_person_last_name">Last
-                    name</label><a class="fa fa-question-circle tooltip-trigger"
-                                   data-tippy=""
-                                   data-original-title="Enter the full name of the person on record at the time of birth. Leave middle name empty if unknown."></a>
+                    name</label>
                   </div>
                   <div class="tooltip-wrapper"><input data-validate=""
                                                       class="string required" type="text"
                                                       name="certificate[person_last_name]"
-                                                      id="certificate_person_last_name"/><a
-                      class="fa fa-question-circle tooltip-trigger" data-tippy=""
-                      data-original-title="Enter the full name of the person on record at the time of birth. Leave middle name empty if unknown."></a>
+                                                      id="certificate_person_last_name"/>
                   </div>
                 </div>
               </div>
+            </div>
+          </div>
+
+        </section>
+        <hr/>
+        <section class="section pt-2">
+          <div class="row">
+            <div class="section__container">
+              <h4 class="h4">2. Birth information of the person on record</h4>
+              <p class="align-left">Enter the birth information of the person needing the
+                birth certificate. If you are applying for someone else (i.e. your child),
+                enter their birth information here.</p>
+
+
+              <div class="row justify-content-between">
+
+                <div class="d-inline form-group string required certificate_birth_city">
+                  <div class="tooltip-wrapper-mobile"><label class="string required"
+                                                             for="certificate_birth_city2">City
+                    of birth</label>
+                  </div>
+                  <div class="tooltip-wrapper"><input data-validate="" class="string required"
+                                                      type="text"
+                                                      th:field="*{birth_city}"
+                                                      id="certificate_birth_city2"/>
+                  </div>
+                </div>
+
+                <div class="d-inline form-group string required certificate_birth_county">
+                  <div class="tooltip-wrapper-mobile"><label class="string required"
+                                                             for="certificate_birth_county">County
+                    of birth</label>
+                  </div>
+                  <div class="tooltip-wrapper"><input data-validate="" class="string required"
+                                                      type="text"
+                                                      th:field="*{birth_county}"
+                                                      id="certificate_birth_county"/>
+                  </div>
+                </div>
+
+                <div class="d-inline form-group date required certificate_birth_date">
+                  <div class="tooltip-wrapper-mobile"><label class="date required"
+                                                             for="birth_date">Date
+                    of birth</label>
+
+                  </div>
+                  <div class="tooltip-wrapper">
+                    <input
+                        th:field="*{date_of_birth}"
+                        type="text"
+                        id="birth_date"
+                        class="date-picker-style"/>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
               <div class="pt-5 row justify-content-center form-group radio_buttons required certificate_person_sex">
                 <div class="tooltip-wrapper-mobile"><label
-                    class="radio_buttons required pr-3">Gender</label><a
-                    class="fa fa-question-circle tooltip-trigger" data-tippy=""
-                    data-original-title="Please specify the gender of the person on record at the time of their birth."></a>
+                    class="radio_buttons required pr-3" >Gender</label>
                 </div>
                 <div class="tooltip-wrapper"><input type="hidden"
+                                                    name="certificate[person_sex]"
                                                     th:field="*{sex}"
-                                                    value=""/>
-                  <input
+                                                    value=""/><input
                     class="radio_buttons required" type="radio" value="Female"
+                    name="certificate[person_sex]"
                     th:value="Female"
                     id="certificate_person_sex_female"/><label
                     class="collection_radio_buttons pr-3"
-                    for="certificate_person_sex_female">Female</label>
-                  <input
+                    for="certificate_person_sex_female">Female</label><input
                     class="radio_buttons required" type="radio" value="Male"
+                    name="certificate[person_sex]"
                     th:value="Male"
                     id="certificate_person_sex_male"/><label
                     class="collection_radio_buttons"
-                    for="certificate_person_sex_male">Male</label><a
-                    class="fa fa-question-circle tooltip-trigger" data-tippy=""
-                    data-original-title="Please specify the gender of the person on record at the time of their birth."></a>
+                    for="certificate_person_sex_male">Male</label>
                 </div>
               </div>
 
@@ -182,10 +164,7 @@
                          data-disable-with="SAVE APPLICATION"/>
                 </div>
               </div>
-            </div>
-          </div>
         </section>
-
       </form>
     </div>
     <div th:replace="fragments/footer :: footer"></div>

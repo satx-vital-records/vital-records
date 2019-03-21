@@ -3,17 +3,19 @@ import com.satxvitalrecords.models.Application;
 import com.satxvitalrecords.models.MailingAddress;
 import com.satxvitalrecords.models.Record;
 import com.satxvitalrecords.models.User;
-import com.satxvitalrecords.repositories.AddressRepo;
-import com.satxvitalrecords.repositories.ApplicationRepo;
-import com.satxvitalrecords.repositories.RecordRepo;
-import com.satxvitalrecords.repositories.UserRepo;
+import com.satxvitalrecords.repositories.*;
 import com.satxvitalrecords.services.PdfStamper;
+import com.sun.javaws.security.AppPolicy;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Controller
 //@SessionAttributes("user")
@@ -34,13 +36,6 @@ public class ApplicationController {
     @Autowired
     private PdfStamper pdfStamper;
 
-//    @GetMapping("/application-1")
-//    public String showApplication1(Model model) {
-//      model.addAttribute("record", new Record());
-//      return "application-2";
-//    }
-
-//    User user = new User();
 
     @GetMapping("/application-1")
     public String showApplication1(Model model) {
@@ -48,25 +43,20 @@ public class ApplicationController {
         return "application-1";
     }
 
-//    @PostMapping("/application-1")
-//    public String saveRecord(@ModelAttribute Record record){
-//        recordDao.save(record);
-//        return "redirect:/application-2";
-//    }
 
     @PostMapping("/application-1")
-    public String saveRecord(Application app){
+    public String saveRecord(Application app, @RequestParam(name="num_of_copies") String numOfCopies, Model model){
+        User sessionUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        User userDB = userDao.findOne(sessionUser.getId());
+        System.out.println(userDB.getUsername());
+        System.out.println(numOfCopies);
+        model.addAttribute("copies", numOfCopies);
 
-        User user = userDao.findOne(1L);
-        app.setUser(user);
+        app.setUser(userDB);
         appDao.save(app);
     return "redirect:/application-2";
     }
 
-//    @GetMapping("/application-2")
-//    public String showApplication2() {
-//        return "application-3";
-//    }
 
     @GetMapping("/application-2")
     public String showApplication2(Model model) {
@@ -76,21 +66,51 @@ public class ApplicationController {
 
     @PostMapping("/application-2")
     public String saveApp2(Record record){
-        Application app= appDao.findOne(1L);
+        User sessionUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        User userDB = userDao.findOne(sessionUser.getId());
+
+        Long appDB_id= 1L;
+        Iterable<Application> apps = appDao.findAll();
+        for(Application app: apps) {
+            if (app.getUser() == userDB) {
+               appDB_id = app.getId();
+                }
+            }
+
+//        System.out.println(appDB_id);
+        Application app= appDao.findOne(appDB_id);
         record.setApplication(app);
-        System.out.println(record);
-        System.out.println(app);
+//        System.out.println(record);
+//        System.out.println(app);
+        app.setRecord(record);
         recordDao.save(record);
       return "redirect:/application-3";
     }
 
     @GetMapping("/application-3")
     public String showApplication3(Model model) {
-        Record record = recordDao.findOne(1L);
-        model.addAttribute("record", record);
+        User sessionUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        User userDB = userDao.findOne(sessionUser.getId());
+            Application appDB = null;
+        Iterable<Application> apps = appDao.findAll();
+        for(Application app:apps){
+            if(app.getUser() == userDB){
+                appDB = app;
+            }
+        }
+            Long recordDB_id= null;
+        Iterable<Record> allrecords = recordDao.findAll();
+        for(Record record : allrecords){
+            if(record.getApplication() == appDB){
+                recordDB_id = record.getId();
+            }
+        }
 
-        //maybe get userid by session using spring sessions?
-//        User usersInDb = userDao.findOne(sessionUser.getId());
+        System.out.println(appDB);
+        System.out.println(recordDB_id);
+
+        Record record = recordDao.findOne(recordDB_id);
+        model.addAttribute("record", record);
         return "application-3";
     }
 
@@ -145,5 +165,8 @@ public class ApplicationController {
 
     @GetMapping("/upload")
     public String uploadApplication() { return "upload"; }
+
+
+
 
 }

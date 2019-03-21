@@ -1,7 +1,7 @@
 package com.satxvitalrecords.controllers;
 
 import com.satxvitalrecords.models.User;
-import com.satxvitalrecords.models.Users;
+import com.satxvitalrecords.repositories.Users;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import com.satxvitalrecords.repositories.AddressRepo;
