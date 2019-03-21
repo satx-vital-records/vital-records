@@ -116,7 +116,27 @@ public class ApplicationController {
 
     @PostMapping("/application-3")
     public String saveApp3(Record record) {
-        Record record1 = recordDao.findOne(1L);
+        User sessionUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        User userDB = userDao.findOne(sessionUser.getId());
+        Application appDB = null;
+        Iterable<Application> apps = appDao.findAll();
+        for(Application app:apps){
+            if(app.getUser() == userDB){
+                appDB = app;
+            }
+        }
+        Long recordDB_id= null;
+        Iterable<Record> allrecords = recordDao.findAll();
+        for(Record record_db : allrecords) {
+//            System.out.println(record_db.getApplication());
+            if (record_db.getApplication().getId() == appDB.getId()) {
+                recordDB_id = record_db.getId();
+            }
+        }
+
+        Record record1 = recordDao.findOne(recordDB_id);
+
+
         record1.setParent1_first_name(record.getParent1_first_name());
         record1.setParent1_mid_name(record.getParent1_mid_name());
         record1.setParent1_last_name(record.getParent1_last_name());
@@ -135,18 +155,37 @@ public class ApplicationController {
 
     @PostMapping("/application-4")
     public String saveApp4(MailingAddress address) {
+        User sessionUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        User userDB = userDao.findOne(sessionUser.getId());
+        Application appDB = null;
+        Iterable<Application> apps = appDao.findAll();
+        for(Application app:apps){
+            if(app.getUser() == userDB){
+                appDB = app;
+            }
+        }
+        Long recordDB_id= null;
+        Iterable<Record> allrecords = recordDao.findAll();
+        for(Record record_db : allrecords) {
+//            System.out.println(record_db.getApplication());
+            if (record_db.getApplication().getId() == appDB.getId()) {
+                recordDB_id = record_db.getId();
+            }
+        }
+
+
 //        User user = userDao.findOne(1L);
-//        address.setUser(user);
-//        mailDao.save(address);
+        address.setUser(userDB);
+        mailDao.save(address);
 
 // -----START OF GETTING FORM FIELDS POPULATED BY DB -------
 // passing thru a record and app object - separating thru preparepdf function
-        Record record = recordDao.findOne(1L);
-        Application app = appDao.findOne(1l);
-        User user = userDao.findOne(1L);
-        MailingAddress address1 = mailDao.findOne(1L);
+        Application app = appDao.findOne(appDB.getId());
+        Record record = recordDao.findOne(recordDB_id);
+//        User user = userDao.findOne(1L);
+//        MailingAddress address1 = mailDao.findOne(1L);
 
-        pdfStamper.preparePdf(record, app, user, address1);
+        pdfStamper.preparePdf(record, app, userDB, address);
         return "redirect:/completed-application";
     }
 
