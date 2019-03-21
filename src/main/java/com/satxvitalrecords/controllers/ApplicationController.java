@@ -7,6 +7,7 @@ import com.satxvitalrecords.repositories.AddressRepo;
 import com.satxvitalrecords.repositories.ApplicationRepo;
 import com.satxvitalrecords.repositories.RecordRepo;
 import com.satxvitalrecords.repositories.UserRepo;
+import com.satxvitalrecords.services.GooglePlacesTest;
 import com.satxvitalrecords.services.PdfStamper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -33,6 +34,10 @@ public class ApplicationController {
 
     @Autowired
     private PdfStamper pdfStamper;
+
+    @Autowired
+    private GooglePlacesTest googlePlace;
+
 
 //    @GetMapping("/application-1")
 //    public String showApplication1(Model model) {
@@ -149,10 +154,10 @@ public class ApplicationController {
         return "upload"; }
 
     @PostMapping("/upload")
-    public String saveFileToDb(Application app) {
+    public String saveFileToDb(Application app, @RequestParam(name="urlImg") String url) {
         app = appDao.findOne(1L);
-        app.setIdentification_img(app.getIdentification_img());
-        System.out.println();
+        app.setIdentification_img(url);
+        System.out.println(url);
         appDao.save(app);
         return "redirect:/upload";
     }
