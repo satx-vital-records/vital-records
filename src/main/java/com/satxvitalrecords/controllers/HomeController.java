@@ -71,9 +71,20 @@ public class HomeController {
     @GetMapping("/app-view/{id}")
     public String viewAllApps(@PathVariable long id, Model model){
         Application app = appDao.findOne(id);
-        Record record = recordDao.findOne(id);
+        Record recordDB = null;
+
+        Iterable<Record> allrecords = recordDao.findAll();
+        for(Record record : allrecords){
+            if(record.getApplication() == app){
+                recordDB = record;
+            }
+        }
+
+
+
+
         model.addAttribute("app", app);
-        model.addAttribute("record", record);
+        model.addAttribute("record", recordDB);
         return "app-view";
     }
 
