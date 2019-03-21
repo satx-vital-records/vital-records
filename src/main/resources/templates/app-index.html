@@ -135,7 +135,7 @@
                                         <a href="#">All Applications</a>
                                     </li>
                                     <!--<li><a href="#">Maps</a></li>-->
-                                    <li><a href="#">Last Viewed Application</a></li>
+                                    <!--<li><a href="#">Last Viewed Application</a></li>-->
                                 </ul>
                             </div>
                         </div>
@@ -191,8 +191,8 @@
 
                 <div class="box">
                     <!--<div class="box-header">-->
-                        <!--<i class="icon-bar-chart"></i>-->
-                        <!--<h5>SATXVR Chart</h5>-->
+                    <!--<i class="icon-bar-chart"></i>-->
+                    <!--<h5>SATXVR Chart</h5>-->
                     <!--</div>-->
                     <div class="box-content">
                         <div id="piechart"></div>
@@ -233,65 +233,23 @@
                                     <td th:text="${app.record_relationship}"></td>
                                     <td>Current Status</td>
                                     <td class="td-actions text-right">
-                                        <button type="button" rel="tooltip"
-                                                class="btn btn-info btn-link btn-just-icon btn-sm"
-                                                data-original-title="" title="">
-                                            <i class="material-icons">assignment_ind</i>
-                                        </button>
-                                        <button type="button" class="btn btn-warning btn-link btn-just-icon btn-sm"
-                                                data-toggle="modal" data-target="#exampleModalScrollable">
-                                            <i class="material-icons">edit</i>
-                                        </button>
                                         <!--<button type="button" rel="tooltip"-->
-                                        <!--class="btn btn-danger btn-link btn-just-icon btn-sm"-->
-                                        <!--data-original-title="" title="">-->
-                                        <!--<i class="material-icons">close</i>-->
+                                                <!--class="btn btn-info btn-link btn-just-icon btn-sm"-->
+                                                <!--data-original-title="" title="">-->
+                                            <!--<i class="material-icons">assignment_ind</i>-->
                                         <!--</button>-->
+
+
+                                        <form th:action="@{/app-view/{id} (id = ${app.id})}" th:method="get" th:object="${app}"
+                                              role="form">
+                                            <button type="submit" class="btn btn-warning btn-link btn-just-icon btn-sm">
+                                                <i class="material-icons">edit</i>
+                                            </button>
+                                        </form>
                                     </td>
                                 </tr>
                                 </tbody>
                             </table>
-
-
-                            <!--<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalLong">-->
-                            <!--Launch demo modal-->
-                            <!--</button>-->
-
-                            <!-- Modal -->
-                            <div class="modal fade" id="exampleModalScrollable" tabindex="-1" role="dialog"
-                                 aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
-                                <div class="modal-dialog modal-dialog-scrollable" role="document">
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                            <h5 class="modal-title" id="exampleModalScrollableTitle">Comments</h5>
-
-
-
-                                        </div>
-                                        <!--<div class="modal-body">-->
-                                            <!--<form th:action="@{/app-index}" th:method="post" th:object="${app}"-->
-                                                  <!--role="form">-->
-                                                <!--<div class="row">-->
-                                                    <!--<div class="col-lg-12">-->
-                                                        <!--<div class="form-group">-->
-                        <!--<input class="form-control create-form-control" th:field="*{comments}" rows="12" data-rule="required"-->
-                                  <!--data-msg="Enter your content" placeholder="Comments"/>-->
-                                                        <!--</div>-->
-                                                        <!--<button type="submit" class="btn btn-primary">Save changes</button>-->
-                                                    <!--</div>-->
-                                                <!--</div>-->
-                                            <!--</form>-->
-                                        <!--</div>-->
-
-                                        <div class="modal-footer">
-                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">
-                                                Close
-                                            </button>
-                                            <!--<button type="button" class="btn btn-primary">Save changes</button>-->
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
                         </div>
                     </div>
 

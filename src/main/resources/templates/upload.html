@@ -44,7 +44,9 @@
                                     <button href="#" class="d-inline btn button" type="button" id="picker">Upload
                                         &raquo;
                                     </button>
-                                    <input type="hidden" id="fileupload" th:text="*{identification_img}" value="something"/>
+
+                                    <input name="urlImg" type="hidden" id="fileupload"/>
+                                    <div class="control" id="urlBox"></div>
                                     <div>
                                         <div class="control py-2" id="nameBox"></div>
                                         <button class="d-inline button btn " type="submit" value="Submit">Submit
@@ -57,10 +59,31 @@
                                     </div>
                                 </div>
                             </form>
-                            Button needs to redirect to a different page for payment
-                                        <button th:href="@{/checkout}" class="d-inline button btn " type="submit">Payment
-                                            &raquo;
-                                        </button>
+
+
+                            <form action='/charge' method='POST' id='checkout-form' >
+                            <input type='hidden' th:value='${amount}' name='amount' />
+                            <!--<label>Price:<span th:text='${amount/100}' /></label>-->
+                            <!-- NOTE: data-key/data-amount/data-currency will be rendered by Thymeleaf -->
+                            <script
+                            src='https://checkout.stripe.com/checkout.js'
+                            class='stripe-button'
+                            th:attr='data-key=${stripePublicKey},
+                            data-amount=${amount},
+                            data-currency=${currency}'
+                            data-name='Baeldung'
+                            data-description='Spring course checkout'
+                            data-image
+                            ='http://www.baeldung.com/wp-content/themes/baeldung/favicon/android-chrome-192x192.png'
+                            data-locale='auto'
+                            data-zip-code='false'>
+                            </script>
+                            </form>
+
+
+
+
+
                         </div>
                     </div>
 

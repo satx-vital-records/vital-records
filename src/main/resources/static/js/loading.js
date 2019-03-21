@@ -6,15 +6,18 @@ $(document).ready(function () {
         maxFiles: 20,
         uploadInBackground: false,
         onOpen: () => console.log('opened!'),
-        onUploadDone: (res) => console.log(res),
+        //onUploadDone: (res) => console.log(res),
+        // onUploadDone: (res) => console.log(res.filesUploaded[0].url),
+        onUploadDone: (res) => urlImg= res.filesUploaded[0].url
     };
+
+
     const picker = client.picker(options);
 
         const form = document.getElementById('pick-form');
         const fileInput = document.getElementById('fileupload');
         const nameBox = document.getElementById('nameBox');
         const urlBox = document.getElementById('urlBox');
-        let newUploadedFile ="";
 
         $('#picker').click(function (e) {
             e.preventDefault();
@@ -22,26 +25,25 @@ $(document).ready(function () {
         });
 
         form.addEventListener('submit', function (e) {
-            e.preventDefault();
-            alert('The following documents are being submitted to SATX Vital Records: ' + fileInput.value);
+            // e.preventDefault();
+            alert('The following documents are being submitted to SATX Vital Records: ' + urlImg);
+            updateForm(urlImg);
 
-            newUploadedFile = fileInput.value;
-            $('#fileupload').val(newUploadedFile);
         });
 
 
 
-        function updateForm (result) {
-            const fileData = result.filesUploaded[0];
-            fileInput.value = fileData.url;
+        function updateForm (urlImg) {
+            // const fileData = result.filesUploaded[0];
+            fileInput.value = urlImg;
 
-            const name = document.createTextNode('Selected: ' + fileData.filename);
+            // const name = document.createTextNode('Selected: ' + fileData.filename);
             const url = document.createElement('a');
-            url.href = fileData.url;
-            url.appendChild(document.createTextNode(fileData.url));
-            nameBox.appendChild(name);
-            urlBox.appendChild(document.createTextNode('Uploaded to: '));
-            urlBox.appendChild(url);
+            // url.href = fileData.url;
+            url.appendChild(document.createTextNode(urlImg));
+            // nameBox.appendChild(name);
+            // urlBox.appendChild(document.createTextNode('Uploaded to: '));
+            // urlBox.appendChild(urlImg);
         }
 
 
