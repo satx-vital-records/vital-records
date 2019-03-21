@@ -62,7 +62,7 @@
                   </div>
                   <div class="tooltip-wrapper"><input data-validate=""
                                                       class="string required" type="text"
-                                                      name="certificate[person_last_name]"
+                                                      th:field="*{last_name}"
                                                       id="certificate_person_last_name"/>
                   </div>
                 </div>
@@ -132,14 +132,14 @@
                                                     name="certificate[person_sex]"
                                                     th:field="*{sex}"
                                                     value=""/><input
-                    class="radio_buttons required" type="radio" value="Female"
-                    name="certificate[person_sex]"
+                    class="radio_buttons required" type="radio"
+                    th:field="*{sex}"
                     th:value="Female"
                     id="certificate_person_sex_female"/><label
                     class="collection_radio_buttons pr-3"
                     for="certificate_person_sex_female">Female</label><input
-                    class="radio_buttons required" type="radio" value="Male"
-                    name="certificate[person_sex]"
+                    class="radio_buttons required" type="radio"
+                    th:field="*{sex}"
                     th:value="Male"
                     id="certificate_person_sex_male"/><label
                     class="collection_radio_buttons"

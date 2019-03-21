@@ -48,8 +48,8 @@ public class ApplicationController {
     public String saveRecord(Application app, @RequestParam(name="num_of_copies") String numOfCopies, Model model){
         User sessionUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         User userDB = userDao.findOne(sessionUser.getId());
-        System.out.println(userDB.getUsername());
-        System.out.println(numOfCopies);
+//        System.out.println(userDB.getUsername());
+//        System.out.println(numOfCopies);
         model.addAttribute("copies", numOfCopies);
 
         app.setUser(userDB);
@@ -81,7 +81,8 @@ public class ApplicationController {
         Application app= appDao.findOne(appDB_id);
         record.setApplication(app);
 //        System.out.println(record);
-//        System.out.println(app);
+        System.out.println(record.getSex());
+       record.setSex(record.getSex());
         app.setRecord(record);
         recordDao.save(record);
       return "redirect:/application-3";
@@ -157,6 +158,7 @@ public class ApplicationController {
     public String saveApp4(MailingAddress address) {
         User sessionUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         User userDB = userDao.findOne(sessionUser.getId());
+
         Application appDB = null;
         Iterable<Application> apps = appDao.findAll();
         for(Application app:apps){
