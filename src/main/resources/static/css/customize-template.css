@@ -10919,7 +10919,7 @@ body > #body-container {
         margin-left: 0;
     }
     body .nav-page .page-nav-options {
-        height: auto;
+        height: auto !important;
     }
     body .nav-page .btn-navbar {
         font-size: 18px;
@@ -11449,6 +11449,14 @@ body > #body-container {
         width: 100%;
     }
 }
+
+.form-bgc {
+    background-color: white;
+    border-radius: 10px;
+    padding: 30px;
+}
+
+
 /***
 *
 * This is a customization of the demo template.

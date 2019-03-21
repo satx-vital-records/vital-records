@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/test-header :: test-header('Birth Certificate')"/>
+<body>
+    <div class=" navbar-fixed-top">
+        <div class="navbar-inner">
+            <div class="container"></div>
+        </div>
+    </div>
+    <div id="body-container">
+        <div id="body-content">
+            <section class="nav nav-page">
+                <div class="container">
+                    <div class="row">
+                        <div class="span7">
+                            <header class="page-header">
+                                <h3>Records Application<br/>
+                                    <small>Vital Records City of San Antonio</small>
+                                </h3>
+                            </header>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <div class="page container">
+                <h2 class="pt-5"> Birth Certificate Info Page</h2>
+            </div>
+
+
+            <div class="table-responsive">
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th class="text-center">#</th>
+                        <th>Record Type</th>
+                        <th>Request Date</th>
+                        <th>Name</th>
+                        <th>Form-Type</th>
+                        <th>DOB</th>
+                        <th>Requestor</th>
+                        <th>Relationship</th>
+                        <th class="text-right">Status</th>
+                        <th class="text-right">Actions</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>Date of Request</td>
+                        <td>Requestor</td>
+                        <td>Date of Birth</td>
+                        <td>Current Status</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    </div>
+    <div th:replace="fragments/admin-footer :: admin-footer"></div>
+</body>
+</html>

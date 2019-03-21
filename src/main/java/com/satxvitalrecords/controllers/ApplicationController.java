@@ -233,7 +233,24 @@ public class ApplicationController {
     }
 
     @GetMapping("/upload")
-    public String uploadApplication() { return "upload"; }
+    public String uploadApplication(Model model) {
+        Application app = appDao.findOne(1L);
+        model.addAttribute("app", app);
+        return "upload"; }
+
+    @PostMapping("/upload")
+    public String saveFileToDb(Application app, @RequestParam(name="urlImg") String url) {
+        app = appDao.findOne(1L);
+        app.setIdentification_img(url);
+        System.out.println(url);
+        appDao.save(app);
+        return "redirect:/upload";
+    }
+
+    @GetMapping("/confirmation")
+    public String showConfirmation() {
+        return "confirmation";
+    }
 
 
 

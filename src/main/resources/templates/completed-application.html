@@ -753,25 +753,44 @@
                     <!--class="btn-primary btn&#45;&#45;large is-block disable-resubmit"-->
                     <!--data-disable-with="CONTINUE APPLICATION"/>-->
 
-                    <!--<form action='/charge' method='POST' id='checkout-form' >-->
-                    <!--<input type='hidden' th:value='${amount}' name='amount' />-->
-                    <!--&lt;!&ndash;<label>Price:<span th:text='${amount/100}' /></label>&ndash;&gt;-->
-                    <!--&lt;!&ndash; NOTE: data-key/data-amount/data-currency will be rendered by Thymeleaf &ndash;&gt;-->
-                    <!--<script-->
-                    <!--src='https://checkout.stripe.com/checkout.js'-->
-                    <!--class='stripe-button'-->
-                    <!--th:attr='data-key=${stripePublicKey},-->
-                    <!--data-amount=${amount},-->
-                    <!--data-currency=${currency}'-->
-                    <!--data-name='Baeldung'-->
-                    <!--data-description='Spring course checkout'-->
-                    <!--data-image-->
-                    <!--='http://www.baeldung.com/wp-content/themes/baeldung/favicon/android-chrome-192x192.png'-->
-                    <!--data-locale='auto'-->
-                    <!--data-zip-code='false'>-->
-                    <!--</script>-->
-                    <!--</form>-->
+                                    <!--<form action='/charge' method='POST' id='checkout-form' >-->
+                                    <!--<input type='hidden' th:value='${amount}' name='amount' />-->
+                                    <!--&lt;!&ndash;<label>Price:<span th:text='${amount/100}' /></label>&ndash;&gt;-->
+                                    <!--&lt;!&ndash; NOTE: data-key/data-amount/data-currency will be rendered by Thymeleaf &ndash;&gt;-->
+                                    <!--<script-->
+                                    <!--src='https://checkout.stripe.com/checkout.js'-->
+                                    <!--class='stripe-button'-->
+                                    <!--th:attr='data-key=${stripePublicKey},-->
+                                    <!--data-amount=${amount},-->
+                                    <!--data-currency=${currency}'-->
+                                    <!--data-name='Baeldung'-->
+                                    <!--data-description='Spring course checkout'-->
+                                    <!--data-image-->
+                                    <!--='http://www.baeldung.com/wp-content/themes/baeldung/favicon/android-chrome-192x192.png'-->
+                                    <!--data-locale='auto'-->
+                                    <!--data-zip-code='false'>-->
+                                    <!--</script>-->
+                                    <!--</form>-->
 
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </section>
+            </form>
+
+
+
+            //Submit application form
+                                    <form class="simple_form new_certificate mx-auto" style="width: 70%;" id="checkout"
+                                          novalidate="novalidate"
+                                          th:action="@{/checkout}" accept-charset="UTF-8" th:method="post">
+                                   <button class=" p-2 btn-sun btn--large is-block disable-resubmit"
+                                           data-disable-with="CONFIRM">CONFIRM</button>
+                                    </form>
+
+        </div>
                     <a th:href="@{/checkout}"><input type="submit" name="commit" value="CONFIRM"
                                                      id="save-and-print"
                                                      class=" p-2 btn-sun btn--large is-block disable-resubmit"
@@ -786,9 +805,9 @@
         </form>
       </div>
 
+        </div>
+        <div th:replace="fragments/admin-footer :: admin-footer"></div>
     </div>
-    <div th:replace="fragments/admin-footer :: admin-footer"></div>
-  </div>
 
 </body>
 </html>

@@ -3,14 +3,14 @@ $(document).ready(function () {
     const apikey = 'AwfYCrCySAKmnFDNDv0Uiz';
     const client = filestack.init(apikey);
     const options = {
-        onUploadDone: updateForm,
-        maxSize: 10 * 1024 * 1024,
-        accept: '.pdf',
+        maxFiles: 20,
         uploadInBackground: false,
-        storeTo: {
-            path: '/uploadedFiles/'
-        }
+        onOpen: () => console.log('opened!'),
+        // onUploadDone: (res) => console.log(res.filesUploaded[0].url),
+        onUploadDone: (res) => urlImg= res.filesUploaded[0].url
     };
+
+
     const picker = client.picker(options);
 
         const form = document.getElementById('pick-form');
@@ -24,21 +24,27 @@ $(document).ready(function () {
         });
 
         form.addEventListener('submit', function (e) {
-            e.preventDefault();
-            alert('Submitting: ' + fileInput.value);
+            // e.preventDefault();
+            alert('The following documents are being submitted to SATX Vital Records: ' + urlImg);
+            updateForm(urlImg);
+
         });
 
-        function updateForm (result) {
-            const fileData = result.filesUploaded[0];
-            fileInput.value = fileData.url;
 
-            const name = document.createTextNode('Selected: ' + fileData.filename);
+
+        function updateForm (urlImg) {
+            // const fileData = result.filesUploaded[0];
+            fileInput.value = urlImg;
+
+            // const name = document.createTextNode('Selected: ' + fileData.filename);
             const url = document.createElement('a');
-            url.href = fileData.url;
-            url.appendChild(document.createTextNode(fileData.url));
-            nameBox.appendChild(name);
-            urlBox.appendChild(document.createTextNode('Uploaded to: '));
-            urlBox.appendChild(url);
+            // url.href = fileData.url;
+            url.appendChild(document.createTextNode(urlImg));
+            // nameBox.appendChild(name);
+            // urlBox.appendChild(document.createTextNode('Uploaded to: '));
+            // urlBox.appendChild(urlImg);
         }
+
+
 });
 

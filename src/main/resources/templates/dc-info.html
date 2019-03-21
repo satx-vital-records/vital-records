@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/test-header :: test-header('Death Certificate')"/>
+<body>
+    <div class=" navbar-fixed-top">
+        <div class="navbar-inner">
+            <div class="container"></div>
+        </div>
+    </div>
+    <div id="body-container">
+        <div id="body-content">
+            <section class="nav nav-page">
+                <div class="container">
+                    <div class="row">
+                        <div class="span7">
+                            <header class="page-header">
+                                <h3>Records Application<br/>
+                                    <small>Vital Records City of San Antonio</small>
+                                </h3>
+                            </header>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <div class="page container">
+
+
+                <h2 class="pt-5"> Death Certificate Info Page</h2>
+            </div>
+        </div>
+
+    </div>
+    <div th:replace="fragments/admin-footer :: admin-footer"></div>
+</body>
+</html>
