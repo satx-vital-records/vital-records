@@ -7,10 +7,11 @@ import com.satxvitalrecords.repositories.UserRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
+
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 @Controller
 public class HomeController {
@@ -56,10 +57,36 @@ public class HomeController {
         return "app-index";
     }
 
+
+
     @PostMapping("/app-index")
     public String leaveComment(@ModelAttribute Application app) {
         appDao.save(app);
-        return "redirect: app-index";
+        return "redirect: /app-index";
+    }
+
+
+    @GetMapping("/app-view/{id}")
+    public String viewAllApps(@PathVariable long id, Model model){
+        Application app = appDao.findOne(id);
+        model.addAttribute("app", app);
+        return "app-view";
+    }
+
+    @PostMapping("/app-view/{id}")
+    public String leaveComment(@PathVariable long id, @RequestParam (name= "comments") String comments) {
+//        Date date = new Date();
+//        DateFormat dateFormat = new SimpleDateFormat("YY/MM/DD hh:mm:ss");
+//        dateFormat.format(date);
+        Application app = appDao.findOne(id);
+        app.setComments(comments);
+//        Date date = new Date();
+//        String strDateFormat = "YY/MM/DD hh:mm:ss";
+//        DateFormat dateFormat = new SimpleDateFormat(strDateFormat);
+//       dateFormat.format(date);
+//        app.setComment_dateTime(date);
+        appDao.save(app);
+        return "redirect: /app-index";
     }
 
     @GetMapping("/bc-info")
