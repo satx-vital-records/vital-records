@@ -48,23 +48,21 @@
                 </div>
             </section>
             <div class="page container">
-                <div class="row justify-content-center">
+                <div class="row justify-content-between">
                     <div class="span18 text-center">
-                        <div class="blockoff-left">
-                            <legend class="lead">
-                                Welcome
-                            </legend>
-                            <p>
-                                Admin blurb.... Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                                tempor
-                                incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-                                exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                            </p>
+                        <!--<div class="blockoff-left">-->
+                            <h3 class="lead">
+                                Applicant Information
+                            </h3>
+                        <p><strong>Applicant name: </strong><span th:text="${app.first_name}"></span> <span class="pr-4" th:text="${app.last_name}">
+
+                        </span><strong>Relationship to Person on Record: </strong><span class="pr-4" th:text="${app.record_relationship}"></span>
+                            <strong>Purpose of Request: </strong><span th:text="${app.purpose}"></span></p>
+                        <p><strong>Name on Record: </strong><span th:text="${record.first_name}"></span> <span class="pr-4" th:text="${record.last_name}"></span><strong>
+                                Record Type: </strong><span class="pr-4" th:text="${app.record_type}"></span> <strong>Date of Birth: </strong><span class="pr-4" th:text="${record.date_of_birth}"></span> <strong>Date of Death: </strong><span th:text="${record.date_of_death}"></span></p>
                         </div>
                     </div>
-                    <div class="">
-                        <p>Applicant <span th:text="${app.first_name}"></span> <span th:text="${app.last_name}"></span> is below.</p>
-                    </div>
+
                 </div>
 
 
@@ -103,7 +101,7 @@
                         </div>
                     </div>
                     </div>
-                </div>
+                <!--</div>-->
 
             <div class="row justify-content-between m-auto">
                 <!--<div class="span3">

@@ -1,8 +1,10 @@
 package com.satxvitalrecords.controllers;
 
 import com.satxvitalrecords.models.Application;
+import com.satxvitalrecords.models.Record;
 import com.satxvitalrecords.models.User;
 import com.satxvitalrecords.repositories.ApplicationRepo;
+import com.satxvitalrecords.repositories.RecordRepo;
 import com.satxvitalrecords.repositories.UserRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -21,6 +23,9 @@ public class HomeController {
 
     @Autowired
     private UserRepo userDao;
+
+    @Autowired
+    private RecordRepo recordDao;
 
 //    @GetMapping("/")
 //    public String home() {
@@ -69,7 +74,9 @@ public class HomeController {
     @GetMapping("/app-view/{id}")
     public String viewAllApps(@PathVariable long id, Model model){
         Application app = appDao.findOne(id);
+        Record record = recordDao.findOne(id);
         model.addAttribute("app", app);
+        model.addAttribute("record", record);
         return "app-view";
     }
 
