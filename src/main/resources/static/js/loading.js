@@ -6,7 +6,7 @@ $(document).ready(function () {
         maxFiles: 20,
         uploadInBackground: false,
         onOpen: () => console.log('opened!'),
-        onUploadDone: (res) => console.log(res), updateForm,
+        onUploadDone: (res) => console.log(res),
     };
     const picker = client.picker(options);
 
