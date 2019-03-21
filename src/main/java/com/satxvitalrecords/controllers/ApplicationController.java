@@ -193,9 +193,37 @@ public class ApplicationController {
 
     @GetMapping("/completed-application")
     public String reviewApplication(Model model) {
-        model.addAttribute("app", new Application());
-        model.addAttribute("record", new Record());
-        model.addAttribute("mailaddress", new MailingAddress());
+        User sessionUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        User userDB = userDao.findOne(sessionUser.getId());
+
+        Application appDB = null;
+        Iterable<Application> apps = appDao.findAll();
+        for(Application app:apps){
+            if(app.getUser() == userDB){
+                appDB = app;
+            }
+        }
+        Record recordDB= null;
+        Iterable<Record> allrecords = recordDao.findAll();
+        for(Record record_db : allrecords) {
+//            System.out.println(record_db.getApplication());
+            if (record_db.getApplication().getId() == appDB.getId()) {
+                recordDB = record_db;
+            }
+        }
+
+        MailingAddress mailingAddress = null;
+        Iterable<MailingAddress> addresses = mailDao.findAll();
+        for(MailingAddress address: addresses){
+            if(recordDB.getApplication() == appDB){
+                mailingAddress = address;
+            }
+        }
+
+
+        model.addAttribute("app", appDB);
+        model.addAttribute("record", recordDB);
+        model.addAttribute("mailaddress", mailingAddress);
         return "completed-application";
     }
 
