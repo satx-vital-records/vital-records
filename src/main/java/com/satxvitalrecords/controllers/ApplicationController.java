@@ -232,18 +232,34 @@ public class ApplicationController {
         return "redirect:/checkout";
     }
 
+    @GetMapping("/checkout")
+    public String goToCheckout(){
+        return "checkout";
+    }
+
     @GetMapping("/upload")
     public String uploadApplication(Model model) {
-        Application app = appDao.findOne(1L);
-        model.addAttribute("app", app);
+//        Application app = appDao.findOne(1L);
+//        model.addAttribute("app", app);
         return "upload"; }
 
     @PostMapping("/upload")
-    public String saveFileToDb(Application app, @RequestParam(name="urlImg") String url) {
-        app = appDao.findOne(1L);
-        app.setIdentification_img(url);
-        System.out.println(url);
-        appDao.save(app);
+    public String saveFileToDb(@RequestParam(name="urlImg") String url) {
+        User sessionUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        User userDB = userDao.findOne(sessionUser.getId());
+
+        Application appDB = null;
+        Iterable<Application> apps = appDao.findAll();
+        for(Application app:apps){
+            if(app.getUser() == userDB){
+                appDB = app;
+            }
+        }
+
+//        appDB = appDao.findOne(appDB.getId());
+        appDB.setIdentification_img(url);
+//        System.out.println(url);
+        appDao.save(appDB);
         return "redirect:/upload";
     }
 
