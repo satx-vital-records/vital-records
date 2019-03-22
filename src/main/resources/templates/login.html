@@ -33,7 +33,9 @@
                     <div th:if="${param.logout}">
                         You have been logged out.
                     </div>
+                </div>
 
+                <div class="row justify-content-center">
                     <form th:action="@{/login}" method="post">
                         <div class="row mt-5 form-bgc">
                             <div class="row align-items-center">
@@ -59,11 +61,10 @@
                         </div>
                     </form>
                 </div>
-
             </div>
         </div>
-
     </div>
+
     <div th:replace="fragments/admin-footer :: admin-footer"></div>
 </body>
 </html>

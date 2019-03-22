@@ -81,25 +81,30 @@
                 <!--documents to submit completed application.</h2></div>-->
                 <!--<hr/>-->
                 <!--<div>-->
-                <div class="pt-5">
-                    <object
-                            data="/pdf/COSA-Mail-Application.pdf"
-                            type="application/pdf"
-                            width="100%"
-                            height="100%">
-                        <iframe
-                                src="/pdf/COSA-Mail-Application.pdf"
-                                width="100%"
-                                height="100%"
-                                style="border: none;">
-                            <p>Your browser does not support PDFs.
-                                <a href="/pdf/COSA-Mail-Application.pdf">Download the PDF</a>.</p>
-                        </iframe>
-                    </object>
+                <!--<div class="pt-5">-->
+                    <!--<object-->
+                            <!--data="/pdf/COSA-Mail-Application.pdf"-->
+                            <!--type="application/pdf"-->
+                            <!--width="100%"-->
+                            <!--height="100%">-->
+                        <!--<iframe-->
+                                <!--src="/pdf/COSA-Mail-Application.pdf"-->
+                                <!--width="100%"-->
+                                <!--height="100%"-->
+                                <!--style="border: none;">-->
+                            <!--<p>Your browser does not support PDFs.-->
+                                <!--<a href="/pdf/COSA-Mail-Application.pdf">Download the PDF</a>.</p>-->
+                        <!--</iframe>-->
+                    <!--</object>-->
 
-                    <!--<iframe src="http://docs.google.com/gview?url=/pdf/COSA-Mail-Application.pdf&amp;embedded=true" style="width:718px; height:700px; text-align:center;" frameborder="0"></iframe>-->
-                    <!--<embed th:src="@{/pdf/COSA-Mail-Application.pdf}" width="100%" height="100%"/>-->
-                    <!--<embed src="https://drive.google.com/viewerng/-->
+
+                <div class="row justify-content-center">
+                    <embed th:src="@{/pdf/edited_COSA-Mail-Application.pdf}" width="900px" height="1000px"/>
+                <!--<a th:href="@{/pdf/COSA-Mail-Application.pdf}">Link Text Here</a>-->
+                </div>
+
+
+                <!--<embed src="https://drive.google.com/viewerng/-->
 <!--viewer?embedded=true&amp;url=pdf/COSA-Mail-Application.pdf" width="500" height="375"/>-->
                     <!--<object width="400" height="500" type="application/pdf" data="/pdf/COSA-Mail-Application.pdf">-->
                         <!--<p>Insert your error message here, if the PDF cannot be displayed.</p>-->
@@ -108,7 +113,7 @@
             </div>
         </div>
 
-    </div>
+    <!--</div>-->
     <div th:replace="fragments/admin-footer :: admin-footer"></div>
 </body>
 </html>
