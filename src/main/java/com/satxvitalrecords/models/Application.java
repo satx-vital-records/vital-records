@@ -102,6 +102,11 @@ public class Application {
     this.user= user;
   }
 
+  public Application(User user, String record_type){
+    this.user = user;
+    this.record_type = record_type;
+  }
+
 
   public long getId() {
     return id;
