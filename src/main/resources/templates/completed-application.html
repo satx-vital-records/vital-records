@@ -394,17 +394,17 @@
                                                       th:field="*{sex}"
                                                       /><input
                       class="radio_buttons required" type="radio"
-                      th:field="*{sex}"
                       th:value="Female"
                       id="certificate_person_sex_female"/><label
                       class="collection_radio_buttons pr-3"
                       for="certificate_person_sex_female">Female</label><input
                       class="radio_buttons required" type="radio"
-                      th:field="*{sex}"
                       th:value="Male"
                       id="certificate_person_sex_male"/><label
                       class="collection_radio_buttons"
                       for="certificate_person_sex_male">Male</label>
+                    <!--th:field="*{sex}"-->
+
                   </div>
 
                 </div>
@@ -654,6 +654,7 @@
                     <div class="tooltip-wrapper"><select data-validate=""
                                                          class="select required"
                                                          th:value="*{state}"
+                                                         th:field="*{state}"
                                                          id="certificate_delivery_state">
                       <option value="">Please select</option>
                       <option th:value="AL">Alabama</option>
