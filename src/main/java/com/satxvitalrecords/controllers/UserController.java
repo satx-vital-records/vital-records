@@ -46,6 +46,12 @@ public class UserController {
 
   @PostMapping("/")
   public String saveUser(@ModelAttribute User user){
+    Iterable<User> users = userDao.findAll();
+    for(User user_db: users) {
+      if (user.getEmail() == user_db.getEmail() || user.getUsername() == user_db.getUsername()) {
+        return "redirect:login";
+      }
+    }
     String hash = passwordEncoder.encode(user.getPassword());
     user.setPassword(hash);
     userDao.save(user);
