@@ -7,6 +7,7 @@ import com.satxvitalrecords.repositories.ApplicationRepo;
 import com.satxvitalrecords.repositories.RecordRepo;
 import com.satxvitalrecords.repositories.UserRepo;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -94,14 +95,22 @@ public class HomeController {
     }
 
     @GetMapping("/bc-info")
-    public String showBcInfoPage() {
+    public String showBcInfoPage(Model model) {
+        model.addAttribute("app", new Application());
         return "bc-info";
     }
 
     @PostMapping("/bc-info")
-    public String startBcApp(@ModelAttribute Application app) {
+    public String birthRecord(Application app, @RequestParam(name="record_type") String record_type, Model model){
+        User sessionUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        User userDB = userDao.findOne(sessionUser.getId());
+        model.addAttribute("app", app);
+
+        app.setUser(userDB);
+        app.setRecord_type(record_type);
+        System.out.println(sessionUser.getFirst_name());
         appDao.save(app);
-        return "redirect: application-1";
+        return "redirect:/form1";
     }
 
     @GetMapping("/dc-info")
@@ -109,10 +118,19 @@ public class HomeController {
         return "dc-info";
     }
 
+//    @PostMapping("/dc-info")
+//    public String startDcApp(@ModelAttribute Application app) {
+//        appDao.save(app);
+//        return "redirect: application-1";
+//    }
     @PostMapping("/dc-info")
-    public String startDcApp(@ModelAttribute Application app) {
+    public String deathRecord(Application app, @RequestParam(name="record_type") String record_type, Model model){
+        User sessionUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        User userDB = userDao.findOne(sessionUser.getId());
+        app.setUser(userDB);
+        app.setRecord_type(record_type);
         appDao.save(app);
-        return "redirect: application-1";
+        return "redirect:/application-1";
     }
 
 
