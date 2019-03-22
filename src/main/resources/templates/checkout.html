@@ -36,10 +36,12 @@
                             <i class=" material-icons btn-info" style="font-size: 48px;">email</i>
                             <div class="card-body">
                                 <h4 class="card-title">Print Application</h4>
-                                <p class="card-text">Your completed application has been emailed to you.</p>
+                                <p class="card-text">If you are unable to print the application below, we will send an email to to the email you listed in the application.</p>
                             </div>
                             <div class="card-footer py-4">
-                                <a href="#" class="btn btn-secondary">Resend email &raquo;</a>
+                                <form action='/charge' method='POST' >
+                                <a type="submit" class="btn btn-secondary">Send email &raquo;</a>
+                                </form>
                             </div>
                         </div>
                     </div>

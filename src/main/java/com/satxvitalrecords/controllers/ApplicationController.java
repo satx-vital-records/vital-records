@@ -8,6 +8,7 @@ import com.satxvitalrecords.services.PdfStamper;
 //import com.satxvitalrecords.services.GooglePlacesTest;
 
 //import com.sun.javaws.security.AppPolicy;
+import com.satxvitalrecords.services.StripeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
@@ -282,13 +283,15 @@ public class ApplicationController {
         appDB.setIdentification_img(url);
 //        System.out.println(url);
         appDao.save(appDB);
-        return "redirect:/upload";
+        return "redirect:/charge";
     }
 
     @GetMapping("/confirmation")
     public String showConfirmation() {
         return "confirmation";
     }
+
+
 
 
 
