@@ -1,8 +1,5 @@
 package com.satxvitalrecords.controllers;
-import com.satxvitalrecords.models.Application;
-import com.satxvitalrecords.models.MailingAddress;
-import com.satxvitalrecords.models.Record;
-import com.satxvitalrecords.models.User;
+import com.satxvitalrecords.models.*;
 import com.satxvitalrecords.repositories.*;
 import com.satxvitalrecords.services.PdfStamper;
 import com.sun.javaws.security.AppPolicy;
@@ -34,6 +31,9 @@ public class ApplicationController {
     private AddressRepo mailDao;
 
     @Autowired
+    private StatusRepo statusDao;
+
+    @Autowired
     private PdfStamper pdfStamper;
 
 
@@ -48,12 +48,21 @@ public class ApplicationController {
     public String saveRecord(Application app, @RequestParam(name="num_of_copies") String numOfCopies, Model model){
         User sessionUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         User userDB = userDao.findOne(sessionUser.getId());
+        Status appstatus = null;
+        Iterable<Status> newstatus =statusDao.findAll();
+        for(Status status: newstatus){
+            if(status.getDescription().equals("in-progress")){
+                appstatus = status;
+            }
+        }
+
 //        System.out.println(userDB.getUsername());
 //        System.out.println(numOfCopies);
         model.addAttribute("copies", numOfCopies);
-
         app.setUser(userDB);
-        appDao.save(app);
+        System.out.println(appstatus);
+        app.setStatus(appstatus);
+//        appDao.save(app);
     return "redirect:/application-2";
     }
 
