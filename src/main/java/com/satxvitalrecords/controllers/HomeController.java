@@ -126,6 +126,10 @@ public class HomeController {
         return "redirect: application-1";
     }
 
+    @GetMapping("/map")
+    public String showMap() {
+        return "map";
+    }
 
 
 }

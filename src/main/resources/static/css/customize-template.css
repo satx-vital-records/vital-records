@@ -63,8 +63,9 @@ img {
     border: 0;
     -ms-interpolation-mode: bicubic;
 }
-#map_canvas img {
+#map_canvas {
     max-width: none;
+    height: 425px;
 }
 button,
 input,
