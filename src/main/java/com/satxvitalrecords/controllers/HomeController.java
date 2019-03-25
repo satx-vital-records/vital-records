@@ -108,6 +108,7 @@ public class HomeController {
 
         app.setUser(userDB);
         app.setRecord_type(record_type);
+        System.out.println(app.getRecord_type());
         System.out.println(sessionUser.getFirst_name());
         appDao.save(app);
         return "redirect:/form1";

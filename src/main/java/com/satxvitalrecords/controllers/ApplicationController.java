@@ -38,40 +38,26 @@ public class ApplicationController {
 
     @GetMapping("/form1")
     public String showApplication1(Model model) {
-
-        User sessionUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        User userDB = userDao.findOne(sessionUser.getId());
-
-        Application appDB= null;
-        Iterable<Application> apps = appDao.findAll();
-        for(Application singleApp: apps) {
-            if (singleApp.getUser() == userDB) {
-                appDB = singleApp;
-            }
-        }
-        model.addAttribute("app", appDB);
+        model.addAttribute("app", new Application());
         return "form1";
     }
 
 
     @PostMapping("/form1")
-    public String saveRecord(Application app, @RequestParam(name="num_of_copies") String numOfCopies, Model model){
+    public String saveRecord(@ModelAttribute Application app, @RequestParam(name="record_type") String record_type, @RequestParam(name="num_of_copies") String numOfCopies, Model model){
+
+
         User sessionUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         User userDB = userDao.findOne(sessionUser.getId());
 
-        Application appDB= app;
-        Iterable<Application> apps = appDao.findAll();
-        for(Application singleApp: apps) {
-            if (app.getUser() == userDB) {
-                appDB = singleApp;
-            }
-        }
 
-        appDB.setUser(userDB);
-        appDao.save(appDB);
+        app.setUser(userDB);
+        appDao.save(app);
 
+        model.addAttribute("record_type", record_type);
         model.addAttribute("copies", numOfCopies);
-        model.addAttribute("app", appDB);
+
+        model.addAttribute("app", app);
 
     return "redirect:/application-2";
     }
