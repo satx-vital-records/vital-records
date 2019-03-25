@@ -65,7 +65,7 @@ img {
 }
 #map_canvas {
     max-width: none;
-    height: 425px;
+    height: 100%;
 }
 button,
 input,

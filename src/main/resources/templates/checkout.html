@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head th:replace="fragments/test-header :: test-header('Application')"/>
+<head th:replace="fragments/test-map-header :: test-map-header('Application')"/>
 <body>
     <div class=" navbar-fixed-top">
         <div class="navbar-inner">
@@ -36,12 +36,11 @@
                             <i class=" material-icons btn-info" style="font-size: 48px;">email</i>
                             <div class="card-body">
                                 <h4 class="card-title">Print Application</h4>
-                                <p class="card-text">If you are unable to print the application below, we will send an email to to the email you listed in the application.</p>
+                                <p class="card-text">If you are unable to print the application below, we will send an
+                                    email to to the email you listed in the application.</p>
                             </div>
                             <div class="card-footer py-4">
-                                <form action='/charge' method='POST' >
-                                <a type="submit" class="btn btn-secondary">Send email &raquo;</a>
-                                </form>
+                                    <a type="submit" class="btn btn-success">Sent email</a>
                             </div>
                         </div>
                     </div>
@@ -54,9 +53,7 @@
                                 <p class="card-text">It is required by state law that this document be notorized.</p>
                             </div>
                             <div class="card-footer py-4">
-                                <form action="/map" method="post">
-                                <button type="submit" class="btn btn-secondary"> Search &raquo;</button>
-                                </form>
+                                    <a type="submit" class="btn btn-secondary"> Search &raquo;</a>
                             </div>
                         </div>
                     </div>
@@ -86,36 +83,43 @@
                 <!--<hr/>-->
                 <!--<div>-->
                 <!--<div class="pt-5">-->
-                    <!--<object-->
-                            <!--data="/pdf/COSA-Mail-Application.pdf"-->
-                            <!--type="application/pdf"-->
-                            <!--width="100%"-->
-                            <!--height="100%">-->
-                        <!--<iframe-->
-                                <!--src="/pdf/COSA-Mail-Application.pdf"-->
-                                <!--width="100%"-->
-                                <!--height="100%"-->
-                                <!--style="border: none;">-->
-                            <!--<p>Your browser does not support PDFs.-->
-                                <!--<a href="/pdf/COSA-Mail-Application.pdf">Download the PDF</a>.</p>-->
-                        <!--</iframe>-->
-                    <!--</object>-->
+                <!--<object-->
+                <!--data="/pdf/COSA-Mail-Application.pdf"-->
+                <!--type="application/pdf"-->
+                <!--width="100%"-->
+                <!--height="100%">-->
+                <!--<iframe-->
+                <!--src="/pdf/COSA-Mail-Application.pdf"-->
+                <!--width="100%"-->
+                <!--height="100%"-->
+                <!--style="border: none;">-->
+                <!--<p>Your browser does not support PDFs.-->
+                <!--<a href="/pdf/COSA-Mail-Application.pdf">Download the PDF</a>.</p>-->
+                <!--</iframe>-->
+                <!--</object>-->
 
 
                 <div class="row justify-content-center">
-                    <embed th:src="@{/pdf/edited_COSA-Mail-Application.pdf}" width="900px" height="1000px"/>
-                <!--<a th:href="@{/pdf/COSA-Mail-Application.pdf}">Link Text Here</a>-->
+
+                    <div class="col">
+                        <embed th:src="@{/pdf/edited_COSA-Mail-Application.pdf}" width="100%" height="500px"/>
+                        <!--<a th:href="@{/pdf/COSA-Mail-Application.pdf}">Link Text Here</a>-->
+                    </div>
+                    <div class="col">
+                        <div id="map-canvas"/>
+                    </div>
+
                 </div>
 
 
                 <!--<embed src="https://drive.google.com/viewerng/-->
-<!--viewer?embedded=true&amp;url=pdf/COSA-Mail-Application.pdf" width="500" height="375"/>-->
-                    <!--<object width="400" height="500" type="application/pdf" data="/pdf/COSA-Mail-Application.pdf">-->
-                        <!--<p>Insert your error message here, if the PDF cannot be displayed.</p>-->
-                    <!--</object>-->
-                </div>
+                <!--viewer?embedded=true&amp;url=pdf/COSA-Mail-Application.pdf" width="500" height="375"/>-->
+                <!--<object width="400" height="500" type="application/pdf" data="/pdf/COSA-Mail-Application.pdf">-->
+                <!--<p>Insert your error message here, if the PDF cannot be displayed.</p>-->
+                <!--</object>-->
             </div>
         </div>
+    </div>
 
     <!--</div>-->
     <div th:replace="fragments/admin-footer :: admin-footer"></div>

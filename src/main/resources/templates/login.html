@@ -35,32 +35,67 @@
                     </div>
                 </div>
 
-                <div class="row justify-content-center">
-                    <form th:action="@{/login}" method="post">
-                        <div class="row mt-5 form-bgc">
-                            <div class="row align-items-center">
-                                <div class="mx-2">
-                                    <div class="form-group contact-block1 d-inline">
-                                        <label for="username">Username</label>
-                                        <input id="username" name="username" type="text"/>
+
+                <div class="col-md-6 mb-4">
+                    <div class="card">
+                        <div class="card-body text-center">
+                            <form th:action="@{/login}" method="post">
+                                <div class="row mt-5 form-bgc">
+                                    <div class="row align-items-center">
+                                        <div class="mx-2">
+                                            <div class="form-group contact-block1 d-inline">
+                                                <label for="username">Username</label>
+                                                <input id="username" name="username" type="text"/>
+                                            </div>
+                                        </div>
+                                        <div class=" mx-2">
+                                            <div class="form-group contact-block1 d-inline">
+                                                <label for="password">Password</label>
+                                                <input id="password" name="password" type="password"/>
+                                            </div>
+                                        </div>
+                                        <div class="mx-2">
+                                            <div class="form-group contact-block1 d-inline">
+                                                <input type="submit" class=" btn-sun btn--large is-block"
+                                                       value="Log In"/>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
-                                <div class=" mx-2">
-                                    <div class="form-group contact-block1 d-inline">
-                                        <label for="password">Password</label>
-                                        <input id="password" name="password" type="password"/>
-                                    </div>
-                                </div>
-                                <div class="mx-2">
-                                    <div class="form-group contact-block1 d-inline">
-                                        <input type="submit" class=" btn-sun btn--large is-block"
-                                               value="Log In"/>
-                                    </div>
-                                </div>
-                            </div>
+                            </form>
                         </div>
-                    </form>
+                    </div>
                 </div>
+
+
+
+
+                <!--<div class="row justify-content-center">-->
+                    <!--<form th:action="@{/login}" method="post">-->
+                        <!--<div class="row mt-5 form-bgc">-->
+                            <!--<div class="row align-items-center">-->
+                                <!--<div class="mx-2">-->
+                                    <!--<div class="form-group contact-block1 d-inline">-->
+                                        <!--<label for="username">Username</label>-->
+                                        <!--<input id="username" name="username" type="text"/>-->
+                                    <!--</div>-->
+                                <!--</div>-->
+                                <!--<div class=" mx-2">-->
+                                    <!--<div class="form-group contact-block1 d-inline">-->
+                                        <!--<label for="password">Password</label>-->
+                                        <!--<input id="password" name="password" type="password"/>-->
+                                    <!--</div>-->
+                                <!--</div>-->
+                                <!--<div class="mx-2">-->
+                                    <!--<div class="form-group contact-block1 d-inline">-->
+                                        <!--<input type="submit" class=" btn-sun btn&#45;&#45;large is-block"-->
+                                               <!--value="Log In"/>-->
+                                    <!--</div>-->
+                                <!--</div>-->
+                            <!--</div>-->
+                        <!--</div>-->
+                    <!--</form>-->
+                <!--</div>-->
             </div>
         </div>
     </div>

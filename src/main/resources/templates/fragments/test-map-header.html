@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head th:fragment="test-header(title)">
+<head th:fragment="test-map-header(title)">
     <!-- meta -->
     <meta charset="utf-8"/>
     <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
@@ -51,5 +51,76 @@
     <!-- Responsive assets -->
     <link th:href="@{/css/responsive.css}" rel="stylesheet"/>
     <link th:href="@{assets/css/cssprogress.css}" rel="stylesheet"/>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+    <style type="text/css">
+        html { height: 100% }
+        body { height: 100%; margin: 0; padding: 0 }
+        #map-canvas { height: 100% }
+    </style>
+    <script type="text/javascript"
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBvVIZozQaijJ_e-6bBlH1g5PQlbvHv6-E&amp;libraries=places">
+    </script>
+    <script type="text/javascript">
+        //<![CDATA[
+
+        var map;
+
+        function initialize() {
+            // Create a map centered in Pyrmont, Sydney (Australia).
+            map = new google.maps.Map(document.getElementById('map-canvas'), {
+                center: {lat: 29.4106, lng: -98.412},
+                zoom: 15
+            });
+
+            // Search for Google's office in Australia.
+            var request = {
+                location: map.getCenter(),
+                radius: '1500',
+                query: 'notary public'
+            };
+
+            var service = new google.maps.places.PlacesService(map);
+            service.textSearch(request, callback);
+        }
+
+        // Checks that the PlacesServiceStatus is OK, and adds a marker
+        // using the place ID and location from the PlacesService.
+        function callback(results, status) {
+            console.log(results);
+            console.log("hi");
+            if (status == google.maps.places.PlacesServiceStatus.OK) {
+
+                // Multiple Markers
+                var markersArray = [];
+                console.log(markersArray);
+
+
+                for(let i = 0; i < results.length; i++){
+                    var markers = new google.maps.Marker({
+                        map: map,
+                        place: {
+                            placeId: results[i].place_id,
+                            location: results[i].geometry.location
+                        }
+                    })
+                    markersArray.push(markers);
+                    console.log("pushed a marker");
+                }
+                console.log(markersArray);
+                for( i = 0; i < markersArray.length; i++ ) {
+                    var position = new google.maps.LatLng(markersArray[i].place);
+                    bounds.extend(position);
+
+                    fitBoundsToVisibleMarkers();
+
+                }
+
+            }
+        }
+
+        google.maps.event.addDomListener(window, 'load', initialize);
+
+        //]]>
+    </script>
 </head>
 </html>

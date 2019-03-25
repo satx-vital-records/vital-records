@@ -131,5 +131,9 @@ public class HomeController {
         return "map";
     }
 
+    @GetMapping("/login-form")
+    public String showForm() {
+        return "login-form";
+    }
 
 }

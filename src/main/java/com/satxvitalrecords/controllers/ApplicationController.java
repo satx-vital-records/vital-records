@@ -267,7 +267,7 @@ public class ApplicationController {
         return "upload"; }
 
     @PostMapping("/upload")
-    public String saveFileToDb(@RequestParam(name="urlImg") String url) {
+    public String saveFileToDb(@RequestParam(name="urlImg1") String url, @RequestParam(name="urlImg2") String url2) {
         User sessionUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         User userDB = userDao.findOne(sessionUser.getId());
 
@@ -281,6 +281,7 @@ public class ApplicationController {
 
 //        appDB = appDao.findOne(appDB.getId());
         appDB.setIdentification_img(url);
+        appDB.setForm_img(url2);
 //        System.out.println(url);
         appDao.save(appDB);
         return "redirect:/charge";
