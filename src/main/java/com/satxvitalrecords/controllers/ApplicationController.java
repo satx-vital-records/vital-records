@@ -1,14 +1,8 @@
 package com.satxvitalrecords.controllers;
-import com.satxvitalrecords.models.Application;
-import com.satxvitalrecords.models.MailingAddress;
-import com.satxvitalrecords.models.Record;
-import com.satxvitalrecords.models.User;
+import com.satxvitalrecords.models.*;
 import com.satxvitalrecords.repositories.*;
 import com.satxvitalrecords.services.PdfStamper;
-//import com.satxvitalrecords.services.GooglePlacesTest;
-
 //import com.sun.javaws.security.AppPolicy;
-import com.satxvitalrecords.services.StripeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -17,9 +11,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-
-import java.util.ArrayList;
-import java.util.List;
 
 @Controller
 //@SessionAttributes("user")
@@ -36,6 +27,9 @@ public class ApplicationController {
 
     @Autowired
     private AddressRepo mailDao;
+
+    @Autowired
+    private StatusRepo statusDao;
 
     @Autowired
     private PdfStamper pdfStamper;
@@ -61,29 +55,26 @@ public class ApplicationController {
         return "application-1";
     }
 
-//    @PostMapping("/application-1")
-//    public String saveRecord(@ModelAttribute Record record){
-//        recordDao.save(record);
-//        return "redirect:/application-2";
-//    }
 
     @PostMapping("/application-1")
-    public String saveRecord(Application app, @RequestParam(name="num_of_copies") String numOfCopies, Model model){
+    public String saveRecord(@ModelAttribute Application app, @RequestParam(name="record_type") String record_type, @RequestParam(name="num_of_copies") String numOfCopies, Model model){
+
+
         User sessionUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         User userDB = userDao.findOne(sessionUser.getId());
-//        System.out.println(userDB.getUsername());
-//        System.out.println(numOfCopies);
-        model.addAttribute("copies", numOfCopies);
+
 
         app.setUser(userDB);
         appDao.save(app);
+
+        model.addAttribute("record_type", record_type);
+        model.addAttribute("copies", numOfCopies);
+
+        model.addAttribute("app", app);
+
     return "redirect:/application-2";
     }
 
-//    @GetMapping("/application-2")
-//    public String showApplication2() {
-//        return "application-3";
-//    }
 
     @GetMapping("/application-2")
     public String showApplication2(Model model) {

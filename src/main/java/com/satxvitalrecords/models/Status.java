@@ -16,14 +16,17 @@ public class Status {
   @Column
   private String description;
 
+  public Status(){}
+
+
   public Status(long id) {
     this.id = id;
   }
 
-//  public Status(long id, String description) {
-//    this.id = id;
-//    this.description = description;
-//  }
+  public Status(long id, String description) {
+    this.id = id;
+    this.description = description;
+  }
 
   public long getId() {
     return id;

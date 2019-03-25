@@ -24,35 +24,47 @@
             </section>
             <div class="page container">
                 <h2 class="pt-5"> Birth Certificate Info Page</h2>
-            </div>
+                <article>San Antonio Office of the City Clerk, Vital Records Agency Information
+                    <h4>SAN ANTONIO VITAL RECORDS</h4>
+                    <p>The San Antonio Division of Vital Records (San Antonio Vital Records) issues certified copies of San Antonio birth certificates for events which occurred within San Antonio from 1895 to present. San Antonio Vital Records also issues birth certificates for events which occurred anywhere in the state of Texas from 1926 to present.</p>
 
+                    <p><b><em>NOTICE:</em></b> Although we attempt to include accurate and up-to-date information on this site, state and agency information is subject to change without notice. We make no representations or warranties as to the accuracy, completeness or timeliness of the information herein and assumes no liability with respect to such information.</p>
 
-            <div class="table-responsive">
-                <table class="table">
-                    <thead>
-                    <tr>
-                        <th class="text-center">#</th>
-                        <th>Record Type</th>
-                        <th>Request Date</th>
-                        <th>Name</th>
-                        <th>Form-Type</th>
-                        <th>DOB</th>
-                        <th>Requestor</th>
-                        <th>Relationship</th>
-                        <th class="text-right">Status</th>
-                        <th class="text-right">Actions</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <tr>
-                        <td>Date of Request</td>
-                        <td>Requestor</td>
-                        <td>Date of Birth</td>
-                        <td>Current Status</td>
-                    </tr>
-                    </tbody>
-                </table>
+                    <h4>SAN ANTONIO BIRTH CERTIFICATES</h4>
+                    <p>San Antonio Vital Records issues only certified copies of San Antonio birth certificates, which are typically acceptable for passport, social security, employment and personal identification purposes.</p>
+
+                    <a href="https://www.sanantonio.gov/Municipal-Archives-Records/Birth-Death-Records" target="_blank">Visit San Antonio Office of the City Clerk, Vital Records site</a></article>
+
             </div>
+            <form th:action="@{/application-1}" th:method="GET">
+            <button name="RT" value="birth" type="submit" id="birth_cert">Request Birth Certificate</button></form>
+
+            <!--<div class="table-responsive">-->
+                <!--<table class="table">-->
+                    <!--<thead>-->
+                    <!--<tr>-->
+                        <!--<th class="text-center">#</th>-->
+                        <!--<th>Record Type</th>-->
+                        <!--<th>Request Date</th>-->
+                        <!--<th>Name</th>-->
+                        <!--<th>Form-Type</th>-->
+                        <!--<th>DOB</th>-->
+                        <!--<th>Requestor</th>-->
+                        <!--<th>Relationship</th>-->
+                        <!--<th class="text-right">Status</th>-->
+                        <!--<th class="text-right">Actions</th>-->
+                    <!--</tr>-->
+                    <!--</thead>-->
+                    <!--<tbody>-->
+                    <!--<tr>-->
+                        <!--<td>Date of Request</td>-->
+                        <!--<td>Requestor</td>-->
+                        <!--<td>Date of Birth</td>-->
+                        <!--<td>Current Status</td>-->
+                    <!--</tr>-->
+                    <!--</tbody>-->
+                <!--</table>-->
+            <!--</div>-->
         </div>
 
     </div>

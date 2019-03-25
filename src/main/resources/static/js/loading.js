@@ -10,6 +10,7 @@ let urlImg2 = "";
         maxFiles: 20,
         uploadInBackground: false,
         onOpen: () => console.log('opened!'),
+        //onUploadDone: (res) => console.log(res),
         // onUploadDone: (res) => console.log(res.filesUploaded[0].url),
         // onUploadDone: (res) => urlImg1 = res
         onUploadDone: function(res) {
