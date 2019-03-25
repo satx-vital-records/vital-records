@@ -36,7 +36,7 @@ public class User {
   @Column(length = 2)
   private int role;
 
-  @Column(nullable = false, unique = true)
+  @Column(nullable = false)
   private String phone_num;
 
   public User() { }
