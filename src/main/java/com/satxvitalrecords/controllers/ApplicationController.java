@@ -1,8 +1,5 @@
 package com.satxvitalrecords.controllers;
-import com.satxvitalrecords.models.Application;
-import com.satxvitalrecords.models.MailingAddress;
-import com.satxvitalrecords.models.Record;
-import com.satxvitalrecords.models.User;
+import com.satxvitalrecords.models.*;
 import com.satxvitalrecords.repositories.*;
 import com.satxvitalrecords.services.PdfStamper;
 //import com.sun.javaws.security.AppPolicy;
@@ -34,10 +31,14 @@ public class ApplicationController {
     private AddressRepo mailDao;
 
     @Autowired
+    private StatusRepo statusDao;
+
+    @Autowired
     private PdfStamper pdfStamper;
 
     @GetMapping("/form1")
     public String showApplication1(Model model) {
+
         User sessionUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         User userDB = userDao.findOne(sessionUser.getId());
 
@@ -71,6 +72,7 @@ public class ApplicationController {
 
         model.addAttribute("copies", numOfCopies);
         model.addAttribute("app", appDB);
+
     return "redirect:/application-2";
     }
 
