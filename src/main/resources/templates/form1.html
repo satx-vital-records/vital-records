@@ -51,8 +51,9 @@
           <!--<input name="utf8" type="hidden" value="✓"/><input-->
           <!--name="authenticity_token" type="hidden"-->
           <!--value="GBkZnnvogYBnoELufrriChXdsyeZ975veN9Q1hrDy5ov+pkPlLS8VIQiZjTnU/pzR6WYK8uVu/UzabA9pT+vYg=="/>-->
-          <input type="hidden" th:name="record_type" th:value="${param.RT[0]}" />
-          <div class="text-center py-4"><h2 class="h2"> Birth Certificate Order Form</h2></div>
+          <input id="record_type" type="hidden" th:name="record_type" th:value="${param.RT[0]}" />
+          <div class="text-center py-4 birth"><h2 class="h2"> Birth Certificate Order Form</h2></div>
+          <div id="death" class="text-center py-4"><h2 class="h2"> Death Certificate Order Form</h2></div>
           <hr/>
 
           <section class="section pb-2">
@@ -424,6 +425,17 @@
     </div>
     <div th:replace="fragments/admin-footer :: admin-footer"></div>
   </div>
+
+<script>
+  $(document).ready(function(){
+      console.log($(`#record_type`).val());
+      if($(`#record_type`).val('birth')){
+          $(`#death`).hide();
+      } else if($(`#record_type`).val('death')){
+          $(`.birth`).hide();
+      }
+  })
+</script>
 
 </body>
 </html>
