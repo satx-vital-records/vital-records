@@ -6,6 +6,7 @@ $(document).ready(function () {
         maxFiles: 20,
         uploadInBackground: false,
         onOpen: () => console.log('opened!'),
+        //onUploadDone: (res) => console.log(res),
         // onUploadDone: (res) => console.log(res.filesUploaded[0].url),
         onUploadDone: (res) => urlImg= res.filesUploaded[0].url
     };

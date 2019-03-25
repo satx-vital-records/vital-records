@@ -2,7 +2,7 @@ package com.satxvitalrecords.controllers;
 import com.satxvitalrecords.models.*;
 import com.satxvitalrecords.repositories.*;
 import com.satxvitalrecords.services.PdfStamper;
-import com.sun.javaws.security.AppPolicy;
+//import com.sun.javaws.security.AppPolicy;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
@@ -36,24 +36,43 @@ public class ApplicationController {
     @Autowired
     private PdfStamper pdfStamper;
 
-
-    @GetMapping("/application-1")
+    @GetMapping("/form1")
     public String showApplication1(Model model) {
-        model.addAttribute("app", new Application());
-//        model.addAttribute("status", new Status);
-        return "application-1";
+
+        User sessionUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        User userDB = userDao.findOne(sessionUser.getId());
+
+        Application appDB= null;
+        Iterable<Application> apps = appDao.findAll();
+        for(Application singleApp: apps) {
+            if (singleApp.getUser() == userDB) {
+                appDB = singleApp;
+            }
+        }
+        model.addAttribute("app", appDB);
+        return "form1";
     }
 
 
-    @PostMapping("/application-1")
+    @PostMapping("/form1")
     public String saveRecord(Application app, @RequestParam(name="num_of_copies") String numOfCopies, Model model){
         User sessionUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         User userDB = userDao.findOne(sessionUser.getId());
 
-//        System.out.println(userDB.getUsername());
+        Application appDB= app;
+        Iterable<Application> apps = appDao.findAll();
+        for(Application singleApp: apps) {
+            if (app.getUser() == userDB) {
+                appDB = singleApp;
+            }
+        }
+
+        appDB.setUser(userDB);
+        appDao.save(appDB);
+
         model.addAttribute("copies", numOfCopies);
-        app.setUser(userDB);
-        appDao.save(app);
+        model.addAttribute("app", appDB);
+
     return "redirect:/application-2";
     }
 
