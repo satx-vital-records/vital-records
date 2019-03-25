@@ -102,6 +102,19 @@ public class Application {
     this.user= user;
   }
 
+  public Application(String first_name, String mid_name, String last_name, String street, String street2, String city, String state, String zip, User user, String record_type) {
+    this.first_name = first_name;
+    this.mid_name = mid_name;
+    this.last_name = last_name;
+    this.street = street;
+    this.street2 = street2;
+    this.city = city;
+    this.state = state;
+    this.zip = zip;
+    this.user= user;
+    this.record_type = record_type;
+  }
+
   public Application(User user, String record_type){
     this.user = user;
     this.record_type = record_type;

@@ -101,16 +101,17 @@ public class HomeController {
     }
 
     @PostMapping("/bc-info")
-    public String birthRecord(Application app, @RequestParam(name="record_type") String record_type, Model model){
+    public String birthRecord(Application app, @RequestParam(name="RT") String record_type, Model model){
         User sessionUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         User userDB = userDao.findOne(sessionUser.getId());
         model.addAttribute("app", app);
 
         app.setUser(userDB);
         app.setRecord_type(record_type);
+        System.out.println(app.getRecord_type());
         System.out.println(sessionUser.getFirst_name());
         appDao.save(app);
-        return "redirect:/form1";
+        return "redirect:/application-1";
     }
 
     @GetMapping("/dc-info")
@@ -124,7 +125,7 @@ public class HomeController {
 //        return "redirect: application-1";
 //    }
     @PostMapping("/dc-info")
-    public String deathRecord(Application app, @RequestParam(name="record_type") String record_type, Model model){
+    public String deathRecord(Application app, @RequestParam(name="RT") String record_type, Model model){
         User sessionUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         User userDB = userDao.findOne(sessionUser.getId());
         app.setUser(userDB);
