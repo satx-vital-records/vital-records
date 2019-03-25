@@ -10,6 +10,7 @@ import com.satxvitalrecords.services.PdfStamper;
 //import com.sun.javaws.security.AppPolicy;
 import com.satxvitalrecords.services.StripeService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -38,6 +39,9 @@ public class ApplicationController {
 
     @Autowired
     private PdfStamper pdfStamper;
+
+    @Value("${file-upload-path}")
+    private String uploadPath;
 
 //    @Autowired
 //    private GooglePlacesTest googlePlace;
@@ -209,8 +213,8 @@ public class ApplicationController {
         Record record = recordDao.findOne(recordDB_id);
 //        User user = userDao.findOne(1L);
 //        MailingAddress address1 = mailDao.findOne(1L);
-
-        pdfStamper.preparePdf(record, app, userDB, address);
+        long millis = System.currentTimeMillis();
+        pdfStamper.preparePdf(record, app, userDB, address, millis);
         return "redirect:/completed-application";
     }
 
@@ -256,7 +260,10 @@ public class ApplicationController {
     }
 
     @GetMapping("/checkout")
-    public String goToCheckout(){
+    public String goToCheckout(Model model){
+
+        model.addAttribute("file", pdfStamper.DEST);
+        System.out.println(pdfStamper.DEST);
         return "checkout";
     }
 

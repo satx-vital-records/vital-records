@@ -102,8 +102,20 @@
                 <div class="row justify-content-center">
 
                     <div class="col">
-                        <embed th:src="@{/pdf/edited_COSA-Mail-Application.pdf}" width="100%" height="500px"/>
-                        <!--<a th:href="@{/pdf/COSA-Mail-Application.pdf}">Link Text Here</a>-->
+
+                        <embed th:src="@{${file}}" width="100%" height="500px" type="application/pdf" />
+
+
+
+                        <!--<object th:data="@{${file}}" type="application/pdf" width="100%" height="100%">-->
+
+                            <!--<p>It appears you don't have a PDF plugin for this browser.-->
+                                <!--No biggie... you can <a th:href="@{${file}}">click here to-->
+                                    <!--download the PDF file.</a></p>-->
+
+                        <!--</object>-->
+
+
                     </div>
                     <div class="col">
                         <div id="map-canvas"/>
@@ -120,6 +132,12 @@
             </div>
         </div>
     </div>
+
+    <div th:src="${file}"></div>
+    <div th:src="@{file}"></div>
+    <div th:href="@{${file}}"></div>
+    <div th:src="@{${file}}"></div>
+    <div th:src="@{/Users/dwallace/IdeaProjects/satxvitalrecords/target/uploads/edited_COSA-Mail-Application1553543798604.pdf}"></div>
 
     <!--</div>-->
     <div th:replace="fragments/admin-footer :: admin-footer"></div>
