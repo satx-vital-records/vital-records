@@ -5,6 +5,8 @@ import com.satxvitalrecords.models.Record;
 import com.satxvitalrecords.models.User;
 import com.satxvitalrecords.repositories.ApplicationRepo;
 import com.satxvitalrecords.repositories.RecordRepo;
+import com.satxvitalrecords.repositories.StatusRepo;
+import com.satxvitalrecords.repositories.StatusRepo;
 import com.satxvitalrecords.repositories.UserRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -14,7 +16,9 @@ import org.springframework.web.bind.annotation.*;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.util.Collection;
 import java.util.Date;
+import java.util.Iterator;
 
 @Controller
 public class HomeController {
@@ -25,8 +29,11 @@ public class HomeController {
     @Autowired
     private UserRepo userDao;
 
-  @Autowired
-  private RecordRepo recordDao;
+    @Autowired
+    private RecordRepo recordDao;
+
+    @Autowired
+    private StatusRepo statusDao;
 
 //  ----  RELOCATED TO USER CONTROLLER ----
 
@@ -55,11 +62,25 @@ public class HomeController {
     }
 
     @GetMapping("/app-index")
-    public String viewAllApps(Model model){
+    public String viewAllApps(Model model) {
+        int inprogress = numberOfApps(appDao.findAll(), "In Progress");
+        int need_docs = numberOfApps(appDao.findAll(), "Need Uploads");
+        int pending_review = numberOfApps(appDao.findAll(), "Pending Review");
+        int approved = numberOfApps(appDao.findAll(), "Approved");
+        int mailed = numberOfApps(appDao.findAll(), "Mailed");
+        int pickedup = numberOfApps(appDao.findAll(), "Picked-up");
+        System.out.println(inprogress);
+
         model.addAttribute("apps", appDao.findAll());
+        model.addAttribute("inprogress", inprogress);
+        model.addAttribute("pendingreview", pending_review);
+        model.addAttribute("needdocs", need_docs);
+        model.addAttribute("approved", approved);
+        model.addAttribute("mailed", mailed);
+        model.addAttribute("pickedup", pickedup);
+
         return "app-index";
     }
-
 
 
     @PostMapping("/app-index")
@@ -119,8 +140,9 @@ public class HomeController {
 
         app.setUser(userDB);
         app.setRecord_type(record_type);
-        System.out.println(app.getRecord_type());
-        System.out.println(sessionUser.getFirst_name());
+        app.setStatus(statusDao.findOne(100L));
+//        System.out.println(app.getRecord_type());
+//        System.out.println(sessionUser.getFirst_name());
         appDao.save(app);
         return "redirect:/application-1";
     }
@@ -136,11 +158,12 @@ public class HomeController {
 //        return "redirect: application-1";
 //    }
     @PostMapping("/dc-info")
-    public String deathRecord(Application app, @RequestParam(name="RT") String record_type, Model model){
+    public String deathRecord(Application app, @RequestParam(name="RT") String record_type){
         User sessionUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         User userDB = userDao.findOne(sessionUser.getId());
         app.setUser(userDB);
         app.setRecord_type(record_type);
+        app.setStatus(statusDao.findOne(100L));
         appDao.save(app);
         return "redirect:/application-1";
     }
@@ -154,5 +177,19 @@ public class HomeController {
     public String showForm() {
         return "login-form";
     }
+
+    public Integer numberOfApps(Iterable<Application> list, String status) {
+
+        int count = 0;
+        for (Application item : list) {
+            if (item.getStatus().getDescription().equals(status)) {
+                count++;
+            }
+        }
+        return count;
+    }
+
+
+
 
 }
