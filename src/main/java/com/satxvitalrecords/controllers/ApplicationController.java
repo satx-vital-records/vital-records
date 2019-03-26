@@ -4,12 +4,16 @@ import com.satxvitalrecords.repositories.*;
 import com.satxvitalrecords.services.PdfStamper;
 //import com.sun.javaws.security.AppPolicy;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 @Controller
 //@SessionAttributes("user")
@@ -32,6 +36,21 @@ public class ApplicationController {
 
     @Autowired
     private PdfStamper pdfStamper;
+
+    @Value("${file-upload-path}")
+    private String uploadPath;
+
+//    @Autowired
+//    private GooglePlacesTest googlePlace;
+
+
+//    @GetMapping("/application-1")
+//    public String showApplication1(Model model) {
+//      model.addAttribute("record", new Record());
+//      return "application-2";
+//    }
+
+//    User user = new User();
 
     @GetMapping("/application-1")
     public String showApplication1(Model model) {
@@ -62,6 +81,16 @@ public class ApplicationController {
 
     @GetMapping("/application-2")
     public String showApplication2(Model model) {
+        User sessionUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        User userDB = userDao.findOne(sessionUser.getId());
+        Application appDB = null;
+        Iterable<Application> apps = appDao.findAll();
+        for(Application app:apps){
+            if(app.getUser() == userDB){
+                appDB = app;
+            }
+        }
+        model.addAttribute("app", appDB);
         model.addAttribute("record", new Record());
         return "application-2";
     }
@@ -186,9 +215,10 @@ public class ApplicationController {
 // passing thru a record and app object - separating thru preparepdf function
         Application app = appDao.findOne(appDB.getId());
         Record record = recordDao.findOne(recordDB_id);
-
-
-//        pdfStamper.preparePdf(record, app, userDB, address);
+//        User user = userDao.findOne(1L);
+//        MailingAddress address1 = mailDao.findOne(1L);
+        long millis = System.currentTimeMillis();
+        pdfStamper.preparePdf(record, app, userDB, address, millis);
         return "redirect:/completed-application";
     }
 
@@ -230,7 +260,6 @@ public class ApplicationController {
 
     @PostMapping("/completed-application")
     public String confirmationOfApplication(){
-
         User sessionUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         User userDB = userDao.findOne(sessionUser.getId());
 
@@ -241,31 +270,17 @@ public class ApplicationController {
                 appDB = app;
             }
         }
-        Record recordDB= null;
-        Iterable<Record> allrecords = recordDao.findAll();
-        for(Record record_db : allrecords) {
-//            System.out.println(record_db.getApplication());
-            if (record_db.getApplication().getId() == appDB.getId()) {
-                recordDB = record_db;
-            }
-        }
-
-        MailingAddress mailingAddress = null;
-        Iterable<MailingAddress> addresses = mailDao.findAll();
-        for(MailingAddress address: addresses){
-            if(recordDB.getApplication() == appDB){
-                mailingAddress = address;
-            }
-        }
 
         appDB.setStatus(statusDao.findOne(200L));
         appDao.save(appDB);
-        pdfStamper.preparePdf(recordDB, appDB, userDB, mailingAddress);
         return "redirect:/checkout";
     }
 
     @GetMapping("/checkout")
-    public String goToCheckout(){
+    public String goToCheckout(Model model){
+
+        model.addAttribute("file", pdfStamper.DEST);
+        System.out.println(pdfStamper.DEST);
         return "checkout";
     }
 
@@ -275,7 +290,7 @@ public class ApplicationController {
         return "upload"; }
 
     @PostMapping("/upload")
-    public String saveFileToDb(@RequestParam(name="urlImg") String url) {
+    public String saveFileToDb(@RequestParam(name="urlImg1") String url, @RequestParam(name="urlImg2") String url2) {
         User sessionUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         User userDB = userDao.findOne(sessionUser.getId());
 
@@ -289,9 +304,13 @@ public class ApplicationController {
 
 //        appDB = appDao.findOne(appDB.getId());
         appDB.setIdentification_img(url);
+        appDB.setForm_img(url2);
+//        System.out.println(url);
+
+
         appDB.setStatus(statusDao.findOne(300L));
         appDao.save(appDB);
-        return "redirect:/upload";
+        return "redirect:/charge";
     }
 
     @GetMapping("/confirmation")

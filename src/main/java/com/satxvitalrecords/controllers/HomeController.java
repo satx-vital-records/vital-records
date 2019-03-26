@@ -49,7 +49,7 @@ public class HomeController {
 
 
     @GetMapping("/app-view")
-    public String showSingleApp(Model model) {
+    public String showSingleApp(Model model){
         model.addAttribute("app", new Application());
         return "app-view";
     }
@@ -90,16 +90,27 @@ public class HomeController {
 
 
     @GetMapping("/app-view/{id}")
-    public String viewAllApps(@PathVariable long id, Model model) {
+    public String viewAllApps(@PathVariable long id, Model model){
         Application app = appDao.findOne(id);
-        Record record = recordDao.findOne(id);
+        Record recordDB = null;
+
+        Iterable<Record> allrecords = recordDao.findAll();
+        for(Record record : allrecords){
+            if(record.getApplication() == app){
+                recordDB = record;
+            }
+        }
+
+
+
+
         model.addAttribute("app", app);
-        model.addAttribute("record", record);
+        model.addAttribute("record", recordDB);
         return "app-view";
     }
 
     @PostMapping("/app-view/{id}")
-    public String leaveComment(@PathVariable long id, @RequestParam(name = "comments") String comments) {
+    public String leaveComment(@PathVariable long id, @RequestParam (name= "comments") String comments) {
 //        Date date = new Date();
 //        DateFormat dateFormat = new SimpleDateFormat("YY/MM/DD hh:mm:ss");
 //        dateFormat.format(date);
@@ -121,7 +132,7 @@ public class HomeController {
     }
 
     @PostMapping("/bc-info")
-    public String birthRecord(Application app, @RequestParam(name = "RT") String record_type, Model model) {
+    public String birthRecord(Application app, @RequestParam(name="RT") String record_type, Model model){
         User sessionUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         User userDB = userDao.findOne(sessionUser.getId());
         model.addAttribute("app", app);
@@ -140,13 +151,13 @@ public class HomeController {
         return "dc-info";
     }
 
-    //    @PostMapping("/dc-info")
+//    @PostMapping("/dc-info")
 //    public String startDcApp(@ModelAttribute Application app) {
 //        appDao.save(app);
 //        return "redirect: application-1";
 //    }
     @PostMapping("/dc-info")
-    public String deathRecord(Application app, @RequestParam(name = "RT") String record_type, Model model) {
+    public String deathRecord(Application app, @RequestParam(name="RT") String record_type){
         User sessionUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         User userDB = userDao.findOne(sessionUser.getId());
         app.setUser(userDB);
@@ -156,6 +167,15 @@ public class HomeController {
         return "redirect:/application-1";
     }
 
+    @GetMapping("/map")
+    public String showMap() {
+        return "map";
+    }
+
+    @GetMapping("/login-form")
+    public String showForm() {
+        return "login-form";
+    }
 
     public Integer numberOfApps(Iterable<Application> list, String status) {
 
@@ -168,16 +188,6 @@ public class HomeController {
         return count;
     }
 
-
-//        else {
-//            int count = 0;
-//            Iterator iterator = list.iterator();
-//            while (iterator.hasNext()) {
-//                iterator.next();
-//                count++;
-//            }
-//            return count;
-//            }
 
 
 
