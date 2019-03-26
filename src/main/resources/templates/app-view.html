@@ -110,36 +110,48 @@
                     <!--<div class="span8">-->
 
 
-                    <script type="text/javascript">
+                    <script th:inline="javascript">
                         google.load('visualization', '1', {'packages': ['corechart']});
                         google.setOnLoadCallback(drawVisualization);
+
+                        /*<![CDATA[*/
+
+                        var inprogress = /*[[${inprogress}]]*/ '0';
+                        var pending_review = /*[[${pendingreview}]]*/ '0';
+                        var need_docs = /*[[${needdocs}]]*/ '0';
+                        var approved = /*[[${approved}]]*/ '0';
+                        var mailed = /*[[${mailed}]]*/ '0';
+                        var pickedup = /*[[${pickedup}]]*/ '0';
+
+
+                        /*]]>*/
+
 
                         function drawVisualization() {
                             visualization_data = new google.visualization.DataTable();
 
                             visualization_data.addColumn('string', 'Task');
 
-                            visualization_data.addColumn('number', 'Hours per Day');
+                            visualization_data.addColumn('number', 'Applications');
 
 
-                            visualization_data.addRow(['Completed', 11]);
+                            visualization_data.addRow(['Picked Up', pickedup]);
 
-                            visualization_data.addRow(['Pending', 2]);
+                            visualization_data.addRow(['Pending Review', pending_review]);
 
-                            visualization_data.addRow(['Mailed', 2]);
+                            visualization_data.addRow(['Mailed', mailed]);
 
-                            visualization_data.addRow(['Approved', 2]);
+                            visualization_data.addRow(['Approved', approved]);
 
-                            visualization_data.addRow(['In Progress', 7]);
+                            visualization_data.addRow(['In Progress', inprogress]);
+
+                            visualization_data.addRow(['Need Docs', need_docs]);
 
 
                             visualization = new google.visualization.PieChart(document.getElementById('piechart'));
 
 
-                            visualization.draw(visualization_data, {
-                                title: 'My Daily Activities',
-                                height: 220
-                            });
+                            visualization.draw(visualization_data, {title: 'My Daily Activities', height: 260});
 
                         }
                     </script>
