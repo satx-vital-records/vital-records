@@ -36,6 +36,7 @@
             </section>
 
 
+
       <div class="page container">
         <!--<section class=" paddsection">-->
         <div class="cssProgress ">
@@ -55,22 +56,8 @@
           <div th:if="${param.RT[0] == 'birth'}" class="text-center py-4 birth"><h2 class="h2"> Birth Certificate Order Form</h2></div>
           <div th:if="${param.RT[0] == 'death'}" id="death" class="text-center py-4"><h2 class="h2"> Death Certificate Order Form</h2></div>
           <hr/>
-            <div class="page container">
-                <!--<section class=" paddsection">-->
-                <div class="cssProgress ">
-                    <div class="progress1">
-                        <div class="cssProgress-bar" data-percent="15" style="width: 15%;">
-                            <span class="cssProgress-label">15%</span>
-                        </div>
-                    </div>
-                </div>
-                <form accept-charset="UTF-8" th:action="@{/application-1}"
-                      class="simple_form new_certificate" style="width:100%;"
-                      id="new_certificate1" th:method="post" th:object="${app}" novalidate="novalidate">
-                    <!--<input name="utf8" type="hidden" value="✓"/><input-->
-                    <!--name="authenticity_token" type="hidden"-->
-                    <!--value="GBkZnnvogYBnoELufrriChXdsyeZ975veN9Q1hrDy5ov+pkPlLS8VIQiZjTnU/pzR6WYK8uVu/UzabA9pT+vYg=="/>-->
-                    <input id="record_type" type="hidden" th:name="record_type" th:value="${param.RT[0]}"/>
+
+
                     <div class="text-center py-4 birth"><h2 class="h2"> Birth Certificate Order Form</h2></div>
                     <div id="death" class="text-center py-4"><h2 class="h2"> Death Certificate Order Form</h2></div>
                     <hr/>
@@ -159,6 +146,7 @@
                                             </option>
                                             <option th:value="certified_copy">Certified Copy (Death certificates only)
                                             </option>
+
                         data-original-title="Standard size format is the most commonly issued because it satisfies most purposes,; Long Form is used most often to obtain a passport, for purposes of dual citizenship, Indian Registry and immigration"
                         data-tippy=""></a>
                     </div>
@@ -268,7 +256,24 @@
                                             </div>
                                         </div>
                                     </div>
-
+                                    <div class="d-inline p-2 form-group select required certificate_record_copies">
+                                        <div class="tooltip-wrapper-mobile"><label class="select required"
+                                                                                   for="certificate_record_copies">Number
+                                            of Certified Copies needed</label>
+                                        </div>
+                                        <div class="tooltip-wrapper"><select class="select required"
+                                                                             data-validate=""
+                                                                             id="certificate_record_copies"
+                                                                             name="num_of_copies">
+                                            <option value="">Please select</option>
+                                            <option value="1">1</option>
+                                            <option value="2">2</option>
+                                            <option value="3">3</option>
+                                            <option value="4">4</option>
+                                        </select>
+                                        </div>
+                                    </div>
+                                </div>
 
                                     <div class="d-inline p-2 form-group select required certificate_record_copies">
                                         <div class="tooltip-wrapper-mobile"><label class="select required"
@@ -586,6 +591,7 @@
                                             </div>
                                         </div>
 
+
                                         <div class=" d-inline p-2 form-group select required certificate_delivery_state">
                                             <div class="tooltip-wrapper-mobile"><label class="select required"
                                                                                        for="certificate_contact_state">State</label>
@@ -708,6 +714,5 @@
     <!--}-->
     <!--})-->
     <!--</script>-->
-
 </body>
 </html>

@@ -42,7 +42,6 @@
                         </div>
                     </div>
                 </div>
-
                 <form th:action="@{/application-2}" th:method="post" th:object="${record}"
                       class="simple_form new_certificate" id="new_certificate2"
                       novalidate="novalidate" accept-charset="UTF-8"><input name="utf8" type="hidden"
@@ -50,7 +49,7 @@
                         type="hidden" name="authenticity_token"
                         value="GBkZnnvogYBnoELufrriChXdsyeZ975veN9Q1hrDy5ov+pkPlLS8VIQiZjTnU/pzR6WYK8uVu/UzabA9pT+vYg=="/>
 
-                    <div class=" text-center py-4"><h2 class="h2"> Birth Certificate Order Form</h2></div>
+                    <div class=" text-center py-4"><h2 class="h2"> Vital Records Application Form</h2></div>
                     <hr/>
 
                     <section class="section pb-2">
@@ -101,6 +100,7 @@
                     <section class="section pt-2">
                         <div class="row">
                             <div class="section__container">
+                                <th:block th:if="${app.getRecord_type() =='Birth'}">
                                 <h4 class="h4">5. Birth information of the person on record</h4>
                                 <p class="align-left">Enter the birth information of the person needing the
                                     birth certificate. If you are applying for someone else (i.e. your child),
@@ -134,7 +134,7 @@
                                     <div class="d-inline p-2 form-group date required certificate_birth_date">
                                         <div class="tooltip-wrapper-mobile"><label class="date required"
                                                                                    for="birth_date">Date
-                                            of birth</label>
+                                            of birth (MM/DD/YYYY)</label>
 
                                         </div>
                                         <div class="tooltip-wrapper">
@@ -145,8 +145,60 @@
                                         </div>
                                     </div>
                                 </div>
+
+
+                        </th:block>
+
+
+                                <th:block th:unless="${app.getRecord_type() == 'Birth'}">
+
+                        <h4 class="h4">5. Death information of the person on record</h4>
+                        <p class="align-left">Enter the death information of the person on the record. (Please note that date of death is required.) </p>
+
+                        <div class="row justify-content-center">
+
+                            <div class="d-inline p-2 form-group string required certificate_death_city">
+                                <div class="tooltip-wrapper-mobile"><label class="string required"
+                                                                           for="certificate_death_city2">City
+                                    of death</label>
+                                </div>
+                                <div class="tooltip-wrapper"><input data-validate="" class="string required"
+                                                                    th:field="*{death_city}"
+                                                                    id="certificate_death_city2"/>
+                                </div>
+                            </div>
+
+                            <div class="d-inline p-2 form-group string required certificate_death_county">
+                                <div class="tooltip-wrapper-mobile"><label class="string required"
+                                                                           for="certificate_death_county">County
+                                    of Death</label>
+                                </div>
+                                <div class="tooltip-wrapper"><input data-validate="" class="string required"
+                                                                    th:field="*{death_county}"
+                                                                    id="certificate_death_county"/>
+                                </div>
+                            </div>
+
+                            <div class="d-inline p-2 form-group date required certificate_death_date">
+                                <div class="tooltip-wrapper-mobile"><label class="date required"
+                                                                           for="death_date">Date
+                                    of death (MM/DD/YYYY)</label>
+
+                                </div>
+                                <div class="tooltip-wrapper">
+                                    <input
+                                        th:field="*{date_of_death}"
+                                        id="death_date"
+                                        class="date-picker-style"/>
+                                </div>
                             </div>
                         </div>
+                                </th:block>
+
+                    <!--end of conditional-->
+                            </div>
+                        </div>
+
                         <div class="pt-5 row justify-content-center form-group radio_buttons required certificate_person_sex">
                             <div class="tooltip-wrapper-mobile"><label
                                     class="radio_buttons required pr-3">Gender</label>

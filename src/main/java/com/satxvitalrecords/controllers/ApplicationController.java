@@ -19,6 +19,9 @@ import com.sendgrid.*;
 
 import java.io.IOException;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 @Controller
 //@SessionAttributes("user")
 public class ApplicationController {
@@ -85,6 +88,16 @@ public class ApplicationController {
 
     @GetMapping("/application-2")
     public String showApplication2(Model model) {
+        User sessionUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        User userDB = userDao.findOne(sessionUser.getId());
+        Application appDB = null;
+        Iterable<Application> apps = appDao.findAll();
+        for(Application app:apps){
+            if(app.getUser() == userDB){
+                appDB = app;
+            }
+        }
+        model.addAttribute("app", appDB);
         model.addAttribute("record", new Record());
         return "application-2";
     }
@@ -254,6 +267,19 @@ public class ApplicationController {
 
     @PostMapping("/completed-application")
     public String confirmationOfApplication(){
+        User sessionUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        User userDB = userDao.findOne(sessionUser.getId());
+
+        Application appDB = null;
+        Iterable<Application> apps = appDao.findAll();
+        for(Application app:apps){
+            if(app.getUser() == userDB){
+                appDB = app;
+            }
+        }
+
+        appDB.setStatus(statusDao.findOne(200L));
+        appDao.save(appDB);
         return "redirect:/checkout";
     }
 
@@ -310,8 +336,7 @@ public class ApplicationController {
 
     @GetMapping("/upload")
     public String uploadApplication(Model model) {
-//        Application app = appDao.findOne(1L);
-//        model.addAttribute("app", app);
+
         return "upload"; }
 
     @PostMapping("/upload")
@@ -331,6 +356,9 @@ public class ApplicationController {
         appDB.setIdentification_img(url);
         appDB.setForm_img(url2);
 //        System.out.println(url);
+
+
+        appDB.setStatus(statusDao.findOne(300L));
         appDao.save(appDB);
         return "redirect:/charge";
     }
