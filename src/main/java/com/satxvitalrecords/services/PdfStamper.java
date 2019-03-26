@@ -7,6 +7,7 @@ import com.satxvitalrecords.models.Application;
 import com.satxvitalrecords.models.MailingAddress;
 import com.satxvitalrecords.models.Record;
 import com.satxvitalrecords.models.User;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import java.io.File;
 import java.io.IOException;
@@ -19,20 +20,33 @@ import java.io.IOException;
 @Service
 public class PdfStamper {
 
+    @Value("${file-upload-path}")
+    private String uploadPath;
 
-    public static final String SRC = "src/main/resources/pdf/COSA-Mail-Application.pdf";
 
-    public static final String DEST = "src/main/resources/pdf/edited_COSA-Mail-Application.pdf";
+    public String SRC;
+
+    public String DEST;
 
 
 //    public static void main(String args[]) throws IOException {
 
-    public void preparePdf(Record record, Application app, User user, MailingAddress address){
+    public void preparePdf(Record record, Application app, User user, MailingAddress address, Long millis){
+        System.out.println(SRC);
+        SRC = uploadPath + "COSA-Mail-Application.pdf";
+        DEST = uploadPath + "edited_COSA-Mail-Application" + millis + ".pdf";
         File file = new File(DEST);
-
-        file.getParentFile().mkdirs();
         try {
-            new PdfStamper().manipulatePdf(SRC, DEST, record, app, user, address);
+            file.createNewFile();
+            System.out.println(file.getAbsolutePath());
+        }catch(IOException e){
+            System.out.println("create new file not working");
+            e.printStackTrace();
+        }
+
+//        file.getParentFile().mkdirs();
+        try {
+            new PdfStamper().manipulatePdf(SRC, file.getAbsolutePath(), record, app, user, address);
         } catch (IOException e) {
             e.printStackTrace();
         }
