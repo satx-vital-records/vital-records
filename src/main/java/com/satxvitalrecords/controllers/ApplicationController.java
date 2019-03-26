@@ -1,8 +1,5 @@
 package com.satxvitalrecords.controllers;
-import com.satxvitalrecords.models.Application;
-import com.satxvitalrecords.models.MailingAddress;
-import com.satxvitalrecords.models.Record;
-import com.satxvitalrecords.models.User;
+import com.satxvitalrecords.models.*;
 import com.satxvitalrecords.repositories.*;
 import com.satxvitalrecords.services.PdfStamper;
 //import com.sun.javaws.security.AppPolicy;
@@ -13,9 +10,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-
-import java.util.ArrayList;
-import java.util.List;
 
 @Controller
 //@SessionAttributes("user")
@@ -34,16 +28,19 @@ public class ApplicationController {
     private AddressRepo mailDao;
 
     @Autowired
+    private StatusRepo statusDao;
+
+    @Autowired
     private PdfStamper pdfStamper;
 
-    @GetMapping("/form1")
+    @GetMapping("/application-1")
     public String showApplication1(Model model) {
         model.addAttribute("app", new Application());
-        return "form1";
+        return "application-1";
     }
 
 
-    @PostMapping("/form1")
+    @PostMapping("/application-1")
     public String saveRecord(@ModelAttribute Application app, @RequestParam(name="record_type") String record_type, @RequestParam(name="num_of_copies") String numOfCopies, Model model){
 
 
@@ -56,7 +53,9 @@ public class ApplicationController {
 
         model.addAttribute("record_type", record_type);
         model.addAttribute("copies", numOfCopies);
+
         model.addAttribute("app", app);
+
     return "redirect:/application-2";
     }
 

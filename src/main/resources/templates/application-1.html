@@ -45,7 +45,7 @@
             </div>
           </div>
         </div>
-        <form accept-charset="UTF-8" th:action="@{/form1}"
+        <form accept-charset="UTF-8" th:action="@{/application-1}"
               class="simple_form new_certificate"
               id="new_certificate1" th:method="post" th:object="${app}" novalidate="novalidate">
           <!--<input name="utf8" type="hidden" value="✓"/><input-->
@@ -425,6 +425,17 @@
     </div>
     <div th:replace="fragments/admin-footer :: admin-footer"></div>
   </div>
+
+<!--<script>-->
+  <!--$(document).ready(function(){-->
+      <!--console.log($(`#record_type`).val());-->
+      <!--if($(`#record_type`).val('birth')){-->
+          <!--$(`#death`).hide();-->
+      <!--} else if($(`#record_type`).val('death')){-->
+          <!--$(`.birth`).hide();-->
+      <!--}-->
+  <!--})-->
+<!--</script>-->
 
 </body>
 </html>
