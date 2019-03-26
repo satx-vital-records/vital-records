@@ -37,6 +37,21 @@ public class ApplicationController {
     @Autowired
     private PdfStamper pdfStamper;
 
+    @Value("${file-upload-path}")
+    private String uploadPath;
+
+//    @Autowired
+//    private GooglePlacesTest googlePlace;
+
+
+//    @GetMapping("/application-1")
+//    public String showApplication1(Model model) {
+//      model.addAttribute("record", new Record());
+//      return "application-2";
+//    }
+
+//    User user = new User();
+
     @GetMapping("/application-1")
     public String showApplication1(Model model) {
         model.addAttribute("app", new Application());
@@ -192,8 +207,8 @@ public class ApplicationController {
         Record record = recordDao.findOne(recordDB_id);
 //        User user = userDao.findOne(1L);
 //        MailingAddress address1 = mailDao.findOne(1L);
-
-        pdfStamper.preparePdf(record, app, userDB, address);
+        long millis = System.currentTimeMillis();
+        pdfStamper.preparePdf(record, app, userDB, address, millis);
         return "redirect:/completed-application";
     }
 
@@ -239,7 +254,10 @@ public class ApplicationController {
     }
 
     @GetMapping("/checkout")
-    public String goToCheckout(){
+    public String goToCheckout(Model model){
+
+        model.addAttribute("file", pdfStamper.DEST);
+        System.out.println(pdfStamper.DEST);
         return "checkout";
     }
 
@@ -283,7 +301,7 @@ public class ApplicationController {
         return "upload"; }
 
     @PostMapping("/upload")
-    public String saveFileToDb(@RequestParam(name="urlImg") String url) {
+    public String saveFileToDb(@RequestParam(name="urlImg1") String url, @RequestParam(name="urlImg2") String url2) {
         User sessionUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         User userDB = userDao.findOne(sessionUser.getId());
 
@@ -297,15 +315,18 @@ public class ApplicationController {
 
 //        appDB = appDao.findOne(appDB.getId());
         appDB.setIdentification_img(url);
+        appDB.setForm_img(url2);
 //        System.out.println(url);
         appDao.save(appDB);
-        return "redirect:/upload";
+        return "redirect:/charge";
     }
 
     @GetMapping("/confirmation")
     public String showConfirmation() {
         return "confirmation";
     }
+
+
 
 
 
