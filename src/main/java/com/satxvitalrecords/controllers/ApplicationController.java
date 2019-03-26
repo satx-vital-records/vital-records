@@ -3,6 +3,10 @@ import com.satxvitalrecords.models.*;
 import com.satxvitalrecords.repositories.*;
 import com.satxvitalrecords.services.PdfStamper;
 //import com.sun.javaws.security.AppPolicy;
+import com.satxvitalrecords.services.TwilioService;
+import com.twilio.Twilio;
+import com.twilio.rest.api.v2010.account.Message;
+import com.twilio.type.PhoneNumber;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -42,7 +46,6 @@ public class ApplicationController {
 
     @Value("${file-upload-path}")
     private String uploadPath;
-
 
 //    @Autowired
 //    private GooglePlacesTest googlePlace;
@@ -289,18 +292,17 @@ public class ApplicationController {
     }
 
     @Value("${SENDGRID_API_KEY}") String sendGridKey;
+    @Value("${TWILIO_ACCOUNT_SID}") String ACCOUNT_SID;
+    @Value("${TWILIO_AUTH_TOKEN}") String AUTH_TOKEN;
     @PostMapping("/checkout")
     public String sendEmail() throws IOException{
         User sessionUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         User userDB = userDao.findOne(sessionUser.getId());
 
-        System.out.println("hello");
-        System.out.println(sendGridKey);
-
         Email from = new Email("admin@satxvitalrecords.com");
         String subject = "Vital Records Application Submitted";
         Email to = new Email(userDB.getEmail());
-        Content content = new Content("text/plain", "Application successfully sent! Thank you for your application, we are locating your record and will send it to you as fast as possible. - San Antonio Vital Records");
+        Content content = new Content("text/plain", "Application successfully sent! \nThank you for your application, we are locating your record and will send it to you as fast as possible. \n- San Antonio Vital Records");
         Mail mail = new Mail(from, subject, to, content);
 
         SendGrid sg = new SendGrid(sendGridKey);
@@ -316,6 +318,17 @@ public class ApplicationController {
         } catch (IOException ex) {
             throw ex;
         }
+
+
+        Twilio.init(ACCOUNT_SID, AUTH_TOKEN);
+
+        Message message = Message
+                .creator(new PhoneNumber(userDB.getPhone_num()), // to
+                        new PhoneNumber("+12109439303"), // from
+                        "Your application was submitted \n- SATX Vital Records").create();
+
+
+        System.out.println(message.getSid());
 
         return "redirect:/checkout";
     }
