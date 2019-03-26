@@ -1,9 +1,6 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4"
-      lang="en">
-
-
-<head th:replace="fragments/test-header :: test-header('Completed Application')"/>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<head th:replace="fragments/login-form-header :: login-form-header('Application')"/>
 <body>
   <div class=" navbar-fixed-top">
     <div class="navbar-inner">
@@ -22,9 +19,7 @@
                 </h3>
                 <ul>
                   <li sec:authorize="isAuthenticated()">
-                    <form th:action="@{/login}" th:method="get">
-                      <button class="btn-link btn" style="margin-top: 8px">Login</button>
-                    </form>
+                    <form th:action="@{/login}" th:method="get"><button class="btn-link btn" style="margin-top: 8px">Login</button></form>
                   </li>
                   <li sec:authorize="!isAuthenticated()">
                     <form th:action="@{/logout}" th:method="post">
@@ -807,7 +802,7 @@
 
 
 
-        <div th:replace="fragments/footer :: footer"></div>
+        <div th:replace="fragments/admin-footer :: admin-footer"></div>
     </div>
 
 </body>
