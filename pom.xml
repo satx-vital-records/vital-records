@@ -89,6 +89,11 @@
             <artifactId>sendgrid-java</artifactId>
             <version>4.3.0</version>
         </dependency>
+            <dependency>
+                <groupId>se.walkercrou</groupId>
+                <artifactId>google-places-api-java</artifactId>
+                <version>2.1.2</version>
+            </dependency>
 
     </dependencies>
     <build>
@@ -98,5 +103,21 @@
                 <artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>
         </plugins>
+        <!--<resources>-->
+            <!--<resource>-->
+                <!--<directory>src/main/resources</directory>-->
+                <!--<filtering>true</filtering>-->
+                <!--<includes>-->
+                    <!--<include>fileName.txt</include>-->
+                <!--</includes>-->
+            <!--</resource>-->
+            <!--<resource>-->
+                <!--<directory>src/main/resources</directory>-->
+                <!--<filtering>true</filtering>-->
+                <!--<includes>-->
+                    <!--<include>fileName.wsdl</include>-->
+                <!--</includes>-->
+            <!--</resource>-->
+        <!--</resources>-->
     </build>
 </project>

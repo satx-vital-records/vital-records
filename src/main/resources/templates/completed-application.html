@@ -1,9 +1,6 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4"
-      lang="en">
-
-
-<head th:replace="fragments/test-header :: test-header('Completed Application')"/>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<head th:replace="fragments/login-form-header :: login-form-header('Application')"/>
 <body>
   <div class=" navbar-fixed-top">
     <div class="navbar-inner">
@@ -22,9 +19,7 @@
                 </h3>
                 <ul>
                   <li sec:authorize="isAuthenticated()">
-                    <form th:action="@{/login}" th:method="get">
-                      <button class="btn-link btn" style="margin-top: 8px">Login</button>
-                    </form>
+                    <form th:action="@{/login}" th:method="get"><button class="btn-link btn" style="margin-top: 8px">Login</button></form>
                   </li>
                   <li sec:authorize="!isAuthenticated()">
                     <form th:action="@{/logout}" th:method="post">
@@ -384,30 +379,30 @@
                     </div>
                   </div>
                 </div>
-                <div class="pt-5 row justify-content-center form-group radio_buttons required certificate_person_sex">
-                  <div class="tooltip-wrapper-mobile"><label
-                      class="radio_buttons required pr-3" >Gender</label>
-                  </div>
-                  <div class="tooltip-wrapper"><input type="hidden"
-                                                      name="certificate[person_sex]"
-                                                      th:value="*{sex}"
-                                                      th:field="*{sex}"
-                                                      /><input
-                      class="radio_buttons required" type="radio"
-                      th:field="*{sex}"
-                      th:value="Female"
-                      id="certificate_person_sex_female"/><label
-                      class="collection_radio_buttons pr-3"
-                      for="certificate_person_sex_female">Female</label><input
-                      class="radio_buttons required" type="radio"
-                      th:field="*{sex}"
-                      th:value="Male"
-                      id="certificate_person_sex_male"/><label
-                      class="collection_radio_buttons"
-                      for="certificate_person_sex_male">Male</label>
-                  </div>
+                <!--<div class="pt-5 row justify-content-center form-group radio_buttons required certificate_person_sex">-->
+                  <!--<div class="tooltip-wrapper-mobile"><label-->
+                      <!--class="radio_buttons required pr-3" >Gender</label>-->
+                  <!--</div>-->
+                  <!--<div class="tooltip-wrapper"><input type="hidden"-->
+                                                      <!--name="certificate[person_sex]"-->
+                                                      <!--th:value="*{sex}"-->
+                                                      <!--th:field="*{sex}"-->
+                                                      <!--/><input-->
+                      <!--class="radio_buttons required" type="radio"-->
+                      <!--th:value="Female"-->
+                      <!--id="certificate_person_sex_female"/><label-->
+                      <!--class="collection_radio_buttons pr-3"-->
+                      <!--for="certificate_person_sex_female">Female</label><input-->
+                      <!--class="radio_buttons required" type="radio"-->
+                      <!--th:value="Male"-->
+                      <!--id="certificate_person_sex_male"/><label-->
+                      <!--class="collection_radio_buttons"-->
+                      <!--for="certificate_person_sex_male">Male</label>-->
+                    <!--&lt;!&ndash;th:field="*{sex}"&ndash;&gt;-->
 
-                </div>
+                  <!--</div>-->
+
+                <!--</div>-->
               </div>
 
               <div class="section__container">
@@ -654,6 +649,7 @@
                     <div class="tooltip-wrapper"><select data-validate=""
                                                          class="select required"
                                                          th:value="*{state}"
+                                                         th:field="*{state}"
                                                          id="certificate_delivery_state">
                       <option value="">Please select</option>
                       <option th:value="AL">Alabama</option>
@@ -783,6 +779,7 @@
 
 
             <!--Submit application form-->
+
                                     <form class="simple_form new_certificate mx-auto" style="width: 70%;" id="checkout"
                                           novalidate="novalidate"
                                           th:action="@{/completed-application}" accept-charset="UTF-8" th:method="post">

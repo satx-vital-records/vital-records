@@ -1,173 +1,197 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
-<head th:replace="fragments/header :: header('Application')"></head>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<head th:replace="fragments/login-form-header :: login-form-header('Application')"/>
 <body>
-  <!--<div th:replace="fragments/navbar :: navbar"></div>-->
-  <div class=" container ">
-    <header>
-      <a class="shop" href="/application-1">Back</a>
-      <a class="github" href="/">Exit Application</a>
-    </header>
-    <div class="col-xs-12 paddsection">
-      <div class="cssProgress mx-auto" style="width: 70%;">
-        <div class="progress1">
-          <div class="cssProgress-bar" data-percent="35" style="width: 35%;">
-            <span class="cssProgress-label">35%</span>
-          </div>
+    <div class=" navbar-fixed-top">
+        <div class="navbar-inner">
+            <ul class="float-right">
+                <li sec:authorize="isAuthenticated()" class="d-inline">
+                    <form th:action="@{/login}" th:method="get" class="d-inline">
+                        <button class="" style="margin-top: 8px">Login</button>
+                    </form>
+                </li>
+                <li sec:authorize="!isAuthenticated()" class="d-inline px-3">
+                    <form th:action="@{/logout}" th:method="post" class="d-inline">
+                        <button class="" style="margin-top: 8px">Logout</button>
+                    </form>
+                </li>
+            </ul>
+            <div class="container"></div>
         </div>
-      </div>
-
-      <form th:action="@{/application-2}" th:method="post" th:object="${record}"
-            class="simple_form new_certificate mx-auto" style="width: 70%" id="new_certificate2"
-            novalidate="novalidate" accept-charset="UTF-8"><input name="utf8" type="hidden"
-                                                                  value="✓"/><input
-          type="hidden" name="authenticity_token"
-          value="GBkZnnvogYBnoELufrriChXdsyeZ975veN9Q1hrDy5ov+pkPlLS8VIQiZjTnU/pzR6WYK8uVu/UzabA9pT+vYg=="/>
-
-        <div class=" text-center py-4"><h2 class="h2"> Birth Certificate Order Form</h2></div>
-        <hr/>
-
-        <section class="section pb-2">
-          <div class="row">
-            <div class="section__container">
-              <h4 class="h4">4. Full name of the person on record</h4>
-              <p class="align-left">Enter the full name of the person on record at the time of
-                birth. Leave middle name empty if unknown.</p>
-
-              <div class="row justify-content-between">
-                <div class="d-inline form-group string required certificate_person_first_name col-xs-4">
-                  <div class="tooltip-wrapper-mobile"><label class="string required"
-                                                             for="certificate_person_first_name">First
-                    name</label></div>
-                  <div class="tooltip-wrapper"><input data-validate=""
-                                                      class="string required" type="text"
-                                                      th:field="*{first_name}"
-                                                      id="certificate_person_first_name"/>
-                  </div>
-                </div>
-                <div class="d-inline form-group string optional certificate_person_middle_name col-xs-4">
-                  <div class="tooltip-wrapper-mobile"><label class="string optional"
-                                                             for="certificate_person_middle_name">Middle
-                    name</label></div>
-                  <div class="tooltip-wrapper"><input data-validate=""
-                                                      class="string optional" type="text"
-                                                      th:field="*{mid_name}"
-                                                      id="certificate_person_middle_name"/>
-                  </div>
-                </div>
-                <div class="d-inline form-group string required certificate_person_last_name col-xs-4">
-                  <div class="tooltip-wrapper-mobile"><label class="string required"
-                                                             for="certificate_person_last_name">Last
-                    name</label>
-                  </div>
-                  <div class="tooltip-wrapper"><input data-validate=""
-                                                      class="string required" type="text"
-                                                      th:field="*{last_name}"
-                                                      id="certificate_person_last_name"/>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-        </section>
-        <hr/>
-        <section class="section pt-2">
-          <div class="row">
-            <div class="section__container">
-              <h4 class="h4">5. Birth information of the person on record</h4>
-              <p class="align-left">Enter the birth information of the person needing the
-                birth certificate. If you are applying for someone else (i.e. your child),
-                enter their birth information here.</p>
-
-
-              <div class="row justify-content-between">
-
-                <div class="d-inline form-group string required certificate_birth_city">
-                  <div class="tooltip-wrapper-mobile"><label class="string required"
-                                                             for="certificate_birth_city2">City
-                    of birth</label>
-                  </div>
-                  <div class="tooltip-wrapper"><input data-validate="" class="string required"
-                                                      type="text"
-                                                      th:field="*{birth_city}"
-                                                      id="certificate_birth_city2"/>
-                  </div>
-                </div>
-
-                <div class="d-inline form-group string required certificate_birth_county">
-                  <div class="tooltip-wrapper-mobile"><label class="string required"
-                                                             for="certificate_birth_county">County
-                    of birth</label>
-                  </div>
-                  <div class="tooltip-wrapper"><input data-validate="" class="string required"
-                                                      type="text"
-                                                      th:field="*{birth_county}"
-                                                      id="certificate_birth_county"/>
-                  </div>
-                </div>
-
-                <div class="d-inline form-group date required certificate_birth_date">
-                  <div class="tooltip-wrapper-mobile"><label class="date required"
-                                                             for="birth_date">Date
-                    of birth</label>
-
-                  </div>
-                  <div class="tooltip-wrapper">
-                    <input
-                        th:field="*{date_of_birth}"
-                        type="text"
-                        id="birth_date"
-                        class="date-picker-style"/>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-              <div class="pt-5 row justify-content-center form-group radio_buttons required certificate_person_sex">
-                <div class="tooltip-wrapper-mobile"><label
-                    class="radio_buttons required pr-3" >Gender</label>
-                </div>
-                <div class="tooltip-wrapper"><input type="hidden"
-                                                    name="certificate[person_sex]"
-                                                    th:field="*{sex}"
-                                                    value=""/><input
-                    class="radio_buttons required" type="radio"
-                    th:field="*{sex}"
-                    th:value="Female"
-                    id="certificate_person_sex_female"/><label
-                    class="collection_radio_buttons pr-3"
-                    for="certificate_person_sex_female">Female</label><input
-                    class="radio_buttons required" type="radio"
-                    th:field="*{sex}"
-                    th:value="Male"
-                    id="certificate_person_sex_male"/><label
-                    class="collection_radio_buttons"
-                    for="certificate_person_sex_male">Male</label>
-                </div>
-              </div>
-
-              <div class="row justify-content-between pt-5">
-                <div class=" d-flex align-content-center flex-wrap">
-                  <a th:href="@{/application-2}"><input type="submit" name="commit"
-                                                        value="CONTINUE APPLICATION"
-                                                        id="continue-button1"
-                                                        class="p-2 btn-primary btn--large is-block disable-resubmit"
-                                                        data-disable-with="CONTINUE APPLICATION"/></a>
-                </div>
-                <div class=" d-flex align-content-center flex-wrap">
-
-                  <input type="submit" name="commit"
-                         value="SAVE APPLICATION"
-                         id="save-button1"
-                         class="p-2 btn-primary btn--large is-block disable-resubmit"
-                         data-disable-with="SAVE APPLICATION"/>
-                </div>
-              </div>
-        </section>
-      </form>
     </div>
-    <div th:replace="fragments/footer :: footer"></div>
-  </div>
+    <div id="body-container">
+        <div id="body-content">
+            <section class="nav nav-page">
+                <div class="container">
+                    <div class="row">
+                        <div class="span7">
+                            <header class="page-header">
+                                <h3>Records Application<br/>
+                                    <small>Vital Records City of San Antonio</small>
+                                </h3>
+                            </header>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <div class="page container">
+                <div class="cssProgress">
+                    <div class="progress1">
+                        <div class="cssProgress-bar" data-percent="35" style="width: 35%;">
+                            <span class="cssProgress-label">35%</span>
+                        </div>
+                    </div>
+                </div>
+
+                <form th:action="@{/application-2}" th:method="post" th:object="${record}"
+                      class="simple_form new_certificate" id="new_certificate2"
+                      novalidate="novalidate" accept-charset="UTF-8"><input name="utf8" type="hidden"
+                                                                            value="✓"/><input
+                        type="hidden" name="authenticity_token"
+                        value="GBkZnnvogYBnoELufrriChXdsyeZ975veN9Q1hrDy5ov+pkPlLS8VIQiZjTnU/pzR6WYK8uVu/UzabA9pT+vYg=="/>
+
+                    <div class=" text-center py-4"><h2 class="h2"> Birth Certificate Order Form</h2></div>
+                    <hr/>
+
+                    <section class="section pb-2">
+                        <div class="row">
+                            <div class="section__container">
+                                <h4 class="h4">4. Full name of the person on record</h4>
+                                <p class="align-left">Enter the full name of the person on record at the time of
+                                    birth. Leave middle name empty if unknown.</p>
+
+                                <div class="row justify-content-center">
+                                    <div class="d-inline p-2 form-group string required certificate_person_first_name">
+                                        <div class="tooltip-wrapper-mobile"><label class="string required"
+                                                                                   for="certificate_person_first_name">First
+                                            name</label></div>
+                                        <div class="tooltip-wrapper"><input data-validate=""
+                                                                            class="string required"
+                                                                            th:field="*{first_name}"
+                                                                            id="certificate_person_first_name"/>
+                                        </div>
+                                    </div>
+                                    <div class="d-inline p-2 form-group string optional certificate_person_middle_name">
+                                        <div class="tooltip-wrapper-mobile"><label class="string optional"
+                                                                                   for="certificate_person_middle_name">Middle
+                                            name</label></div>
+                                        <div class="tooltip-wrapper"><input data-validate=""
+                                                                            class="string optional"
+                                                                            th:field="*{mid_name}"
+                                                                            id="certificate_person_middle_name"/>
+                                        </div>
+                                    </div>
+                                    <div class="d-inline p-2 form-group string required certificate_person_last_name">
+                                        <div class="tooltip-wrapper-mobile"><label class="string required"
+                                                                                   for="certificate_person_last_name">Last
+                                            name</label>
+                                        </div>
+                                        <div class="tooltip-wrapper"><input data-validate=""
+                                                                            class="string required"
+                                                                            th:field="*{last_name}"
+                                                                            id="certificate_person_last_name"/>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </section>
+                    <hr/>
+                    <section class="section pt-2">
+                        <div class="row">
+                            <div class="section__container">
+                                <h4 class="h4">5. Birth information of the person on record</h4>
+                                <p class="align-left">Enter the birth information of the person needing the
+                                    birth certificate. If you are applying for someone else (i.e. your child),
+                                    enter their birth information here.</p>
+
+
+                                <div class="row justify-content-center">
+
+                                    <div class="d-inline p-2 form-group string required certificate_birth_city">
+                                        <div class="tooltip-wrapper-mobile"><label class="string required"
+                                                                                   for="certificate_birth_city2">City
+                                            of birth</label>
+                                        </div>
+                                        <div class="tooltip-wrapper"><input data-validate="" class="string required"
+                                                                            th:field="*{birth_city}"
+                                                                            id="certificate_birth_city2"/>
+                                        </div>
+                                    </div>
+
+                                    <div class="d-inline p-2 form-group string required certificate_birth_county">
+                                        <div class="tooltip-wrapper-mobile"><label class="string required"
+                                                                                   for="certificate_birth_county">County
+                                            of birth</label>
+                                        </div>
+                                        <div class="tooltip-wrapper"><input data-validate="" class="string required"
+                                                                            th:field="*{birth_county}"
+                                                                            id="certificate_birth_county"/>
+                                        </div>
+                                    </div>
+
+                                    <div class="d-inline p-2 form-group date required certificate_birth_date">
+                                        <div class="tooltip-wrapper-mobile"><label class="date required"
+                                                                                   for="birth_date">Date
+                                            of birth</label>
+
+                                        </div>
+                                        <div class="tooltip-wrapper">
+                                            <input
+                                                    th:field="*{date_of_birth}"
+                                                    id="birth_date"
+                                                    class="date-picker-style"/>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="pt-5 row justify-content-center form-group radio_buttons required certificate_person_sex">
+                            <div class="tooltip-wrapper-mobile"><label
+                                    class="radio_buttons required pr-3">Gender</label>
+                            </div>
+                            <div class="tooltip-wrapper"><input type="hidden"
+                                                                name="certificate[person_sex]"
+                                                                th:field="*{sex}"
+                                                                value=""/><input
+                                    class="radio_buttons required" type="radio"
+                                    th:field="*{sex}"
+                                    th:value="Female"
+                                    id="certificate_person_sex_female"/><label
+                                    class="collection_radio_buttons pr-3 d-inline"
+                                    for="certificate_person_sex_female">Female</label><input
+                                    class="radio_buttons required pr-3 d-inline" type="radio"
+                                    th:field="*{sex}"
+                                    th:value="Male"
+                                    id="certificate_person_sex_male"/><label
+                                    class="collection_radio_buttons pr-3 d-inline"
+                                    for="certificate_person_sex_male">Male</label>
+                            </div>
+                        </div>
+
+                        <div class="row justify-content-between pt-5">
+                            <div class=" d-flex align-content-center flex-wrap">
+                                <a th:href="@{/application-2}"><input type="submit" name="commit"
+                                                                      value="CONTINUE APPLICATION"
+                                                                      id="continue-button1"
+                                                                      class="p-2 btn-primary btn--large is-block disable-resubmit"
+                                                                      data-disable-with="CONTINUE APPLICATION"/></a>
+                            </div>
+                            <div class=" d-flex align-content-center flex-wrap">
+
+                                <input type="submit" name="commit"
+                                       value="SAVE APPLICATION"
+                                       id="save-button1"
+                                       class="p-2 btn-primary btn--large is-block disable-resubmit"
+                                       data-disable-with="SAVE APPLICATION"/>
+                            </div>
+                        </div>
+                    </section>
+                </form>
+            </div>
+        </div>
+        <div th:replace="fragments/admin-footer :: admin-footer"></div>
+    </div>
 </body>
 </html>

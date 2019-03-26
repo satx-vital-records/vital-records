@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head th:fragment="admin-header(title)">
+<head th:fragment="login-form-header(title)">
     <!-- meta -->
     <meta charset="utf-8"/>
     <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
@@ -10,11 +10,11 @@
 
     <!-- Google Fonts -->
     <!--<link href="https://fonts.googleapis.com/css?family=Poppins:300,300i,400,400i,500,500i,600,600i,700,700i|Playfair+Display:400,400i,700,700i,900,900i|Montserrat"-->
-          <!--rel="stylesheet"/>-->
+    <!--rel="stylesheet"/>-->
 
     <!--&lt;!&ndash; Bootstrap CSS File &ndash;&gt;-->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"/>
-    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css"/>
+    <!--&lt;!&ndash;<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"/>&ndash;&gt;-->
+    <!--<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css"/>-->
 
 
 
@@ -36,20 +36,42 @@
 
     <!-- Favicon -->
     <!--<link rel="shortcut icon" href="pics/favicon.png"/>-->
-    <!--<link th:href="@{https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css}" rel="stylesheet"/>-->
-    <!--<link href="https://unpkg.com/bootstrap-material-design@4.1.1/dist/css/bootstrap-material-design.min.css" rel="stylesheet" integrity="sha384-wXznGJNEXNG1NFsbm0ugrLFMQPWswR3lds2VeinahP8N0zJw9VWSopbjv2x7WCvX" crossorigin="anonymous"/>-->
+    <link th:href="@{https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css}" rel="stylesheet"/>
+    <link href="https://unpkg.com/bootstrap-material-design@4.1.1/dist/css/bootstrap-material-design.min.css" rel="stylesheet" integrity="sha384-wXznGJNEXNG1NFsbm0ugrLFMQPWswR3lds2VeinahP8N0zJw9VWSopbjv2x7WCvX" crossorigin="anonymous"/>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons"/>
 
-    <script type="text/javascript" th:src="@{http://www.google.com/jsapi}"></script>
+    <!--<script type="text/javascript" th:src="@{http://www.google.com/jsapi}"></script>-->
 
-    <!--<script th:src="@{/jquery-2.2.4.min.js}" type="text/javascript" ></script>-->
-    <script type="text/javascript" th:src="@{/js/jquery-1.8.2.min.js}"></script>
+
+    <!--<script type="text/javascript" th:src="@{/js/jquery-1.8.2.min.js}"></script>-->
     <link th:href="@{/css/customize-template.css}" type="text/css" media="screen, projection" rel="stylesheet" />
     <!-- Main Stylesheet File -->
     <!--<link th:href="@{/css/style-old.css}" rel="stylesheet"/>-->
 
     <!-- Responsive assets -->
-    <!--<link th:href="@{/css/responsive.css}" rel="stylesheet"/>-->
-    <!--<link th:href="@{assets/css/cssprogress.css}" rel="stylesheet"/>-->
+    <link th:href="@{/css/responsive.css}" rel="stylesheet"/>
+    <link th:href="@{assets/css/cssprogress.css}" rel="stylesheet"/>
+
+
+    <script>
+        addEventListener("load", function () {
+            setTimeout(hideURLbar, 0);
+        }, false);
+
+        function hideURLbar() {
+            window.scrollTo(0, 1);
+        }
+    </script>
+
+    <!-- css files -->
+    <link href="css/font-awesome.min.css" rel="stylesheet" type="text/css" media="all"/>
+    <link href="css/style.css" rel="stylesheet" type="text/css" media="all"/>
+    <!-- //css files -->
+
+    <!-- google fonts -->
+    <link href="//fonts.googleapis.com/css?family=Raleway:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet"/>
+    <!-- //google fonts -->
+
+
 </head>
 </html>
