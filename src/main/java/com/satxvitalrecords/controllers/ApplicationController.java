@@ -186,10 +186,9 @@ public class ApplicationController {
 // passing thru a record and app object - separating thru preparepdf function
         Application app = appDao.findOne(appDB.getId());
         Record record = recordDao.findOne(recordDB_id);
-//        User user = userDao.findOne(1L);
-//        MailingAddress address1 = mailDao.findOne(1L);
 
-        pdfStamper.preparePdf(record, app, userDB, address);
+
+//        pdfStamper.preparePdf(record, app, userDB, address);
         return "redirect:/completed-application";
     }
 
@@ -231,6 +230,37 @@ public class ApplicationController {
 
     @PostMapping("/completed-application")
     public String confirmationOfApplication(){
+
+        User sessionUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        User userDB = userDao.findOne(sessionUser.getId());
+
+        Application appDB = null;
+        Iterable<Application> apps = appDao.findAll();
+        for(Application app:apps){
+            if(app.getUser() == userDB){
+                appDB = app;
+            }
+        }
+        Record recordDB= null;
+        Iterable<Record> allrecords = recordDao.findAll();
+        for(Record record_db : allrecords) {
+//            System.out.println(record_db.getApplication());
+            if (record_db.getApplication().getId() == appDB.getId()) {
+                recordDB = record_db;
+            }
+        }
+
+        MailingAddress mailingAddress = null;
+        Iterable<MailingAddress> addresses = mailDao.findAll();
+        for(MailingAddress address: addresses){
+            if(recordDB.getApplication() == appDB){
+                mailingAddress = address;
+            }
+        }
+
+        appDB.setStatus(statusDao.findOne(200L));
+        appDao.save(appDB);
+        pdfStamper.preparePdf(recordDB, appDB, userDB, mailingAddress);
         return "redirect:/checkout";
     }
 
@@ -241,8 +271,7 @@ public class ApplicationController {
 
     @GetMapping("/upload")
     public String uploadApplication(Model model) {
-//        Application app = appDao.findOne(1L);
-//        model.addAttribute("app", app);
+
         return "upload"; }
 
     @PostMapping("/upload")
@@ -260,7 +289,7 @@ public class ApplicationController {
 
 //        appDB = appDao.findOne(appDB.getId());
         appDB.setIdentification_img(url);
-//        System.out.println(url);
+        appDB.setStatus(statusDao.findOne(300L));
         appDao.save(appDB);
         return "redirect:/upload";
     }
