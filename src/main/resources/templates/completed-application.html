@@ -4,6 +4,18 @@
 <body>
   <div class=" navbar-fixed-top">
     <div class="navbar-inner">
+      <ul class="float-right">
+        <li sec:authorize="isAuthenticated()" class="d-inline">
+          <form th:action="@{/login}" th:method="get" class="d-inline">
+            <button class="" style="margin-top: 8px">Login</button>
+          </form>
+        </li>
+        <li sec:authorize="!isAuthenticated()" class="d-inline px-3">
+          <form th:action="@{/logout}" th:method="post" class="d-inline">
+            <button class="" style="margin-top: 8px">Logout</button>
+          </form>
+        </li>
+      </ul>
       <div class="container"></div>
     </div>
   </div>
@@ -17,16 +29,6 @@
                 <h3>Records Application<br/>
                   <small>Vital Records City of San Antonio</small>
                 </h3>
-                <ul>
-                  <li sec:authorize="isAuthenticated()">
-                    <form th:action="@{/login}" th:method="get"><button class="btn-link btn" style="margin-top: 8px">Login</button></form>
-                  </li>
-                  <li sec:authorize="!isAuthenticated()">
-                    <form th:action="@{/logout}" th:method="post">
-                      <button class="btn-link btn" style="margin-top: 8px">Logout</button>
-                    </form>
-                  </li>
-                </ul>
               </header>
             </div>
           </div>
