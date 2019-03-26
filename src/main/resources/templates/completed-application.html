@@ -405,6 +405,7 @@
                 <!--</div>-->
               </div>
 
+              <th:block th:if="${app.getRecord_type() == 'birth'}">
               <div class="section__container">
                 <h4 class="h4">4. Birth information of the person on record</h4>
                 <p class="align-left">Enter the birth information of the person needing the
@@ -467,6 +468,71 @@
                   </div>
                 </div>
               </div>
+              </th:block>
+
+
+
+              <th:block th:unless="${app.getRecord_type() == 'birth'}">
+                <div class="section__container">
+                  <h4 class="h4">4. Death information of the person on record</h4>
+                  <p class="align-left">Enter the death information of the person listed on the record.</p>
+
+                  <div class="row justify-content-between">
+
+                    <div class="d-inline form-group string required certificate_death_city">
+                      <div class="tooltip-wrapper-mobile"><label class="string required"
+                                                                 for="certificate_death_city2">City
+                        of death</label><a
+                          data-tippy=""
+                          data-original-title="Please specify the city where the birth occurred."></a>
+                      </div>
+                      <div class="tooltip-wrapper"><input data-validate="" class="string required"
+                                                          type="text"
+                                                          th:value="*{death_city}"
+                                                          id="certificate_death_city2"/><a
+                          data-tippy=""
+                          data-original-title="Please specify the city where the death occurred."></a>
+                      </div>
+                    </div>
+
+                    <div class="d-inline form-group string required certificate_death_county">
+                      <div class="tooltip-wrapper-mobile"><label class="string required"
+                                                                 for="certificate_death_county">County
+                        of death</label><a
+                          data-tippy=""
+                          data-original-title="Please specify the county where the death occurred."></a>
+                      </div>
+                      <div class="tooltip-wrapper"><input data-validate="" class="string required"
+                                                          type="text"
+                                                          th:value="*{death_county}"
+                                                          id="certificate_death_county"/><a
+                          data-tippy=""
+                          data-original-title="Please specify the county where the death occurred."></a>
+                      </div>
+                    </div>
+
+                    <div class="d-inline form-group date required certificate_death_date">
+                      <div class="tooltip-wrapper-mobile"><label class="date required"
+                                                                 for="death_date">Date
+                        of death</label>
+
+
+                      </div>
+                      <div class="tooltip-wrapper">
+                        <input
+                            th:value="*{date_of_death}"
+                            type="text"
+                            id="death_date"
+                            class="date-picker-style"/>
+
+                        <a
+                            data-tippy=""
+                            data-original-title="Please specify the date of death."></a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </th:block>
 
 
 
