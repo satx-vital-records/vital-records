@@ -52,8 +52,8 @@
           <!--name="authenticity_token" type="hidden"-->
           <!--value="GBkZnnvogYBnoELufrriChXdsyeZ975veN9Q1hrDy5ov+pkPlLS8VIQiZjTnU/pzR6WYK8uVu/UzabA9pT+vYg=="/>-->
           <input id="record_type" type="hidden" th:name="record_type" th:value="${param.RT[0]}" />
-          <div class="text-center py-4 birth"><h2 class="h2"> Birth Certificate Order Form</h2></div>
-          <div id="death" class="text-center py-4"><h2 class="h2"> Death Certificate Order Form</h2></div>
+          <div th:if="${param.RT[0] == 'birth'}" class="text-center py-4 birth"><h2 class="h2"> Birth Certificate Order Form</h2></div>
+          <div th:if="${param.RT[0] == 'death'}" id="death" class="text-center py-4"><h2 class="h2"> Death Certificate Order Form</h2></div>
           <hr/>
 
           <section class="section pb-2">
@@ -77,7 +77,7 @@
                       <select class="select required"
                               data-validate=""
                               id="certificate_record_person_relationship"
-                              th:field="*{record_relationship}">
+                              th:field="*{record_relationship}" required="Please select an option">
                         <option value="">Please select</option>
                         <option th:value="Myself">Myself</option>
                         <option th:value="Son">I am the Son</option>
@@ -132,7 +132,7 @@
                     <!--<input type="text" th:field="*{form_type}" name="form_type"/>-->
                     <div class="tooltip-wrapper"><select class="select required"
                                                          data-validate=""
-                                                         id="certificate_type_long_standard"
+                                                         id="certificate_type_long_standard" required="Please select a certificate type"
                                                          th:field="*{form_type}">
                       <option value="">Please select</option>
                       <option th:value="Abstract">Abstract (Standard)</option>
@@ -160,7 +160,7 @@
 
                     <div class="tooltip-wrapper"><select class="select required"
                                                          data-validate=""
-                                                         id="certificate_purpose" th:field="*{purpose}">
+                                                         id="certificate_purpose" required="Please select a purpose" th:field="*{purpose}">
                       <option value="">Please select</option>
                       <option th:value="Passport">Passport</option>
                       <option th:value="Social_Security">Social Security</option>
@@ -221,7 +221,7 @@
                   <div class="tooltip-wrapper"><select class="select required"
                                                        data-validate=""
                                                        id="certificate_record_copies"
-                                                       name="num_of_copies">
+                                                       name="num_of_copies" required="Please select the number of Certified Copies needed">
                     <option value="">Please select</option>
                     <option value="1">1</option>
                     <option value="2">2</option>
@@ -251,7 +251,7 @@
                                                                for="certificate_contact_first_name">First
                       name</label></div>
                     <div class="tooltip-wrapper"><input class="string required"
-                                                        data-validate="" id="certificate_contact_first_name"
+                                                        data-validate="" id="certificate_contact_first_name" required="First name is required"
                                                         th:field="*{first_name}"
                                                         type="text"/>
                     </div>
@@ -272,7 +272,7 @@
                       name</label>
                     </div>
                     <div class="tooltip-wrapper"><input class="string required"
-                                                        data-validate="" id="certificate_contact_last_name"
+                                                        data-validate="" id="certificate_contact_last_name" required="Last name is required"
                                                         th:field="*{last_name}"
                                                         type="text"/>
                     </div>
@@ -294,7 +294,7 @@
                     <div class="tooltip-wrapper-mobile"><label class="string required"
                                                                for="certificate_contact_street">Street Address</label></div>
                     <div class="tooltip-wrapper"><input class="string required"
-                                                        data-validate="" id="certificate_contact_street"
+                                                        data-validate="" id="certificate_contact_street" required="Please enter the street as it is shown on a government issued identification card"
                                                         th:field="*{street}"
                                                         type="text"/>
                     </div>
@@ -313,7 +313,7 @@
                                                                for="certificate_contact_city">City</label>
                     </div>
                     <div class="tooltip-wrapper"><input class="string required"
-                                                        data-validate="" id="certificate_contact_city"
+                                                        data-validate="" id="certificate_contact_city" required="Please enter the city as it is shown on a government issued identification card"
                                                         th:field="*{city}"
                                                         type="text"/>
                     </div>
@@ -323,7 +323,7 @@
                                                                for="certificate_contact_state">State</label>
                     </div>
                     <div class="tooltip-wrapper"><select data-validate=""
-                                                         class="select required"
+                                                         class="select required" required="Please enter the state as it is shown on a government issued identification card"
                                                          th:field="*{state}"
                                                          id="certificate_contact_state">
                       <option value="">Please select</option>
@@ -426,16 +426,26 @@
     <div th:replace="fragments/admin-footer :: admin-footer"></div>
   </div>
 
-<!--<script>-->
-  <!--$(document).ready(function(){-->
-      <!--console.log($(`#record_type`).val());-->
-      <!--if($(`#record_type`).val('birth')){-->
-          <!--$(`#death`).hide();-->
-      <!--} else if($(`#record_type`).val('death')){-->
-          <!--$(`.birth`).hide();-->
-      <!--}-->
-  <!--})-->
-<!--</script>-->
+  <!--<script>-->
+  <!--//   $(document).ready(function () {-->
+  <!--//-->
+  <!--// function checkform() {-->
+  <!--// var f = document.forms["theform"].elements;-->
+  <!--// var cansubmit = true;-->
+  <!--//-->
+  <!--// for (var i = 0; i < f.length; i++) {-->
+  <!--// if (f[i].value.length == 0) cansubmit = false;-->
+  <!--// }-->
+  <!--//-->
+  <!--// if (cansubmit) {-->
+  <!--// document.getElementById('submitbutton').disabled = false;-->
+  <!--// }-->
+  <!--// else {-->
+  <!--// document.getElementById('submitbutton').disabled = 'disabled';-->
+  <!--// }-->
+  <!--// }-->
+  <!--//   })-->
 
+  <!--</script>-->
 </body>
 </html>

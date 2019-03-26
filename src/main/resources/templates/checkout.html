@@ -39,7 +39,9 @@
                                 <p class="card-text">Your completed application has been emailed to you.</p>
                             </div>
                             <div class="card-footer py-4">
-                                <a href="#" class="btn btn-secondary">Resend email &raquo;</a>
+                                <form th:action="@{/checkout}" th:method="POST">
+                                    <button id="email" class="btn btn-secondary" type="submit">Resend email &raquo;</button>
+                                </form>
                             </div>
                         </div>
                     </div>
@@ -111,4 +113,10 @@
     </div>
     <div th:replace="fragments/admin-footer :: admin-footer"></div>
 </body>
+
+<script type="text/javascript">
+    $('#email').click(function () {
+        alert("Email was sent!")
+    })
+</script>
 </html>

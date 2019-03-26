@@ -1,7 +1,6 @@
 package com.satxvitalrecords.controllers;
 
 import com.satxvitalrecords.models.ChargeRequest;
-import com.satxvitalrecords.services.EmailService;
 import com.satxvitalrecords.services.StripeService;
 import com.stripe.exception.StripeException;
 import com.stripe.model.Charge;
@@ -19,13 +18,6 @@ public class ChargeController {
 
     @Autowired
     private StripeService paymentsService;
-
-    @Autowired
-    private EmailService emailService;
-
-    public ChargeController(EmailService emailService){
-        this.emailService = emailService;
-    }
 
     @GetMapping("/charge")
     public String show(){
@@ -54,9 +46,5 @@ public class ChargeController {
         return "result";
     }
 
-        public String sendEmail(){
-            emailService.prepareAndSend("Application successfully sent!", "Thank you for your application, we are locating your record and will send it to you as fast as possible. - San Antonio Vital Records");
 
-            return "redirect:/";
-        }
 }
