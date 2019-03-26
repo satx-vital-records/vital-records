@@ -6,6 +6,7 @@ import com.satxvitalrecords.models.User;
 import com.satxvitalrecords.repositories.ApplicationRepo;
 import com.satxvitalrecords.repositories.RecordRepo;
 import com.satxvitalrecords.repositories.StatusRepo;
+import com.satxvitalrecords.repositories.StatusRepo;
 import com.satxvitalrecords.repositories.UserRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
