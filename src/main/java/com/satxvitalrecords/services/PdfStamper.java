@@ -76,6 +76,9 @@ public class PdfStamper {
             PdfFormField month = form.getFormFields().get("Month").setValue(db_month);
             PdfFormField day = form.getFormFields().get("Day").setValue(db_day);
             PdfFormField year = form.getFormFields().get("Year").setValue(db_year);
+
+            form.getFormFields().get("City or Town").setValue(record.getBirth_city());
+            form.getFormFields().get("County").setValue(record.getBirth_county());
         } else {
             // PARSING date of death IN RECORD DB_TABLE TO POPULATE SEPARATE FIELDS
             String dod_month = record.getDate_of_death().toString().substring(5, 7);
@@ -86,6 +89,8 @@ public class PdfStamper {
             form.getFormFields().get("Month").setValue(dod_month);
             form.getFormFields().get("Day").setValue(dod_day);
             form.getFormFields().get("Year").setValue(dod_year);
+            form.getFormFields().get("City or Town").setValue(record.getDeath_city());
+            form.getFormFields().get("County").setValue(record.getDeath_county());
 
         }
 
@@ -94,8 +99,6 @@ public class PdfStamper {
 
 
         form.getFormFields().get("Sex").setValue(gender);
-        form.getFormFields().get("City or Town").setValue(record.getBirth_city());
-        form.getFormFields().get("County").setValue(record.getBirth_county());
         form.getFormFields().get("First Name_2").setValue(record.getParent1_first_name());
         form.getFormFields().get("Middle Name_2").setValue(record.getParent1_mid_name());
         form.getFormFields().get("Maiden NameLast Name").setValue(record.getParent1_last_name());
