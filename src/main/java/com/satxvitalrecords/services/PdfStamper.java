@@ -54,6 +54,7 @@ public class PdfStamper {
     }
 
 
+
     public void manipulatePdf(String src, String dest, Record record, Application app, User user, MailingAddress address) throws IOException {
         PdfReader reader = new PdfReader(src);
         PdfDocument pdf = new PdfDocument(reader, new PdfWriter(dest));
