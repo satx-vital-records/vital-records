@@ -33,8 +33,8 @@ public class PdfStamper {
 
     public void preparePdf(Record record, Application app, User user, MailingAddress address, Long millis){
         System.out.println(SRC);
-        SRC = uploadPath + "COSA-Mail-Application.pdf";
-        DEST = "edited_COSA-Mail-Application" + millis + ".pdf";
+        SRC = uploadPath + "/COSA-Mail-Application.pdf";
+        DEST = "/edited_COSA-Mail-Application" + millis + ".pdf";
         File file = new File(DEST);
         try {
             file.createNewFile();
