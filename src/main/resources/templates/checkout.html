@@ -8,12 +8,12 @@
         <ul class="float-right">
             <li sec:authorize="isAuthenticated()" class="d-inline">
                 <form th:action="@{/login}" th:method="get" class="d-inline">
-                    <button class="p-2 btn-primary btn--large is-block disable-resubmit" style="margin-top: 8px">Login</button>
+                    <button class="p-1 mb-2 rounded btn-primary btn--large is-block disable-resubmit" style="margin-top: 8px">Login</button>
                 </form>
             </li>
             <li sec:authorize="!isAuthenticated()" class="d-inline px-3">
                 <form th:action="@{/logout}" th:method="post" class="d-inline">
-                    <button class="p-2 btn-primary btn--large is-block disable-resubmit" style="margin-top: 8px">Logout</button>
+                    <button class="p-1 mb-2 rounded btn-primary btn--large is-block disable-resubmit" style="margin-top: 8px">Logout</button>
                 </form>
             </li>
         </ul>
@@ -37,21 +37,6 @@
         </section>
     </section>
 </div>
-    <div id="body-container">
-        <div id="body-content">
-            <section class="nav nav-page">
-                <div class="container">
-                    <div class="row">
-                        <div class="span7">
-                            <header class="page-header">
-                                <h3>Records Application<br/>
-                                    <small>Vital Records City of San Antonio</small>
-                                </h3>
-                            </header>
-                        </div>
-                    </div>
-                </div>
-            </section>
             <div class="page container">
                 <!--<div class="cssProgress mx-auto" style="width: 70%;">-->
                 <!--<div class="progress1">-->
@@ -72,7 +57,7 @@
                             <div class="card-footer py-4">
 
                                 <form th:action="@{/checkout}" th:method="POST">
-                                    <button id="email" class="btn btn-secondary" type="submit">Resend email &raquo;</button>
+                                    <button id="email" class="p-2 btn-primary btn--large is-block disable-resubmit" type="submit">Resend email &raquo;</button>
                                 </form>
 
                             </div>
@@ -87,7 +72,7 @@
                                 <p class="card-text">It is required by state law that this document be notorized.</p>
                             </div>
                             <div class="card-footer py-4">
-                                    <a type="submit" class="btn btn-secondary"> Search &raquo;</a>
+                                    <a type="submit" class="p-2 btn-primary btn--large is-block disable-resubmit"> Search &raquo;</a>
                             </div>
                         </div>
                     </div>
@@ -101,7 +86,7 @@
                                     application.</p>
                             </div>
                             <div class="card-footer py-4">
-                                <a href="/upload" class="btn btn-secondary">Upload Documents &raquo;</a>
+                                <a href="/upload" class="p-2 btn-primary btn--large is-block disable-resubmit">Upload Documents &raquo;</a>
                             </div>
                         </div>
                     </div>

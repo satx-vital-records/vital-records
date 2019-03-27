@@ -7,12 +7,12 @@
         <ul class="float-right">
             <li sec:authorize="isAuthenticated()" class="d-inline">
                 <form th:action="@{/login}" th:method="get" class="d-inline">
-                    <button class="p-2 btn-primary btn--large is-block disable-resubmit" style="margin-top: 8px">Login</button>
+                    <button class="p-1 mb-2 rounded btn-primary btn--large is-block disable-resubmit" style="margin-top: 8px">Login</button>
                 </form>
             </li>
             <li sec:authorize="!isAuthenticated()" class="d-inline px-3">
                 <form th:action="@{/logout}" th:method="post" class="d-inline">
-                    <button class="p-2 btn-primary btn--large is-block disable-resubmit" style="margin-top: 8px">Logout</button>
+                    <button class="p-1 mb-2 rounded btn-primary btn--large is-block disable-resubmit" style="margin-top: 8px">Logout</button>
                 </form>
             </li>
         </ul>
@@ -50,7 +50,7 @@
             </div>
             <div style="text-align: center; margin-top: 1.5em;">
                 <form th:action="@{/application-1}" th:method="GET">
-                <button class="p-2 btn-primary btn--large is-block disable-resubmit" name="RT" value="Birth" type="submit" id="birth_cert">Request Birth Certificate</button></form>
+                <button class="p-2 rounded btn-primary btn--large is-block disable-resubmit" name="RT" value="Birth" type="submit" id="birth_cert">Request Birth Certificate</button></form>
             </div>
         </div>
     </div>
