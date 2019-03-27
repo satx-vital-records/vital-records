@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+
+<head th:replace="fragments/login-form-header :: login-form-header('About Us!')"></head>
+
+<body>
+    <nav th:replace="fragments/navbar :: navbar"></nav>
+
+    <div class="card-deck">
+        <div class="card" style="width: 18rem;">
+            <img class="card-img-top" th:src="/imgs/SarahBarron.jpg" alt="Sarah Barron">
+            <div class="card-body">
+                <h5 class="card-title">Sarah Barron</h5>
+                <a href="http://alumni.codeup.com/students/604" class="card-footer btn btn-primary">Profile Page</a>
+            </div>
+        </div>
+        <div class="card" style="width: 18rem;">
+            <img class="card-img-top" th:src="/imgs/RobMoore.jpg" alt="Rob Moore">
+            <div class="card-body">
+                <h5 class="card-title">Rob Moore</h5>
+                <a href="http://alumni.codeup.com/students/595" class="card-footer btn btn-primary">Profile Page</a>
+            </div>
+        </div>
+        <div class="card" style="width: 18rem;">
+            <img class="card-img-top" th:src="/imgs/DorianWallace.jpg" alt="Dorian Wallace">
+            <div class="card-body">
+                <h5 class="card-title">Sarah Barron</h5>
+                <a href="http://alumni.codeup.com/students/608" class="card-footer btn btn-primary">Profile Page</a>
+            </div>
+        </div>
+    </div>
+
+    <footer th:replace="fragments/admin-footer :: admin-footer"></footer>
+</body>
+</html>

@@ -319,7 +319,6 @@ public class ApplicationController {
             throw ex;
         }
 
-
         Twilio.init(ACCOUNT_SID, AUTH_TOKEN);
 
         Message message = Message
