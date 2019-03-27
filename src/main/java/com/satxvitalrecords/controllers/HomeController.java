@@ -71,13 +71,23 @@ public class HomeController {
         int pickedup = numberOfApps(appDao.findAll(), "Picked-up");
         System.out.println(inprogress);
 
-        model.addAttribute("apps", appDao.findAll());
         model.addAttribute("inprogress", inprogress);
         model.addAttribute("pendingreview", pending_review);
         model.addAttribute("needdocs", need_docs);
         model.addAttribute("approved", approved);
         model.addAttribute("mailed", mailed);
         model.addAttribute("pickedup", pickedup);
+        model.addAttribute("apps", appDao.findAll());
+        model.addAttribute("apps", appDao.findAll());
+
+//        for (Application app: appDao.findAll()
+//             ) {
+//        model.addAttribute("record", app.getRecord());
+//        model.addAttribute("status", app.getStatus().getDescription());
+//
+//        }
+
+
 
         return "app-index";
     }
