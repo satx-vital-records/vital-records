@@ -247,7 +247,6 @@ public class ApplicationController {
         Record recordDB= null;
         Iterable<Record> allrecords = recordDao.findAll();
         for(Record record_db : allrecords) {
-//            System.out.println(record_db.getApplication());
             if (record_db.getApplication().getId() == appDB.getId()) {
                 recordDB = record_db;
             }

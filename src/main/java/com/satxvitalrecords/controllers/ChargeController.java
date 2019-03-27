@@ -43,6 +43,7 @@ public class ChargeController {
     public String handleError(Model model, StripeException ex) {
         model.addAttribute("error", ex.getMessage());
         return "/confirmation";
+
     }
 
 
