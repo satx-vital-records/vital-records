@@ -36,39 +36,41 @@
             </section>
 
 
+            <div class="page container">
+                <!--<section class=" paddsection">-->
+                <div class="cssProgress ">
+                    <div class="progress1">
+                        <div class="cssProgress-bar" data-percent="15" style="width: 15%;">
+                            <span class="cssProgress-label">15%</span>
+                        </div>
+                    </div>
+                </div>
+                <form accept-charset="UTF-8" th:action="@{/application-1}"
+                      class="simple_form new_certificate" style="width:100%;"
+                      id="new_certificate1" th:method="post" th:object="${app}" novalidate="novalidate">
+                    <!--<input name="utf8" type="hidden" value="✓"/><input-->
+                    <!--name="authenticity_token" type="hidden"-->
+                    <!--value="GBkZnnvogYBnoELufrriChXdsyeZ975veN9Q1hrDy5ov+pkPlLS8VIQiZjTnU/pzR6WYK8uVu/UzabA9pT+vYg=="/>-->
+                    <input id="record_type" type="hidden" th:name="record_type" th:value="${param.RT[0]}"/>
+                    <div class="text-center py-4"><h2 class="h2"> Vital Records Application Form</h2></div>
+                    <!--<div id="death" class="text-center py-4"><h2 class="h2"> Death Certificate Order Form</h2></div>-->
+                    <hr/>
 
-      <div class="page container">
-        <!--<section class=" paddsection">-->
-        <div class="cssProgress ">
-          <div class="progress1">
-            <div class="cssProgress-bar" data-percent="15" style="width: 15%;">
-              <span class="cssProgress-label">15%</span>
-            </div>
-          </div>
-        </div>
-        <form accept-charset="UTF-8" th:action="@{/application-1}"
-              class="simple_form new_certificate"
-              id="new_certificate1" th:method="post" th:object="${app}" novalidate="novalidate">
-          <!--<input name="utf8" type="hidden" value="✓"/><input-->
-          <!--name="authenticity_token" type="hidden"-->
-          <!--value="GBkZnnvogYBnoELufrriChXdsyeZ975veN9Q1hrDy5ov+pkPlLS8VIQiZjTnU/pzR6WYK8uVu/UzabA9pT+vYg=="/>-->
-          <input id="record_type" type="hidden" th:name="record_type" th:value="${param.RT[0]}" />
-          <div th:if="${param.RT[0] == 'birth'}" class="text-center py-4 birth"><h2 class="h2"> Birth Certificate Order Form</h2></div>
-          <div th:if="${param.RT[0] == 'death'}" id="death" class="text-center py-4"><h2 class="h2"> Death Certificate Order Form</h2></div>
-          <hr/>
+                    <section class="section pb-2">
+                        <div class="row justify-content-center">
+                            <div class="section__container">
+                                <h4 class="h4">1. Your relationship with person on record</h4>
+                                <div class=" row justify-content-center">
 
-            <section class="section pb-2">
-                <div class="row justify-content-center">
-                    <div class="section__container">
-                        <h4 class="h4">1. Your relationship with person on record</h4>
-                            <div class=" row justify-content-center">
-                                <div class="d-inline p-2 form-group select string required certificate_record_person_relationship">
-                                    <div>
-                                        <label class="select required pr-1" for="certificate_record_person_relationship">Relationship with
-                                            person on record?</label>
-                                        <a data-original-title="If you are requesting the  birth certificate for yourself, please select “Myself”. In all other cases, please specify your relationship to the person on record. For example if you are a mother requesting the certificate for your child, select &quot;I am the Mother&quot;. It is important to note that if you are not a direct family member, you may have to provide additional proof of your relationship with the person on record."></a>
-                                    </div>
-                                    <div>
+                                    <div class="d-inline p-2 form-group select string required certificate_record_person_relationship">
+                                        <div class="tooltip-wrapper-mobile"><label
+                                                class="select required pr-1"
+                                                for="certificate_record_person_relationship">Relationship with
+                                            person on record?</label><a
+                                                data-original-title="If you are requesting the  birth certificate for yourself, please select “Myself”. In all other cases, please specify your relationship to the person on record. For example if you are a mother requesting the certificate for your child, select &quot;I am the Mother&quot;. It is important to note that if you are not a direct family member, you may have to provide additional proof of your relationship with the person on record."></a>
+                                        </div>
+                                        <div class="tooltip-wrapper">
+
                                             <!--<input type="text" th:field="*{record_relationship}"-->
                                             <!--name="record_relationship"-->
                                             <!--id="certificate_record_person_relationship"/>-->
@@ -77,6 +79,7 @@
                                                     data-validate=""
                                                     id="certificate_record_person_relationship"
                                                     th:field="*{record_relationship}" required="required">
+
                                                 <option value="">Please select</option>
                                                 <option th:value="Myself">Myself</option>
                                                 <option th:value="Son">I am the Son</option>
@@ -178,7 +181,6 @@
                                             </div>
                                         </div>
                                     </div>
-
                                     <div class="d-inline p-2 form-group select required certificate_record_copies">
                                         <div>
                                             <label class="select required" for="certificate_record_copies">Number of Certified Copies needed</label>

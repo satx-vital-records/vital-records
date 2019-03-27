@@ -4,6 +4,18 @@
 <body>
   <div class=" navbar-fixed-top">
     <div class="navbar-inner">
+      <ul class="float-right">
+        <li sec:authorize="isAuthenticated()" class="d-inline">
+          <form th:action="@{/login}" th:method="get" class="d-inline">
+            <button class="" style="margin-top: 8px">Login</button>
+          </form>
+        </li>
+        <li sec:authorize="!isAuthenticated()" class="d-inline px-3">
+          <form th:action="@{/logout}" th:method="post" class="d-inline">
+            <button class="" style="margin-top: 8px">Logout</button>
+          </form>
+        </li>
+      </ul>
       <div class="container"></div>
     </div>
   </div>
@@ -17,16 +29,6 @@
                 <h3>Records Application<br/>
                   <small>Vital Records City of San Antonio</small>
                 </h3>
-                <ul>
-                  <li sec:authorize="isAuthenticated()">
-                    <form th:action="@{/login}" th:method="get"><button class="btn-link btn" style="margin-top: 8px">Login</button></form>
-                  </li>
-                  <li sec:authorize="!isAuthenticated()">
-                    <form th:action="@{/logout}" th:method="post">
-                      <button class="btn-link btn" style="margin-top: 8px">Logout</button>
-                    </form>
-                  </li>
-                </ul>
               </header>
             </div>
           </div>
@@ -47,7 +49,7 @@
                  value="✓"/><input
             name="authenticity_token" type="hidden"
             value="GBkZnnvogYBnoELufrriChXdsyeZ975veN9Q1hrDy5ov+pkPlLS8VIQiZjTnU/pzR6WYK8uVu/UzabA9pT+vYg=="/>
-          <div class="text-center py-4"><h2 class="h2"> Birth Certificate Order Form</h2>
+          <div class="text-center py-4"><h2 class="h2"> Vital Records Application Form</h2>
           </div>
           <hr/>
 
@@ -55,6 +57,7 @@
             <div class="section__container">
               <h4 class="h4">1. Requestor information</h4>
               <p class="align-left">Enter the name of the requestor as shown on the ID/driver's license.</p>
+
 
               <div class="">
                 <div class="form-group string required certificate_contact_first_name col-xs-4">

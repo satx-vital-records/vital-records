@@ -216,7 +216,9 @@ public class ApplicationController {
 
 //        User user = userDao.findOne(1L);
         address.setUser(userDB);
+        System.out.println("setting user in app 4 post");
         mailDao.save(address);
+        System.out.println("saving user to db in app 4 post");
 
 // -----START OF GETTING FORM FIELDS POPULATED BY DB -------
 // passing thru a record and app object - separating thru preparepdf function
@@ -226,6 +228,7 @@ public class ApplicationController {
 //        MailingAddress address1 = mailDao.findOne(1L);
         long millis = System.currentTimeMillis();
         pdfStamper.preparePdf(record, app, userDB, address, millis);
+        System.out.println("just finished pdf stamper method in app 4 post");
         return "redirect:/completed-application";
     }
 
@@ -244,7 +247,6 @@ public class ApplicationController {
         Record recordDB= null;
         Iterable<Record> allrecords = recordDao.findAll();
         for(Record record_db : allrecords) {
-//            System.out.println(record_db.getApplication());
             if (record_db.getApplication().getId() == appDB.getId()) {
                 recordDB = record_db;
             }
@@ -302,7 +304,7 @@ public class ApplicationController {
         Email from = new Email("admin@satxvitalrecords.com");
         String subject = "Vital Records Application Submitted";
         Email to = new Email(userDB.getEmail());
-        Content content = new Content("text/plain", "Application successfully sent! \nThank you for your application, we are locating your record and will send it to you as fast as possible. \n- San Antonio Vital Records");
+        Content content = new Content("text/plain", "Application successfully sent! \nThank you for your application, we are locating your record and will notify you when it is available to be be picked up from the city clerks office. \nPlease complete the next steps to ensure your application process is successfully completed. \n- San Antonio Vital Records");
         Mail mail = new Mail(from, subject, to, content);
 
         SendGrid sg = new SendGrid(sendGridKey);
@@ -324,7 +326,7 @@ public class ApplicationController {
         Message message = Message
                 .creator(new PhoneNumber(userDB.getPhone_num()), // to
                         new PhoneNumber("+12109439303"), // from
-                        "Your application was submitted \n- SATX Vital Records").create();
+                        "Your application form was successfully completed. \n- SATX Vital Records").create();
 
 
         System.out.println(message.getSid());
