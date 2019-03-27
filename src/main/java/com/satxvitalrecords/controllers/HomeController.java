@@ -78,15 +78,6 @@ public class HomeController {
         model.addAttribute("mailed", mailed);
         model.addAttribute("pickedup", pickedup);
         model.addAttribute("apps", appDao.findAll());
-        model.addAttribute("apps", appDao.findAll());
-
-//        for (Application app: appDao.findAll()
-//             ) {
-//        model.addAttribute("record", app.getRecord());
-//        model.addAttribute("status", app.getStatus().getDescription());
-//
-//        }
-
 
 
         return "app-index";
@@ -121,7 +112,7 @@ public class HomeController {
     }
 
     @PostMapping("/app-view/{id}")
-    public String leaveComment(@PathVariable long id, @RequestParam (name= "comments") String comments) {
+    public String leaveComment(@PathVariable long id, @RequestParam (name= "comments") String comments, @RequestParam(name="update_status") long status_id) {
 //        Date date = new Date();
 //        DateFormat dateFormat = new SimpleDateFormat("YY/MM/DD hh:mm:ss");
 //        dateFormat.format(date);
@@ -132,6 +123,8 @@ public class HomeController {
 //        DateFormat dateFormat = new SimpleDateFormat(strDateFormat);
 //       dateFormat.format(date);
 //        app.setComment_dateTime(date);
+        System.out.println(status_id);
+        app.setStatus(statusDao.findOne(status_id));
         appDao.save(app);
         return "redirect: /app-index";
     }

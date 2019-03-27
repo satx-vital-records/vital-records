@@ -164,82 +164,99 @@
                                 Update Status
                             </h5>
                         </div>
-                        <div class="box-content box-table">
-                            <table id="sample-table" class="table table-hover table-bordered tablesorter">
-                                <thead>
-                                <tr>
-                                    <!--<th>Current Status</th>-->
-                                    <th>Description</th>
-                                    <th class="td-actions"></th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                <tr>
-                                    <!--<td></td>-->
-                                    <td>In Progress</td>
-                                    <td class="td-actions">
-                                        <a href="javascript:;" class="btn btn-small btn-primary">
-                                            <!--<i class="btn-icon-only icon-ok"></i>-->
-                                        </a>
+                        <div class="update_status">
+                            <select class="select required"
+                                    data-validate=""
+                                    id="update_status"
+                                    name="update_status"
+                                    th:field="*{app.status}">
+                                <option value="">Please select</option>
+                                <option th:value="100">In Progress</option>
+                                <option th:value="200">Need Uploads</option>
+                                <option th:value="300">Approved</option>
+                                <option th:value="400">Mailed</option>
+                                <option th:value="500">Picked-up</option>
 
-                                        <!--<a href="javascript:;" class="btn btn-small btn-danger">-->
-                                        <!--<i class="btn-icon-only icon-remove"></i>-->
-                                        <!--</a>-->
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <!--<td></td>-->
-                                    <td>Pending</td>
-                                    <td class="td-actions">
-                                        <a href="javascript:;" class="btn btn-small btn-danger">
-                                            <!--<i class="btn-icon-only icon-ok"></i>-->
-                                        </a>
+                            </select>
 
-                                        <!--<a href="javascript:;" class="btn btn-small btn-danger">-->
-                                        <!--<i class="btn-icon-only icon-remove"></i>-->
-                                        <!--</a>-->
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <!--<td>Checkmark here</td>-->
-                                    <td>Approved</td>
-                                    <td class="td-actions">
-                                        <a href="javascript:;" class="btn btn-small btn-success">
-                                            <!--<i class="btn-icon-only icon-ok"></i>-->
-                                        </a>
-
-                                        <!--<a href="javascript:;" class="btn btn-small btn-danger">-->
-                                        <!--<i class="btn-icon-only icon-remove"></i>-->
-                                        <!--</a>-->
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <!--<td></td>-->
-                                    <td>Mailed</td>
-                                    <td class="td-actions">
-                                        <a href="javascript:;" class="btn btn-small btn-warning">
-                                            <!--<i class="btn-icon-only icon-ok"></i>-->
-                                        </a>
-
-                                        <!--<a href="javascript:;" class="btn btn-small btn-danger">-->
-                                        <!--<i class="btn-icon-only icon-remove"></i>-->
-                                        <!--</a>-->
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <!--<td></td>-->
-                                    <td>Completed</td>
-                                    <td class="td-actions">
-                                        <a href="javascript:;" class="btn btn-small btn-info">
-
-                                        </a>
-
-
-                                    </td>
-                                </tr>
-                                </tbody>
-                            </table>
+                            <button type="submit"></button>
                         </div>
+                        <!--<div class="box-content box-table">-->
+                            <!--<table id="sample-table" class="table table-hover table-bordered tablesorter">-->
+                                <!--<thead>-->
+                                <!--<tr>-->
+                                    <!--&lt;!&ndash;<th>Current Status</th>&ndash;&gt;-->
+                                    <!--<th>Description</th>-->
+                                    <!--<th class="td-actions"></th>-->
+                                <!--</tr>-->
+                                <!--</thead>-->
+                                <!--<tbody>-->
+                                <!--<tr>-->
+                                    <!--&lt;!&ndash;<td></td>&ndash;&gt;-->
+                                    <!--<td>In Progress</td>-->
+                                    <!--<td class="td-actions">-->
+                                        <!--<a href="javascript:;" class="btn btn-small btn-primary">-->
+                                            <!--&lt;!&ndash;<i class="btn-icon-only icon-ok"></i>&ndash;&gt;-->
+                                        <!--</a>-->
+
+                                        <!--&lt;!&ndash;<a href="javascript:;" class="btn btn-small btn-danger">&ndash;&gt;-->
+                                        <!--&lt;!&ndash;<i class="btn-icon-only icon-remove"></i>&ndash;&gt;-->
+                                        <!--&lt;!&ndash;</a>&ndash;&gt;-->
+                                    <!--</td>-->
+                                <!--</tr>-->
+                                <!--<tr>-->
+                                    <!--&lt;!&ndash;<td></td>&ndash;&gt;-->
+                                    <!--<td>Pending</td>-->
+                                    <!--<td class="td-actions">-->
+                                        <!--<a href="javascript:;" class="btn btn-small btn-danger">-->
+                                            <!--&lt;!&ndash;<i class="btn-icon-only icon-ok"></i>&ndash;&gt;-->
+                                        <!--</a>-->
+
+                                        <!--&lt;!&ndash;<a href="javascript:;" class="btn btn-small btn-danger">&ndash;&gt;-->
+                                        <!--&lt;!&ndash;<i class="btn-icon-only icon-remove"></i>&ndash;&gt;-->
+                                        <!--&lt;!&ndash;</a>&ndash;&gt;-->
+                                    <!--</td>-->
+                                <!--</tr>-->
+                                <!--<tr>-->
+                                    <!--&lt;!&ndash;<td>Checkmark here</td>&ndash;&gt;-->
+                                    <!--<td>Approved</td>-->
+                                    <!--<td class="td-actions">-->
+                                        <!--<a href="javascript:;" class="btn btn-small btn-success">-->
+                                            <!--&lt;!&ndash;<i class="btn-icon-only icon-ok"></i>&ndash;&gt;-->
+                                        <!--</a>-->
+
+                                        <!--&lt;!&ndash;<a href="javascript:;" class="btn btn-small btn-danger">&ndash;&gt;-->
+                                        <!--&lt;!&ndash;<i class="btn-icon-only icon-remove"></i>&ndash;&gt;-->
+                                        <!--&lt;!&ndash;</a>&ndash;&gt;-->
+                                    <!--</td>-->
+                                <!--</tr>-->
+                                <!--<tr>-->
+                                    <!--&lt;!&ndash;<td></td>&ndash;&gt;-->
+                                    <!--<td>Mailed</td>-->
+                                    <!--<td class="td-actions">-->
+                                        <!--<a href="javascript:;" class="btn btn-small btn-warning">-->
+                                            <!--&lt;!&ndash;<i class="btn-icon-only icon-ok"></i>&ndash;&gt;-->
+                                        <!--</a>-->
+
+                                        <!--&lt;!&ndash;<a href="javascript:;" class="btn btn-small btn-danger">&ndash;&gt;-->
+                                        <!--&lt;!&ndash;<i class="btn-icon-only icon-remove"></i>&ndash;&gt;-->
+                                        <!--&lt;!&ndash;</a>&ndash;&gt;-->
+                                    <!--</td>-->
+                                <!--</tr>-->
+                                <!--<tr>-->
+                                    <!--&lt;!&ndash;<td></td>&ndash;&gt;-->
+                                    <!--<td>Completed</td>-->
+                                    <!--<td class="td-actions">-->
+                                        <!--<a href="javascript:;" class="btn btn-small btn-info">-->
+
+                                        <!--</a>-->
+
+
+                                    <!--</td>-->
+                                <!--</tr>-->
+                                <!--</tbody>-->
+                            <!--</table>-->
+                        <!--</div>-->
                     </div>
                 </div>
             </div>
