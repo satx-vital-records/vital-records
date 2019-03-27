@@ -32,9 +32,9 @@ public class PdfStamper {
 //    public static void main(String args[]) throws IOException {
 
     public void preparePdf(Record record, Application app, User user, MailingAddress address, Long millis){
-        System.out.println(SRC);
-        SRC = uploadPath + "COSA-Mail-Application.pdf";
-        DEST = uploadPath + "edited_COSA-Mail-Application" + millis + ".pdf";
+        SRC = uploadPath + "/COSA-Mail-Application.pdf";
+        System.out.println("This is the first sout SRC" + SRC);
+        DEST = "/edited_COSA-Mail-Application" + millis + ".pdf";
         File file = new File(DEST);
         try {
             file.createNewFile();
@@ -46,12 +46,13 @@ public class PdfStamper {
 
 //        file.getParentFile().mkdirs();
         try {
-            new PdfStamper().manipulatePdf(SRC, file.getAbsolutePath(), record, app, user, address);
+            new PdfStamper().manipulatePdf(SRC, uploadPath + file.getAbsolutePath(), record, app, user, address);
         } catch (IOException e) {
             e.printStackTrace();
         }
 
     }
+
 
 
     public void manipulatePdf(String src, String dest, Record record, Application app, User user, MailingAddress address) throws IOException {
@@ -79,7 +80,7 @@ public class PdfStamper {
 
             form.getFormFields().get("City or Town").setValue(record.getBirth_city());
             form.getFormFields().get("County").setValue(record.getBirth_county());
-        } else {
+        } else if(app.getRecord_type()=="Death"){
             // PARSING date of death IN RECORD DB_TABLE TO POPULATE SEPARATE FIELDS
             String dod_month = record.getDate_of_death().toString().substring(5, 7);
             String dod_day = record.getDate_of_death().toString().substring(8, 10);
