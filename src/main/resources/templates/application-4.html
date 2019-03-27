@@ -2,23 +2,23 @@
 <html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
 <head th:replace="fragments/login-form-header :: login-form-header('Application')"/>
 <body>
-    <div class=" navbar-fixed-top">
-        <div class="navbar-inner">
-            <ul class="float-right">
-                <li sec:authorize="isAuthenticated()" class="d-inline">
-                    <form th:action="@{/login}" th:method="get" class="d-inline">
-                        <button class="" style="margin-top: 8px">Login</button>
-                    </form>
-                </li>
-                <li sec:authorize="!isAuthenticated()" class="d-inline px-3">
-                    <form th:action="@{/logout}" th:method="post" class="d-inline">
-                        <button class="" style="margin-top: 8px">Logout</button>
-                    </form>
-                </li>
-            </ul>
-            <div class="container"></div>
-        </div>
+<div class=" navbar-fixed-top">
+    <div class="navbar-inner">
+        <ul class="float-right">
+            <li sec:authorize="isAuthenticated()" class="d-inline">
+                <form th:action="@{/login}" th:method="get" class="d-inline">
+                    <button class="p-2 btn-primary btn--large is-block disable-resubmit" style="margin-top: 8px">Login</button>
+                </form>
+            </li>
+            <li sec:authorize="!isAuthenticated()" class="d-inline px-3">
+                <form th:action="@{/logout}" th:method="post" class="d-inline">
+                    <button class="p-2 btn-primary btn--large is-block disable-resubmit" style="margin-top: 8px">Logout</button>
+                </form>
+            </li>
+        </ul>
+        <div class="container"></div>
     </div>
+</div>
     <div id="body-container">
         <div id="body-content">
             <section class="nav nav-page">
@@ -60,58 +60,58 @@
                                     certificate to be delivered.</p>
                                 <div class="row justify-content-between">
                                     <div class="d-inline form-group string required certificate_delivery_name_1">
-                                        <div class="tooltip-wrapper-mobile"><label class="string required"
+                                        <div><label class="string required"
                                                                                    for="certificate_delivery_first_name">First Name of Recipient</label><a
-                                            class="fa fa-question-circle tooltip-trigger" data-tippy=""
+                                            class="fa" data-tippy=""
                                             data-original-title="Please indicate the first name of the person receiving the document."></a>
                                         </div>
-                                        <div class="tooltip-wrapper"><input data-validate="" class="string required"
+                                        <div><input data-validate="" class="string required"
                                                                             type="text"
                                                                             th:field="*{first_name}"
-                                                                            id="certificate_delivery_first_name"/><a
-                                            class="fa fa-question-circle tooltip-trigger" data-tippy=""
+                                                                            id="certificate_delivery_first_name" required="required"/><a
+                                            class="fa" data-tippy=""
                                             data-original-title="Please indicate the last name of the person receiving the document."></a>
                                         </div>
                                     </div>
                                     <div class="d-inline form-group string required certificate_delivery_name_2">
-                                        <div class="tooltip-wrapper-mobile"><label class="string required"
+                                        <div><label class="string required"
                                                                                    for="certificate_delivery_last_name">Last Name of Recipient</label><a
-                                            class="fa fa-question-circle tooltip-trigger" data-tippy=""
+                                            class="fa" data-tippy=""
                                             data-original-title="Please indicate the last name of the person receiving the document."></a>
                                         </div>
-                                        <div class="tooltip-wrapper"><input data-validate="" class="string required"
+                                        <div><input data-validate="" class="string required"
                                                                             type="text"
                                                                             th:field="*{last_name}"
-                                                                            id="certificate_delivery_last_name"/><a
-                                            class="fa fa-question-circle tooltip-trigger" data-tippy=""
+                                                                            id="certificate_delivery_last_name" required="required"/><a
+                                            class="fa" data-tippy=""
                                             data-original-title="Please indicate the last name of the person receiving the document."></a>
                                         </div>
                                     </div>
 
 
                                     <div class="d-inline form-group string required certificate_delivery_address_1">
-                                        <div class="tooltip-wrapper-mobile"><label class="string required"
+                                        <div><label class="string required"
                                                                                    for="certificate_delivery_address_1">Address
                                             1 (Street number and street name)</label><a
                                                  data-tippy=""
                                                 data-original-title="Please indicate the the street number and street name where you need the certificate to be delivered."></a>
                                         </div>
 
-                                        <div class="tooltip-wrapper"><input data-validate="" class="string required"
+                                        <div><input data-validate="" class="string required"
                                                                             type="text"
                                                                             th:field="*{street}"
-                                                                            id="certificate_delivery_address_1"/><a
+                                                                            id="certificate_delivery_address_1" required="required"/><a
                                                  data-tippy=""
                                                 data-original-title="Please indicate the the street number and street name where you need the certificate to be delivered."></a>
                                         </div>
                                     </div>
                                     <div class="d-inline form-group string optional certificate_delivery_address_2">
-                                        <div class="tooltip-wrapper-mobile"><label class="string optional"
+                                        <div><label class="string optional"
                                                                                    for="certificate_delivery_address_2">Address
                                             2 (if applicable: Apt, suite, floor)</label><a
                                                 data-tippy=""
                                                 data-original-title="Please enter, if applicable, the apartment number, suite number or floor where you need the certificate to be delivered."></a>
-                                            <div class="tooltip-wrapper"><input data-validate="" class="string optional"
+                                            <div><input data-validate="" class="string optional"
                                                                                 type="text"
                                                                                 th:field="*{street_2}"
                                                                                 id="certificate_delivery_address_2"/><a
@@ -131,27 +131,27 @@
                             <div class="section__container">
                                 <div class="row justify-content-between">
                                     <div class="d-inline form-group string required certificate_delivery_city">
-                                        <div class="tooltip-wrapper-mobile"><label class="string required"
+                                        <div><label class="string required"
                                                                                    for="certificate_delivery_city">City</label><a
                                                data-tippy=""
                                                 data-original-title="Please indicate the name of the city where you need the certificate to be delivered."></a>
                                         </div>
-                                        <div class="tooltip-wrapper"><input data-validate="" class="string required"
+                                        <div><input data-validate="" class="string required"
                                                                             type="text"
                                                                             th:field="*{city}"
-                                                                            id="certificate_delivery_city"/><a
+                                                                            id="certificate_delivery_city" required="required"/><a
                                                data-tippy=""
                                                 data-original-title="Please indicate the name of the city where you need the certificate to be delivered."></a>
                                         </div>
                                     </div>
                                     <div class=" d-inline form-group select required certificate_delivery_state">
-                                        <div class="tooltip-wrapper-mobile"><label class="select required"
+                                        <div><label class="select required"
                                                                                    for="certificate_delivery_state">State</label>
                                         </div>
-                                        <div class="tooltip-wrapper"><select data-validate=""
+                                        <div><select data-validate=""
                                                                              class="select required"
                                                                              th:field="*{state}"
-                                                                             id="certificate_delivery_state">
+                                                                             id="certificate_delivery_state" required="required">
                                             <option value="">Please select</option>
                                             <option th:value="AL">Alabama</option>
                                             <option th:value="AK">Alaska</option>
@@ -208,17 +208,17 @@
                                         </div>
                                     </div>
                                     <div class="d-inline form-group string required certificate_delivery_zip_code">
-                                        <div class="tooltip-wrapper-mobile"><label class="string required"
+                                        <div><label class="string required"
                                                                                    for="certificate_delivery_zip_code">Zip
                                             code</label><a
                                                            data-tippy=""
                                                            data-original-title="Enter the Zip code where you need the birth certificate to be delivered"></a>
                                         </div>
 
-                                        <div class="tooltip-wrapper"><input data-validate="" class="string required"
+                                        <div><input data-validate="" class="string required"
                                                                             type="text"
                                                                             th:field="*{zip}"
-                                                                            id="certificate_delivery_zip_code"/><a
+                                                                            id="certificate_delivery_zip_code" required="required"/><a
                                                  data-tippy=""
                                                 data-original-title="Enter the Zip code where you need the birth certificate to be delivered"></a>
                                         </div>
@@ -227,15 +227,15 @@
 
                                 <div class="pt-5 gdpr_check_boxes">
                                     <div class=" form-group check_boxes required certificate_terms_and_conditions">
-                                        <div class="tooltip-wrapper-mobile"><label
+                                        <div><label
                                                 class="check_boxes required hidden">Terms and conditions</label>
                                         </div>
-                                        <div class="tooltip-wrapper"><input type="hidden"
+                                        <div><input type="hidden"
                                                                             name="certificate[terms_and_conditions][]"
                                                                             value=""/><input
                                                 class="check_boxes required" type="checkbox" value="true"
                                                 name="certificate[terms_and_conditions][]"
-                                                id="certificate_terms_and_conditions_true"/><label
+                                                id="certificate_terms_and_conditions_true" required="required"/><label
                                                 class="collection_check_boxes"
                                                 for="certificate_terms_and_conditions_true">I have read and
                                             understood the Terms and Conditions and Privacy Policy.</label>
@@ -284,4 +284,11 @@
     </div>
 
 </body>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.min.js"></script>
+<script>
+    $(document).ready(function(){
+        $("#new_certificate4").validate();
+    })
+</script>
 </html>

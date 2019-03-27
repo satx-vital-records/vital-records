@@ -2,23 +2,23 @@
 <html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
 <head th:replace="fragments/login-form-header :: login-form-header('Application')"/>
 <body>
-    <div class=" navbar-fixed-top">
-        <div class="navbar-inner">
-            <ul class="float-right">
-                <li sec:authorize="isAuthenticated()" class="d-inline">
-                    <form th:action="@{/login}" th:method="get" class="d-inline">
-                        <button class="" style="margin-top: 8px">Login</button>
-                    </form>
-                </li>
-                <li sec:authorize="!isAuthenticated()" class="d-inline px-3">
-                    <form th:action="@{/logout}" th:method="post" class="d-inline">
-                        <button class="" style="margin-top: 8px">Logout</button>
-                    </form>
-                </li>
-            </ul>
-            <div class="container"></div>
-        </div>
+<div class=" navbar-fixed-top">
+    <div class="navbar-inner">
+        <ul class="float-right">
+            <li sec:authorize="isAuthenticated()" class="d-inline">
+                <form th:action="@{/login}" th:method="get" class="d-inline">
+                    <button class="p-2 btn-primary btn--large is-block disable-resubmit" style="margin-top: 8px">Login</button>
+                </form>
+            </li>
+            <li sec:authorize="!isAuthenticated()" class="d-inline px-3">
+                <form th:action="@{/logout}" th:method="post" class="d-inline">
+                    <button class="p-2 btn-primary btn--large is-block disable-resubmit" style="margin-top: 8px">Logout</button>
+                </form>
+            </li>
+        </ul>
+        <div class="container"></div>
     </div>
+</div>
     <div id="body-container">
         <div id="body-content">
             <section class="nav nav-page">
@@ -61,34 +61,34 @@
 
                                 <div class="row justify-content-center">
                                     <div class="d-inline p-2 form-group string required certificate_person_first_name">
-                                        <div class="tooltip-wrapper-mobile"><label class="string required"
+                                        <div><label class="string required"
                                                                                    for="certificate_person_first_name">First
                                             name</label></div>
-                                        <div class="tooltip-wrapper"><input data-validate=""
+                                        <div><input data-validate=""
                                                                             class="string required"
                                                                             th:field="*{first_name}"
-                                                                            id="certificate_person_first_name"/>
+                                                                            id="certificate_person_first_name" required="required"/>
                                         </div>
                                     </div>
                                     <div class="d-inline p-2 form-group string optional certificate_person_middle_name">
-                                        <div class="tooltip-wrapper-mobile"><label class="string optional"
+                                        <div><label class="string optional"
                                                                                    for="certificate_person_middle_name">Middle
                                             name</label></div>
-                                        <div class="tooltip-wrapper"><input data-validate=""
+                                        <div><input data-validate=""
                                                                             class="string optional"
                                                                             th:field="*{mid_name}"
                                                                             id="certificate_person_middle_name"/>
                                         </div>
                                     </div>
                                     <div class="d-inline p-2 form-group string required certificate_person_last_name">
-                                        <div class="tooltip-wrapper-mobile"><label class="string required"
+                                        <div><label class="string required"
                                                                                    for="certificate_person_last_name">Last
                                             name</label>
                                         </div>
-                                        <div class="tooltip-wrapper"><input data-validate=""
+                                        <div><input data-validate=""
                                                                             class="string required"
                                                                             th:field="*{last_name}"
-                                                                            id="certificate_person_last_name"/>
+                                                                            id="certificate_person_last_name" required="required"/>
                                         </div>
                                     </div>
                                 </div>
@@ -110,38 +110,40 @@
                                 <div class="row justify-content-center">
 
                                     <div class="d-inline p-2 form-group string required certificate_birth_city">
-                                        <div class="tooltip-wrapper-mobile"><label class="string required"
+                                        <div><label class="string required"
                                                                                    for="certificate_birth_city2">City
                                             of birth</label>
                                         </div>
-                                        <div class="tooltip-wrapper"><input data-validate="" class="string required"
+                                        <div><input data-validate="" class="string required"
                                                                             th:field="*{birth_city}"
-                                                                            id="certificate_birth_city2"/>
+                                                                            id="certificate_birth_city2" required="required"/>
                                         </div>
                                     </div>
 
                                     <div class="d-inline p-2 form-group string required certificate_birth_county">
-                                        <div class="tooltip-wrapper-mobile"><label class="string required"
+                                        <div><label class="string required"
                                                                                    for="certificate_birth_county">County
                                             of birth</label>
                                         </div>
-                                        <div class="tooltip-wrapper"><input data-validate="" class="string required"
+                                        <div><input data-validate="" class="string required"
                                                                             th:field="*{birth_county}"
-                                                                            id="certificate_birth_county"/>
+                                                                            id="certificate_birth_county" required="required"/>
                                         </div>
                                     </div>
 
                                     <div class="d-inline p-2 form-group date required certificate_birth_date">
-                                        <div class="tooltip-wrapper-mobile"><label class="date required"
+                                        <div><label class="date required"
                                                                                    for="birth_date">Date
                                             of birth (MM/DD/YYYY)</label>
 
                                         </div>
-                                        <div class="tooltip-wrapper">
+                                        <div>
                                             <input
                                                     th:field="*{date_of_birth}"
                                                     id="birth_date"
-                                                    class="date-picker-style"/>
+                                                    class="date-picker-style"
+                                                    pattern="\d{2}/\d{2}/\d{4}"
+                                                    required="required"/>
                                         </div>
                                     </div>
                                 </div>
@@ -158,38 +160,39 @@
                         <div class="row justify-content-center">
 
                             <div class="d-inline p-2 form-group string required certificate_death_city">
-                                <div class="tooltip-wrapper-mobile"><label class="string required"
+                                <div><label class="string required"
                                                                            for="certificate_death_city2">City
                                     of death</label>
                                 </div>
-                                <div class="tooltip-wrapper"><input data-validate="" class="string required"
+                                <div><input data-validate="" class="string required"
                                                                     th:field="*{death_city}"
-                                                                    id="certificate_death_city2"/>
+                                                                    id="certificate_death_city2" required="required"/>
                                 </div>
                             </div>
 
                             <div class="d-inline p-2 form-group string required certificate_death_county">
-                                <div class="tooltip-wrapper-mobile"><label class="string required"
+                                <div><label class="string required"
                                                                            for="certificate_death_county">County
                                     of Death</label>
                                 </div>
-                                <div class="tooltip-wrapper"><input data-validate="" class="string required"
+                                <div><input data-validate="" class="string required"
                                                                     th:field="*{death_county}"
-                                                                    id="certificate_death_county"/>
+                                                                    id="certificate_death_county" required="required"/>
                                 </div>
                             </div>
 
                             <div class="d-inline p-2 form-group date required certificate_death_date">
-                                <div class="tooltip-wrapper-mobile"><label class="date required"
+                                <div><label class="date required"
                                                                            for="death_date">Date
                                     of death (MM/DD/YYYY)</label>
 
                                 </div>
-                                <div class="tooltip-wrapper">
+                                <div>
                                     <input
                                         th:field="*{date_of_death}"
                                         id="death_date"
-                                        class="date-picker-style"/>
+                                        class="date-picker-style"
+                                        pattern="\d{2}/\d{2}/\d{4}" required="required"/>
                                 </div>
                             </div>
                         </div>
@@ -200,23 +203,23 @@
                         </div>
 
                         <div class="pt-5 row justify-content-center form-group radio_buttons required certificate_person_sex">
-                            <div class="tooltip-wrapper-mobile"><label
+                            <div><label
                                     class="radio_buttons required pr-3">Gender</label>
                             </div>
-                            <div class="tooltip-wrapper"><input type="hidden"
+                            <div><input type="hidden"
                                                                 name="certificate[person_sex]"
                                                                 th:field="*{sex}"
                                                                 value=""/><input
                                     class="radio_buttons required" type="radio"
                                     th:field="*{sex}"
                                     th:value="Female"
-                                    id="certificate_person_sex_female"/><label
+                                    id="certificate_person_sex_female" required="required"/><label
                                     class="collection_radio_buttons pr-3 d-inline"
                                     for="certificate_person_sex_female">Female</label><input
                                     class="radio_buttons required pr-3 d-inline" type="radio"
                                     th:field="*{sex}"
                                     th:value="Male"
-                                    id="certificate_person_sex_male"/><label
+                                    id="certificate_person_sex_male" required="required"/><label
                                     class="collection_radio_buttons pr-3 d-inline"
                                     for="certificate_person_sex_male">Male</label>
                             </div>
@@ -246,4 +249,11 @@
         <div th:replace="fragments/admin-footer :: admin-footer"></div>
     </div>
 </body>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.min.js"></script>
+<script>
+    $(document).ready(function(){
+        $("#new_certificate2").validate();
+    })
+</script>
 </html>
