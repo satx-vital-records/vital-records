@@ -240,7 +240,7 @@
                                 <tr th:each="app : ${apps}">
                                     <td th:text="${app.id}"></td>
                                     <td th:text="${app.record_type}"></td>
-                                    <td>Date of Request</td>
+                                    <td th:text="${app.getRecord().getDate_of_request()}"></td>
                                     <td th:text="${app.getRecord().getFirst_name()} + ' ' + ${app.getRecord().getLast_name()}"></td>
                                     <td th:text="${app.form_type}"></td>
                                     <span th:if="${app.getRecord_type() == 'Birth'}"><td th:text="${app.getRecord().getDate_of_birth()}"></td>

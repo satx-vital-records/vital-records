@@ -19,6 +19,7 @@ import com.sendgrid.*;
 
 import java.io.IOException;
 
+import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -359,7 +360,10 @@ public class ApplicationController {
         appDB.setForm_img(url2);
 //        System.out.println(url);
 
+        Date date = new Date();
+        System.out.println(date);
 
+        appDB.getRecord().setDate_of_request(date);
         appDB.setStatus(statusDao.findOne(300L));
         appDao.save(appDB);
         return "redirect:/charge";

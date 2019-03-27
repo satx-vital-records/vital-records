@@ -276,7 +276,7 @@ public class Record {
     this.parent2_last_name = parent2_last_name;
   }
 
-  @JsonFormat(shape=JsonFormat.Shape.STRING, pattern="dd/MM/yyyy")
+  @DateTimeFormat(pattern = "dd/MM/yyyy hh:mm")
   public Date getDate_of_request() {
     return date_of_request;
   }
