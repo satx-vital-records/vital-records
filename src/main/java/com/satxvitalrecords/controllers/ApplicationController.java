@@ -305,7 +305,7 @@ public class ApplicationController {
         Email from = new Email("admin@satxvitalrecords.com");
         String subject = "Vital Records Application Submitted";
         Email to = new Email(userDB.getEmail());
-        Content content = new Content("text/plain", "Application successfully sent! \nThank you for your application, we are locating your record and will notify you when it is available to be be picked up from the city clerks office. \nPlease complete the next steps to ensure your application process is successfully completed. \n- San Antonio Vital Records");
+        Content content = new Content("text/plain", "Application successfully sent! \nThank you for your application, we are locating your record and will notify you when it is available to be be picked up from the City Clerk's Office. \nPlease complete the next steps to ensure your application process is successfully completed. \n- San Antonio Vital Records");
         Mail mail = new Mail(from, subject, to, content);
 
         SendGrid sg = new SendGrid(sendGridKey);
@@ -321,7 +321,6 @@ public class ApplicationController {
         } catch (IOException ex) {
             throw ex;
         }
-
 
         Twilio.init(ACCOUNT_SID, AUTH_TOKEN);
 
