@@ -62,28 +62,46 @@ public class PdfStamper {
 
 //  -- START OF ASSIGNING RECORD OBJECT DETAILS TO FIELDS IN PDF ----
 
-        PdfFormField fn = form.getFormFields().get("First Name").setValue(record.getFirst_name());
-        PdfFormField mn = form.getFormFields().get("Middle Name").setValue(record.getMid_name());
-        PdfFormField ln = form.getFormFields().get("Last Name").setValue(record.getLast_name());
+        form.getFormFields().get("First Name").setValue(record.getFirst_name());
+        form.getFormFields().get("Middle Name").setValue(record.getMid_name());
+        form.getFormFields().get("Last Name").setValue(record.getLast_name());
 
+        if (app.getRecord_type() == "Birth") {
 // PARSING DOB IN RECORD DB_TABLE TO POPULATE SEPARATE FIELDS
-        String db_month = record.getDate_of_birth().toString().substring(5,7);
-        String db_day = record.getDate_of_birth().toString().substring(8,10);
-        String db_year = record.getDate_of_birth().toString().substring(0,4);
+            String db_month = record.getDate_of_birth().toString().substring(5, 7);
+            String db_day = record.getDate_of_birth().toString().substring(8, 10);
+            String db_year = record.getDate_of_birth().toString().substring(0, 4);
 // ------------  END OF PARSING ----------------------------
 
-        PdfFormField month = form.getFormFields().get("Month").setValue(db_month);
-        PdfFormField day = form.getFormFields().get("Day").setValue(db_day);
-        PdfFormField year = form.getFormFields().get("Year").setValue(db_year);
-        PdfFormField sex = form.getFormFields().get("Sex").setValue(record.getSex());
-        PdfFormField city = form.getFormFields().get("City or Town").setValue(record.getBirth_city());
-        PdfFormField county = form.getFormFields().get("County").setValue(record.getBirth_county());
-        PdfFormField parent1_fn = form.getFormFields().get("First Name_2").setValue(record.getParent1_first_name());
-        PdfFormField parent1_mn = form.getFormFields().get("Middle Name_2").setValue(record.getParent1_mid_name());
-        PdfFormField parent1_ln = form.getFormFields().get("Maiden NameLast Name").setValue(record.getParent1_last_name());
-        PdfFormField parent2_fn = form.getFormFields().get("First Name_3").setValue(record.getParent2_first_name());
-        PdfFormField parent2_mn = form.getFormFields().get("Middle Name_3").setValue(record.getParent2_mid_name());
-        PdfFormField parent2_ln = form.getFormFields().get("Maiden NameLast Name_2").setValue(record.getParent2_last_name());
+            PdfFormField month = form.getFormFields().get("Month").setValue(db_month);
+            PdfFormField day = form.getFormFields().get("Day").setValue(db_day);
+            PdfFormField year = form.getFormFields().get("Year").setValue(db_year);
+        } else {
+            // PARSING date of death IN RECORD DB_TABLE TO POPULATE SEPARATE FIELDS
+            String dod_month = record.getDate_of_death().toString().substring(5, 7);
+            String dod_day = record.getDate_of_death().toString().substring(8, 10);
+            String dod_year = record.getDate_of_death().toString().substring(0, 4);
+// ------------  END OF PARSING ----------------------------
+
+            form.getFormFields().get("Month").setValue(dod_month);
+            form.getFormFields().get("Day").setValue(dod_day);
+            form.getFormFields().get("Year").setValue(dod_year);
+
+        }
+
+
+        String gender = record.getSex().substring(1);
+
+
+        form.getFormFields().get("Sex").setValue(gender);
+        form.getFormFields().get("City or Town").setValue(record.getBirth_city());
+        form.getFormFields().get("County").setValue(record.getBirth_county());
+        form.getFormFields().get("First Name_2").setValue(record.getParent1_first_name());
+        form.getFormFields().get("Middle Name_2").setValue(record.getParent1_mid_name());
+        form.getFormFields().get("Maiden NameLast Name").setValue(record.getParent1_last_name());
+        form.getFormFields().get("First Name_3").setValue(record.getParent2_first_name());
+        form.getFormFields().get("Middle Name_3").setValue(record.getParent2_mid_name());
+        form.getFormFields().get("Maiden NameLast Name_2").setValue(record.getParent2_last_name());
 
 //  -- START OF ASSIGNING APP/USER OBJECT DETAILS TO FIELDS IN PDF ----
 
