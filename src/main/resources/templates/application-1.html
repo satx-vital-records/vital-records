@@ -63,12 +63,12 @@
                         <h4 class="h4">1. Your relationship with person on record</h4>
                             <div class=" row justify-content-center">
                                 <div class="d-inline p-2 form-group select string required certificate_record_person_relationship">
-                                    <div class="tooltip-wrapper-mobile">
+                                    <div>
                                         <label class="select required pr-1" for="certificate_record_person_relationship">Relationship with
                                             person on record?</label>
                                         <a data-original-title="If you are requesting the  birth certificate for yourself, please select “Myself”. In all other cases, please specify your relationship to the person on record. For example if you are a mother requesting the certificate for your child, select &quot;I am the Mother&quot;. It is important to note that if you are not a direct family member, you may have to provide additional proof of your relationship with the person on record."></a>
                                     </div>
-                                    <div class="tooltip-wrapper">
+                                    <div>
                                             <!--<input type="text" th:field="*{record_relationship}"-->
                                             <!--name="record_relationship"-->
                                             <!--id="certificate_record_person_relationship"/>-->
@@ -76,7 +76,7 @@
                                             <select class="select required"
                                                     data-validate=""
                                                     id="certificate_record_person_relationship"
-                                                    th:field="*{record_relationship}" required>
+                                                    th:field="*{record_relationship}" required="required">
                                                 <option value="">Please select</option>
                                                 <option th:value="Myself">Myself</option>
                                                 <option th:value="Son">I am the Son</option>
@@ -119,7 +119,7 @@
                                     <!--</div>-->
                                     <!--</div>-->
                                     <div class="d-inline p-2 form-group select required certificate_record_person_relationship">
-                                        <div class="tooltip-wrapper-mobile"><label class="select required"
+                                        <div><label class="select required"
                                                                                    for="certificate_record_person_relationship">Please
                                             select the certificate type</label><a
 
@@ -127,8 +127,8 @@
                                                 data-tippy=""></a>
                                         </div>
                                         <!--<input type="text" th:field="*{form_type}" name="form_type"/>-->
-                                        <div class="tooltip-wrapper">
-                                            <select class="select required" data-validate="" id="certificate_type_long_standard" th:field="*{form_type}" required>
+                                        <div>
+                                            <select class="select required" data-validate="" id="certificate_type_long_standard" th:field="*{form_type}" required="required">
                                                 <option value="">Please select</option>
                                                 <option th:value="Abstract">Abstract (Standard)</option>
                                                 <option th:value="Long">Long form ( Passport, Dual Citizenship, Indian
@@ -142,11 +142,11 @@
                                     </div>
                                 <div class="row justify-content-center">
                                     <div class="d-inline p-2 form-group select required certificate_record_person_relationship">
-                                        <div class="tooltip-wrapper-mobile">
+                                        <div>
                                             <label class="select required" for="certificate_record_person_relationship">Why are you applying for a certificate?</label>
                                         </div>
-                                        <div class="tooltip-wrapper">
-                                            <select class="select required" data-validate="" id="certificate_purpose" th:field="*{purpose}" required>
+                                        <div>
+                                            <select class="select required" data-validate="" id="certificate_purpose" th:field="*{purpose}" required="required">
                                                 <option value="">Please select</option>
                                                 <option th:value="Passport">Passport</option>
                                                 <option th:value="Social_Security">Social Security</option>
@@ -170,21 +170,21 @@
 
                                     <div id="certificate_purpose_reason" style="display: none;">
                                         <div class="form-group string optional certificate_purpose_specify">
-                                            <div class="tooltip-wrapper-mobile">
+                                            <div>
                                                 <label class="string optional required">Specify</label>
                                             </div>
-                                            <div class="tooltip-wrapper">
+                                            <div>
                                                 <input class="string optional" data-validate="" id="certificate_purpose-specify" maxlength="45" name="certificate[record_person_relationship_specify]" size="45"/>
                                             </div>
                                         </div>
                                     </div>
 
                                     <div class="d-inline p-2 form-group select required certificate_record_copies">
-                                        <div class="tooltip-wrapper-mobile">
+                                        <div>
                                             <label class="select required" for="certificate_record_copies">Number of Certified Copies needed</label>
                                         </div>
-                                        <div class="tooltip-wrapper">
-                                            <select class="select required" data-validate="" id="certificate_record_copies" name="num_of_copies" required>
+                                        <div>
+                                            <select class="select required" data-validate="" id="certificate_record_copies" name="num_of_copies" required="required">
                                                 <option value="">Please select</option>
                                                 <option value="1">1</option>
                                                 <option value="2">2</option>
@@ -209,27 +209,27 @@
 
                                 <div class="row justify-content-center">
                                     <div class="d-inline p-2 form-group required certificate_contact_first_name">
-                                        <div class="tooltip-wrapper-mobile">
+                                        <div>
                                             <label class="string required" for="certificate_contact_first_name">First name</label>
                                         </div>
-                                        <div class="tooltip-wrapper">
-                                            <input class="string required" data-validate="" id="certificate_contact_first_name" th:field="*{first_name}" required/>
+                                        <div>
+                                            <input class="string required" data-validate="" id="certificate_contact_first_name" th:field="*{first_name}" required="required"/>
                                         </div>
                                     </div>
                                     <div class="d-inline p-2 form-group string optional certificate_contact_middle_name ">
-                                        <div class="tooltip-wrapper-mobile">
+                                        <div>
                                             <label class="string optional" for="certificate_contact_middle_name">Middle name</label>
                                         </div>
-                                        <div class="tooltip-wrapper">
+                                        <div>
                                             <input class="string optional" data-validate="" id="certificate_contact_middle_name" th:field="*{mid_name}"/>
                                         </div>
                                     </div>
                                     <div class="d-inline p-2 form-group string required certificate_contact_last_name ">
-                                        <div class="tooltip-wrapper-mobile">
+                                        <div>
                                             <label class="string required" for="certificate_contact_last_name">Last name</label>
                                         </div>
-                                        <div class="tooltip-wrapper">
-                                            <input class="string required" data-validate="" id="certificate_contact_last_name" th:field="*{last_name}" required/>
+                                        <div>
+                                            <input class="string required" data-validate="" id="certificate_contact_last_name" th:field="*{last_name}" required="required"/>
                                         </div>
                                     </div>
                                 </div>
@@ -246,36 +246,36 @@
 
                                 <div class="row justify-content-center">
                                     <div class="d-inline p-2 form-group string required certificate_contact_street">
-                                        <div class="tooltip-wrapper-mobile">
+                                        <div>
                                             <label class="string required" for="certificate_contact_street">Street Address</label>
                                         </div>
-                                        <div class="tooltip-wrapper">
-                                            <input class="string required" data-validate="" id="certificate_contact_street" th:field="*{street}" required/>
+                                        <div>
+                                            <input class="string required" data-validate="" id="certificate_contact_street" th:field="*{street}" required="required"/>
                                         </div>
                                     </div>
                                     <div class="d-inline p-2 form-group string optional certificate_contact_street2">
-                                        <div class="tooltip-wrapper-mobile">
+                                        <div>
                                             <label class="string optional" for="certificate_contact_street2">Street Address 2</label>
                                         </div>
-                                        <div class="tooltip-wrapper">
+                                        <div>
                                             <input class="string optional" data-validate="" id="certificate_contact_street2" th:field="*{street2}"/>
                                         </div>
                                     </div>
                                     <div class="row justify-content-center">
                                         <div class="d-inline p-2 form-group string required certificate_contact_city">
-                                            <div class="tooltip-wrapper-mobile">
+                                            <div>
                                                 <label class="string required" for="certificate_contact_city">City</label>
                                             </div>
-                                            <div class="tooltip-wrapper">
-                                                <input class="string required" data-validate="" id="certificate_contact_city" th:field="*{city}" required/>
+                                            <div>
+                                                <input class="string required" data-validate="" id="certificate_contact_city" th:field="*{city}" required="required"/>
                                             </div>
                                         </div>
                                         <div class=" d-inline p-2 form-group select required certificate_delivery_state">
-                                            <div class="tooltip-wrapper-mobile">
+                                            <div>
                                                 <label class="select required" for="certificate_contact_state">State</label>
                                             </div>
-                                            <div class="tooltip-wrapper">
-                                                <select data-validate="" class="select required" th:field="*{state}" id="certificate_contact_state" required>
+                                            <div>
+                                                <select data-validate="" class="select required" th:field="*{state}" id="certificate_contact_state" required="required">
                                                     <option value="">Please select</option>
                                                     <option th:value="AL">Alabama</option>
                                                     <option th:value="AK">Alaska</option>
@@ -331,10 +331,10 @@
                                             </div>
                                         </div>
                                         <div class="d-inline p-2 form-group string optional certificate_contact_zip ">
-                                            <div class="tooltip-wrapper-mobile">
+                                            <div>
                                                 <label class="string optional" for="certificate_contact_zip">Zip Code</label>
                                             </div>
-                                            <div class="tooltip-wrapper">
+                                            <div>
                                                 <input class="string optional" data-validate="" id="certificate_contact_zip" th:field="*{zip}"/>
                                             </div>
                                         </div>

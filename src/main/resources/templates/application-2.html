@@ -67,7 +67,7 @@
                                         <div><input data-validate=""
                                                                             class="string required"
                                                                             th:field="*{first_name}"
-                                                                            id="certificate_person_first_name"/>
+                                                                            id="certificate_person_first_name" required="required"/>
                                         </div>
                                     </div>
                                     <div class="d-inline p-2 form-group string optional certificate_person_middle_name">
@@ -88,7 +88,7 @@
                                         <div><input data-validate=""
                                                                             class="string required"
                                                                             th:field="*{last_name}"
-                                                                            id="certificate_person_last_name"/>
+                                                                            id="certificate_person_last_name" required="required"/>
                                         </div>
                                     </div>
                                 </div>
@@ -116,7 +116,7 @@
                                         </div>
                                         <div><input data-validate="" class="string required"
                                                                             th:field="*{birth_city}"
-                                                                            id="certificate_birth_city2"/>
+                                                                            id="certificate_birth_city2" required="required"/>
                                         </div>
                                     </div>
 
@@ -127,7 +127,7 @@
                                         </div>
                                         <div><input data-validate="" class="string required"
                                                                             th:field="*{birth_county}"
-                                                                            id="certificate_birth_county"/>
+                                                                            id="certificate_birth_county" required="required"/>
                                         </div>
                                     </div>
 
@@ -141,7 +141,9 @@
                                             <input
                                                     th:field="*{date_of_birth}"
                                                     id="birth_date"
-                                                    class="date-picker-style"/>
+                                                    class="date-picker-style"
+                                                    pattern="\d{2}/\d{2}/\d{4}"
+                                                    required="required"/>
                                         </div>
                                     </div>
                                 </div>
@@ -164,7 +166,7 @@
                                 </div>
                                 <div><input data-validate="" class="string required"
                                                                     th:field="*{death_city}"
-                                                                    id="certificate_death_city2"/>
+                                                                    id="certificate_death_city2" required="required"/>
                                 </div>
                             </div>
 
@@ -175,7 +177,7 @@
                                 </div>
                                 <div><input data-validate="" class="string required"
                                                                     th:field="*{death_county}"
-                                                                    id="certificate_death_county"/>
+                                                                    id="certificate_death_county" required="required"/>
                                 </div>
                             </div>
 
@@ -189,7 +191,8 @@
                                     <input
                                         th:field="*{date_of_death}"
                                         id="death_date"
-                                        class="date-picker-style"/>
+                                        class="date-picker-style"
+                                        pattern="\d{2}/\d{2}/\d{4}" required="required"/>
                                 </div>
                             </div>
                         </div>
@@ -210,13 +213,13 @@
                                     class="radio_buttons required" type="radio"
                                     th:field="*{sex}"
                                     th:value="Female"
-                                    id="certificate_person_sex_female"/><label
+                                    id="certificate_person_sex_female" required="required"/><label
                                     class="collection_radio_buttons pr-3 d-inline"
                                     for="certificate_person_sex_female">Female</label><input
                                     class="radio_buttons required pr-3 d-inline" type="radio"
                                     th:field="*{sex}"
                                     th:value="Male"
-                                    id="certificate_person_sex_male"/><label
+                                    id="certificate_person_sex_male" required="required"/><label
                                     class="collection_radio_buttons pr-3 d-inline"
                                     for="certificate_person_sex_male">Male</label>
                             </div>
