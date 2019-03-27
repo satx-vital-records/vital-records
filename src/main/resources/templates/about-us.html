@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+
+<head th:replace="fragments/login-form-header :: login-form-header('About Us!')"></head>
+
+<body>
+<div class=" navbar-fixed-top">
+    <div class="navbar-inner">
+        <div class="container"></div>
+    </div>
+</div>
+
+    <div id="body-content">
+        <section class="nav nav-page">
+            <div class="container">
+                <div class="row">
+                    <div class="span7">
+                        <header class="page-header">
+                            <h3>Records Application<br/>
+                                <small>Vital Records City of San Antonio</small>
+                            </h3>
+                        </header>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <div class="container" style="width:90%; margin:1em auto;">
+        <div class="card-deck">
+            <div class="card" style="width: 10rem;">
+                <img class="card-img-top" src="/imgs/SarahBarron.jpg" alt="Sarah Barron" />
+                <div class="card-body">
+                    <h5 class="card-title">Sarah Barron</h5>
+                </div>
+                <div class="card-footer text-center">
+                    <a href="http://alumni.codeup.com/students/604" class="btn" target="_blank">Profile Page</a>
+                </div>
+            </div>
+            <div class="card" style="width: 10rem;">
+                <img class="card-img-top" src="/imgs/RobMoore.jpg" alt="Rob Moore" />
+                <div class="card-body">
+                    <h5 class="card-title">Rob Moore</h5>
+                </div>
+                <div class="card-footer text-center">
+                    <a href="http://alumni.codeup.com/students/595" class="btn" target="_blank">Profile Page</a>
+                </div>
+            </div>
+            <div class="card" style="width: 10rem;">
+                <img class="card-img-top" src="/imgs/DorianWallace.jpg" alt="Dorian Wallace" />
+                <div class="card-body">
+                    <h5 class="card-title">Dorian Wallace</h5>
+                </div>
+                <div class="card-footer text-center">
+                    <a href="http://alumni.codeup.com/students/608" class="btn" target="_blank">Profile Page</a>
+                </div>
+            </div>
+        </div>
+        </div>
+    </div>
+</body>
+</html>

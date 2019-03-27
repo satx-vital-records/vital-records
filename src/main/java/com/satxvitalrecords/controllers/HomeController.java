@@ -188,4 +188,7 @@ public class HomeController {
         }
         return count;
     }
+
+    @GetMapping("/about-us")
+    public String aboutUs() { return "about-us"; }
 }
