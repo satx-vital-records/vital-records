@@ -3,6 +3,10 @@ import com.satxvitalrecords.models.*;
 import com.satxvitalrecords.repositories.*;
 import com.satxvitalrecords.services.PdfStamper;
 //import com.sun.javaws.security.AppPolicy;
+import com.satxvitalrecords.services.TwilioService;
+import com.twilio.Twilio;
+import com.twilio.rest.api.v2010.account.Message;
+import com.twilio.type.PhoneNumber;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -11,6 +15,12 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import com.sendgrid.*;
+
+import java.io.IOException;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 @Controller
 //@SessionAttributes("user")
@@ -78,6 +88,16 @@ public class ApplicationController {
 
     @GetMapping("/application-2")
     public String showApplication2(Model model) {
+        User sessionUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        User userDB = userDao.findOne(sessionUser.getId());
+        Application appDB = null;
+        Iterable<Application> apps = appDao.findAll();
+        for(Application app:apps){
+            if(app.getUser() == userDB){
+                appDB = app;
+            }
+        }
+        model.addAttribute("app", appDB);
         model.addAttribute("record", new Record());
         return "application-2";
     }
@@ -247,6 +267,19 @@ public class ApplicationController {
 
     @PostMapping("/completed-application")
     public String confirmationOfApplication(){
+        User sessionUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        User userDB = userDao.findOne(sessionUser.getId());
+
+        Application appDB = null;
+        Iterable<Application> apps = appDao.findAll();
+        for(Application app:apps){
+            if(app.getUser() == userDB){
+                appDB = app;
+            }
+        }
+
+        appDB.setStatus(statusDao.findOne(200L));
+        appDao.save(appDB);
         return "redirect:/checkout";
     }
 
@@ -258,10 +291,52 @@ public class ApplicationController {
         return "checkout";
     }
 
+    @Value("${SENDGRID_API_KEY}") String sendGridKey;
+    @Value("${TWILIO_ACCOUNT_SID}") String ACCOUNT_SID;
+    @Value("${TWILIO_AUTH_TOKEN}") String AUTH_TOKEN;
+    @PostMapping("/checkout")
+    public String sendEmail() throws IOException{
+        User sessionUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        User userDB = userDao.findOne(sessionUser.getId());
+
+        Email from = new Email("admin@satxvitalrecords.com");
+        String subject = "Vital Records Application Submitted";
+        Email to = new Email(userDB.getEmail());
+        Content content = new Content("text/plain", "Application successfully sent! \nThank you for your application, we are locating your record and will send it to you as fast as possible. \n- San Antonio Vital Records");
+        Mail mail = new Mail(from, subject, to, content);
+
+        SendGrid sg = new SendGrid(sendGridKey);
+        Request request = new Request();
+        try {
+            request.setMethod(Method.POST);
+            request.setEndpoint("mail/send");
+            request.setBody(mail.build());
+            Response response = sg.api(request);
+            System.out.println(response.getStatusCode());
+            System.out.println(response.getBody());
+            System.out.println(response.getHeaders());
+        } catch (IOException ex) {
+            throw ex;
+        }
+
+
+        Twilio.init(ACCOUNT_SID, AUTH_TOKEN);
+
+        Message message = Message
+                .creator(new PhoneNumber(userDB.getPhone_num()), // to
+                        new PhoneNumber("+12109439303"), // from
+                        "Your application was submitted \n- SATX Vital Records").create();
+
+
+        System.out.println(message.getSid());
+
+        return "redirect:/checkout";
+    }
+
+
     @GetMapping("/upload")
     public String uploadApplication(Model model) {
-//        Application app = appDao.findOne(1L);
-//        model.addAttribute("app", app);
+
         return "upload"; }
 
     @PostMapping("/upload")
@@ -281,6 +356,9 @@ public class ApplicationController {
         appDB.setIdentification_img(url);
         appDB.setForm_img(url2);
 //        System.out.println(url);
+
+
+        appDB.setStatus(statusDao.findOne(300L));
         appDao.save(appDB);
         return "redirect:/charge";
     }

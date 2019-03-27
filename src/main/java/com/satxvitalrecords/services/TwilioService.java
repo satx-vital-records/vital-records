@@ -11,17 +11,17 @@ import org.springframework.ui.Model;
 @Service ("textService")
 public class TwilioService {
 
-    public static final String ACCOUNT_SID = "ACcc5401977e40cf09d248c89beac282bf";
-    public static final String AUTH_TOKEN = "516f070174d5cbf6ea7dbb142eb43bf5";
+    private static final String ACCOUNT_SID = "AC3b031c8223c21f7739d3e2286ec02573";
+    private static final String AUTH_TOKEN = "e635a7f9262ebd76703f0460d089b35a";
 
-//    public static void main(String[] args) {
-    public void sendText(Model model, User user){
+    public void sendText(User user){
         Twilio.init(ACCOUNT_SID, AUTH_TOKEN);
 
+        String messageBody = "";
         Message message = Message
                 .creator(new PhoneNumber(user.getPhone_num()), // to
                 new PhoneNumber("+12109439303"), // from
-                "Twilio phone test").create();
+                messageBody).create();
 
 
         System.out.println(message.getSid());

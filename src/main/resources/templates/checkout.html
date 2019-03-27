@@ -40,7 +40,12 @@
                                     email to to the email you listed in the application.</p>
                             </div>
                             <div class="card-footer py-4">
-                                    <a type="submit" id="email" class="btn btn-success">Sent email</a>
+
+                                <form th:action="@{/checkout}" th:method="POST">
+                                    <button id="email" class="btn btn-secondary" type="submit">Resend email &raquo;</button>
+                                </form>
+
+                                    <a type="submit" class="btn btn-success">Sent email</a>
                             </div>
                         </div>
                     </div>
@@ -142,4 +147,10 @@
     <!--</div>-->
     <div th:replace="fragments/admin-footer :: admin-footer"></div>
 </body>
+
+<script type="text/javascript">
+    $('#email').click(function () {
+        alert("Email sent!")
+    });
+</script>
 </html>

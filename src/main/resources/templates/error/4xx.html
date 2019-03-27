@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      lang="en">
+<head th:replace="fragments/login-form-header :: login-form-header('Welcome Home!')"></head>
+
+<body>
+    <th:block th:switch="${error}">
+        <div th:case="'Not Found'">
+            <h1>Page not found!!</h1>
+        </div>
+        <div th:case="'Forbidden'">
+            <h1>You don't have permission to view this page.</h1>
+        </div>
+    </th:block>
+
+    <a th:href="/index">Return to Home Page</a>
+
+    <footer th:replace="fragments/admin-footer :: admin-footer"></footer>
+</body>
+</html>
