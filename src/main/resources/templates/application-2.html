@@ -2,23 +2,23 @@
 <html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
 <head th:replace="fragments/login-form-header :: login-form-header('Application')"/>
 <body>
-    <div class=" navbar-fixed-top">
-        <div class="navbar-inner">
-            <ul class="float-right">
-                <li sec:authorize="isAuthenticated()" class="d-inline">
-                    <form th:action="@{/login}" th:method="get" class="d-inline">
-                        <button class="" style="margin-top: 8px">Login</button>
-                    </form>
-                </li>
-                <li sec:authorize="!isAuthenticated()" class="d-inline px-3">
-                    <form th:action="@{/logout}" th:method="post" class="d-inline">
-                        <button class="" style="margin-top: 8px">Logout</button>
-                    </form>
-                </li>
-            </ul>
-            <div class="container"></div>
-        </div>
+<div class=" navbar-fixed-top">
+    <div class="navbar-inner">
+        <ul class="float-right">
+            <li sec:authorize="isAuthenticated()" class="d-inline">
+                <form th:action="@{/login}" th:method="get" class="d-inline">
+                    <button class="p-2 btn-primary btn--large is-block disable-resubmit" style="margin-top: 8px">Login</button>
+                </form>
+            </li>
+            <li sec:authorize="!isAuthenticated()" class="d-inline px-3">
+                <form th:action="@{/logout}" th:method="post" class="d-inline">
+                    <button class="p-2 btn-primary btn--large is-block disable-resubmit" style="margin-top: 8px">Logout</button>
+                </form>
+            </li>
+        </ul>
+        <div class="container"></div>
     </div>
+</div>
     <div id="body-container">
         <div id="body-content">
             <section class="nav nav-page">
