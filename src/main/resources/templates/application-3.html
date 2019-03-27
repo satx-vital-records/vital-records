@@ -2,23 +2,23 @@
 <html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
 <head th:replace="fragments/login-form-header :: login-form-header('Application')"/>
 <body>
-    <div class=" navbar-fixed-top">
-        <div class="navbar-inner">
-            <ul class="float-right">
-                <li sec:authorize="isAuthenticated()" class="d-inline">
-                    <form th:action="@{/login}" th:method="get" class="d-inline">
-                        <button class="" style="margin-top: 8px">Login</button>
-                    </form>
-                </li>
-                <li sec:authorize="!isAuthenticated()" class="d-inline px-3">
-                    <form th:action="@{/logout}" th:method="post" class="d-inline">
-                        <button class="" style="margin-top: 8px">Logout</button>
-                    </form>
-                </li>
-            </ul>
-            <div class="container"></div>
-        </div>
+<div class=" navbar-fixed-top">
+    <div class="navbar-inner">
+        <ul class="float-right">
+            <li sec:authorize="isAuthenticated()" class="d-inline">
+                <form th:action="@{/login}" th:method="get" class="d-inline">
+                    <button class="p-2 btn-primary btn--large is-block disable-resubmit" style="margin-top: 8px">Login</button>
+                </form>
+            </li>
+            <li sec:authorize="!isAuthenticated()" class="d-inline px-3">
+                <form th:action="@{/logout}" th:method="post" class="d-inline">
+                    <button class="p-2 btn-primary btn--large is-block disable-resubmit" style="margin-top: 8px">Logout</button>
+                </form>
+            </li>
+        </ul>
+        <div class="container"></div>
     </div>
+</div>
     <div id="body-container">
         <div id="body-content">
             <section class="nav nav-page">
@@ -56,6 +56,7 @@
 
                     <hr/>
 
+
                     <section class="section pb-2">
                         <div class="row">
                             <div class="section__container">
@@ -65,33 +66,33 @@
 
                                 <div class="row justify-content-between">
                                     <div class="d-inline form-group string required certificate_mother_first_name">
-                                        <div class="tooltip-wrapper-mobile"><label class="string required"
+                                        <div><label class="string required"
                                                                                    for="parent1_first_name">First
                                             name</label></div>
-                                        <div class="tooltip-wrapper"><input data-validate=""
+                                        <div><input data-validate=""
                                                                             class="string required" type="text"
                                                                             th:field="*{parent1_first_name}"
-                                                                            id="parent1_first_name"/>
+                                                                            id="parent1_first_name" required="required"/>
                                         </div>
                                     </div>
                                     <div class="d-inline form-group string optional certificate_mother_middle_name">
-                                        <div class="tooltip-wrapper-mobile"><label class="string optional"
+                                        <div><label class="string optional"
                                                                                    for="certificate_mother_middle_name">Middle
                                             name</label></div>
-                                        <div class="tooltip-wrapper"><input data-validate=""
+                                        <div><input data-validate=""
                                                                             class="string optional" type="text"
                                                                             th:field="*{parent1_mid_name}"
                                                                             id="certificate_mother_middle_name"/>
                                         </div>
                                     </div>
                                     <div class="d-inline form-group string required certificate_mother_maiden_or_last_name">
-                                        <div class="tooltip-wrapper-mobile"><label class="string required"
+                                        <div><label class="string required"
                                                                                    for="certificate_mother_maiden_or_last_name">Last
                                             name before any marriage</label><a
                                                  data-tippy=""
                                                 data-original-title="Enter the full maiden name of the mother of the person on record, at the time of birth."></a>
                                         </div>
-                                        <div class="tooltip-wrapper"><input data-validate=""
+                                        <div><input data-validate=""
                                                                             class="string required" type="text"
                                                                             th:field="*{parent1_last_name}"
                                                                             id="certificate_mother_maiden_or_last_name"/><a
@@ -116,33 +117,33 @@
 
                                 <section class="row justify-content-between">
                                     <div class="d-inline form-group string optional certificate_father_first_name">
-                                        <div class="tooltip-wrapper-mobile"><label class="string optional"
+                                        <div><label class="string optional"
                                                                                    for="certificate_father_first_name">First
                                             name</label></div>
-                                        <div class="tooltip-wrapper"><input data-validate=""
+                                        <div><input data-validate=""
                                                                             class="string optional" type="text"
                                                                             th:field="*{parent2_first_name}"
                                                                             id="certificate_father_first_name"/>
                                         </div>
                                     </div>
                                     <div class="d-inline form-group string optional certificate_father_middle_name ">
-                                        <div class="tooltip-wrapper-mobile"><label class="string optional"
+                                        <div><label class="string optional"
                                                                                    for="parent2_middle_name">Middle
                                             name</label></div>
-                                        <div class="tooltip-wrapper"><input data-validate=""
+                                        <div><input data-validate=""
                                                                             class="string optional" type="text"
                                                                             th:field="*{parent2_mid_name}"
                                                                             id="parent2_middle_name"/>
                                         </div>
                                     </div>
                                     <div class="d-inline form-group string optional certificate_father_last_name ">
-                                        <div class="tooltip-wrapper-mobile"><label class="string optional"
+                                        <div><label class="string optional"
                                                                                    for="certificate_father_last_name">Last
                                             name</label><a
                                                            data-tippy=""
                                                            data-original-title="Enter the full name of the father of the person on record at the time of birth. Leave empty if the identity of the father is unknown."></a>
                                         </div>
-                                        <div class="tooltip-wrapper"><input data-validate=""
+                                        <div><input data-validate=""
                                                                             class="string optional" type="text"
                                                                             th:field="*{parent2_last_name}"
                                                                             id="certificate_father_last_name"/><a
@@ -178,4 +179,11 @@
         <div th:replace="fragments/admin-footer :: admin-footer"></div>
     </div>
 </body>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.min.js"></script>
+<script>
+    $(document).ready(function(){
+        $("#new_certificate3").validate();
+    })
+</script>
 </html>
