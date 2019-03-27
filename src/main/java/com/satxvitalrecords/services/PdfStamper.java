@@ -32,8 +32,8 @@ public class PdfStamper {
 //    public static void main(String args[]) throws IOException {
 
     public void preparePdf(Record record, Application app, User user, MailingAddress address, Long millis){
-        System.out.println(SRC);
         SRC = uploadPath + "/COSA-Mail-Application.pdf";
+        System.out.println("This is the first sout SRC" + SRC);
         DEST = "/edited_COSA-Mail-Application" + millis + ".pdf";
         File file = new File(DEST);
         try {
@@ -46,7 +46,7 @@ public class PdfStamper {
 
 //        file.getParentFile().mkdirs();
         try {
-            new PdfStamper().manipulatePdf(SRC, file.getAbsolutePath(), record, app, user, address);
+            new PdfStamper().manipulatePdf(SRC, uploadPath + file.getAbsolutePath(), record, app, user, address);
         } catch (IOException e) {
             e.printStackTrace();
         }
