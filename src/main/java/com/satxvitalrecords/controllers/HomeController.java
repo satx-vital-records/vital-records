@@ -16,9 +16,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
-import java.util.Collection;
-import java.util.Date;
-import java.util.Iterator;
+import java.util.*;
 
 @Controller
 public class HomeController {
@@ -35,41 +33,59 @@ public class HomeController {
     @Autowired
     private StatusRepo statusDao;
 
-//  ----  RELOCATED TO USER CONTROLLER ----
 
-//    @GetMapping("/")
-//    public String home() {
-//        return "index";
-//    }
-
-//    @PostMapping("/")
-//    public String saveUserHome(@ModelAttribute User user) {
-//        userDao.save(user);
-//        return "redirect: login";
-//    }
-
-
-    @GetMapping("/app-view")
-    public String showSingleApp(Model model){
-        model.addAttribute("app", new Application());
-        return "app-view";
+  @GetMapping("/app-index")
+  public String viewAllApps(Model model) {
+    Iterable<Application> allapps = appDao.findAll();
+    List<Application> viewapps = new ArrayList<>();
+    for(Application app:allapps){
+      if((app.getStatus()== null) || (app.getRecord()== null)){
+        appDao.delete(app.getId());
+      } else {
+        viewapps.add(app);
+      }
     }
 
-    @PostMapping("/app-view")
-    public String updateSingleApp(@ModelAttribute Application app) {
-        appDao.save(app);
-        return "redirect: app-index";
-    }
+    int inprogress = numberOfApps(viewapps, "In Progress");
+    int need_docs = numberOfApps(viewapps, "Need Uploads");
+    int pending_review = numberOfApps(viewapps, "Pending Review");
+    int approved = numberOfApps(viewapps, "Approved");
+    int mailed = numberOfApps(viewapps, "Mailed");
+    int pickedup = numberOfApps(viewapps, "Picked-up");
+//        System.out.println(inprogress);
 
-    @GetMapping("/app-index")
-    public String viewAllApps(Model model) {
+    model.addAttribute("inprogress", inprogress);
+    model.addAttribute("pendingreview", pending_review);
+    model.addAttribute("needdocs", need_docs);
+    model.addAttribute("approved", approved);
+    model.addAttribute("mailed", mailed);
+    model.addAttribute("pickedup", pickedup);
+    model.addAttribute("apps", viewapps);
+
+
+    return "app-index";
+  }
+
+
+//    @PostMapping("/app-index")
+//    public String leaveComment(@ModelAttribute Application app) {
+//        appDao.save(app);
+//        return "redirect: /app-index";
+//    }
+
+
+    @GetMapping("/app-view/{id}")
+    public String viewAllApps(@PathVariable long id, Model model){
+        Application app = appDao.findOne(id);
+
+
         int inprogress = numberOfApps(appDao.findAll(), "In Progress");
         int need_docs = numberOfApps(appDao.findAll(), "Need Uploads");
         int pending_review = numberOfApps(appDao.findAll(), "Pending Review");
         int approved = numberOfApps(appDao.findAll(), "Approved");
         int mailed = numberOfApps(appDao.findAll(), "Mailed");
         int pickedup = numberOfApps(appDao.findAll(), "Picked-up");
-        System.out.println(inprogress);
+//        System.out.println(inprogress);
 
         model.addAttribute("apps", appDao.findAll());
         model.addAttribute("inprogress", inprogress);
@@ -79,51 +95,28 @@ public class HomeController {
         model.addAttribute("mailed", mailed);
         model.addAttribute("pickedup", pickedup);
 
-        return "app-index";
-    }
-
-
-    @PostMapping("/app-index")
-    public String leaveComment(@ModelAttribute Application app) {
-        appDao.save(app);
-        return "redirect: /app-index";
-    }
-
-
-    @GetMapping("/app-view/{id}")
-    public String viewAllApps(@PathVariable long id, Model model){
-        Application app = appDao.findOne(id);
-        Record recordDB = null;
-
-        Iterable<Record> allrecords = recordDao.findAll();
-        for(Record record : allrecords){
-            if(record.getApplication() == app){
-                recordDB = record;
-            }
-        }
-
-
 
 
         model.addAttribute("app", app);
-        model.addAttribute("record", recordDB);
         return "app-view";
     }
 
     @PostMapping("/app-view/{id}")
-    public String leaveComment(@PathVariable long id, @RequestParam (name= "comments") String comments) {
+    public String leaveComment(@PathVariable long id, @RequestParam(name="update_status") long status) {
 //        Date date = new Date();
 //        DateFormat dateFormat = new SimpleDateFormat("YY/MM/DD hh:mm:ss");
 //        dateFormat.format(date);
         Application app = appDao.findOne(id);
-        app.setComments(comments);
+//        app.setComments(comments);
 //        Date date = new Date();
 //        String strDateFormat = "YY/MM/DD hh:mm:ss";
 //        DateFormat dateFormat = new SimpleDateFormat(strDateFormat);
 //       dateFormat.format(date);
 //        app.setComment_dateTime(date);
+//        System.out.println("This is the status id we're getting: " + status);
+        app.setStatus(statusDao.findOne(status));
         appDao.save(app);
-        return "redirect: /app-index";
+        return "redirect:/app-index";
     }
 
     @GetMapping("/bc-info")
