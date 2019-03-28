@@ -99,7 +99,7 @@
                 <div class="span18 text-center">
                     <div class="blockoff-left">
                         <legend class="lead">
-                            Welcome Sarah
+                            Welcome <span th:text="${user.first_name}">User</span>!
                         </legend>
                         <p>
                             Admin blurb.... Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
@@ -181,7 +181,7 @@
                                 <th>Request Date</th>
                                 <th>Name</th>
                                 <th>Form-Type</th>
-                                <th>DOB</th>
+                                <th>DOB / DOD</th>
                                 <th>Requestor</th>
                                 <th>Relationship</th>
                                 <th class="text-right">Status</th>
@@ -192,14 +192,16 @@
                             <tr th:each="app : ${apps}">
                                 <td th:text="${app.id}"></td>
                                 <td th:text="${app.record_type}"></td>
-                                <td th:text="${app.getRecord().getDate_of_request()}"></td>
+                                <td th:text="${#dates.format(app.getRecord().getDate_of_request(), 'MM/dd/yyyy hh:mm')}"></td>
+                                <!--<td th:text="${app.getRecord().getDate_of_request()}"></td>-->
                                 <td th:text="${app.getRecord().getFirst_name()} + ' ' + ${app.getRecord().getLast_name()}"></td>
                                 <td th:text="${app.form_type}"></td>
                                 <span th:if="${app.getRecord_type() == 'Birth'}"><td
-                                        th:text="${app.getRecord().getDate_of_birth()}"></td>
+
+                                        th:text="${#dates.format(app.getRecord().getDate_of_birth(), 'MM/dd/yyyy hh:mm')}"></td>
                                         </span>
                                 <span th:unless="${app.getRecord_type() == 'Birth'}"><td
-                                        th:text="${{app.getRecord().getDate_of_death()}}"></td>
+                                        th:text="${#dates.format(app.getRecord().getDate_of_death(), 'MM/dd/yyyy hh:mm')}"></td>
                                         </span>
                                 <td th:text="${app.last_name} + ', ' + ${app.first_name}"></td>
                                 <td th:text="${app.record_relationship}"></td>

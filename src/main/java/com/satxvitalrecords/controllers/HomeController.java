@@ -42,6 +42,12 @@ public class HomeController {
 
   @GetMapping("/app-index")
   public String viewAllApps(Model model) {
+
+    User sessionUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+    User userDB = userDao.findOne(sessionUser.getId());
+
+    model.addAttribute("user", userDB);
+
     Iterable<Application> allapps = appDao.findAll();
     List<Application> viewapps = new ArrayList<>();
     for(Application app:allapps){
