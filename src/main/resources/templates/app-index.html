@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4" lang="en">
 
 <!--<head th:replace="fragments/header :: header('Welcome Home!')"></head>-->
 <head th:replace="fragments/admin-header :: admin-header('Welcome Home!')"></head>
@@ -117,6 +117,18 @@
                 <div class="container">
                     <div class="row">
                         <div class="span7">
+                            <ul class="float-right">
+                                <li sec:authorize="!isAuthenticated()" class="d-inline">
+                                    <form th:action="@{/login}" th:method="get" class="d-inline">
+                                        <button class="p-2 btn-primary btn--large is-block disable-resubmit" style="margin-top: 8px">Login</button>
+                                    </form>
+                                </li>
+                                <li sec:authorize="isAuthenticated()" class="d-inline px-3">
+                                    <form th:action="@{/logout}" th:method="post" class="d-inline">
+                                        <button class="p-2 btn-primary btn--large is-block disable-resubmit" style="margin-top: 8px">Logout</button>
+                                    </form>
+                                </li>
+                            </ul>
                             <header class="page-header">
                                 <h3>Admin Dashboard<br/>
                                     <small>Vital Records City of San Antonio</small>
