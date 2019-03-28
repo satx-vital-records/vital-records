@@ -142,12 +142,14 @@ body {
     background-color: rgba(253, 253, 253, 0.06);
 }
 a {
-    color: #128dc2;
+    /*color: #128dc2;*/
+    color: white;
     text-decoration: none;
 }
 a:hover {
-    color: #0c5a7c;
-    text-decoration: underline;
+    color: white;
+    /*text-decoration: underline;*/
+    text-decoration: none;
 }
 .img-rounded {
     -webkit-border-radius: 6px;
@@ -4929,7 +4931,7 @@ a.thumbnail:hover {
     vertical-align: baseline;
     white-space: nowrap;
     text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
-    background-color: #999999;
+    /*background-color: #999999;*/
 }
 .label {
     padding: 1px 4px 2px;
@@ -6949,7 +6951,7 @@ table.tablesorter .headerSortUp:after {
 }
 #body-content {
     padding-top: 40px;
-    padding-bottom: 100px;
+    padding-bottom: 80px;
 }
 .pattern.pattern-sandstone {
     background: #e9e9e9 url("../images/pattern/sandstone.png") repeat 0 0;
