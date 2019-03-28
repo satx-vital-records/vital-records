@@ -4,23 +4,30 @@
 <head th:replace="fragments/test-header :: test-header('Charge')">
 </head>
 <body>
-<div class=" navbar-fixed-top">
-    <div class="navbar-inner">
-        <ul class="float-right">
-            <li sec:authorize="isAuthenticated()" class="d-inline">
-                <form th:action="@{/login}" th:method="get" class="d-inline">
-                    <button class="p-2 btn-primary btn--large is-block disable-resubmit" style="margin-top: 8px">Login</button>
-                </form>
-            </li>
-            <li sec:authorize="!isAuthenticated()" class="d-inline px-3">
-                <form th:action="@{/logout}" th:method="post" class="d-inline">
-                    <button class="p-2 btn-primary btn--large is-block disable-resubmit" style="margin-top: 8px">Logout</button>
-                </form>
-            </li>
-        </ul>
-        <div class="container"></div>
+    <div class=" navbar-fixed-top">
+        <div class="navbar-inner">
+            <a th:href="@{/about-us}"><i class="material-icons float-left orange mt-1" style="font-size: 36px;">
+                help_outline
+            </i></a>
+            <ul class="float-right">
+                <li sec:authorize="!isAuthenticated()" class="d-inline px-3 mb-1">
+                    <form th:action="@{/login}" th:method="get" class="d-inline">
+                        <button class="p-2 btn-primary btn--large is-block disable-resubmit" style="margin-top: 8px">
+                            Login
+                        </button>
+                    </form>
+                </li>
+                <li sec:authorize="isAuthenticated()" class="d-inline px-3 mb-1">
+                    <form th:action="@{/logout}" th:method="post" class="d-inline">
+                        <button class="p-2 btn-primary btn--large is-block disable-resubmit" style="margin-top: 8px">
+                            Logout
+                        </button>
+                    </form>
+                </li>
+            </ul>
+            <div class="container"></div>
+        </div>
     </div>
-</div>
     <div id="body-container">
         <div id="body-content">
             <section class="nav nav-page">
@@ -28,9 +35,11 @@
                     <div class="row">
                         <div class="span7">
                             <header class="page-header">
-                                <h3>Records Application<br/>
-                                    <small>Vital Records City of San Antonio</small>
-                                </h3>
+                                <a th:href="@{/}">
+                                    <h3>Records Application<br/>
+                                        <small>Vital Records City of San Antonio</small>
+                                    </h3>
+                                </a>
                             </header>
                         </div>
                     </div>
@@ -44,7 +53,8 @@
                             <div class="card-body text-center">
                                 <p>You've successfully uploaded your documents. To complete your order payment is
                                     required.
-                                    <br/><strong>Note:</strong> Please ensure that you have uploaded all the required supporting
+                                    <br/><strong>Note:</strong> Please ensure that you have uploaded all the required
+                                    supporting
                                     documentation
                                     before proceeding with payment.</p>
                             </div>
@@ -52,7 +62,62 @@
                     </div>
 
                 </div>
-                <div class="row pull-center">
+                <div class="row justify-content-center">
+                    <div class="table-responsive col-6 text-center">
+                        <table class="table ">
+                            <caption>BIRTH AND DEATH CERTIFICATE FEES</caption>
+                            <!--<thead>-->
+                            <!--<tr>-->
+                            <!--<th scope="col">#</th>-->
+                            <!--<th scope="col">First</th>-->
+                            <!--<th scope="col">Last</th>-->
+                            <!--<th scope="col">Handle</th>-->
+                            <!--</tr>-->
+                            <!--</thead>-->
+                            <tbody>
+                            <tr>
+                                <!--<th scope="row">1</th>-->
+                                <td>Birth Certificate (Bexar County only)</td>
+                                <td>$23.00</td>
+                                <td>Fee per certificate for person born in Bexar County.</td>
+                            </tr>
+                            <tr>
+                                <!--<th sc/ope="row">2</th>-->
+                                <td>Birth Certificate Search Fee</td>
+                                <td>$23.00</td>
+                                <td>Fee charged to search for a birth certificate that is either not found or not
+                                    purchased.
+                                </td>
+                            </tr>
+                            <tr>
+                                <!--<th scope="row">3</th>-->
+                                <td>Death Certificate: 1st copy</td>
+                                <td>$21.00</td>
+                                <td>Fee for one death certificate.</td>
+                            </tr>
+                            <tr>
+                                <!--<th scope="row">3</th>-->
+                                <td>Death Certificate: Additional copies</td>
+                                <td>$4.00</td>
+                                <td>If applicant purchases more that one copy of a death certificate in a single
+                                    transaction, a fee of $4.00 is charged for each subsequent copy.
+                                </td>
+                            </tr>
+                            <tr>
+                                <!--<th scope="row">3</th>-->
+                                <td>Death Certificate Search Fee</td>
+                                <td>$21.00</td>
+                                <td>Fee charged to search for a death certificate that is either not found or not
+                                    purchased.
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+
+                <div sec:authorize="isAuthenticated()" class="row pull-center">
                     <div style="margin: 1rem auto;" class="charge_container">
                         <form action='/confirmation' method='GET' id='checkout-form'>
                             <input type='hidden' th:value='${amount}' name='amount'/>

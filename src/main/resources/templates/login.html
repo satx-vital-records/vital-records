@@ -4,6 +4,9 @@
 <body>
     <div class=" navbar-fixed-top">
         <div class="navbar-inner">
+            <a th:href="@{/about-us}"><i class="material-icons float-left orange mt-1" style="font-size: 36px;">
+                help_outline
+            </i></a>
             <div class="container"></div>
         </div>
     </div>
@@ -14,9 +17,11 @@
                     <div class="row">
                         <div class="span7">
                             <header class="page-header">
-                                <h3>Records Application<br/>
-                                    <small>Vital Records City of San Antonio</small>
-                                </h3>
+                                <a th:href="@{/}">
+                                    <h3>Records Application<br/>
+                                        <small>Vital Records City of San Antonio</small>
+                                    </h3>
+                                </a>
                             </header>
                         </div>
                     </div>
