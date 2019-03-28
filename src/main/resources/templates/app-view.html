@@ -1,313 +1,397 @@
 <!DOCTYPE html>
 
-<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4" lang="en">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4"
+      lang="en">
 <head th:replace="fragments/admin-header :: admin-header('Admin Portal')"/>
 <body>
-  <div class=" navbar-fixed-top">
-    <ul class="float-right">
-      <li sec:authorize="!isAuthenticated()" class="d-inline">
-        <form th:action="@{/login}" th:method="get" class="d-inline">
-          <button class="p-2 btn-primary btn--large is-block disable-resubmit" style="margin-top: 8px">Login</button>
-        </form>
-      </li>
-      <li sec:authorize="isAuthenticated()" class="d-inline px-3">
-        <form th:action="@{/logout}" th:method="post" class="d-inline">
-          <button class="p-2 btn-primary btn--large is-block disable-resubmit" style="margin-top: 8px">Logout</button>
-        </form>
-      </li>
-    </ul>
-    <div class="navbar-inner">
-      <div class="container">
+    <div class=" navbar-fixed-top">
+        <div class="navbar-inner">
+            <ul class="float-right m-0">
 
-        <a href="dashboard.html" class="brand">SATX Vital Records</a>
-
-      </div>
-    </div>
-  </div>
-
-  <section id="body-container">
-    <div id="body-content">
-
-  <form th:action="@{/app-view/{id}(id = ${app.id})}" th:method="post">
-
-    <section class="nav nav-page">
-      <div class="container">
-        <div class="row">
-          <div class="span7">
-            <header class="page-header">
-              <h3>Admin Dashboard<br/>
-                <small>Vital Records City of San Antonio</small>
-              </h3>
-            </header>
-          </div>
-          <div class="page-nav-options">
-            <div class="span9">
-              <!--<ul class="nav nav-pills">-->
-              <!--<li>-->
-              <!--<a href="#"></a>-->
-              <!--</li>-->
-              <!--</ul>-->
-              <ul class="nav nav-tabs">
-                <li>
-                  <a href="/app-index">All Applications</a>
+                <li sec:authorize="!isAuthenticated()" class="d-inline px-3 mb-1">
+                    <form th:action="@{/login}" th:method="get" class="d-inline">
+                        <button class="p-2 btn-primary btn--large is-block disable-resubmit" style="margin-top: 8px">
+                            Login
+                        </button>
+                    </form>
                 </li>
-                <!--<li><a href="#">Maps</a></li>-->
-                <li class="active"><a href="#">Application <span
-                    th:text="${app.getId()}"></span></a></li>
-              </ul>
-            </div>
-          </div>
+                <li sec:authorize="isAuthenticated()" class="d-inline px-3 mb-1">
+                    <form th:action="@{/logout}" th:method="post" class="d-inline">
+                        <button class="p-2 btn-primary btn--large is-block disable-resubmit" style="margin-top: 8px">
+                            Logout
+                        </button>
+                    </form>
+                </li>
+                <li class="d-inline px-3 mb-1 float-right">
+                    <a th:href="@{/about-us}"><i class="material-icons  " style="font-size: 36px; margin-top: 8px;">
+                        help_outline
+                    </i></a>
+                </li>
+            </ul>
+            <div class="container"></div>
         </div>
-      </div>
-    </section>
+    </div>
 
-    <div class="page container">
-      <div class="row justify-content-between">
-        <div class="span18 text-center">
-          <!--<div class="blockoff-left">-->
-          <h3 class="lead">
-            Applicant Information
-          </h3>
-
-          <p><strong>Applicant name: </strong><span th:text="${app.first_name}"></span> <span class="pr-4"
-                                                                                              th:text="${app.last_name}">
-
-                        </span><strong>Relationship to Person on Record: </strong><span class="pr-4"
-                                                                                        th:text="${app.record_relationship}"></span>
-            <strong>Purpose of Request: </strong><span th:text="${app.purpose}"></span></p>
-          <p><strong>Name on Record: </strong><span th:text="${app.record.first_name}"></span> <span class="pr-4"
-                                                                                                     th:text="${app.record.last_name}"></span><strong>
-            Record Type: </strong><span class="pr-4" th:text="${app.record_type}"></span> <strong>Date of
-            Birth: </strong><span class="pr-4" th:text="${app.record.date_of_birth}"></span> <strong>Date of
-            Death: </strong><span th:text="${app.record.date_of_death}"></span></p>
-        </div>
-      </div>
-
+    <div id="">
+        <section id="body-content">
+            <section class="nav nav-page">
+                <div class="container">
+                    <div class="row">
+                        <div class="span7">
+                            <header class="page-header">
+                                <a th:href="@{/}">
+                                    <h3>Records Application<br/>
+                                        <small>Vital Records City of San Antonio</small>
+                                    </h3>
+                                </a>
+                            </header>
+                        </div>
+                        <div class="page-nav-options">
+                            <div class="span9">
+                                <!--<ul class="nav nav-pills">-->
+                                <!--<li>-->
+                                <!--<a href="#"></a>-->
+                                <!--</li>-->
+                                <!--</ul>-->
+                                <ul class="nav nav-tabs">
+                                    <li>
+                                        <a href="/app-index">All Applications</a>
+                                    </li>
+                                    <!--<li><a href="#">Maps</a></li>-->
+                                    <li class="active"><a href="#">Application <span
+                                            th:text="${app.getId()}"></span></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </section>
     </div>
 
 
-    <div class="row justify-content-between m-auto">
+    <form th:action="@{/app-view/{id}(id = ${app.id})}" th:method="post">
 
+        <div class="page container">
+            <div class="row justify-content-between">
+                <div class="span18 text-center">
+                    <!--<div class="blockoff-left">-->
+                    <!--<h3 class="lead">-->
+                        <!--Applicant Information-->
+                    <!--</h3>-->
 
-      <!--<div class="row">-->
-      <div class="col-9 d-inline pt-5 pb-5 ml-auto mr-auto">
-        <div class="box">
-          <div class="box-header pb-4">
-            <!--<i class="icon-book"></i>-->
-            <h5 class="pb-4">Supporting Documents</h5>
-          </div>
-          <div class="box-content">
+                    <!--<p><strong>Applicant name: </strong><span th:text="${app.first_name}"></span> <     class="pr-4"-->
+                                                                                                        <!--th:text="${app.last_name}">-->
 
-            <div class="form-inline">
-              <!--<p>Select From Uploaded Documents</p>-->
-
-              <span class="pl-4"><a th:href="${app.identification_img}"
-                                    target="_blank">Form of Identification</a></span><span class="pl-4"><a
-                th:href="${app.form_img}" target="_blank">Notorized Form</a></span>
+                        <!--<strong>Relationship to Person on Record: </strong><span class="pr-4"-->
+                                                                                        <!--th:text="${app.record_relationship}"></span>-->
+                        <!--<strong>Purpose of Request: </strong><span th:text="${app.purpose}"></span>-->
+                    <!--<p><strong>Name on Record: </strong><span th:text="${app.record.first_name}"></span> <span-->
+                            <!--class="pr-4"-->
+                            <!--th:text="${app.record.last_name}"></span> -->
+                        <!--<strong>Date of-->
+                        <!--Death: </strong><span th:text="${app.record.date_of_death}"></span></p>-->
+                </div>
             </div>
-          </div>
-          <div class="box-footer">
-            <!--<button type="submit" class="btn btn-primary">-->
-            <!--&lt;!&ndash;<i class="icon-ok"></i>&ndash;&gt;-->
-            <!--Open-->
-            <!--</button>-->
-          </div>
+
         </div>
-      </div>
-    </div>
+
+
+
+
+
+
+        <table class="table table-bordered table-sm col-6">
+            <thead>
+            <tr>
+                <h3 class="h3 text-center"><strong>Applicant Information</strong></h3>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <!--<th scope="row">1</th>-->
+                <td colspan="2"><strong>First name: </strong><span th:text="${app.first_name}"></span></td>
+                <td colspan="2"><strong>Last name: </strong><span th:text="${app.last_name}"></span></td>
+            </tr>
+            <tr>
+                <!--<th scope="row">2</th>-->
+                <td><strong>
+                    Record Type: </strong><span class="pr-4" th:text="${app.record_type}"></span></td>
+                <td><strong>Date of
+                    Birth: </strong><span class="pr-4" th:text="${app.record.date_of_birth}"></span></td>
+                <td><strong>Date of
+                    Death: </strong><span th:text="${app.record.date_of_death}"></span></td>
+            </tr>
+            <tr>
+                <!--<th scope="row">3</th>-->
+                <td colspan="4"><strong>Relationship to Person on Record: </strong><span
+                                                                                         th:text="${app.record_relationship}" class="text-center"></span></td>
+                <!--<td>@twitter</td>-->
+            </tr>
+            </tbody>
+        </table>
+
+
+
+
+
+
+
+
+
+        <div class="row justify-content-between m-auto">
+
+
+            <!--<div class="row">-->
+            <div class="col-9 d-inline pt-5 pb-5 ml-auto mr-auto">
+                <!--<div class="box">-->
+                    <!--<div class="box-header pb-4">-->
+                        <!--&lt;!&ndash;<i class="icon-book"></i>&ndash;&gt;-->
+                        <!--<h5 class="pb-4">Supporting Documents</h5>-->
+                    <!--</div>-->
+                    <!--<div class="box-content">-->
+
+                        <!--<div class="form-inline">-->
+                            <!--&lt;!&ndash;<p>Select From Uploaded Documents</p>&ndash;&gt;-->
+
+                            <!--<span class="pl-4"><a th:href="${app.identification_img}"-->
+                                                  <!--target="_blank">File 1</a></span><span class="pl-4"><a-->
+                                <!--th:href="${app.form_img}" target="_blank">File 2</a></span>-->
+                        <!--</div>-->
+                    <!--</div>-->
+                    <!--<div class="box-footer">-->
+                        <!--&lt;!&ndash;<button type="submit" class="btn btn-primary">&ndash;&gt;-->
+                        <!--&lt;!&ndash;&lt;!&ndash;<i class="icon-ok"></i>&ndash;&gt;&ndash;&gt;-->
+                        <!--&lt;!&ndash;Open&ndash;&gt;-->
+                        <!--&lt;!&ndash;</button>&ndash;&gt;-->
+                    <!--</div>-->
+                <!--</div>-->
+            </div>
+        </div>
+        <!--</div>-->
+
+        <div class="row justify-content-between m-auto">
+            <!--<div class="span3">
+                <div class="box">
+                    <div class="box-content">
+                    </div>
+                </div>
+            </div>-->
+
+            <div class="col-5 pt-5 pb-5 ml-auto mr-auto pl-2 pr-2">
+                <!--<div class="row">-->
+                <!--<div class="span8">-->
+
+
+                <script th:inline="javascript">
+                    google.load('visualization', '1', {'packages': ['corechart']});
+                    google.setOnLoadCallback(drawVisualization);
+
+                    /*<![CDATA[*/
+
+                    var inprogress = /*[[${inprogress}]]*/ '0';
+                    var pending_review = /*[[${pendingreview}]]*/ '0';
+                    var need_docs = /*[[${needdocs}]]*/ '0';
+                    var approved = /*[[${approved}]]*/ '0';
+                    var mailed = /*[[${mailed}]]*/ '0';
+                    var pickedup = /*[[${pickedup}]]*/ '0';
+
+
+                    /*]]>*/
+
+
+                    function drawVisualization() {
+                        visualization_data = new google.visualization.DataTable();
+
+                        visualization_data.addColumn('string', 'Task');
+
+                        visualization_data.addColumn('number', 'Applications');
+
+
+                        visualization_data.addRow(['Picked Up', pickedup]);
+
+                        visualization_data.addRow(['Pending Review', pending_review]);
+
+                        visualization_data.addRow(['Mailed', mailed]);
+
+                        visualization_data.addRow(['Approved', approved]);
+
+                        visualization_data.addRow(['In Progress', inprogress]);
+
+                        visualization_data.addRow(['Need Docs', need_docs]);
+
+
+                        visualization = new google.visualization.PieChart(document.getElementById('piechart'));
+
+
+                        visualization.draw(visualization_data, {title: 'My Daily Activities', height: 260});
+
+                    }
+                </script>
+
+                <div class="box">
+                    <div class="box-header pb-4">
+                        <!--<i class="icon-bar-chart"></i>-->
+                        <h5 class="pb-4">SATXVR Progress Chart</h5>
+                    </div>
+                    <div class="box-content">
+                        <div id="piechart"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-5 pt-5 pb-5  ml-auto mr-auto pl-2 pr-2">
+                <div class="box pattern pattern-sandstone mb-5">
+                    <div class="box-header pb-4">
+                        <!--<i class="icon-table"></i>-->
+                        <h5 class="pb-4">
+                            Update Status
+                        </h5>
+                    </div>
+                    <div>
+
+                        <select class="select required"
+                                data-validate=""
+                                id="update_status"
+                                name="update_status">
+                            <option value="">Please select</option>
+                            <option value="100">In Progress</option>
+                            <option value="200">Need Uploads</option>
+                            <option value="300">Pending Review</option>
+                            <option value="400">Approved</option>
+                            <option value="500">Mailed</option>
+                            <option value="600">Picked-up</option>
+
+                        </select>
+
+                        <button type="submit" class="btn btn-primary float-right mr-2">Submit</button>
+                    </div>
+                </div>
+                <div class="box mt-5">
+                    <div class="box-header pb-4 ">
+                        <!--<i class="icon-book"></i>-->
+                        <h5 class="pb-4">Supporting Documents</h5>
+                    </div>
+                    <div class="box-content">
+
+                        <div class="form-inline">
+                            <!--<p>Select From Uploaded Documents</p>-->
+                            <div class=" ml-4 badge p-2 badge-secondary text-wrap d-inline" style="width: 6rem;">
+                                <span class=" text-center"><a th:href="${app.identification_img}"
+                                                      target="_blank">File 1</a></span>
+                            </div>
+                            <div class="badge p-2 badge-secondary text-wrap d-inline ml-4" style="width: 6rem;">
+                                <span class=" text-center"><a
+                                        th:href="${app.form_img}" target="_blank">File 2</a></span>
+                            </div>
+
+
+
+                            <!--<span class="pl-4"><a th:href="${app.identification_img}"-->
+                                                  <!--target="_blank">File 1</a></span>-->
+
+                            <!--<span class="pl-4"><a-->
+                                <!--th:href="${app.form_img}" target="_blank">File 2</a></span>-->
+
+
+                        </div>
+                    </div>
+                    <div class="box-footer">
+                        <!--<button type="submit" class="btn btn-primary">-->
+                        <!--&lt;!&ndash;<i class="icon-ok"></i>&ndash;&gt;-->
+                        <!--Open-->
+                        <!--</button>-->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+
+
+    <!--<div class="box-content box-table">-->
+    <!--<table id="sample-table" class="table table-hover table-bordered tablesorter">-->
+    <!--<thead>-->
+    <!--<tr>-->
+    <!--&lt;!&ndash;<th>Current Status</th>&ndash;&gt;-->
+    <!--<th>Description</th>-->
+    <!--<th class="td-actions"></th>-->
+    <!--</tr>-->
+    <!--</thead>-->
+    <!--<tbody>-->
+    <!--<tr>-->
+    <!--&lt;!&ndash;<td></td>&ndash;&gt;-->
+    <!--<td>In Progress</td>-->
+    <!--<td class="td-actions">-->
+    <!--<a href="javascript:;" class="btn btn-small btn-primary">-->
+    <!--&lt;!&ndash;<i class="btn-icon-only icon-ok"></i>&ndash;&gt;-->
+    <!--</a>-->
+
+    <!--&lt;!&ndash;<a href="javascript:;" class="btn btn-small btn-danger">&ndash;&gt;-->
+    <!--&lt;!&ndash;<i class="btn-icon-only icon-remove"></i>&ndash;&gt;-->
+    <!--&lt;!&ndash;</a>&ndash;&gt;-->
+    <!--</td>-->
+    <!--</tr>-->
+    <!--<tr>-->
+    <!--&lt;!&ndash;<td></td>&ndash;&gt;-->
+    <!--<td>Pending</td>-->
+    <!--<td class="td-actions">-->
+    <!--<a href="javascript:;" class="btn btn-small btn-danger">-->
+    <!--&lt;!&ndash;<i class="btn-icon-only icon-ok"></i>&ndash;&gt;-->
+    <!--</a>-->
+
+    <!--&lt;!&ndash;<a href="javascript:;" class="btn btn-small btn-danger">&ndash;&gt;-->
+    <!--&lt;!&ndash;<i class="btn-icon-only icon-remove"></i>&ndash;&gt;-->
+    <!--&lt;!&ndash;</a>&ndash;&gt;-->
+    <!--</td>-->
+    <!--</tr>-->
+    <!--<tr>-->
+    <!--&lt;!&ndash;<td>Checkmark here</td>&ndash;&gt;-->
+    <!--<td>Approved</td>-->
+    <!--<td class="td-actions">-->
+    <!--<a href="javascript:;" class="btn btn-small btn-success">-->
+    <!--&lt;!&ndash;<i class="btn-icon-only icon-ok"></i>&ndash;&gt;-->
+    <!--</a>-->
+
+    <!--&lt;!&ndash;<a href="javascript:;" class="btn btn-small btn-danger">&ndash;&gt;-->
+    <!--&lt;!&ndash;<i class="btn-icon-only icon-remove"></i>&ndash;&gt;-->
+    <!--&lt;!&ndash;</a>&ndash;&gt;-->
+    <!--</td>-->
+    <!--</tr>-->
+    <!--<tr>-->
+    <!--&lt;!&ndash;<td></td>&ndash;&gt;-->
+    <!--<td>Mailed</td>-->
+    <!--<td class="td-actions">-->
+    <!--<a href="javascript:;" class="btn btn-small btn-warning">-->
+    <!--&lt;!&ndash;<i class="btn-icon-only icon-ok"></i>&ndash;&gt;-->
+    <!--</a>-->
+
+    <!--&lt;!&ndash;<a href="javascript:;" class="btn btn-small btn-danger">&ndash;&gt;-->
+    <!--&lt;!&ndash;<i class="btn-icon-only icon-remove"></i>&ndash;&gt;-->
+    <!--&lt;!&ndash;</a>&ndash;&gt;-->
+    <!--</td>-->
+    <!--</tr>-->
+    <!--<tr>-->
+    <!--&lt;!&ndash;<td></td>&ndash;&gt;-->
+    <!--<td>Completed</td>-->
+    <!--<td class="td-actions">-->
+    <!--<a href="javascript:;" class="btn btn-small btn-info">-->
+
+    <!--</a>-->
+
+
+    <!--</td>-->
+    <!--</tr>-->
+    <!--</tbody>-->
+    <!--</table>-->
     <!--</div>-->
 
-    <div class="row justify-content-between m-auto">
-      <!--<div class="span3">
-          <div class="box">
-              <div class="box-content">
-              </div>
-          </div>
-      </div>-->
 
-      <div class="col-5 pt-5 pb-5 ml-auto mr-auto pl-2 pr-2">
-        <!--<div class="row">-->
-        <!--<div class="span8">-->
-
-
-        <script th:inline="javascript">
-          google.load('visualization', '1', {'packages': ['corechart']});
-          google.setOnLoadCallback(drawVisualization);
-
-          /*<![CDATA[*/
-
-          var inprogress = /*[[${inprogress}]]*/ '0';
-          var pending_review = /*[[${pendingreview}]]*/ '0';
-          var need_docs = /*[[${needdocs}]]*/ '0';
-          var approved = /*[[${approved}]]*/ '0';
-          var mailed = /*[[${mailed}]]*/ '0';
-          var pickedup = /*[[${pickedup}]]*/ '0';
-
-
-          /*]]>*/
-
-
-          function drawVisualization() {
-            visualization_data = new google.visualization.DataTable();
-
-            visualization_data.addColumn('string', 'Task');
-
-            visualization_data.addColumn('number', 'Applications');
-
-
-            visualization_data.addRow(['Picked Up', pickedup]);
-
-            visualization_data.addRow(['Pending Review', pending_review]);
-
-            visualization_data.addRow(['Mailed', mailed]);
-
-            visualization_data.addRow(['Approved', approved]);
-
-            visualization_data.addRow(['In Progress', inprogress]);
-
-            visualization_data.addRow(['Need Docs', need_docs]);
-
-
-            visualization = new google.visualization.PieChart(document.getElementById('piechart'));
-
-
-            visualization.draw(visualization_data, {title: 'My Daily Activities', height: 260});
-
-          }
-        </script>
-
-        <div class="box">
-          <div class="box-header pb-4">
-            <!--<i class="icon-bar-chart"></i>-->
-            <h5 class="pb-4">SATXVR Chart</h5>
-          </div>
-          <div class="box-content">
-            <div id="piechart"></div>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-5 pt-5 pb-5  ml-auto mr-auto pl-2 pr-2">
-        <div class="box pattern pattern-sandstone">
-          <div class="box-header pb-4">
-            <!--<i class="icon-table"></i>-->
-            <h5 class="pb-4">
-              Update Status
-            </h5>
-          </div>
-          <div>
-            <select class="select required"
-                    data-validate=""
-                    id="update_status"
-                    name="update_status">
-              <option value="">Please select</option>
-              <option value="100">In Progress</option>
-              <option value="200">Need Uploads</option>
-              <option value="300">Pending Review</option>
-              <option value="400">Approved</option>
-              <option value="500">Mailed</option>
-              <option value="600">Picked-up</option>
-
-            </select>
-
-            <button type="submit" class="btn btn-primary">Submit</button>
-
-          </div>
-
-          <!--<div class="box-content box-table">-->
-          <!--<table id="sample-table" class="table table-hover table-bordered tablesorter">-->
-          <!--<thead>-->
-          <!--<tr>-->
-          <!--&lt;!&ndash;<th>Current Status</th>&ndash;&gt;-->
-          <!--<th>Description</th>-->
-          <!--<th class="td-actions"></th>-->
-          <!--</tr>-->
-          <!--</thead>-->
-          <!--<tbody>-->
-          <!--<tr>-->
-          <!--&lt;!&ndash;<td></td>&ndash;&gt;-->
-          <!--<td>In Progress</td>-->
-          <!--<td class="td-actions">-->
-          <!--<a href="javascript:;" class="btn btn-small btn-primary">-->
-          <!--&lt;!&ndash;<i class="btn-icon-only icon-ok"></i>&ndash;&gt;-->
-          <!--</a>-->
-
-          <!--&lt;!&ndash;<a href="javascript:;" class="btn btn-small btn-danger">&ndash;&gt;-->
-          <!--&lt;!&ndash;<i class="btn-icon-only icon-remove"></i>&ndash;&gt;-->
-          <!--&lt;!&ndash;</a>&ndash;&gt;-->
-          <!--</td>-->
-          <!--</tr>-->
-          <!--<tr>-->
-          <!--&lt;!&ndash;<td></td>&ndash;&gt;-->
-          <!--<td>Pending</td>-->
-          <!--<td class="td-actions">-->
-          <!--<a href="javascript:;" class="btn btn-small btn-danger">-->
-          <!--&lt;!&ndash;<i class="btn-icon-only icon-ok"></i>&ndash;&gt;-->
-          <!--</a>-->
-
-          <!--&lt;!&ndash;<a href="javascript:;" class="btn btn-small btn-danger">&ndash;&gt;-->
-          <!--&lt;!&ndash;<i class="btn-icon-only icon-remove"></i>&ndash;&gt;-->
-          <!--&lt;!&ndash;</a>&ndash;&gt;-->
-          <!--</td>-->
-          <!--</tr>-->
-          <!--<tr>-->
-          <!--&lt;!&ndash;<td>Checkmark here</td>&ndash;&gt;-->
-          <!--<td>Approved</td>-->
-          <!--<td class="td-actions">-->
-          <!--<a href="javascript:;" class="btn btn-small btn-success">-->
-          <!--&lt;!&ndash;<i class="btn-icon-only icon-ok"></i>&ndash;&gt;-->
-          <!--</a>-->
-
-          <!--&lt;!&ndash;<a href="javascript:;" class="btn btn-small btn-danger">&ndash;&gt;-->
-          <!--&lt;!&ndash;<i class="btn-icon-only icon-remove"></i>&ndash;&gt;-->
-          <!--&lt;!&ndash;</a>&ndash;&gt;-->
-          <!--</td>-->
-          <!--</tr>-->
-          <!--<tr>-->
-          <!--&lt;!&ndash;<td></td>&ndash;&gt;-->
-          <!--<td>Mailed</td>-->
-          <!--<td class="td-actions">-->
-          <!--<a href="javascript:;" class="btn btn-small btn-warning">-->
-          <!--&lt;!&ndash;<i class="btn-icon-only icon-ok"></i>&ndash;&gt;-->
-          <!--</a>-->
-
-          <!--&lt;!&ndash;<a href="javascript:;" class="btn btn-small btn-danger">&ndash;&gt;-->
-          <!--&lt;!&ndash;<i class="btn-icon-only icon-remove"></i>&ndash;&gt;-->
-          <!--&lt;!&ndash;</a>&ndash;&gt;-->
-          <!--</td>-->
-          <!--</tr>-->
-          <!--<tr>-->
-          <!--&lt;!&ndash;<td></td>&ndash;&gt;-->
-          <!--<td>Completed</td>-->
-          <!--<td class="td-actions">-->
-          <!--<a href="javascript:;" class="btn btn-small btn-info">-->
-
-          <!--</a>-->
-
-
-          <!--</td>-->
-          <!--</tr>-->
-          <!--</tbody>-->
-          <!--</table>-->
-          <!--</div>-->
-        </div>
-      </div>
-    </div>
-
-  </form>
-
-
-
-
-
-  <div id="spinner" class="spinner" style="display:none;">
-      Loading&hellip;
+    <div id="spinner" class="spinner" style="display:none;">
+        Loading&hellip;
     </div>
 
     <footer th:replace="fragments/admin-footer :: admin-footer"></footer>
 
-    </div>
-  </section>
 </body>
 
 </html>
