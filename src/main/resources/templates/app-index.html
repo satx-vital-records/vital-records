@@ -1,294 +1,237 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4" lang="en">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4"
+      lang="en">
 
 <!--<head th:replace="fragments/header :: header('Welcome Home!')"></head>-->
 <head th:replace="fragments/admin-header :: admin-header('Welcome Home!')"></head>
 <body>
     <div class=" navbar-fixed-top">
         <div class="navbar-inner">
-            <div class="container">
-                <!--<button class="btn btn-navbar" data-toggle="collapse" data-target="#app-nav-top-bar">-->
-                <!--<span class="icon-bar"></span>-->
-                <!--<span class="icon-bar"></span>-->
-                <!--<span class="icon-bar"></span>-->
-                <!--</button>-->
-                <a href="dashboard.html" class="brand">SATX Vital Records</a>
-                <!--<div id="app-nav-top-bar" class="nav-collapse">-->
-                <!--<ul class="nav">-->
+            <ul class="float-right m-0">
 
-                <!--<li class="dropdown">-->
-                <!--<a href="#" class="dropdown-toggle" data-toggle="dropdown">TRY ME!-->
-                <!--<b class="caret hidden-phone"></b>-->
-                <!--</a>-->
-                <!--<ul class="dropdown-menu">-->
-                <!--<li>-->
-                <!--<a href="dashboard.html">Dashboard</a>-->
-                <!--</li>-->
-                <!--<li>-->
-                <!--<a href="form.html">Form</a>-->
-                <!--</li>-->
-                <!--<li>-->
-                <!--<a href="custom-view.html">Custom View</a>-->
-                <!--</li>-->
-                <!--<li>-->
-                <!--<a href="login.html">Login Page</a>-->
-                <!--</li>-->
-                <!--</ul>-->
-                <!--</li>-->
-                <!--<li class="dropdown">-->
-                <!--<a href="#" class="dropdown-toggle" data-toggle="dropdown">CHANGE NAV BAR-->
-                <!--<b class="caret hidden-phone"></b>-->
-                <!--</a>-->
-                <!--<ul class="dropdown-menu">-->
-                <!--<li>-->
-                <!--<a href="demo-horizontal-nav.html">Horizontal</a>-->
-                <!--</li>-->
-                <!--<li>-->
-                <!--<a href="demo-horizontal-fixed-nav.html">Horizontal Fixed</a>-->
-                <!--</li>-->
-                <!--<li>-->
-                <!--<a href="demo-vertical-nav.html">Vertical</a>-->
-                <!--</li>-->
-                <!--<li>-->
-                <!--<a href="demo-vertical-fixed-nav.html">Vertical Fixed</a>-->
-                <!--</li>-->
-                <!--</ul>-->
-                <!--</li>-->
-
-                <!--</ul>-->
-                <!--<ul class="nav pull-right">-->
-                <!--<li>-->
-                <!--<a href="login.html">Logout</a>-->
-                <!--</li>-->
-
-                <!--</ul>-->
-                <!--</div>-->
-            </div>
+                <li sec:authorize="!isAuthenticated()" class="d-inline px-3 mb-1">
+                    <form th:action="@{/login}" th:method="get" class="d-inline">
+                        <button class="p-2 btn-primary btn--large is-block disable-resubmit" style="margin-top: 8px">
+                            Login
+                        </button>
+                    </form>
+                </li>
+                <li sec:authorize="isAuthenticated()" class="d-inline px-3 mb-1">
+                    <form th:action="@{/logout}" th:method="post" class="d-inline">
+                        <button class="p-2 btn-primary btn--large is-block disable-resubmit" style="margin-top: 8px">
+                            Logout
+                        </button>
+                    </form>
+                </li>
+                <li class="d-inline px-3 mb-1 float-right">
+                    <a th:href="@{/about-us}"><i class="material-icons  " style="font-size: 36px; margin-top: 8px;">
+                        help_outline
+                    </i></a>
+                </li>
+            </ul>
+            <div class="container"></div>
         </div>
     </div>
 
     <div id="body-container">
-        <div id="body-content">
-
-            <!--<div class="body-nav body-nav-horizontal body-nav-fixed">-->
-            <!--<div class="container">-->
-            <!--<ul>-->
-            <!--<li>-->
-            <!--<a href="#">-->
-            <!--<i class="icon-dashboard icon-large"></i> Dashboard-->
-            <!--</a>-->
-            <!--</li>-->
-            <!--<li>-->
-            <!--<a href="#">-->
-            <!--<i class="icon-calendar icon-large"></i> Schedule-->
-            <!--</a>-->
-            <!--</li>-->
-            <!--<li>-->
-            <!--<a href="#">-->
-            <!--<i class="icon-map-marker icon-large"></i> Map It-->
-            <!--</a>-->
-            <!--</li>-->
-            <!--<li>-->
-            <!--<a href="#">-->
-            <!--<i class="icon-tasks icon-large"></i> Widgets-->
-            <!--</a>-->
-            <!--</li>-->
-            <!--<li>-->
-            <!--<a href="#">-->
-            <!--<i class="icon-cogs icon-large"></i> Settings-->
-            <!--</a>-->
-            <!--</li>-->
-            <!--<li>-->
-            <!--<a href="#">-->
-            <!--<i class="icon-list-alt icon-large"></i> Forms-->
-            <!--</a>-->
-            <!--</li>-->
-            <!--<li>-->
-            <!--<a href="#">-->
-            <!--<i class="icon-bar-chart icon-large"></i> Charts-->
-            <!--</a>-->
-            <!--</li>-->
-            <!--</ul>-->
-            <!--</div>-->
-            <!--</div>-->
-
-
+        <section id="body-content">
             <section class="nav nav-page">
                 <div class="container">
                     <div class="row">
                         <div class="span7">
-                            <ul class="float-right">
-                                <li sec:authorize="!isAuthenticated()" class="d-inline">
-                                    <form th:action="@{/login}" th:method="get" class="d-inline">
-                                        <button class="p-2 btn-primary btn--large is-block disable-resubmit" style="margin-top: 8px">Login</button>
-                                    </form>
-                                </li>
-                                <li sec:authorize="isAuthenticated()" class="d-inline px-3">
-                                    <form th:action="@{/logout}" th:method="post" class="d-inline">
-                                        <button class="p-2 btn-primary btn--large is-block disable-resubmit" style="margin-top: 8px">Logout</button>
-                                    </form>
-                                </li>
-                            </ul>
                             <header class="page-header">
-                                <h3>Admin Dashboard<br/>
-                                    <small>Vital Records City of San Antonio</small>
-                                </h3>
+                                <a th:href="@{/}">
+                                    <h3>Records Application<br/>
+                                        <small>Vital Records City of San Antonio</small>
+                                    </h3>
+                                </a>
                             </header>
-                        </div>
-                        <div class="page-nav-options">
-                            <div class="span9">
-                                <!--<ul class="nav nav-pills">-->
-                                <!--<li>-->
-                                <!--<a href="#"></a>-->
-                                <!--</li>-->
-                                <!--</ul>-->
-                                <ul class="nav nav-tabs">
-                                    <li class="active">
-                                        <a href="#">All Applications</a>
-                                    </li>
-                                    <!--<li><a href="#">Maps</a></li>-->
-                                    <!--<li><a href="#">Last Viewed Application</a></li>-->
-                                </ul>
+
+
+                            <!--<section class="nav nav-page">-->
+                            <!--<div class="container">-->
+                            <!--<div class="row">-->
+                            <!--<div class="span7">-->
+                            <!--<ul class="float-right">-->
+                            <!--<li sec:authorize="!isAuthenticated()" class="d-inline">-->
+                            <!--<form th:action="@{/login}" th:method="get" class="d-inline">-->
+                            <!--<button class="p-2 btn-primary btn&#45;&#45;large is-block disable-resubmit" style="margin-top: 8px">Login</button>-->
+                            <!--</form>-->
+                            <!--</li>-->
+                            <!--<li sec:authorize="isAuthenticated()" class="d-inline px-3">-->
+                            <!--<form th:action="@{/logout}" th:method="post" class="d-inline">-->
+                            <!--<button class="p-2 btn-primary btn&#45;&#45;large is-block disable-resubmit" style="margin-top: 8px">Logout</button>-->
+                            <!--</form>-->
+                            <!--</li>-->
+                            <!--</ul>-->
+                            <!--<header class="page-header">-->
+                            <!--<h3>Admin Dashboard<br/>-->
+                            <!--<small>Vital Records City of San Antonio</small>-->
+                            <!--</h3>-->
+                            <!--</header>-->
+                            <!--</div>-->
+                            <div class="page-nav-options">
+                                <div class="span9">
+                                    <!--<ul class="nav nav-pills">-->
+                                    <!--<li>-->
+                                    <!--<a href="#"></a>-->
+                                    <!--</li>-->
+                                    <!--</ul>-->
+                                    <ul class="nav nav-tabs">
+                                        <li class="active">
+                                            <a href="#">All Applications</a>
+                                        </li>
+                                        <!--<li><a href="#">Maps</a></li>-->
+                                        <!--<li><a href="#">Last Viewed Application</a></li>-->
+                                    </ul>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </section>
-            <div class="page container">
-                <div class="row">
-                    <div class="span18 text-center">
-                        <div class="blockoff-left">
-                            <legend class="lead">
-                                Welcome Sarah
-                            </legend>
-                            <p>
-                                Admin blurb.... Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                                tempor
-                                incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-                                exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                            </p>
-                        </div>
+        </section>
+
+        <!--</div>-->
+        <!--</section>-->
+        <div class="page container">
+            <div class="row">
+                <div class="span18 text-center">
+                    <div class="blockoff-left">
+                        <legend class="lead">
+                            Welcome Sarah
+                        </legend>
+                        <p>
+                            Admin blurb.... Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                            tempor
+                            incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+                            exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                        </p>
                     </div>
-                </div>
-                <script th:inline="javascript">
-                    google.load('visualization', '1', {'packages': ['corechart']});
-                    google.setOnLoadCallback(drawVisualization);
-
-                    /*<![CDATA[*/
-
-                    var inprogress = /*[[${inprogress}]]*/ '0';
-                    var pending_review = /*[[${pendingreview}]]*/ '0';
-                    var need_docs = /*[[${needdocs}]]*/ '0';
-                    var approved = /*[[${approved}]]*/ '0';
-                    var mailed = /*[[${mailed}]]*/ '0';
-                    var pickedup = /*[[${pickedup}]]*/ '0';
-
-
-                    /*]]>*/
-
-
-                    function drawVisualization() {
-                        visualization_data = new google.visualization.DataTable();
-
-                        visualization_data.addColumn('string', 'Task');
-
-                        visualization_data.addColumn('number', 'Applications');
-
-
-                        visualization_data.addRow(['Picked Up', pickedup]);
-
-                        visualization_data.addRow(['Pending Review', pending_review]);
-
-                        visualization_data.addRow(['Mailed', mailed]);
-
-                        visualization_data.addRow(['Approved', approved]);
-
-                        visualization_data.addRow(['In Progress', inprogress]);
-
-                        visualization_data.addRow(['Need Docs', need_docs]);
-
-
-                        visualization = new google.visualization.PieChart(document.getElementById('piechart'));
-
-
-                        visualization.draw(visualization_data, {title: 'My Daily Activities', height: 260});
-
-                    }
-                </script>
-
-                <div class="box">
-                    <!--<div class="box-header">-->
-                    <!--<i class="icon-bar-chart"></i>-->
-                    <!--<h5>SATXVR Chart</h5>-->
-                    <!--</div>-->
-                    <div class="box-content">
-                        <div id="piechart"></div>
-                    </div>
-                </div>
-
-
-                <div class="row">
-                    <div class="col-xs-12 paddsection ml-auto mr-auto">
-                        <h4>
-                            <!--<small>Administrator Portal</small>-->
-                        </h4>
-                        <div class="table-responsive">
-                            <table class="table">
-                                <thead>
-                                <tr>
-                                    <th class="text-center">#</th>
-                                    <th>Record Type</th>
-                                    <th>Request Date</th>
-                                    <th>Name</th>
-                                    <th>Form-Type</th>
-                                    <th>DOB</th>
-                                    <th>Requestor</th>
-                                    <th>Relationship</th>
-                                    <th class="text-right">Status</th>
-                                    <th class="text-right">Actions</th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                <tr th:each="app : ${apps}">
-                                    <td th:text="${app.id}"></td>
-                                    <td th:text="${app.record_type}"></td>
-                                    <td th:text="${app.getRecord().getDate_of_request()}"></td>
-                                    <td th:text="${app.getRecord().getFirst_name()} + ' ' + ${app.getRecord().getLast_name()}"></td>
-                                    <td th:text="${app.form_type}"></td>
-                                    <span th:if="${app.getRecord_type() == 'Birth'}"><td th:text="${app.getRecord().getDate_of_birth()}"></td>
-                                        </span>
-                                    <span th:unless="${app.getRecord_type() == 'Birth'}"><td th:text="${{app.getRecord().getDate_of_death()}}"></td>
-                                        </span>
-                                    <td th:text="${app.last_name} + ', ' + ${app.first_name}"></td>
-                                    <td th:text="${app.record_relationship}"></td>
-                                    <td th:text="${app.getStatus().getDescription()}"></td>
-                                    <td class="td-actions text-right">
-                                        <!--<button type="button" rel="tooltip"-->
-                                                <!--class="btn btn-info btn-link btn-just-icon btn-sm"-->
-                                                <!--data-original-title="" title="">-->
-                                            <!--<i class="material-icons">assignment_ind</i>-->
-                                        <!--</button>-->
-
-
-                                        <form th:action="@{/app-view/{id} (id = ${app.id})}" th:method="get" th:object="${app}"
-                                              role="form">
-                                            <button type="submit" class="btn btn-warning btn-link btn-just-icon btn-sm">
-                                                <i class="material-icons">edit</i>
-                                            </button>
-                                        </form>
-                                    </td>
-                                </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-
                 </div>
             </div>
-        </div>
-    </div>
-    <footer th:replace="fragments/admin-footer :: admin-footer"></footer>
-    <!--<footer th:replace="fragments/test-footer :: test-footer"></footer>-->
+            <script th:inline="javascript">
+                google.load('visualization', '1', {'packages': ['corechart']});
+                google.setOnLoadCallback(drawVisualization);
 
+                /*<![CDATA[*/
+
+                var inprogress = /*[[${inprogress}]]*/ '0';
+                var pending_review = /*[[${pendingreview}]]*/ '0';
+                var need_docs = /*[[${needdocs}]]*/ '0';
+                var approved = /*[[${approved}]]*/ '0';
+                var mailed = /*[[${mailed}]]*/ '0';
+                var pickedup = /*[[${pickedup}]]*/ '0';
+
+
+                /*]]>*/
+
+
+                function drawVisualization() {
+                    visualization_data = new google.visualization.DataTable();
+
+                    visualization_data.addColumn('string', 'Task');
+
+                    visualization_data.addColumn('number', 'Applications');
+
+
+                    visualization_data.addRow(['Picked Up', pickedup]);
+
+                    visualization_data.addRow(['Pending Review', pending_review]);
+
+                    visualization_data.addRow(['Mailed', mailed]);
+
+                    visualization_data.addRow(['Approved', approved]);
+
+                    visualization_data.addRow(['In Progress', inprogress]);
+
+                    visualization_data.addRow(['Need Docs', need_docs]);
+
+
+                    visualization = new google.visualization.PieChart(document.getElementById('piechart'));
+
+
+                    visualization.draw(visualization_data, {title: 'My Daily Activities', height: 260});
+
+                }
+            </script>
+
+            <div class="box">
+                <!--<div class="box-header">-->
+                <!--<i class="icon-bar-chart"></i>-->
+                <!--<h5>SATXVR Chart</h5>-->
+                <!--</div>-->
+                <div class="box-content">
+                    <div id="piechart"></div>
+                </div>
+            </div>
+
+
+            <div class="row">
+                <div class="col-xs-12 paddsection ml-auto mr-auto">
+                    <h4>
+                        <!--<small>Administrator Portal</small>-->
+                    </h4>
+                    <div class="table-responsive">
+                        <table class="table">
+                            <thead>
+                            <tr>
+                                <th class="text-center">#</th>
+                                <th>Record Type</th>
+                                <th>Request Date</th>
+                                <th>Name</th>
+                                <th>Form-Type</th>
+                                <th>DOB</th>
+                                <th>Requestor</th>
+                                <th>Relationship</th>
+                                <th class="text-right">Status</th>
+                                <th class="text-right">Actions</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr th:each="app : ${apps}">
+                                <td th:text="${app.id}"></td>
+                                <td th:text="${app.record_type}"></td>
+                                <td th:text="${app.getRecord().getDate_of_request()}"></td>
+                                <td th:text="${app.getRecord().getFirst_name()} + ' ' + ${app.getRecord().getLast_name()}"></td>
+                                <td th:text="${app.form_type}"></td>
+                                <span th:if="${app.getRecord_type() == 'Birth'}"><td
+                                        th:text="${app.getRecord().getDate_of_birth()}"></td>
+                                        </span>
+                                <span th:unless="${app.getRecord_type() == 'Birth'}"><td
+                                        th:text="${{app.getRecord().getDate_of_death()}}"></td>
+                                        </span>
+                                <td th:text="${app.last_name} + ', ' + ${app.first_name}"></td>
+                                <td th:text="${app.record_relationship}"></td>
+                                <td th:text="${app.getStatus().getDescription()}"></td>
+                                <td class="td-actions text-right">
+                                    <!--<button type="button" rel="tooltip"-->
+                                    <!--class="btn btn-info btn-link btn-just-icon btn-sm"-->
+                                    <!--data-original-title="" title="">-->
+                                    <!--<i class="material-icons">assignment_ind</i>-->
+                                    <!--</button>-->
+
+
+                                    <form th:action="@{/app-view/{id} (id = ${app.id})}" th:method="get"
+                                          th:object="${app}"
+                                          role="form">
+                                        <button type="submit" class="btn btn-warning btn-link btn-just-icon btn-sm">
+                                            <i class="material-icons">edit</i>
+                                        </button>
+                                    </form>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <!--</div>-->
+        <!--</div>-->
+        <footer th:replace="fragments/admin-footer :: admin-footer"></footer>
+        <!--<footer th:replace="fragments/test-footer :: test-footer"></footer>-->
+    </div>
 </body>
 </html>
