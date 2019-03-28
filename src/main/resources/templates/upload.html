@@ -30,9 +30,11 @@
                     <div class="row">
                         <div class="span7">
                             <header class="page-header">
-                                <h3>Records Application<br/>
-                                    <small>Vital Records City of San Antonio</small>
-                                </h3>
+                                <a th:href="@{/}">
+                                    <h3>Records Application<br/>
+                                        <small>Vital Records City of San Antonio</small>
+                                    </h3>
+                                </a>
                             </header>
                         </div>
                     </div>
@@ -41,98 +43,101 @@
             <div class="page container">
                 <div class="row pull-center">
                     <div class="col-md-12 mb-4">
-                        <div class="card">
+                        <div class="card text-center">
+                            <i class=" material-icons btn-info" style="font-size: 48px;">cloud_upload</i>
                             <div class="card-body text-center">
                                 <div>
-                                    <h3 class="card-text">PROOF OF ELIGIBILITY:<br/><br/>
-                                        Each applicant must present a valid form of identification along with their application. If the applicant is unable to present a valid primary form of identification, two secondary forms, or one secondary and two supporting forms are also acceptable.</h3>
+                                    <h3 class="card-text">PROOF OF ELIGIBILITY:<br/><br/></h3>
+                                    <h4> Each applicant must present a valid form of identification along with their
+                                        application. If the applicant is unable to present a valid primary form of
+                                        identification, two secondary forms, or one secondary and two supporting forms
+                                        are also acceptable.</h4>
                                 </div>
                                 <br/>
-                                <p class="card-text">For more information on what qualifies as supporting documents please refer to the City of San Antonio's guidelines for <span><a th:href="@{https://www.sanantonio.gov/Municipal-Archives-Records/Birth-Death-Records#13108670-requirements}">QUALIFIED APPLICANT REQUIREMENTS</a></span>.</p>
+                                <p class="card-text">For more information on what qualifies as supporting documents
+                                    please refer to the City of San Antonio's guidelines for <span><a
+                                            th:href="@{https://www.sanantonio.gov/Municipal-Archives-Records/Birth-Death-Records#13108670-requirements}">QUALIFIED APPLICANT REQUIREMENTS</a></span>.
+                                </p>
                             </div>
                         </div>
                     </div>
 
                 </div>
-                <div class="row pt-5 text-center justify-content-center">
-                    <div class="col-md-4 mb-4">
-                        <div class="card h-300">
-                            <i class=" material-icons btn-info" style="font-size: 48px;">cloud_upload</i>
-                            <form id="pick-form" th:action="@{/upload}" th:method="post" th:object="${app}">
-                                <div class="card-body">
+                <!--<div class="row pt-5 text-center justify-content-center">-->
+                <!--<div class="col-md-4 mb-4">-->
+                <!--<div class="card h-300">-->
+                <!--<i class=" material-icons btn-info" style="font-size: 48px;">cloud_upload</i>-->
 
-                                    <h4 class="card-title">Upload Documents</h4>
 
-                                </div>
+                <form id="pick-form" th:action="@{/upload}" th:method="post" th:object="${app}">
+                    <div class="card-body">
 
-                                <div sec:authorize="!isAuthenticated()" class="card-footer py-4">
-                                    <button href="#" class="p-2 btn-primary btn--large is-block disable-resubmit" type="button" id="picker">Upload
+                        <h4 class="card-title text-center">Upload Documents</h4>
+                        <p class="card-text text-center">You must be logged in to continue with uploading your
+                            documentation</p>
+
+                        <div sec:authorize="isAuthenticated()" class="row justify-content-around pt-5">
+                            <div class=" d-flex align-content-center flex-wrap">
+                                <button href="#" class="p-2 btn-primary btn--large is-block disable-resubmit"
+                                        type="button" id="picker">Upload
+                                    &raquo;
+                                </button>
+                            </div>
+                            <input name="urlImg1" type="hidden" id="fileupload"/>
+                            <input name="urlImg2" type="hidden" id="fileupload2"/>
+                            <div class="control" id="urlBox"></div>
+                            <div>
+                                <div class="control py-2" id="nameBox"></div>
+                                <div class=" d-flex align-content-center flex-wrap">
+                                    <button class="p-2 btn-primary btn--large is-block disable-resubmit" type="submit"
+                                            value="Submit">Submit
                                         &raquo;
                                     </button>
-
-                                    <input name="urlImg1" type="hidden" id="fileupload"/>
-                                    <input name="urlImg2" type="hidden" id="fileupload2"/>
-                                    <div class="control" id="urlBox"></div>
-                                    <div>
-                                        <div class="control py-2" id="nameBox"></div>
-                                        <button class="p-2 btn-primary btn--large is-block disable-resubmit" type="submit" value="Submit">Submit
-                                            &raquo;
-                                        </button>
-                                    </div>
-
-                                    <div>
-                                        <div class="control py-2"></div>
-                                    </div>
                                 </div>
-                                <p class="card-text">You must be logged in to continue with uploading your documentation</p>
-                            </form>
+
+                            </div>
+                        </div>
 
 
 
-                            <!--<form action='/charge' method='POST' id='checkout-form' >-->
-                            <!--<input type='hidden' th:value='${amount}' name='amount' />-->
-                            <!--&lt;!&ndash;<label>Price:<span th:text='${amount/100}' /></label>&ndash;&gt;-->
-                            <!--&lt;!&ndash; NOTE: data-key/data-amount/data-currency will be rendered by Thymeleaf &ndash;&gt;-->
-                            <!--<script-->
-                            <!--src='https://checkout.stripe.com/checkout.js'-->
-                            <!--class='stripe-button'-->
-                            <!--th:attr='data-key=${stripePublicKey},-->
-                            <!--data-amount=${amount},-->
-                            <!--data-currency=${currency}'-->
-                            <!--data-name='Baeldung'-->
-                            <!--data-description='Spring course checkout'-->
-                            <!--data-image-->
-                            <!--='http://www.baeldung.com/wp-content/themes/baeldung/favicon/android-chrome-192x192.png'-->
-                            <!--data-locale='auto'-->
-                            <!--data-zip-code='false'>-->
-                            <!--</script>-->
-                            <!--</form>-->
+                    </div>
+
+                    <div sec:authorize="!isAuthenticated()" class="card-footer py-4">
 
 
 
 
-
+                        <div>
+                            <div class="control py-2"></div>
                         </div>
                     </div>
 
+                </form>
 
-                    <!--<div class="box">-->
-                    <!--<form id="pick-form">-->
-                    <!--<div class="field">-->
-                    <!--<div class="control">-->
-                    <!--<button class="button" type="button" id="picker">Pick file</button>-->
-                    <!--<input type="hidden" id="fileupload" />-->
-                    <!--</div>-->
-                    <!--<div class="control" id="nameBox"></div>-->
-                    <!--<div class="control" id="urlBox"></div>-->
-                    <!--</div>-->
-                    <!--<div class="field">-->
-                    <!--<div class="control">-->
-                    <!--<input class="button" type="submit" value="Submit"/>-->
-                    <!--</div>-->
-                    <!--</div>-->
-                    <!--</form>-->
-                </div>
+
+                <!--<form action='/charge' method='POST' id='checkout-form' >-->
+                <!--<input type='hidden' th:value='${amount}' name='amount' />-->
+                <!--&lt;!&ndash;<label>Price:<span th:text='${amount/100}' /></label>&ndash;&gt;-->
+                <!--&lt;!&ndash; NOTE: data-key/data-amount/data-currency will be rendered by Thymeleaf &ndash;&gt;-->
+                <!--<script-->
+                <!--src='https://checkout.stripe.com/checkout.js'-->
+                <!--class='stripe-button'-->
+                <!--th:attr='data-key=${stripePublicKey},-->
+                <!--data-amount=${amount},-->
+                <!--data-currency=${currency}'-->
+                <!--data-name='Baeldung'-->
+                <!--data-description='Spring course checkout'-->
+                <!--data-image-->
+                <!--='http://www.baeldung.com/wp-content/themes/baeldung/favicon/android-chrome-192x192.png'-->
+                <!--data-locale='auto'-->
+                <!--data-zip-code='false'>-->
+                <!--</script>-->
+                <!--</form>-->
+
+
+                <!--</div>-->
+                <!--</div>-->
+
 
                 <!--<div class="box">-->
                 <!--<form id="pick-form">-->
@@ -142,38 +147,55 @@
                 <!--<input type="hidden" id="fileupload" />-->
                 <!--</div>-->
                 <!--<div class="control" id="nameBox"></div>-->
-                <!--&lt;!&ndash;<div class="control" id="urlBox"></div>&ndash;&gt;-->
+                <!--<div class="control" id="urlBox"></div>-->
                 <!--</div>-->
                 <!--<div class="field">-->
                 <!--<div class="control">-->
-                <!--<input class="button" type="submit" value="Submit" />-->
+                <!--<input class="button" type="submit" value="Submit"/>-->
                 <!--</div>-->
                 <!--</div>-->
                 <!--</form>-->
-                <!--</div>-->
-
-
             </div>
-            <!--<div class="text-center py-4"><h2 class="h2"> This page will emphasize that the process is NOT complete.-->
-            <!--<br/>-->
-            <!--<br/>-->
-            <!--This page will confirm email address with applicant and send completed form to be notorized.-->
-            <!--<br/>-->
-            <!--<br/>-->
-            <!--Explain steps to log back in to application and upload an image of notorized form and supporting-->
-            <!--documents to submit completed application.</h2></div>-->
-            <!--<hr/>-->
-            <!--<div>-->
+
+            <!--<div class="box">-->
+            <!--<form id="pick-form">-->
+            <!--<div class="field">-->
+            <!--<div class="control">-->
+            <!--<button class="button" type="button" id="picker">Pick file</button>-->
+            <!--<input type="hidden" id="fileupload" />-->
+            <!--</div>-->
+            <!--<div class="control" id="nameBox"></div>-->
+            <!--&lt;!&ndash;<div class="control" id="urlBox"></div>&ndash;&gt;-->
+            <!--</div>-->
+            <!--<div class="field">-->
+            <!--<div class="control">-->
+            <!--<input class="button" type="submit" value="Submit" />-->
+            <!--</div>-->
+            <!--</div>-->
+            <!--</form>-->
+            <!--</div>-->
 
 
-            <!--<iframe src="http://docs.google.com/gview?url=/pdf/COSA-Mail-Application.pdf&amp;embedded=true" style="width:718px; height:700px; text-align:center;" frameborder="0"></iframe>-->
-            <!--<embed th:src="@{/pdf/COSA-Mail-Application.pdf}" width="100%" height="100%"/>-->
-            <!--<embed src="https://drive.google.com/viewerng/-->
-            <!--viewer?embedded=true&amp;url=pdf/COSA-Mail-Application.pdf" width="500" height="375"/>-->
-            <!--<object width="400" height="500" type="application/pdf" data="/pdf/COSA-Mail-Application.pdf">-->
-            <!--<p>Insert your error message here, if the PDF cannot be displayed.</p>-->
-            <!--</object>-->
         </div>
+        <!--<div class="text-center py-4"><h2 class="h2"> This page will emphasize that the process is NOT complete.-->
+        <!--<br/>-->
+        <!--<br/>-->
+        <!--This page will confirm email address with applicant and send completed form to be notorized.-->
+        <!--<br/>-->
+        <!--<br/>-->
+        <!--Explain steps to log back in to application and upload an image of notorized form and supporting-->
+        <!--documents to submit completed application.</h2></div>-->
+        <!--<hr/>-->
+        <!--<div>-->
+
+
+        <!--<iframe src="http://docs.google.com/gview?url=/pdf/COSA-Mail-Application.pdf&amp;embedded=true" style="width:718px; height:700px; text-align:center;" frameborder="0"></iframe>-->
+        <!--<embed th:src="@{/pdf/COSA-Mail-Application.pdf}" width="100%" height="100%"/>-->
+        <!--<embed src="https://drive.google.com/viewerng/-->
+        <!--viewer?embedded=true&amp;url=pdf/COSA-Mail-Application.pdf" width="500" height="375"/>-->
+        <!--<object width="400" height="500" type="application/pdf" data="/pdf/COSA-Mail-Application.pdf">-->
+        <!--<p>Insert your error message here, if the PDF cannot be displayed.</p>-->
+        <!--</object>-->
     </div>
 
     <div th:replace="fragments/upload-footer :: upload-footer"></div>

@@ -31,9 +31,11 @@
                 <div class="row">
                     <div class="span7">
                         <header class="page-header">
-                            <h3>Records Application<br/>
-                                <small>Vital Records City of San Antonio</small>
-                            </h3>
+                            <a th:href="@{/}">
+                                <h3>Records Application<br/>
+                                    <small>Vital Records City of San Antonio</small>
+                                </h3>
+                            </a>
                         </header>
                     </div>
                 </div>
@@ -41,7 +43,7 @@
         </section>
 
 
-        <div class="container" style="width:90%; margin:1em auto;">
+        <div class="page container" style="width:90%; margin:1em auto;">
         <div class="card-deck">
             <div class="card" style="width: 10rem;">
                 <img class="card-img-top" src="/imgs/SarahBarron.jpg" alt="Sarah Barron" />
@@ -49,7 +51,7 @@
                     <h5 class="card-title">Sarah Barron</h5>
                 </div>
                 <div class="card-footer text-center">
-                    <a href="http://alumni.codeup.com/students/604" class="btn" target="_blank">Profile Page</a>
+                    <a href="http://alumni.codeup.com/students/604" class="p-2 btn-primary btn--large is-block disable-resubmit" target="_blank">Profile Page</a>
                 </div>
             </div>
             <div class="card" style="width: 10rem;">
@@ -58,7 +60,7 @@
                     <h5 class="card-title">Rob Moore</h5>
                 </div>
                 <div class="card-footer text-center">
-                    <a href="http://alumni.codeup.com/students/595" class="btn" target="_blank">Profile Page</a>
+                    <a href="http://alumni.codeup.com/students/595" class="p-2 btn-primary btn--large is-block disable-resubmit" target="_blank">Profile Page</a>
                 </div>
             </div>
             <div class="card" style="width: 10rem;">
@@ -67,11 +69,12 @@
                     <h5 class="card-title">Dorian Wallace</h5>
                 </div>
                 <div class="card-footer text-center">
-                    <a href="http://alumni.codeup.com/students/608" class="btn" target="_blank">Profile Page</a>
+                    <a href="http://alumni.codeup.com/students/608" class="p-2 btn-primary btn--large is-block disable-resubmit" target="_blank">Profile Page</a>
                 </div>
             </div>
         </div>
         </div>
+        <footer th:replace="fragments/admin-footer :: admin-footer"></footer>
     </div>
 </body>
 </html>

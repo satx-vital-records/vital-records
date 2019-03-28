@@ -35,16 +35,17 @@ public class ChargeController {
         model.addAttribute("chargeId", charge.getId());
         model.addAttribute("balance_transaction", charge.getBalanceTransaction());
 
-        return "/confirmation";
+        return "/about-us";
     }
 
 
     @ExceptionHandler(StripeException.class)
     public String handleError(Model model, StripeException ex) {
         model.addAttribute("error", ex.getMessage());
-        return "/confirmation";
+        return "/about-us";
 
     }
+
 
 
 }
