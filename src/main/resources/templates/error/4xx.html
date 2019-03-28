@@ -1,20 +1,83 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org"
       lang="en">
-<head th:replace="fragments/login-form-header :: login-form-header('Welcome Home!')"></head>
+<head th:replace="fragments/error-header :: error-header('400 Error Message')"></head>
 
 <body>
-    <th:block th:switch="${error}">
-        <div th:case="'Not Found'">
-            <h1>Page not found!!</h1>
-        </div>
-        <div th:case="'Forbidden'">
-            <h1>You don't have permission to view this page.</h1>
-        </div>
-    </th:block>
 
-    <a th:href="@{/}">Return to Home Page</a>
+    <div class=" navbar-fixed-top">
+        <div class="navbar-inner">
+            <ul class="float-right m-0">
+                <li class="d-inline px-3 mb-1 float-right">
+                    <a th:href="@{/about-us}"><i class="material-icons  " style="font-size: 36px; margin-top: 8px;">
+                        help_outline
+                    </i></a>
+                </li>
+            </ul>
+            <div class="container"></div>
+        </div>
+    </div>
+    <div id="body-content">
+        <section class="nav nav-page">
+            <div class="container">
+                <div class="row">
+                    <div class="span7">
+                        <header class="page-header">
+                            <a th:href="@{/}">
+                                <h3>Records Application<br/>
+                                    <small>Vital Records City of San Antonio</small>
+                                </h3>
+                            </a>
+                        </header>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-    <footer th:replace="fragments/admin-footer :: admin-footer"></footer>
+        <th:block th:switch="${error}">
+
+            <div th:case="'Not Found'">
+
+                <div id="notfound">
+                    <div class="notfound">
+                        <div class="notfound-404">
+                            <h1>404</h1>
+                        </div>
+                        <h2>Oops! This Page Could Not Be Found</h2>
+                        <p>Sorry but the page you are looking for does not exist on SATXVitalRecords.com<br/> Or perhaps
+                            the name has been changed ... or it's temporarily unavailable. <br/><br/>Either way, we
+                            recommend heading back to the homepage.</p>
+                        <a class="p-2 btn-primary btn--large is-block disable-resubmit" th:href="@{/}">Return to Home Page</a>
+                    </div>
+                </div>
+
+            </div>
+            <div th:case="'Forbidden'">
+
+                <div id="notfound2">
+                    <div class="notfound">
+                        <div class="notfound-404">
+                            <h1>404</h1>
+                        </div>
+                        <h2>Oops! This Page Could Not Be Found</h2>
+                        <p>Sorry but the page you are looking for does not exist on SATXVitalRecords.com. Or perhaps the
+                            name has been changed. Or it's temporarily unavailable. We recommend heading back to the
+                            homepage.</p>
+                        <a class="p-2 btn-primary btn--large is-block disable-resubmit" th:href="@{/}">Return to Home
+                            Page</a>
+                    </div>
+                </div>
+
+            </div>
+        </th:block>
+
+
+        <footer th:replace="fragments/admin-footer :: admin-footer"></footer>
+    </div>
 </body>
 </html>
+
+
+
+
+

@@ -57,7 +57,6 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                     "/application-3",
                     "/application-4",
                     "/completed-application",
-                    "/upload",
                     "/checkout"
             )
             .authenticated()

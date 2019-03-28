@@ -3,23 +3,33 @@
       lang="en">
 <head th:replace="fragments/test-header :: test-header('Confirmation')"/>
 <body>
-<div class=" navbar-fixed-top">
-    <div class="navbar-inner">
-        <ul class="float-right">
-            <li sec:authorize="isAuthenticated()" class="d-inline">
-                <form th:action="@{/login}" th:method="get" class="d-inline">
-                    <button class="p-2 btn-primary btn--large is-block disable-resubmit" style="margin-top: 8px">Login</button>
-                </form>
-            </li>
-            <li sec:authorize="!isAuthenticated()" class="d-inline px-3">
-                <form th:action="@{/logout}" th:method="post" class="d-inline">
-                    <button class="p-2 btn-primary btn--large is-block disable-resubmit" style="margin-top: 8px">Logout</button>
-                </form>
-            </li>
-        </ul>
-        <div class="container"></div>
+    <div class=" navbar-fixed-top">
+        <div class="navbar-inner">
+            <ul class="float-right m-0">
+
+                <li sec:authorize="!isAuthenticated()" class="d-inline px-3 mb-1">
+                    <form th:action="@{/login}" th:method="get" class="d-inline">
+                        <button class="p-2 btn-primary btn--large is-block disable-resubmit" style="margin-top: 8px">
+                            Login
+                        </button>
+                    </form>
+                </li>
+                <li sec:authorize="isAuthenticated()" class="d-inline px-3 mb-1">
+                    <form th:action="@{/logout}" th:method="post" class="d-inline">
+                        <button class="p-2 btn-primary btn--large is-block disable-resubmit" style="margin-top: 8px">
+                            Logout
+                        </button>
+                    </form>
+                </li>
+                <li class="d-inline px-3 mb-1 float-right">
+                    <a th:href="@{/about-us}"><i class="material-icons  " style="font-size: 36px; margin-top: 8px;">
+                        help_outline
+                    </i></a>
+                </li>
+            </ul>
+            <div class="container"></div>
+        </div>
     </div>
-</div>
  <div id="body-container">
         <div id="body-content">
             <section class="nav nav-page">
@@ -27,9 +37,11 @@
                     <div class="row">
                         <div class="span7">
                             <header class="page-header">
-                                <h3>Records Application<br/>
-                                    <small>Vital Records City of San Antonio</small>
-                                </h3>
+                                <a th:href="@{/}">
+                                    <h3>Records Application<br/>
+                                        <small>Vital Records City of San Antonio</small>
+                                    </h3>
+                                </a>
                             </header>
                         </div>
                     </div>
@@ -38,7 +50,35 @@
             <div class="page container">
 
 
-                <h2 class="pt-5"> Confirmation Page</h2>
+                <h2 class="pt-5 text-center"> Your Application has been successfully submitted!</h2>
+                <h3 class=" h3 pt-5 text-center">Office of the City Clerk Vital Records Division</h3>
+                <div>
+                    <h3 class="text-left pt-3">Need to Know:</h3>
+                    <p>
+                        <strong>WHERE TO OBTAIN A BIRTH RECORD
+                        CENTRAL OFFICE</strong><br/>
+                        The Office of the City Clerk Vital Records Division maintains records of births, deaths, and fetal deaths that occur in the County of Bexar. Birth records are available from 1897, death records from 1873, and fetal death records from 1952.
+
+                        <br/><br/>
+                        <strong>ADDRESS</strong><br/>
+                        Vital Records Division, George Whitfield, Jr. Municipal Records Facility, 719 S. Santa Rosa, San Antonio, TX 78204
+<br/><br/>
+                        <strong>OFFICE HOURS</strong><br/>
+                        Monday, Tuesday, Thursday, Friday - 8:00 a.m. - 5:00 p.m.
+                        Wednesday - 8:00 a.m. - 5:30 p.m.
+<br/>
+                        The Office is closed on approved City Holidays and Special Events.
+<br/><br/>
+                        <strong>PHONE NUMBER</strong><br/>
+                        210.207.8781
+                    </p>
+                </div>
+                <div>
+                    <hr/>
+                </div>
+                <div class="text-center">
+                    For a list of additional locations where you can pick up your record in Bexar county <a th:href="@{https://www.sanantonio.gov/Municipal-Archives-Records/Birth-Death-Records#13108671-locations}" style="color:blue"> click here.</a>
+                </div>
             </div>
         </div>
 
