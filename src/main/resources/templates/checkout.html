@@ -66,12 +66,12 @@
                             <div class="card-footer py-4">
 
 
-                                <a href="/checkout" class="p-2 btn-primary btn--large is-block disable-resubmi">Send PDF
-                                    &raquo;</a>
+                                <!--<a href="/checkout" id="email" class="p-2 btn-primary btn&#45;&#45;large is-block disable-resubmit">Send PDF-->
+                                    <!--&raquo;</a>-->
 
-                                <!--<form th:action="@{/checkout}" th:method="POST">-->
-                                <!--<button id="email" class="p-2 btn-primary btn&#45;&#45;large is-block disable-resubmit" type="submit">Send PDF &raquo;</button>-->
-                                <!--</form>-->
+                                <form th:action="@{/checkout}" th:method="POST">
+                                <button id="email" class="p-2 btn-primary btn--large is-block disable-resubmit" type="submit">Send PDF &raquo;</button>
+                                </form>
 
                             </div>
                         </div>
@@ -182,7 +182,8 @@
 
 <script type="text/javascript">
     $('#email').click(function () {
-        alert("Email sent!")
+        $("#email").html("Hello <b>world</b>!");
+        // alert("Email sent!")
     });
 
     function zoomToLevel() {

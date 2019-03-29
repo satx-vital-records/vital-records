@@ -22,15 +22,15 @@
                     </form>
                 </li>
                 <!--<li class="d-inline px-3 mb-1 float-right">-->
-                    <!--<a th:href="@{/about-us}"><i class="material-icons  " style="font-size: 36px; margin-top: 8px;">-->
-                        <!--help_outline-->
-                    <!--</i></a>-->
+                <!--<a th:href="@{/about-us}"><i class="material-icons  " style="font-size: 36px; margin-top: 8px;">-->
+                <!--help_outline-->
+                <!--</i></a>-->
                 <!--</li>-->
             </ul>
             <!--<div class="container"></div>-->
         </div>
     </div>
-    <div id="body-container" class="bdy-img">
+    <div id="body-container">
         <section id="body-content">
             <section class="nav nav-page">
                 <div class="container">
@@ -38,9 +38,9 @@
                         <div class="span7">
                             <header class="page-header">
                                 <a th:href="@{/}">
-                                <h3>Records Application<br/>
-                                    <small>Vital Records City of San Antonio</small>
-                                </h3>
+                                    <h3>Records Application<br/>
+                                        <small>Vital Records City of San Antonio</small>
+                                    </h3>
                                 </a>
                             </header>
                         </div>
@@ -48,285 +48,308 @@
                 </div>
             </section>
         </section>
-        <div class="row justify-content-between pb-5">
-            <div class="col-6 d-inline">
-                <div class="w3_info">
-                    <div class="left_grid_info">
-                        <div class="">
-                            <h1 class="h1">San Antonio <span class="orange"><br/>Vital Records</span></h1>
+        <div class="signupform">
+            <div class="container">
+                <div class="agile_info">
+                    <div class="row justify-content-between pb-5">
+                        <div class="col-6 d-inline">
+                            <div class="w3_info">
+                                <div class="left_grid_info">
+                                    <div class="">
+                                        <h1 class="h1">San Antonio <span class="orange"><br/>Vital Records</span></h1>
 
-                        </div>
-                        <div class="row justify-content-around py-4">
-                            <div class="d-flex  flex-wrap">
-                                <a class="p-2  btn-primary btn--large is-block disable-resubmit"
-                                   href="/bc-info">Birth
-                                    Certificate</a>
-                            </div>
-                            <div class="d-flex  flex-wrap">
-                                <a class=" p-2 btn-primary btn--large is-block disable-resubmit"
-                                   href="/dc-info">Death
-                                    Certificate</a>
-                            </div>
-                        </div>
-                        <!--<div class="row align-items-center pt-3">-->
-                        <!--<div class="col">-->
-                        <div class="row">
-                            <div class="">
-                                <h3 class="lead pt-3"><i class="material-icons pr-2">
-                                    check_circle
-                                </i>Complete your Record Application online
-                                   </h3>
-                                <h3 class="lead pt-3"><i class="material-icons pr-2">
-                                    check_circle
-                                </i>Save money using our online ordering system
-                                   </h3>
-                                <img src="images/image.jpg" alt=""/>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!--<div class="row">-->
-
-
-                <!--<form th:action="@{/}" th:method="post" th:object="${user}"-->
-                <!--class="simple_form new_certificate  pt-3">-->
-                <!--<div class="form-row">-->
-                <!--<div class="form-group">-->
-                <!--<div class="row pt-3 justify-content-between">-->
-                <!--&lt;!&ndash;<label for="first_name">First name</label>&ndash;&gt;-->
-                <!--<input id="first_name" class="mx-3" th:field="*{first_name}"-->
-                <!--placeholder="first name"/>-->
-                <!--&lt;!&ndash;<label for="last_name">Last Name</label>&ndash;&gt;-->
-                <!--<input id="last_name" th:field="*{last_name}"-->
-                <!--placeholder="last name"/>-->
-                <!--</div>-->
-                <!--<div class="row pt-3  justify-content-between">-->
-                <!--&lt;!&ndash;<label for="username">Username</label>&ndash;&gt;-->
-                <!--<input id="username" class="mx-3" th:field="*{username}"-->
-                <!--placeholder="username"/>-->
-                <!--&lt;!&ndash;<label for="password">Password</label>&ndash;&gt;-->
-                <!--<input id="password" type="password" th:field="*{password}"-->
-                <!--placeholder="password"/>-->
-                <!--</div>-->
-                <!--<div class="row pt-3 justify-content-between">-->
-                <!--&lt;!&ndash;<label for="email">Email</label>&ndash;&gt;-->
-                <!--<input id="email" class="mx-3" th:field="*{email}"-->
-                <!--placeholder="email"/>-->
-                <!--&lt;!&ndash;<label for="phone_num">Phone Number</label>&ndash;&gt;-->
-                <!--<input id="phone_num" th:field="*{phone_num}"-->
-                <!--placeholder="phone number"/>-->
-                <!--</div>-->
-                <!--</div>-->
-                <!--</div>-->
-                <!--<div class=" pt-4">-->
-                <!--<div class="align-content-center">-->
-                <!--<input type="submit" name="commit" value="REGISTER"-->
-                <!--id="save-and-print"-->
-                <!--class=" p-2 btn-primary btn&#45;&#45;large is-block disable-resubmit"-->
-                <!--data-disable-with="register"/>-->
-                <!--</div>-->
-                <!--</div>-->
-                <!--</form>-->
-            </div>
-            <!--</div>-->
-            <!--</div>-->
-            <!--</div>-->
-            <!--<div class="col-4 paddsection">-->
-            <!--<div class="pt-1">-->
-            <!--<img th:src="@{~/imgs/new-phone.png}" class="img-responsive"/>-->
-            <!--</div>-->
-            <!--</div>-->
-
-
-            <!--/SHOW IF USER IS NOT LOGGED IN!-->
-
-            <!--</div>-->
-            <div sec:authorize="!isAuthenticated()" class="col-6 d-inline">
-                <div class="w3_info">
-                    <h2 class="h2">Register to Get Started</h2>
-                    <form th:action="@{/}" th:method="post" th:object="${user}">
-
-
-                        <!--<label>First Name</label>-->
-                        <div class="input-group">
-                            <span><i class="material-icons" aria-hidden="true">supervised_user_circle</i></span>
-                            <input type="" name="first_name" id="first_name" th:field="*{first_name}"
-                                   placeholder="Enter First Name"
-                                   required=""/>
-                        </div>
-                        <!--<label>Last Name</label>-->
-                        <div class="input-group">
-                            <span><i class="material-icons" aria-hidden="true">supervised_user_circle</i></span>
-                            <input type="" name="last_name" id="last_name" th:field="*{last_name}"
-                                   placeholder="Enter Last name"
-                                   required=""/>
-                        </div>
-                        <!--<label>Username</label>-->
-                        <div class="input-group">
-                            <span><i class="material-icons" aria-hidden="true">supervised_user_circle</i></span>
-                            <input type="" name="username" id="username" th:field="*{username}"
-                                   placeholder="Enter Username"
-                                   required=""/>
-                        </div>
-                        <!--<label>Phone Number</label>-->
-                        <div class="input-group">
-                            <span><i class="material-icons" aria-hidden="true">perm_phone_msg</i></span>
-                            <input type="" name="phone_num" id="phone_num" th:field="*{phone_num}"
-                                   placeholder="Enter Phone Number"
-                                   required=""/>
-                        </div>
-
-
-                        <!--<label>Email Address</label>-->
-                        <div class="input-group">
-                            <span><i class="material-icons" aria-hidden="true">email</i></span>
-                            <input type="email" name="email" id="email" th:field="*{email}"
-                                   placeholder="Enter Your Email"
-                                   required=""/>
-                        </div>
-                        <!--<label>Password</label>-->
-                        <div class="input-group">
-                            <span><i class="material-icons" aria-hidden="true">lock</i></span>
-                            <input id="password" name="password" type="password" th:field="*{password}"
-                                   placeholder="Enter Password"
-                                   required=""/>
-                        </div>
-
-                        <p class="account">By clicking register, you agree to our Terms &amp;
-                            Conditions!
-                        </p>
-                        <button class="p-2 btn-primary btn--large is-block disable-resubmit" type="submit">Register
-                        </button>
-                    </form>
-
-                </div>
-                <div id="" class="container ">
-                    <h1 class="display-4 text-center pt-5 pb-2 orange"><span class="orange">New Express Service</span></h1>
-                    <div class="row justify-content-center">
-                        <i class="material-icons text-center" style="font-size: 48px;">
-                            keyboard_arrow_down
-                        </i>
-                    </div>
-                    <h3 class="lead pt-3 pt-5">
-                        <i class="material-icons pr-2">
-                            check_circle
-                        </i>Pay using our secure payment system</h3>
-                    <h3 class="lead pt-3 pt-4">
-                        <i class="material-icons pr-2">
-                            check_circle
-                        </i>Skip the line and pick up your record</h3>
-                </div>
-            </div>
-
-
-            <!--/SHOW IF USER IS LOGGED IN!-->
-
-
-            <div sec:authorize="isAuthenticated()" class="col-6 d-inline pb-5 mb-5">
-                <div class="w3_info shadow paddsection">
-                    <img src="/imgs/did_you_you.png" alt=""/>
-
-
-                    <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
-                        <div class="carousel-inner">
-                            <div class="carousel-item active">
-                                <div class="">
-                                    <h3 class="h3 lead text-center text-capitalize">The City Clerks office manually
-                                        processes 300-350 Vital Record Applications every day!</h3>
+                                    </div>
+                                    <div class="row justify-content-around py-4">
+                                        <div class="d-flex  flex-wrap">
+                                            <a class="p-2  btn-primary btn--large is-block disable-resubmit"
+                                               href="/bc-info">Birth
+                                                Certificate</a>
+                                        </div>
+                                        <div class="d-flex  flex-wrap">
+                                            <a class=" p-2 btn-primary btn--large is-block disable-resubmit"
+                                               href="/dc-info">Death
+                                                Certificate</a>
+                                        </div>
+                                    </div>
+                                    <!--<div class="row align-items-center pt-3">-->
+                                    <!--<div class="col">-->
+                                    <div class="row">
+                                        <div class="">
+                                            <h3 class="lead pt-3"><i class="material-icons pr-2">
+                                                check_circle
+                                            </i>Complete your Record Application online
+                                            </h3>
+                                            <h3 class="lead pt-3"><i class="material-icons pr-2">
+                                                check_circle
+                                            </i>Save money using our online ordering system
+                                            </h3>
+                                            <img src="images/image.jpg" alt=""/>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
+                            <!--<div class="row">-->
 
-                            <div class="carousel-item">
-                                <div class="">
-                                    <h3 class="h3 lead text-capitalize text-center">SATX Vital Records expedites the
-                                        process for citizens of San Antonio.</h3>
+
+                            <!--<form th:action="@{/}" th:method="post" th:object="${user}"-->
+                            <!--class="simple_form new_certificate  pt-3">-->
+                            <!--<div class="form-row">-->
+                            <!--<div class="form-group">-->
+                            <!--<div class="row pt-3 justify-content-between">-->
+                            <!--&lt;!&ndash;<label for="first_name">First name</label>&ndash;&gt;-->
+                            <!--<input id="first_name" class="mx-3" th:field="*{first_name}"-->
+                            <!--placeholder="first name"/>-->
+                            <!--&lt;!&ndash;<label for="last_name">Last Name</label>&ndash;&gt;-->
+                            <!--<input id="last_name" th:field="*{last_name}"-->
+                            <!--placeholder="last name"/>-->
+                            <!--</div>-->
+                            <!--<div class="row pt-3  justify-content-between">-->
+                            <!--&lt;!&ndash;<label for="username">Username</label>&ndash;&gt;-->
+                            <!--<input id="username" class="mx-3" th:field="*{username}"-->
+                            <!--placeholder="username"/>-->
+                            <!--&lt;!&ndash;<label for="password">Password</label>&ndash;&gt;-->
+                            <!--<input id="password" type="password" th:field="*{password}"-->
+                            <!--placeholder="password"/>-->
+                            <!--</div>-->
+                            <!--<div class="row pt-3 justify-content-between">-->
+                            <!--&lt;!&ndash;<label for="email">Email</label>&ndash;&gt;-->
+                            <!--<input id="email" class="mx-3" th:field="*{email}"-->
+                            <!--placeholder="email"/>-->
+                            <!--&lt;!&ndash;<label for="phone_num">Phone Number</label>&ndash;&gt;-->
+                            <!--<input id="phone_num" th:field="*{phone_num}"-->
+                            <!--placeholder="phone number"/>-->
+                            <!--</div>-->
+                            <!--</div>-->
+                            <!--</div>-->
+                            <!--<div class=" pt-4">-->
+                            <!--<div class="align-content-center">-->
+                            <!--<input type="submit" name="commit" value="REGISTER"-->
+                            <!--id="save-and-print"-->
+                            <!--class=" p-2 btn-primary btn&#45;&#45;large is-block disable-resubmit"-->
+                            <!--data-disable-with="register"/>-->
+                            <!--</div>-->
+                            <!--</div>-->
+                            <!--</form>-->
+                        </div>
+                        <!--</div>-->
+                        <!--</div>-->
+                        <!--</div>-->
+                        <!--<div class="col-4 paddsection">-->
+                        <!--<div class="pt-1">-->
+                        <!--<img th:src="@{~/imgs/new-phone.png}" class="img-responsive"/>-->
+                        <!--</div>-->
+                        <!--</div>-->
+
+
+                        <!--/SHOW IF USER IS NOT LOGGED IN!-->
+
+                        <!--</div>-->
+                        <div sec:authorize="!isAuthenticated()" class="col-6 d-inline">
+                            <div class="w3l_form_info">
+                                <h2 class="h2">Register to Get Started</h2>
+                                <form th:action="@{/}" th:method="post" th:object="${user}">
+
+
+                                    <!--<label>First Name</label>-->
+                                    <div class="input-group">
+                                        <span><i class="material-icons"
+                                                 aria-hidden="true">supervised_user_circle</i></span>
+                                        <input type="" name="first_name" id="first_name" th:field="*{first_name}"
+                                               placeholder="Enter First Name"
+                                               required=""/>
+                                    </div>
+                                    <!--<label>Last Name</label>-->
+                                    <div class="input-group">
+                                        <span><i class="material-icons"
+                                                 aria-hidden="true">supervised_user_circle</i></span>
+                                        <input type="" name="last_name" id="last_name" th:field="*{last_name}"
+                                               placeholder="Enter Last name"
+                                               required=""/>
+                                    </div>
+                                    <!--<label>Username</label>-->
+                                    <div class="input-group">
+                                        <span><i class="material-icons"
+                                                 aria-hidden="true">supervised_user_circle</i></span>
+                                        <input type="" name="username" id="username" th:field="*{username}"
+                                               placeholder="Enter Username"
+                                               required=""/>
+                                    </div>
+                                    <!--<label>Phone Number</label>-->
+                                    <div class="input-group">
+                                        <span><i class="material-icons" aria-hidden="true">perm_phone_msg</i></span>
+                                        <input type="" name="phone_num" id="phone_num" th:field="*{phone_num}"
+                                               placeholder="Enter Phone Number"
+                                               required=""/>
+                                    </div>
+
+
+                                    <!--<label>Email Address</label>-->
+                                    <div class="input-group">
+                                        <span><i class="material-icons" aria-hidden="true">email</i></span>
+                                        <input type="email" name="email" id="email" th:field="*{email}"
+                                               placeholder="Enter Your Email"
+                                               required=""/>
+                                    </div>
+                                    <!--<label>Password</label>-->
+                                    <div class="input-group">
+                                        <span><i class="material-icons" aria-hidden="true">lock</i></span>
+                                        <input id="password" name="password" type="password" th:field="*{password}"
+                                               placeholder="Enter Password"
+                                               required=""/>
+                                    </div>
+
+                                    <p class="account">By clicking register, you agree to our Terms &amp;
+                                        Conditions!
+                                    </p>
+                                    <button class="p-2 btn-primary btn--large is-block disable-resubmit" type="submit">
+                                        Register
+                                    </button>
+                                </form>
+
+                            </div>
+                            <div id="" class="container ">
+                                <h1 class="display-4 text-center pt-5 pb-2 orange"><span
+                                        class="orange">New Express Service</span></h1>
+                                <div class="row justify-content-center">
+                                    <i class="material-icons text-center" style="font-size: 48px;">
+                                        keyboard_arrow_down
+                                    </i>
                                 </div>
+                                <h3 class="lead pt-3 pt-5">
+                                    <i class="material-icons pr-2">
+                                        check_circle
+                                    </i>Pay using our secure payment system</h3>
+                                <h3 class="lead pt-3 pt-4">
+                                    <i class="material-icons pr-2">
+                                        check_circle
+                                    </i>Skip the line and pick up your record</h3>
+                            </div>
+                        </div>
+
+
+                        <!--/SHOW IF USER IS LOGGED IN!-->
+
+
+                        <div sec:authorize="isAuthenticated()" class="col-6 d-inline pb-5 mb-5">
+                            <div class="w3_info shadow paddsection">
+                                <img src="/imgs/did_you_you.png" alt=""/>
+
+
+                                <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+                                    <div class="carousel-inner">
+                                        <div class="carousel-item active">
+                                            <div class="">
+                                                <h3 class="h3 lead text-center text-capitalize">The City Clerks office
+                                                    manually
+                                                    processes 300-350 Vital Record Applications every day!</h3>
+                                            </div>
+                                        </div>
+
+                                        <div class="carousel-item">
+                                            <div class="">
+                                                <h3 class="h3 lead text-capitalize text-center">SATX Vital Records
+                                                    expedites
+                                                    the
+                                                    process for citizens of San Antonio.</h3>
+                                            </div>
+                                        </div>
+
+                                        <div class="carousel-item">
+                                            <div class="">
+                                                <h3 class="h3 lead text-center text-capitalize">By creating a digitized
+                                                    database
+                                                    of
+                                                    records, the clerks office aids in the technological advancements of
+                                                    the
+                                                    city.</h3>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+
                             </div>
 
-                            <div class="carousel-item">
-                                <div class="">
-                                    <h3 class="h3 lead text-center text-capitalize">By creating a digitized database of
-                                        records, the clerks office aids in the technological advancements of the
-                                        city.</h3>
+                            <div id="services" class="container ">
+                                <h1 class="display-4 text-center pt-5 pb-2 orange"><span
+                                        class="orange">New Express Service</span></h1>
+                                <div class="row justify-content-center">
+                                    <i class="material-icons text-center" style="font-size: 48px;">
+                                        keyboard_arrow_down
+                                    </i>
+                                </div>
+                                <h3 class="lead pt-3 pt-5">
+                                    <i class="material-icons pr-2">
+                                        check_circle
+                                    </i>Pay using our secure payment system</h3>
+                                <h3 class="lead pt-3 pt-4">
+                                    <i class="material-icons pr-2">
+                                        check_circle
+                                    </i>Skip the line and pick up your record</h3>
+                            </div>
+
+                        </div>
+
+
+                        <div class="col-12 pb-5 mb-5">
+                            <hr/>
+                        </div>
+                        <div class="row text-center mt-5">
+                            <div class="col-md-4 mb-4">
+                                <div class="card h-100">
+                                    <i class=" material-icons btn-info" style="font-size: 48px;">payment</i>
+                                    <div class="card-body">
+                                        <h4 class="card-title">Pay Online </h4>
+                                        <p class="card-text">Complete your order by using our secure payment service</p>
+                                    </div>
+                                    <div class="card-footer py-4">
+                                        <a href="/charge" class="p-2 btn-primary btn--large is-block disable-resubmit">
+                                            Learn
+                                            More &raquo;</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4 mb-4">
+                                <div class="card h-100">
+                                    <i class=" material-icons btn-info" style="font-size: 48px;">cloud_upload</i>
+                                    <div class="card-body">
+                                        <h4 class="card-title">Pre-screened Documents</h4>
+                                        <p class="card-text">Upload your notarized forms and supporting
+                                            documents to
+                                            expedite your order</p>
+                                    </div>
+                                    <div class="card-footer py-4">
+                                        <a href="/upload" class="p-2 btn-primary btn--large is-block disable-resubmit">Learn
+                                            More &raquo;</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4 mb-4">
+                                <div class="card h-100">
+                                    <i class="material-icons btn-info" style="font-size: 48px;">
+                                        phone_iphone
+                                    </i>
+                                    <div class="card-body">
+                                        <h4 class="card-title">Text Notifications</h4>
+                                        <p class="card-text">Receive notifications when your record has been shipped
+                                            or is
+                                            ready
+                                            for
+                                            pickup</p>
+                                    </div>
+                                    <div class="card-footer py-4">
+                                        <a href="/checkout" class="p-2 btn-primary btn--large is-block disable-resubmit">
+                                            Learn
+                                            More &raquo;</a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-
-                    </div>
-
-                </div>
-
-                <div id="services" class="container ">
-                    <h1 class="display-4 text-center pt-5 pb-2 orange"><span class="orange">New Express Service</span></h1>
-                    <div class="row justify-content-center">
-                        <i class="material-icons text-center" style="font-size: 48px;">
-                            keyboard_arrow_down
-                        </i>
-                    </div>
-                    <h3 class="lead pt-3 pt-5">
-                        <i class="material-icons pr-2">
-                            check_circle
-                        </i>Pay using our secure payment system</h3>
-                    <h3 class="lead pt-3 pt-4">
-                        <i class="material-icons pr-2">
-                            check_circle
-                        </i>Skip the line and pick up your record</h3>
-                </div>
-
-            </div>
-
-
-            <div class="col-12 pb-5 mb-5">
-                <hr/>
-            </div>
-            <div class="row text-center mt-5">
-                <div class="col-md-4 mb-4">
-                    <div class="card h-100">
-                        <i class=" material-icons btn-info" style="font-size: 48px;">payment</i>
-                        <div class="card-body">
-                            <h4 class="card-title">Pay Online </h4>
-                            <p class="card-text">Complete your order by using our secure payment service</p>
-                        </div>
-                        <div class="card-footer py-4">
-                            <a href="/charge" class="p-2 btn-primary btn--large is-block disable-resubmit"> Learn More &raquo;</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 mb-4">
-                    <div class="card h-100">
-                        <i class=" material-icons btn-info" style="font-size: 48px;">cloud_upload</i>
-                        <div class="card-body">
-                            <h4 class="card-title">Pre-screened Documents</h4>
-                            <p class="card-text">Upload your notarized forms and supporting
-                                documents to
-                                expedite your order</p>
-                        </div>
-                        <div class="card-footer py-4">
-                            <a href="/upload" class="p-2 btn-primary btn--large is-block disable-resubmit">Learn More &raquo;</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 mb-4">
-                    <div class="card h-100">
-                        <i class="material-icons btn-info" style="font-size: 48px;">
-                            phone_iphone
-                        </i>
-                        <div class="card-body">
-                            <h4 class="card-title">Text Notifications</h4>
-                            <p class="card-text">Receive notifications when your record has been shipped
-                                or is
-                                ready
-                                for
-                                pickup</p>
-                        </div>
-                        <div class="card-footer py-4">
-                            <a href="/charge" class="p-2 btn-primary btn--large is-block disable-resubmit"> Learn More &raquo;</a>
-                        </div>
                     </div>
                 </div>
             </div>
+            <footer th:replace="fragments/admin-footer :: admin-footer"></footer>
         </div>
-        <footer th:replace="fragments/admin-footer :: admin-footer"></footer>
     </div>
 </body>
 </html>
