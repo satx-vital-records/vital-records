@@ -63,11 +63,12 @@
           <div class="row">
             <div style="width:100%" class="section__container container">
               <h4 class="h4">1. Requestor information</h4>
-              <p class="align-left">Enter the name of the requestor as shown on the ID/driver's license.</p>
+              <p class="align-left ml-4">Enter the name of the requestor as shown on the ID/driver's license.</p>
 
 
               <div class="row">
-                <div class="form-group string required certificate_contact_first_name col-md-3">
+                <div class="col-1"></div>
+                <div class="col-md-3 form-group string required certificate_contact_first_name">
                   <div><label class="string required"
                                                              for="certificate_contact_first_name">First
                     name</label></div>
@@ -87,7 +88,7 @@
                                                       type="text" style="height: 2.15em"/>
                   </div>
                 </div>
-                <div class="form-group string required certificate_contact_last_name">
+                <div class="col-md-3 form-group string required certificate_contact_last_name">
                   <div><label class="string required"
                                                              for="certificate_contact_last_name">Last
                     name</label>
@@ -103,13 +104,13 @@
           </div>
           <section class="section pt-2">
             <div class="row">
-              <div class="section__container">
-                <h4 class="h4"> Requestor Address</h4>
-                <p class="align-left">Enter the address of the requestor as shown on the ID/driver's license.</p>
+              <div style="width:100%" class="section__container container">
+                <h4 class="h4 ml-4"> Requestor Address</h4>
+                <p class="align-left ml-4">Enter the address of the requestor as shown on the ID/driver's license.</p>
 
                 <div class="row">
                   <div class="col-1"></div>
-                  <div class="col-md-5 form-group string required certificate_contact_street">
+                  <div class="col-md-5 d-inline form-group string required certificate_contact_street">
                     <div><label class="string required"
                                                                for="certificate_contact_street">Street Address</label></div>
                     <div><input class="string required"
@@ -118,7 +119,7 @@
                                                         type="text" style="height: 2.15em"/>
                     </div>
                   </div>
-                  <div class="form-group string optional certificate_contact_street2 col-md-5">
+                  <div class="col-md-5 d-inline form-group string optional certificate_contact_street2">
                     <div><label class="string optional"
                                                                for="certificate_contact_street2">Street Address 2 (Apt, Bldg, etc)</label></div>
                     <div><input class="string optional"
@@ -131,7 +132,7 @@
 
                 <div class="row">
                   <div class="col-1"></div>
-                  <div class="col-md-3 d-line p-2 form-group string required certificate_contact_city col-md-3">
+                  <div class="col-md-3 d-line form-group string required certificate_contact_city">
                     <div><label class="string required"
                                                                for="certificate_contact_city">City</label>
                     </div>
@@ -141,7 +142,7 @@
                                                         type="text" style="height: 2.15em"/>
                     </div>
                   </div>
-                  <div class="col-md-3 d-inline p-2 form-group select required certificate_delivery_state">
+                  <div class="col-md-3 d-inline form-group select required certificate_delivery_state">
                     <div><label class="select required"
                                                                for="certificate_contact_state">State</label>
                     </div>
@@ -204,7 +205,7 @@
                     </select>
                     </div>
                   </div>
-                  <div class="col-md-3 d-inline p-2 form-group string optional certificate_contact_zip">
+                  <div class="col-md-3 d-inline form-group string optional certificate_contact_zip">
                     <div><label class="string optional"
                                                                for="certificate_contact_zip">Zip Code</label></div>
                     <div><input class="string optional"
@@ -220,24 +221,23 @@
           </section>
 
           <section class="section pb-2">
-            <div class="row">
-              <div class="section__container">
+            <div>
+              <div style="width:100%" class="section__container container">
                 <h4 class="h4">2. Your relationship with person on record</h4>
-                <div class="row justify-content-between pb-3">
-                  <div class="d-inline form-group select required certificate_record_person_relationship">
+                <div class="row">
+                  <div class="col-1"></div>
+                  <div class="col-md-5 p-2 m-2 d-inline form-group select required certificate_record_person_relationship">
                     <div><label class="select required pr-1"
-                                                               for="certificate_record_person_relationship">What
-                      is your relationship with the person listed on record?</label>
+                                                               for="certificate_record_person_relationship">Relationship with
+                      person on record?</label>
                     </div>
                     <div>
                       <input type="text" th:value="*{record_relationship}" name="record_relationship"
-                             id="certificate_record_person_relationship"/>
+                             id="certificate_record_person_relationship" style="height: 2.15em;"/>
 
                     </div>
                   </div>
-
-
-                  <div class="d-inline p-2 form-group select required certificate_record_person_relationship">
+                  <div class="col-md-5 d-inline p-2 form-group select required certificate_record_person_relationship">
                     <div><label class="select required"
                                                                for="certificate_record_person_relationship">Please
                       select the certificate type you require</label><a
@@ -256,16 +256,16 @@
                       </option>
                       <option th:value="certified_copy">Certified Copy (Death certificates only)</option>
 
-                    </select><a class="fa fa-question-circle tooltip-trigger"
+                    </select><a class="fa"
                                 data-original-title="Standard size format is the most commonly issued because it satisfies most purposes,; Long Form is used most often to obtain a passport, for purposes of dual citizenship, Indian Registry and immigration"
                                 data-tippy=""></a>
                     </div>
                   </div>
                 </div>
 
-                <div class="row justify-content-between pb-3">
-
-                  <div class="d-inline p-2 form-group select required certificate_record_person_relationship">
+                <div class="row">
+                  <div class="col-1"></div>
+                  <div class="col-md-5 d-inline p-2 m-2 form-group select required certificate_record_person_relationship">
                     <div><label class="select required"
                                                                for="certificate_record_person_relationship">Why
                       are
@@ -308,7 +308,7 @@
                   </div>
 
 
-                  <div class="d-inline form-group select required certificate_record_copies">
+                  <div class="col-md-5 p-2 m-2 d-inline form-group select required certificate_record_copies">
                     <div><label class="select required"
                                                                for="certificate_record_copies">Number
                       of Certified Copies needed</label><a
@@ -339,45 +339,45 @@
 
 
         <form th:action="@{/application-2}" th:method="post" th:object="${record}"
-              class="simple_form new_certificate mx-auto" style="width: 70%" id="new_certificate2"
+              class="simple_form new_certificate" style="width: 100%" id="new_certificate2"
               novalidate="novalidate" accept-charset="UTF-8">
-          <hr/>
+
 
           <section class="section pb-2">
             <div class="row">
 
             </div>
           </section>
-          <hr/>
           <section class="section pt-2">
-            <div class="row">
-              <div class="section__container">
+            <div>
+              <div style="width:100%" class="section__container container">
                 <h4 class="h4">3. Full name of the person on record</h4>
-                <p class="align-left">Enter the full name of the person on record at the time of
+                <p class="align-left ml-4">Enter the full name of the person on record at the time of
                   birth. Leave middle name empty if unknown.</p>
 
-                <div class="row justify-content-between">
-                  <div class="d-inline form-group string required certificate_person_first_name col-xs-4">
+                <div class="row">
+                  <div class="col-1"></div>
+                  <div class="col-md-3 ml-3 p-2 d-inline form-group string required certificate_person_first_name">
                     <div><label class="string required"
                                                                for="certificate_person_first_name">First
                       name</label></div>
                     <div><input data-validate=""
                                                         class="string required" type="text"
                                                         th:value="*{first_name}"
-                                                        id="certificate_person_first_name"/>
+                                                        id="certificate_person_first_name" style="height: 2.15em"/>
                     </div>
                   </div>
-                  <div class="d-inline form-group string optional certificate_person_middle_name col-xs-4">
+                  <div class="col-md-3 p-2 d-inline form-group string optional certificate_person_middle_name">
                     <div><label class="string optional"
                                                                for="certificate_person_middle_name">Middle
                       name</label></div>
                     <div><input data-validate=""
                                                         class="string optional" type="text"
                                                         th:value="*{mid_name}"
-                                                        id="certificate_person_middle_name"/>
+                                                        id="certificate_person_middle_name" style="height: 2.15em"/>
                     </div>
                   </div>
-                  <div class="d-inline form-group string required certificate_person_last_name col-xs-4">
+                  <div class="col-md-3 p-2 d-inline form-group string required certificate_person_last_name">
                     <div><label class="string required"
                                                                for="certificate_person_last_name">Last
                       name</label>
@@ -385,23 +385,23 @@
                     <div><input data-validate=""
                                                         class="string required" type="text"
                                                         th:value="*{last_name}"
-                                                        id="certificate_person_last_name"/>
+                                                        id="certificate_person_last_name" style="height: 2.15em"/>
                     </div>
                   </div>
                 </div>
               </div>
 
-              <th:block th:if="${app.getRecord_type() == 'Birth'}">
-              <div class="section__container">
+              <th:block th:if="${app.getRecord_type() == 'birth'}">
+              <div style="width:100%" class="section__container">
                 <h4 class="h4">4. Birth information of the person on record</h4>
-                <p class="align-left">Enter the birth information of the person needing the
+                <p class="align-left ml-4">Enter the birth information of the person needing the
                   birth certificate. If you are applying for someone else (i.e. your child),
                   enter their birth information here.</p>
 
 
-                <div class="row justify-content-between">
-
-                  <div class="d-inline form-group string required certificate_birth_city">
+                <div class="row">
+                  <div class="col-1"></div>
+                  <div class="col-md-3 ml-3 p-2 d-inline form-group string required certificate_birth_city">
                     <div><label class="string required"
                                                                for="certificate_birth_city2">City
                       of birth</label><a
@@ -411,13 +411,13 @@
                     <div><input data-validate="" class="string required"
                                                         type="text"
                                                         th:value="*{birth_city}"
-                                                        id="certificate_birth_city2"/><a
+                                                        id="certificate_birth_city2" style="height: 2.15em"/><a
                         data-tippy=""
                         data-original-title="Please specify the city where the birth occurred."></a>
                     </div>
                   </div>
 
-                  <div class="d-inline form-group string required certificate_birth_county">
+                  <div class="col-md-3 p-2 d-inline form-group string required certificate_birth_county">
                     <div><label class="string required"
                                                                for="certificate_birth_county">County
                       of birth</label><a
@@ -427,13 +427,13 @@
                     <div><input data-validate="" class="string required"
                                                         type="text"
                                                         th:value="*{birth_county}"
-                                                        id="certificate_birth_county"/><a
+                                                        id="certificate_birth_county" style="height: 2.15em"/><a
                         data-tippy=""
                         data-original-title="Please specify the county where the birth occurred."></a>
                     </div>
                   </div>
 
-                  <div class="d-inline form-group date required certificate_birth_date">
+                  <div class="col-md-3 p-2 d-inline form-group date required certificate_birth_date">
                     <div><label class="date required"
                                                                for="birth_date">Date
                       of birth</label>
@@ -445,7 +445,7 @@
                           th:value="*{date_of_birth}"
                           type="text"
                           id="birth_date"
-                          class="date-picker-style"/>
+                          class="date-picker-style" style="height: 2.15em"/>
 
                       <a
                           data-tippy=""
@@ -458,15 +458,15 @@
 
 
 
-              <th:block th:unless="${app.getRecord_type() == 'Birth'}">
-                <div class="section__container">
+              <th:block th:unless="${app.getRecord_type() == 'birth'}">
+                <div style="width: 100%" class="section__container container">
                   <h4 class="h4">4. Death information of the person on record</h4>
-                  <p class="align-left">Enter the death information of the person listed on the record.</p>
+                  <p class="align-left ml-4">Enter the death information of the person listed on the record.</p>
 
-                  <div class="row justify-content-between">
-
-                    <div class="d-inline form-group string required certificate_death_city">
-                      <div class="tooltip-wrapper-mobile"><label class="string required"
+                  <div class="row">
+                    <div class="col-1"></div>
+                    <div class="col-md-3 ml-3 p-2 d-inline form-group string required certificate_death_city">
+                      <div><label class="string required"
                                                                  for="certificate_death_city2">City
                         of death</label><a
                           data-tippy=""
@@ -475,13 +475,13 @@
                       <div><input data-validate="" class="string required"
                                                           type="text"
                                                           th:value="*{death_city}"
-                                                          id="certificate_death_city2"/><a
+                                                          id="certificate_death_city2" style="height: 2.15em"/><a
                           data-tippy=""
                           data-original-title="Please specify the city where the death occurred."></a>
                       </div>
                     </div>
 
-                    <div class="d-inline form-group string required certificate_death_county">
+                    <div class="col-md-3 p-2 d-inline form-group string required certificate_death_county">
                       <div><label class="string required"
                                                                  for="certificate_death_county">County
                         of death</label><a
@@ -491,13 +491,13 @@
                       <div><input data-validate="" class="string required"
                                                           type="text"
                                                           th:value="*{death_county}"
-                                                          id="certificate_death_county"/><a
+                                                          id="certificate_death_county" style="height: 2.15em"/><a
                           data-tippy=""
                           data-original-title="Please specify the county where the death occurred."></a>
                       </div>
                     </div>
 
-                    <div class="d-inline form-group date required certificate_death_date">
+                    <div class="col-md-3 p-2 d-inline form-group date required certificate_death_date">
                       <div><label class="date required"
                                                                  for="death_date">Date
                         of death</label>
@@ -509,7 +509,8 @@
                             th:value="*{date_of_death}"
                             type="text"
                             id="death_date"
-                            class="date-picker-style"/>
+                            class="date-picker-style"
+                        style="height: 2.15em"/>
 
                         <a
                             data-tippy=""
@@ -530,7 +531,7 @@
 
 
         <form th:action="@{/application-3}" th:method="post" th:object="${record}"
-              class="simple_form new_certificate mx-auto" style="width: 70%;"
+              class="simple_form new_certificate" style="width: 100%;"
               id="new_certificate3"
               novalidate="novalidate"
               accept-charset="UTF-8"><input name="utf8" type="hidden"
@@ -542,33 +543,34 @@
 
           <section class="section pb-2">
             <div class="row">
-              <div class="section__container">
+              <div style="width:100%" class="section__container container">
                 <h4 class="h4">5. Mother of the person on record</h4>
-                <p class="align-left">Enter the full maiden name (before 1st Marriage) of the
+                <p class="align-left ml-4">Enter the full maiden name (before 1st Marriage) of the
                   mother of the person on record.</p>
 
-                <div class="row justify-content-between">
-                  <div class="d-inline form-group string required certificate_mother_first_name col-xs-4">
+                <div class="row">
+                  <div class="col-1"></div>
+                  <div class="col-md-3 d-inline form-group string required certificate_mother_first_name">
                     <div><label class="string required"
                                                                for="parent1_first_name">First
                       name</label></div>
                     <div><input data-validate=""
                                                         class="string required" type="text"
                                                         th:value="*{parent1_first_name}"
-                                                        id="parent1_first_name"/>
+                                                        id="parent1_first_name" style="height: 2.15em"/>
                     </div>
                   </div>
-                  <div class="d-inline form-group string optional certificate_mother_middle_name col-xs-3">
+                  <div class="col-md-3 d-inline form-group string optional certificate_mother_middle_name">
                     <div><label class="string optional"
                                                                for="certificate_mother_middle_name">Middle
                       name</label></div>
-                    <div class="tooltip-wrapper"><input data-validate=""
+                    <div><input data-validate=""
                                                         class="string optional" type="text"
                                                         th:value="*{parent1_mid_name}"
-                                                        id="certificate_mother_middle_name"/>
+                                                        id="certificate_mother_middle_name" style="height: 2.15em"/>
                     </div>
                   </div>
-                  <div class="d-inline form-group string required certificate_mother_maiden_or_last_name col-xs-6">
+                  <div class="col-md-4 d-inline form-group string required certificate_mother_maiden_or_last_name col-xs-6">
                     <div><label class="string required"
                                                                for="certificate_mother_maiden_or_last_name">Last
                       name before any marriage</label><a
@@ -578,7 +580,7 @@
                     <div><input data-validate=""
                                                         class="string required" type="text"
                                                         th:value="*{parent1_last_name}"
-                                                        id="certificate_mother_maiden_or_last_name"/><a
+                                                        id="certificate_mother_maiden_or_last_name" style="height: 2.15em"/><a
                         data-tippy=""
                         data-original-title="Enter the full maiden name of the mother of the person on record, at the time of birth."></a>
                     </div>
@@ -589,33 +591,34 @@
             </div>
 
             <div class="row">
-              <div class="section__container">
+              <div style="width:100%" class="section__container container">
                 <h4 class="h4">6. Father of the person on record</h4>
-                <p class="align-left">Enter the full name of the father of the person on record.
+                <p class="align-left ml-4">Enter the full name of the father of the person on record.
                   Leave empty if the identity of the father is unknown.</p>
 
-                <div class="row justify-content-between">
-                  <div class="d-inline form-group string optional certificate_father_first_name col-xs-4">
+                <div class="row">
+                  <div class="col-1"></div>
+                  <div class="col-md-3 d-inline form-group string optional certificate_father_first_name">
                     <div><label class="string optional"
                                                                for="certificate_father_first_name">First
                       name</label></div>
                     <div><input data-validate=""
                                                         class="string optional" type="text"
                                                         th:value="*{parent2_first_name}"
-                                                        id="certificate_father_first_name"/>
+                                                        id="certificate_father_first_name" style="height: 2.15em"/>
                     </div>
                   </div>
-                  <div class="d-inline form-group string optional certificate_father_middle_name col-xs-4">
+                  <div class="col-md-3 d-inline form-group string optional certificate_father_middle_name">
                     <div><label class="string optional"
                                                                for="parent2_middle_name">Middle
                       name</label></div>
                     <div><input data-validate=""
                                                         class="string optional" type="text"
                                                         th:value="*{parent2_mid_name}"
-                                                        id="parent2_middle_name"/>
+                                                        id="parent2_middle_name" style="height: 2.15em"/>
                     </div>
                   </div>
-                  <div class="d-inline form-group string optional certificate_father_last_name col-xs-4">
+                  <div class="col-md-3 d-inline form-group string optional certificate_father_last_name">
                     <div><label class="string optional"
                                                                for="certificate_father_last_name">Last
                       name</label>
@@ -623,7 +626,7 @@
                     <div><input data-validate=""
                                                         class="string optional" type="text"
                                                         th:value="*{parent2_last_name}"
-                                                        id="certificate_father_last_name"/><a
+                                                        id="certificate_father_last_name" style="height: 2.15em;"/><a
                         data-tippy=""
                         data-original-title="Enter the full name of the father of the person on record at the time of birth. Leave empty if the identity of the father is unknown."></a>
                     </div>
@@ -635,18 +638,19 @@
           </section>
         </form>
 
-        <form class="simple_form new_certificate mx-auto" style="width: 70%;" id="new_certificate4"
+        <form class="simple_form new_certificate mx-auto" style="width: 100%;" id="new_certificate4"
               novalidate="novalidate"
               th:action="@{/checkout}" accept-charset="UTF-8" th:method="post" th:object="${mailaddress}">
           <hr/>
           <section class="section pb-2">
             <div class="row">
-              <div class="section__container">
+              <div style="width:100%" class="section__container container">
                 <h4 class="h4">7. Address of delivery</h4>
-                <p class="align-left">Please enter the physical address where you need the
+                <p class="align-left ml-4">Please enter the physical address where you need the
                   certificate to be delivered.</p>
-                <div class="row justify-content-between">
-                  <div class="d-inline form-group string required certificate_delivery_address_1">
+                <div class="row">
+                  <div class="col-1"></div>
+                  <div class="col-md-5 d-inline form-group string required certificate_delivery_address_1">
                     <div><label class="string required"
                                                                for="certificate_delivery_address_1">Address
                       1 (Street number and street name)</label>
@@ -655,10 +659,10 @@
                     <div><input data-validate="" class="string required"
                                                         type="text"
                                                         th:value="*{street}"
-                                                        id="certificate_delivery_address_1"/>
+                                                        id="certificate_delivery_address_1" style="height: 2.15em"/>
                     </div>
                   </div>
-                  <div class="d-inline form-group string optional certificate_delivery_address_2">
+                  <div class="col-md-5 d-inline form-group string optional certificate_delivery_address_2">
                     <div><label class="string optional"
                                                                for="certificate_delivery_address_2">Address
                       2 (if applicable: Apt, suite, floor)</label><a
@@ -667,7 +671,7 @@
                       <div><input data-validate="" class="string optional"
                                                           type="text"
                                                           th:value="*{street_2}"
-                                                          id="certificate_delivery_address_2"/>
+                                                          id="certificate_delivery_address_2" style="height: 2.15em"/>
                       </div>
                     </div>
                   </div>
@@ -676,9 +680,11 @@
               </div>
             </div>
             <div class="row">
-              <div class="section__container">
-                <div class="row justify-content-between">
-                  <div class="d-inline form-group string required certificate_delivery_city">
+              <div class="col-1"></div>
+              <div style="width:100%" class="section__container container">
+                <div class="row">
+                  <div class="col-1"></div>
+                  <div class="col-md-3 d-inline form-group string required certificate_delivery_city">
                     <div><label class="string required"
                                                                for="certificate_delivery_city">City</label><a
                         data-tippy=""
@@ -687,12 +693,12 @@
                     <div><input data-validate="" class="string required"
                                                         type="text"
                                                         th:value="*{city}"
-                                                        id="certificate_delivery_city"/><a
+                                                        id="certificate_delivery_city" style="height: 2.15em"/><a
                         data-tippy=""
                         data-original-title="Please indicate the name of the city where you need the certificate to be delivered."></a>
                     </div>
                   </div>
-                  <div class=" d-inline form-group select required certificate_delivery_state">
+                  <div class="col-md-3 d-inline form-group select required certificate_delivery_state">
                     <div><label class="select required"
                                                                for="certificate_delivery_state">State</label><a
                         data-tippy=""
@@ -758,7 +764,7 @@
                                 data-original-title="Please specify the state to which you need the certificate to be delivered."></a>
                     </div>
                   </div>
-                  <div class="d-inline form-group string required certificate_delivery_zip_code">
+                  <div class="col-md-3 d-inline form-group string required certificate_delivery_zip_code">
                     <div><label class="string required"
                                                                for="certificate_delivery_zip_code">Zip
                       code</label><a
@@ -769,30 +775,13 @@
                     <div><input data-validate="" class="string required"
                                                         type="text"
                                                         th:value="*{zip}"
-                                                        id="certificate_delivery_zip_code"/><a
+                                                        id="certificate_delivery_zip_code" style="height: 2.15em"/><a
                         data-tippy=""
                         data-original-title="Enter the Zip code where you need the birth certificate to be delivered"></a>
                     </div>
                   </div>
                 </div>
 
-                <div class="pt-5 gdpr_check_boxes">
-                  <div class=" form-group check_boxes required certificate_terms_and_conditions">
-                    <div><label
-                        class="check_boxes required hidden">Terms and conditions</label>
-                    </div>
-                    <div><input type="hidden"
-                                                        name="certificate[terms_and_conditions][]"
-                                                        value=""/><input
-                        class="check_boxes required" type="checkbox" value="true"
-                        name="certificate[terms_and_conditions][]"
-                        id="certificate_terms_and_conditions_true"/><label
-                        class="collection_check_boxes"
-                        for="certificate_terms_and_conditions_true">I have read and
-                      understood the Terms and Conditions and Privacy Policy.</label>
-                    </div>
-                  </div>
-                </div>
                 <div class="text-center pt-5">
                   <div class="align-content-center">
 
@@ -803,10 +792,10 @@
 
                 </section>
             </form>
-                                    <form class="simple_form new_certificate mx-auto" style="width: 70%;" id="checkout"
+                                    <form class="simple_form new_certificate" style="width: 100%; text-align: center; " id="checkout"
                                           novalidate="novalidate"
                                           th:action="@{/completed-application}" accept-charset="UTF-8" th:method="post">
-                                   <button class="p-1 mb-2 rounded btn-primary btn--large is-block disable-resubmit"
+                                   <button class="p-2 mb-2 rounded btn-primary btn--large is-block disable-resubmit"
                                            data-disable-with="CONFIRM">CONFIRM</button>
                                     </form>
 

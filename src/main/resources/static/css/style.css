@@ -107,8 +107,12 @@ img{
 }
 
 h1 .orange {
-	color: #E4A96C!important;
+	color: #E29328!important;
 	font-size: 1.5em;
+}
+
+input {
+    border: none!important;
 }
 
 input[type="email"] {
