@@ -26,7 +26,6 @@
                     </i></a>
                 </li>
             </ul>
-            <div class="container"></div>
         </div>
     </div>
     <div id="body-container">
@@ -62,20 +61,22 @@
                     <div class="text-center py-4"><h2 class="h2"> Vital Records Application Form</h2></div>
 
                     <hr/>
-                    <section class="section ">
-                        <div class="row">
-                            <div class="section__container">
+                    <section class="section">
+                        <div>
+                            <div style="width:100%" class="section__container container">
                                 <h4 class="h4">6. Address of delivery</h4>
-                                <p class="align-left">Please enter the physical address where you need the
+                                <p class="align-left ml-4">Please enter the physical address where you need the
                                     certificate to be delivered.</p>
-                                <div class="row justify-content-between">
-                                    <div class="d-inline form-group string required certificate_delivery_name_1">
+                                <div class="row">
+                                    <div class="col-1"></div>
+                                    <div class="col-md-5 d-inline form-group string required certificate_delivery_name_1">
                                         <div><label class="string required"
                                                                                    for="certificate_delivery_first_name">First Name of Recipient</label><a
                                             class="fa" data-tippy=""
                                             data-original-title="Please indicate the first name of the person receiving the document."></a>
                                         </div>
-                                        <div><input data-validate="" class="string required text-capitalize"
+
+                                        <div><input style="height:2.15em" data-validate="" class="string required"
                                                                             type="text"
                                                                             th:field="*{first_name}"
                                                                             id="certificate_delivery_first_name" required="required"/><a
@@ -83,13 +84,15 @@
                                             data-original-title="Please indicate the last name of the person receiving the document."></a>
                                         </div>
                                     </div>
-                                    <div class="d-inline form-group string required certificate_delivery_name_2">
+                                    <div class="col-md-5 d-inline form-group string required certificate_delivery_name_2">
                                         <div><label class="string required"
                                                                                    for="certificate_delivery_last_name">Last Name of Recipient</label><a
                                             class="fa" data-tippy=""
                                             data-original-title="Please indicate the last name of the person receiving the document."></a>
                                         </div>
-                                        <div><input data-validate="" class="string required text-capitalize"
+
+                                        <div><input style="height: 2.15em" data-validate="" class="string required"
+
                                                                             type="text"
                                                                             th:field="*{last_name}"
                                                                             id="certificate_delivery_last_name" required="required"/><a
@@ -97,9 +100,10 @@
                                             data-original-title="Please indicate the last name of the person receiving the document."></a>
                                         </div>
                                     </div>
-
-
-                                    <div class="d-inline form-group string required certificate_delivery_address_1">
+                                </div>
+                                <div class="row">
+                                    <div class="col-1"></div>
+                                    <div class="col-md-5 d-inline form-group string required certificate_delivery_address_1">
                                         <div><label class="string required"
                                                                                    for="certificate_delivery_address_1">Address
                                             1 (Street number and street name)</label><a
@@ -110,12 +114,12 @@
                                         <div><input data-validate="" class="string required text-capitalize"
                                                                             type="text"
                                                                             th:field="*{street}"
-                                                                            id="certificate_delivery_address_1" required="required"/><a
+                                                                            id="certificate_delivery_address_1" required="required" style="height: 2.15em"/><a
                                                  data-tippy=""
                                                 data-original-title="Please indicate the the street number and street name where you need the certificate to be delivered."></a>
                                         </div>
                                     </div>
-                                    <div class="d-inline form-group string optional certificate_delivery_address_2">
+                                    <div class="col-md-5 d-inline form-group string optional certificate_delivery_address_2">
                                         <div><label class="string optional"
                                                                                    for="certificate_delivery_address_2">Address
                                             2 (if applicable: Apt, suite, floor)</label><a
@@ -124,23 +128,20 @@
                                             <div><input data-validate="" class="string optional text-capitalize"
                                                                                 type="text"
                                                                                 th:field="*{street_2}"
-                                                                                id="certificate_delivery_address_2"/><a
+                                                                                id="certificate_delivery_address_2" style="height: 2.15em"/><a
                                                      data-tippy=""
                                                     data-original-title="Please enter, if applicable, the apartment number, suite number or floor where you need the certificate to be delivered."></a>
                                             </div>
                                         </div>
                                     </div>
-
                                 </div>
                             </div>
                         </div>
-                    </section>
-                    <hr/>
-                    <section class="section pt-2">
-                        <div class="row">
-                            <div class="section__container">
-                                <div class="row justify-content-between">
-                                    <div class="d-inline form-group string required certificate_delivery_city">
+                        <div>
+                            <div style="width:100%" class="section__container container">
+                                <div class="row">
+                                    <div class="col-1"></div>
+                                    <div class="col-md-3 d-inline form-group string required certificate_delivery_city">
                                         <div><label class="string required"
                                                                                    for="certificate_delivery_city">City</label><a
                                                data-tippy=""
@@ -149,12 +150,12 @@
                                         <div><input data-validate="" class="string required text-capitalize"
                                                                             type="text"
                                                                             th:field="*{city}"
-                                                                            id="certificate_delivery_city" required="required"/><a
+                                                                            id="certificate_delivery_city" required="required" style="height: 2.15em"/><a
                                                data-tippy=""
                                                 data-original-title="Please indicate the name of the city where you need the certificate to be delivered."></a>
                                         </div>
                                     </div>
-                                    <div class=" d-inline form-group select required certificate_delivery_state">
+                                    <div class="col-md-3 d-inline form-group select required certificate_delivery_state">
                                         <div><label class="select required"
                                                                                    for="certificate_delivery_state">State</label>
                                         </div>
@@ -217,7 +218,7 @@
                                                     data-original-title="Please specify the state to which you need the certificate to be delivered."></a>
                                         </div>
                                     </div>
-                                    <div class="d-inline form-group string required certificate_delivery_zip_code">
+                                    <div class="col-md-3 d-inline form-group string required certificate_delivery_zip_code">
                                         <div><label class="string required"
                                                                                    for="certificate_delivery_zip_code">Zip
                                             code</label><a
@@ -228,7 +229,7 @@
                                         <div><input data-validate="" class="string required"
                                                                             type="text"
                                                                             th:field="*{zip}"
-                                                                            id="certificate_delivery_zip_code" required="required"/><a
+                                                                            id="certificate_delivery_zip_code" required="required" style="height: 2.15em"/><a
                                                  data-tippy=""
                                                 data-original-title="Enter the Zip code where you need the birth certificate to be delivered"></a>
                                         </div>
@@ -254,30 +255,6 @@
                                 </div>
                                 <div class="text-center pt-5">
                                     <div class="align-content-center">
-                                        <!--<input type="submit" name="commit"-->
-                                        <!--value="CONTINUE TO PAYMENT"-->
-                                        <!--id="continue-button2"-->
-                                        <!--class="btn-primary btn&#45;&#45;large is-block disable-resubmit"-->
-                                        <!--data-disable-with="CONTINUE APPLICATION"/>-->
-
-                                        <!--<form action='/charge' method='POST' id='checkout-form' >-->
-                                        <!--<input type='hidden' th:value='${amount}' name='amount' />-->
-                                        <!--&lt;!&ndash;<label>Price:<span th:text='${amount/100}' /></label>&ndash;&gt;-->
-                                        <!--&lt;!&ndash; NOTE: data-key/data-amount/data-currency will be rendered by Thymeleaf &ndash;&gt;-->
-                                        <!--<script-->
-                                        <!--src='https://checkout.stripe.com/checkout.js'-->
-                                        <!--class='stripe-button'-->
-                                        <!--th:attr='data-key=${stripePublicKey},-->
-                                        <!--data-amount=${amount},-->
-                                        <!--data-currency=${currency}'-->
-                                        <!--data-name='Baeldung'-->
-                                        <!--data-description='Spring course checkout'-->
-                                        <!--data-image-->
-                                        <!--='http://www.baeldung.com/wp-content/themes/baeldung/favicon/android-chrome-192x192.png'-->
-                                        <!--data-locale='auto'-->
-                                        <!--data-zip-code='false'>-->
-                                        <!--</script>-->
-                                        <!--</form>-->
                                         <input type="submit" name="commit" value="REVIEW APPLICATION"
                                                id="save-and-print"
                                                class=" p-2 btn-sun btn--large is-block disable-resubmit"
