@@ -43,7 +43,7 @@ let urlImg2 = "";
         });
 
         form.addEventListener('submit', function (e) {
-                    e.preventDefault();
+                    // e.preventDefault();
                     // $(".alert").delay(1000).addClass("in").toggle(true).fadeOut(4000);
             updateForm(urlImg1, urlImg2);
 

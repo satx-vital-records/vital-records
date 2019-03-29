@@ -1,47 +1,53 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" lang="en" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
 
-<head th:replace="fragments/login-form-header :: login-form-header('About Us!')"></head>
+<head th:replace="fragments/login-form-header :: login-form-header('About Us!')">
+</head>
 
 <body>
-    <div class=" navbar-fixed-top">
-        <div class="navbar-inner">
-            <ul class="float-right m-0">
-                <li sec:authorize="!isAuthenticated()" class="d-inline px-3 mb-1">
-                    <form th:action="@{/login}" th:method="get" class="d-inline">
-                        <button class="p-2 btn-primary btn--large is-block disable-resubmit" style="margin-top: 8px">
-                            Login
-                        </button>
-                    </form>
-                </li>
-                <li sec:authorize="isAuthenticated()" class="d-inline px-3 mb-1">
-                    <form th:action="@{/logout}" th:method="post" class="d-inline">
-                        <button class="p-2 btn-primary btn--large is-block disable-resubmit" style="margin-top: 8px">
-                            Logout
-                        </button>
-                    </form>
-                </li>
-            </ul>
+<section class="nav nav-page">
+    <div class="container-fluid">
+        <div class="row ">
+            <!--<div class="">-->
+            <div class="col-7 d-inline">
+                <header class="page-header d-inline">
+                    <a th:href="@{/}">
+                        <h3>Records Application<br/>
+                            <small>Vital Records City of San Antonio</small>
+                        </h3>
+                    </a>
+                </header>
+            </div>
+            <div class="col-5 my-auto d-inline">
+                <ul class="float-right d-inline">
+
+                    <li sec:authorize="!isAuthenticated()" class="d-inline px-3 mb-1">
+                        <form th:action="@{/login}" th:method="get" class="d-inline">
+                            <button class="p-2 btn-primary btn--large is-block disable-resubmit"
+                                    style="margin-top: 8px">
+                                Login
+                            </button>
+                        </form>
+                    </li>
+                    <li sec:authorize="isAuthenticated()" class="d-inline px-3 mb-1">
+                        <form th:action="@{/logout}" th:method="post" class="d-inline">
+                            <button class="p-2 btn-primary btn--large is-block disable-resubmit"
+                                    style="margin-top: 8px">
+                                Logout
+                            </button>
+                        </form>
+                    </li>
+                    <li class="d-inline px-3 mb-1 float-right">
+                        <a th:href="@{/about-us}"><i class="material-icons  "
+                                                     style="font-size: 36px; margin-top: 8px;">
+                            help_outline
+                        </i></a>
+                    </li>
+                </ul>
+            </div>
         </div>
     </div>
-    <div id="body-content">
-        <section class="nav nav-page">
-            <div class="container">
-                <div class="row">
-                    <div class="span7">
-                        <header class="page-header">
-                            <a th:href="@{/}">
-                                <h3>Records Application<br/>
-                                    <small>Vital Records City of San Antonio</small>
-                                </h3>
-                            </a>
-                        </header>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-
+</section>
         <div class="page container" style="width:90%; margin:1em auto;">
         <div class="card-deck">
             <div class="card" style="width: 10rem;">
@@ -49,8 +55,16 @@
                 <div class="card-body">
                     <h5 class="card-title">Sarah Barron</h5>
                 </div>
-                <div class="card-footer text-center">
-                    <a href="http://alumni.codeup.com/students/604" class="p-2 btn-primary btn--large is-block disable-resubmit" target="_blank">Profile Page</a>
+                <div class="card-footer" style="display: inline-block; text-align: center">
+                    <a href="https://linkedin.com/in/sarah-e-barron" target="_blank">
+                        <img class="linkedin" src="/imgs/linkedin.jpg" alt="Sarah Barron Linkedin" width="5" height="5" />
+                    </a>
+                    <a href="https://github.com/barronsarah" target="_blank">
+                        <img class="github" src="/imgs/GitHub-Mark.jpg" alt="Sarah Barron Github" width="5" height="5"/>
+                    </a>
+                    <a href="http://alumni.codeup.com/students/604" target="_blank">
+                        <img class="codeup" src="imgs/codeup.jpg" alt="Codeup Alumni Page - Sarah Barron" width="5" height="5" style="margin-left: 5px; margin-bottom: 1px"/>
+                    </a>
                 </div>
             </div>
             <div class="card" style="width: 10rem;">
@@ -58,8 +72,16 @@
                 <div class="card-body">
                     <h5 class="card-title">Rob Moore</h5>
                 </div>
-                <div class="card-footer text-center">
-                    <a href="http://alumni.codeup.com/students/595" class="p-2 btn-primary btn--large is-block disable-resubmit" target="_blank">Profile Page</a>
+                <div class="card-footer" style="display: inline-block; text-align: center">
+                    <a href="https://linkedin.com/in/robertenriquemoore" target="_blank">
+                        <img class="linkedin" src="/imgs/linkedin.jpg" alt="Rob Moore Linkedin" width="5" height="5" />
+                    </a>
+                    <a href="https://github.com/rob-moore1894" target="_blank">
+                        <img class="github" src="/imgs/GitHub-Mark.jpg" alt="Rob Moore Github" width="5" height="5"/>
+                    </a>
+                    <a href="http://alumni.codeup.com/students/595" target="_blank">
+                        <img class="codeup" src="imgs/codeup.jpg" alt="Codeup Alumni Page - Rob Moore" width="5" height="5" style="margin-left: 5px; margin-bottom: 1px"/>
+                    </a>
                 </div>
             </div>
             <div class="card" style="width: 10rem;">
@@ -67,13 +89,20 @@
                 <div class="card-body">
                     <h5 class="card-title">Dorian Wallace</h5>
                 </div>
-                <div class="card-footer text-center">
-                    <a href="http://alumni.codeup.com/students/608" class="p-2 btn-primary btn--large is-block disable-resubmit" target="_blank">Profile Page</a>
+                <div class="card-footer" style="display: inline-block; text-align: center">
+                    <a href="https://linkedin.com/in/dorian-wallace" target="_blank">
+                        <img class="linkedin" src="/imgs/linkedin.jpg" alt="Dorian Wallace Linkedin" width="5" height="5" />
+                    </a>
+                    <a href="https://github.com/Git-Software-Services" target="_blank">
+                        <img class="github" src="/imgs/GitHub-Mark.jpg" alt="Dorian Wallace Github" width="5" height="5"/>
+                    </a>
+                    <a href="http://alumni.codeup.com/students/608" target="_blank">
+                        <img class="codeup" src="imgs/codeup.jpg" alt="Codeup Alumni Page - Dorian Wallace" width="5" height="5" style="margin-left: 5px; margin-bottom: 1px"/>
+                    </a>
                 </div>
             </div>
         </div>
         </div>
         <footer th:replace="fragments/admin-footer :: admin-footer"></footer>
-    </div>
 </body>
 </html>

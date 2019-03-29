@@ -2,339 +2,346 @@
 <html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
 <head th:replace="fragments/login-form-header :: login-form-header('Application')"/>
 <body>
-  <div class=" navbar-fixed-top">
-    <div class="navbar-inner">
-      <ul class="float-right m-0">
+    <section class="nav nav-page">
+        <div class="container-fluid">
+            <div class="row ">
+                <!--<div class="">-->
+                <div class="col-7 d-inline">
+                    <header class="page-header d-inline">
+                        <a th:href="@{/}">
+                            <h3>Records Application<br/>
+                                <small>Vital Records City of San Antonio</small>
+                            </h3>
+                        </a>
+                    </header>
+                </div>
+                <div class="col-5 my-auto d-inline">
+                    <ul class="float-right d-inline">
 
-        <li sec:authorize="!isAuthenticated()" class="d-inline px-3 mb-1">
-          <form th:action="@{/login}" th:method="get" class="d-inline">
-            <button class="p-1 mb-2 rounded btn-primary btn--large is-block disable-resubmit" style="margin-top: 8px">Login</button>
-          </form>
-        </li>
-        <li sec:authorize="isAuthenticated()" class="d-inline px-3 mb-1">
-          <form th:action="@{/logout}" th:method="post" class="d-inline">
-            <button class="p-1 mb-2 rounded btn-primary btn--large is-block disable-resubmit" style="margin-top: 8px">Logout</button>
-          </form>
-        </li>
-        <li class="d-inline px-3 mb-1 float-right">
-          <a th:href="@{/about-us}"><i class="material-icons  " style="font-size: 36px; margin-top: 8px;">
-            help_outline
-          </i></a>
-        </li>
-      </ul>
-    </div>
-  </div>
-  <div id="body-container">
-    <div id="body-content">
-      <section class="nav nav-page">
-        <div class="container">
-          <div class="row">
-            <div class="span7">
-              <header class="page-header">
-                <a th:href="@{/}">
-                  <h3>Records Application<br/>
-                    <small>Vital Records City of San Antonio</small>
-                  </h3>
-                </a>
-              </header>
+                        <li sec:authorize="!isAuthenticated()" class="d-inline px-3 mb-1">
+                            <form th:action="@{/login}" th:method="get" class="d-inline">
+                                <button class="p-2 btn-primary btn--large is-block disable-resubmit"
+                                        style="margin-top: 8px">
+                                    Login
+                                </button>
+                            </form>
+                        </li>
+                        <li sec:authorize="isAuthenticated()" class="d-inline px-3 mb-1">
+                            <form th:action="@{/logout}" th:method="post" class="d-inline">
+                                <button class="p-2 btn-primary btn--large is-block disable-resubmit"
+                                        style="margin-top: 8px">
+                                    Logout
+                                </button>
+                            </form>
+                        </li>
+                        <li class="d-inline px-3 mb-1 float-right">
+                            <a th:href="@{/about-us}"><i class="material-icons  "
+                                                         style="font-size: 36px; margin-top: 8px;">
+                                help_outline
+                            </i></a>
+                        </li>
+                    </ul>
+                </div>
             </div>
-          </div>
         </div>
-      </section>
-      <div class="page container">
+    </section>
+    <div class="page container">
         <div class="cssProgress mx-auto" style="width: 70%;">
-          <div class="progress1">
-            <div class="cssProgress-bar" data-percent="90" style="width: 90%;">
-              <span class="cssProgress-label">90%</span>
+            <div class="progress1">
+                <div class="cssProgress-bar" data-percent="90" style="width: 90%;">
+                    <span style="color:black" class="cssProgress-label">90%</span>
+                </div>
             </div>
-          </div>
         </div>
         <form accept-charset="UTF-8" th:action="@{/application-1}" class="simple_form new_certificate mx-auto"
               style="width:100%"
               id="new_certificate1" th:method="post" th:object="${app}" novalidate="novalidate">
-          <input name="utf8" type="hidden"
-                 value="✓"/><input
-            name="authenticity_token" type="hidden"
-            value="GBkZnnvogYBnoELufrriChXdsyeZ975veN9Q1hrDy5ov+pkPlLS8VIQiZjTnU/pzR6WYK8uVu/UzabA9pT+vYg=="/>
-          <div class="text-center py-4"><h2 class="h2"> Vital Records Application Form</h2>
-          </div>
-          <hr/>
-
-          <div class="row">
-            <div style="width:100%" class="section__container container">
-              <h4 class="h4">1. Requestor information</h4>
-              <p class="align-left ml-4">Enter the name of the requestor as shown on the ID/driver's license.</p>
-
-
-              <div class="row">
-                <div class="col-1"></div>
-                <div class="col-md-3 form-group string required certificate_contact_first_name">
-                  <div><label class="string required"
-                                                             for="certificate_contact_first_name">First
-                    name</label></div>
-                  <div><input class="string required"
-                                                      data-validate="" id="certificate_contact_first_name"
-                                                      th:value="*{first_name}"
-                                                      type="text" style="height: 2.15em"/>
-                  </div>
-                </div>
-                <div class="col-md-3 form-group string optional certificate_contact_middle_name">
-                  <div><label class="string optional"
-                                                             for="certificate_contact_middle_name">Middle
-                    name</label></div>
-                  <div><input class="string optional"
-                                                      data-validate="" id="certificate_contact_middle_name"
-                                                      th:value="*{mid_name}"
-                                                      type="text" style="height: 2.15em"/>
-                  </div>
-                </div>
-                <div class="col-md-3 form-group string required certificate_contact_last_name">
-                  <div><label class="string required"
-                                                             for="certificate_contact_last_name">Last
-                    name</label>
-                  </div>
-                  <div><input class="string required"
-                                                      data-validate="" id="certificate_contact_last_name"
-                                                      th:value="*{last_name}"
-                                                      type="text" style="height: 2.15em"/>
-                  </div>
-                </div>
-              </div>
+            <input name="utf8" type="hidden"
+                   value="✓"/><input
+                name="authenticity_token" type="hidden"
+                value="GBkZnnvogYBnoELufrriChXdsyeZ975veN9Q1hrDy5ov+pkPlLS8VIQiZjTnU/pzR6WYK8uVu/UzabA9pT+vYg=="/>
+            <div class="text-center py-4"><h2 class="h2"> Vital Records Application Form</h2>
             </div>
-          </div>
-          <section class="section pt-2">
+            <hr/>
+
             <div class="row">
-              <div style="width:100%" class="section__container container">
-                <h4 class="h4 ml-4"> Requestor Address</h4>
-                <p class="align-left ml-4">Enter the address of the requestor as shown on the ID/driver's license.</p>
+                <div style="width:100%" class="section__container container">
+                    <h4 class="h4">1. Requestor information</h4>
+                    <p class="align-left ml-4">Enter the name of the requestor as shown on the ID/driver's license.</p>
 
-                <div class="row">
-                  <div class="col-1"></div>
-                  <div class="col-md-5 d-inline form-group string required certificate_contact_street">
-                    <div><label class="string required"
-                                                               for="certificate_contact_street">Street Address</label></div>
-                    <div><input class="string required"
-                                                        data-validate="" id="certificate_contact_street"
-                                                        th:value="*{street}"
-                                                        type="text" style="height: 2.15em"/>
+
+                    <div class="row">
+                        <div class="col-1"></div>
+                        <div class="col-md-3 form-group string required certificate_contact_first_name">
+                            <div><label class="string required"
+                                        for="certificate_contact_first_name">First
+                                name</label></div>
+                            <div><input class="string required"
+                                        data-validate="" id="certificate_contact_first_name"
+                                        th:value="*{first_name}"
+                                        type="text" style="height: 2.15em"/>
+                            </div>
+                        </div>
+                        <div class="col-md-3 form-group string optional certificate_contact_middle_name">
+                            <div><label class="string optional"
+                                        for="certificate_contact_middle_name">Middle
+                                name</label></div>
+                            <div><input class="string optional"
+                                        data-validate="" id="certificate_contact_middle_name"
+                                        th:value="*{mid_name}"
+                                        type="text" style="height: 2.15em"/>
+                            </div>
+                        </div>
+                        <div class="col-md-3 form-group string required certificate_contact_last_name">
+                            <div><label class="string required"
+                                        for="certificate_contact_last_name">Last
+                                name</label>
+                            </div>
+                            <div><input class="string required"
+                                        data-validate="" id="certificate_contact_last_name"
+                                        th:value="*{last_name}"
+                                        type="text" style="height: 2.15em"/>
+                            </div>
+                        </div>
                     </div>
-                  </div>
-                  <div class="col-md-5 d-inline form-group string optional certificate_contact_street2">
-                    <div><label class="string optional"
-                                                               for="certificate_contact_street2">Street Address 2 (Apt, Bldg, etc)</label></div>
-                    <div><input class="string optional"
-                                                        data-validate="" id="certificate_contact_street2"
-                                                        th:value="*{street2}"
-                                                        type="text" style="height: 2.15em"/>
-                    </div>
-                  </div>
                 </div>
-
-                <div class="row">
-                  <div class="col-1"></div>
-                  <div class="col-md-3 d-line form-group string required certificate_contact_city">
-                    <div><label class="string required"
-                                                               for="certificate_contact_city">City</label>
-                    </div>
-                    <div><input class="string required"
-                                                        data-validate="" id="certificate_contact_city"
-                                                        th:value="*{city}"
-                                                        type="text" style="height: 2.15em"/>
-                    </div>
-                  </div>
-                  <div class="col-md-3 d-inline form-group select required certificate_delivery_state">
-                    <div><label class="select required"
-                                                               for="certificate_contact_state">State</label>
-                    </div>
-                    <div><select data-validate=""
-                                                         class="select required"
-                                                         th:value="*{state}"
-                                                         th:field="*{state}"
-                                                         id="certificate_contact_state">
-                      <option value="">Please select</option>
-                      <option th:value="AL">Alabama</option>
-                      <option th:value="AK">Alaska</option>
-                      <option th:value="AR">Arkansas</option>
-                      <option th:value="AZ">Arizona</option>
-                      <option th:value="CA">California</option>
-                      <option th:value="CO">Colorado</option>
-                      <option th:value="CT">Connecticut</option>
-                      <option th:value="DE">Delaware</option>
-                      <option th:value="FL">Florida</option>
-                      <option th:value="GA">Georgia</option>
-                      <option th:value="HI">Hawaii</option>
-                      <option th:value="ID">Idaho</option>
-                      <option th:value="IL">Illinois</option>
-                      <option th:value="IN">Indiana</option>
-                      <option th:value="IA">Iowa</option>
-                      <option th:value="KS">Kansas</option>
-                      <option th:value="KY">Kentucky</option>
-                      <option th:value="LA">Louisiana</option>
-                      <option th:value="ME">Maine</option>
-                      <option th:value="MD">Maryland</option>
-                      <option th:value="MA">Massachusetts</option>
-                      <option th:value="MI">Michigan</option>
-                      <option th:value="MN">Minnesota</option>
-                      <option th:value="MS">Mississippi</option>
-                      <option th:value="MO">Missouri</option>
-                      <option th:value="MT">Montana</option>
-                      <!--<option th:value="NE">Nebraska</option>-->
-                      <option th:value="NV">Nevada</option>
-                      <option th:value="NH">New Hampshire</option>
-                      <option th:value="NJ">New Jersey</option>
-                      <option th:value="NM">New Mexico</option>
-                      <option th:value="NY">New York</option>
-                      <option th:value="NC">North Carolina</option>
-                      <option th:value="ND">North Dakota</option>
-                      <option th:value="OH">Ohio</option>
-                      <option th:value="OK">Oklahoma</option>
-                      <!--<option th:value="OR">Oregon</option>-->
-                      <option th:value="PA">Pennsylvania</option>
-                      <option th:value="RI">Rhode Island</option>
-                      <option th:value="SC">South Carolina</option>
-                      <option th:value="SD">South Dakota</option>
-                      <option th:value="TN">Tennessee</option>
-                      <option th:value="TX">Texas</option>
-                      <option th:value="UT">Utah</option>
-                      <option th:value="VT">Vermont</option>
-                      <option th:value="VA">Virginia</option>
-                      <option th:value="WA">Washington</option>
-                      <option th:value="WV">West Virginia</option>
-                      <option th:value="WI">Wisconsin</option>
-                      <option th:value="WY">Wyoming</option>
-                    </select>
-                    </div>
-                  </div>
-                  <div class="col-md-3 d-inline form-group string optional certificate_contact_zip">
-                    <div><label class="string optional"
-                                                               for="certificate_contact_zip">Zip Code</label></div>
-                    <div><input class="string optional"
-                                                        data-validate="" id="certificate_contact_zip"
-                                                        th:value="*{zip}"
-                                                        type="text" style="height: 2.15em"/>
-                    </div>
-
-                  </div>
-                </div>
-              </div>
             </div>
-          </section>
-
-          <section class="section pb-2">
-            <div>
-              <div style="width:100%" class="section__container container">
-                <h4 class="h4">2. Your relationship with person on record</h4>
+            <section class="section pt-2">
                 <div class="row">
-                  <div class="col-1"></div>
-                  <div class="col-md-5 p-2 m-2 d-inline form-group select required certificate_record_person_relationship">
-                    <div><label class="select required pr-1"
-                                                               for="certificate_record_person_relationship">Relationship with
-                      person on record?</label>
-                    </div>
-                    <div>
-                      <input type="text" th:value="*{record_relationship}" name="record_relationship"
-                             id="certificate_record_person_relationship" style="height: 2.15em;"/>
+                    <div style="width:100%" class="section__container container">
+                        <h4 class="h4 ml-4"> Requestor Address</h4>
+                        <p class="align-left ml-4">Enter the address of the requestor as shown on the ID/driver's
+                            license.</p>
 
-                    </div>
-                  </div>
-                  <div class="col-md-5 d-inline p-2 form-group select required certificate_record_person_relationship">
-                    <div><label class="select required"
-                                                               for="certificate_record_person_relationship">Please
-                      select the certificate type you require</label><a
+                        <div class="row">
+                            <div class="col-1"></div>
+                            <div class="col-md-5 d-inline form-group string required certificate_contact_street">
+                                <div><label class="string required"
+                                            for="certificate_contact_street">Street Address</label></div>
+                                <div><input class="string required"
+                                            data-validate="" id="certificate_contact_street"
+                                            th:value="*{street}"
+                                            type="text" style="height: 2.15em"/>
+                                </div>
+                            </div>
+                            <div class="col-md-5 d-inline form-group string optional certificate_contact_street2">
+                                <div><label class="string optional"
+                                            for="certificate_contact_street2">Street Address 2 (Apt, Bldg, etc)</label>
+                                </div>
+                                <div><input class="string optional"
+                                            data-validate="" id="certificate_contact_street2"
+                                            th:value="*{street2}"
+                                            type="text" style="height: 2.15em"/>
+                                </div>
+                            </div>
+                        </div>
 
-                        data-original-title="Standard size format is the most commonly issued because it satisfies most purposes,; Long Form is used most often to obtain a passport, for purposes of dual citizenship, Indian Registry and immigration"
-                        data-tippy=""></a>
-                    </div>
-                    <div><select class="select required"
-                                                         data-validate=""
-                                                         id="certificate_type_long_standard"
-                                                         th:field="*{form_type}">
-                      <option value="">Please select</option>
-                      <option th:value="Abstract">Abstract (Standard)</option>
-                      <option th:value="Long">Long form ( Passport, Dual Citizenship, Indian Registry, Immigration
-                        purposes)
-                      </option>
-                      <option th:value="certified_copy">Certified Copy (Death certificates only)</option>
+                        <div class="row">
+                            <div class="col-1"></div>
+                            <div class="col-md-3 d-line form-group string required certificate_contact_city">
+                                <div><label class="string required"
+                                            for="certificate_contact_city">City</label>
+                                </div>
+                                <div><input class="string required"
+                                            data-validate="" id="certificate_contact_city"
+                                            th:value="*{city}"
+                                            type="text" style="height: 2.15em"/>
+                                </div>
+                            </div>
+                            <div class="col-md-3 d-inline form-group select required certificate_delivery_state">
+                                <div><label class="select required"
+                                            for="certificate_contact_state">State</label>
+                                </div>
+                                <div><select data-validate=""
+                                             class="select required"
+                                             th:value="*{state}"
+                                             th:field="*{state}"
+                                             id="certificate_contact_state">
+                                    <option value="">Please select</option>
+                                    <option th:value="AL">Alabama</option>
+                                    <option th:value="AK">Alaska</option>
+                                    <option th:value="AR">Arkansas</option>
+                                    <option th:value="AZ">Arizona</option>
+                                    <option th:value="CA">California</option>
+                                    <option th:value="CO">Colorado</option>
+                                    <option th:value="CT">Connecticut</option>
+                                    <option th:value="DE">Delaware</option>
+                                    <option th:value="FL">Florida</option>
+                                    <option th:value="GA">Georgia</option>
+                                    <option th:value="HI">Hawaii</option>
+                                    <option th:value="ID">Idaho</option>
+                                    <option th:value="IL">Illinois</option>
+                                    <option th:value="IN">Indiana</option>
+                                    <option th:value="IA">Iowa</option>
+                                    <option th:value="KS">Kansas</option>
+                                    <option th:value="KY">Kentucky</option>
+                                    <option th:value="LA">Louisiana</option>
+                                    <option th:value="ME">Maine</option>
+                                    <option th:value="MD">Maryland</option>
+                                    <option th:value="MA">Massachusetts</option>
+                                    <option th:value="MI">Michigan</option>
+                                    <option th:value="MN">Minnesota</option>
+                                    <option th:value="MS">Mississippi</option>
+                                    <option th:value="MO">Missouri</option>
+                                    <option th:value="MT">Montana</option>
+                                    <!--<option th:value="NE">Nebraska</option>-->
+                                    <option th:value="NV">Nevada</option>
+                                    <option th:value="NH">New Hampshire</option>
+                                    <option th:value="NJ">New Jersey</option>
+                                    <option th:value="NM">New Mexico</option>
+                                    <option th:value="NY">New York</option>
+                                    <option th:value="NC">North Carolina</option>
+                                    <option th:value="ND">North Dakota</option>
+                                    <option th:value="OH">Ohio</option>
+                                    <option th:value="OK">Oklahoma</option>
+                                    <!--<option th:value="OR">Oregon</option>-->
+                                    <option th:value="PA">Pennsylvania</option>
+                                    <option th:value="RI">Rhode Island</option>
+                                    <option th:value="SC">South Carolina</option>
+                                    <option th:value="SD">South Dakota</option>
+                                    <option th:value="TN">Tennessee</option>
+                                    <option th:value="TX">Texas</option>
+                                    <option th:value="UT">Utah</option>
+                                    <option th:value="VT">Vermont</option>
+                                    <option th:value="VA">Virginia</option>
+                                    <option th:value="WA">Washington</option>
+                                    <option th:value="WV">West Virginia</option>
+                                    <option th:value="WI">Wisconsin</option>
+                                    <option th:value="WY">Wyoming</option>
+                                </select>
+                                </div>
+                            </div>
+                            <div class="col-md-3 d-inline form-group string optional certificate_contact_zip">
+                                <div><label class="string optional"
+                                            for="certificate_contact_zip">Zip Code</label></div>
+                                <div><input class="string optional"
+                                            data-validate="" id="certificate_contact_zip"
+                                            th:value="*{zip}"
+                                            type="text" style="height: 2.15em"/>
+                                </div>
 
-                    </select><a class="fa"
-                                data-original-title="Standard size format is the most commonly issued because it satisfies most purposes,; Long Form is used most often to obtain a passport, for purposes of dual citizenship, Indian Registry and immigration"
-                                data-tippy=""></a>
+                            </div>
+                        </div>
                     </div>
-                  </div>
                 </div>
+            </section>
 
-                <div class="row">
-                  <div class="col-1"></div>
-                  <div class="col-md-5 d-inline p-2 m-2 form-group select required certificate_record_person_relationship">
-                    <div><label class="select required"
-                                                               for="certificate_record_person_relationship">Why
-                      are
-                      you applying for a certificate?</label><a
-                        data-original-title="This information is required by the Health Department. If the reason for applying is not listed here, please select “other."
-                        data-tippy=""></a>
+            <section class="section pb-2">
+                <div>
+                    <div style="width:100%" class="section__container container">
+                        <h4 class="h4">2. Your relationship with person on record</h4>
+                        <div class="row">
+                            <div class="col-1"></div>
+                            <div class="col-md-5 p-2 m-2 d-inline form-group select required certificate_record_person_relationship">
+                                <div><label class="select required pr-1"
+                                            for="certificate_record_person_relationship">Relationship with
+                                    person on record?</label>
+                                </div>
+                                <div>
+                                    <input type="text" th:value="*{record_relationship}" name="record_relationship"
+                                           id="certificate_record_person_relationship" style="height: 2.15em;"/>
+
+                                </div>
+                            </div>
+                            <div class="col-md-5 d-inline p-2 form-group select required certificate_record_person_relationship">
+                                <div><label class="select required"
+                                            for="certificate_record_person_relationship">Please
+                                    select the certificate type you require</label><a
+
+                                        data-original-title="Standard size format is the most commonly issued because it satisfies most purposes,; Long Form is used most often to obtain a passport, for purposes of dual citizenship, Indian Registry and immigration"
+                                        data-tippy=""></a>
+                                </div>
+                                <div><select class="select required"
+                                             data-validate=""
+                                             id="certificate_type_long_standard"
+                                             th:field="*{form_type}">
+                                    <option value="">Please select</option>
+                                    <option th:value="Abstract">Abstract (Standard)</option>
+                                    <option th:value="Long">Long form ( Passport, Dual Citizenship, Indian Registry,
+                                        Immigration
+                                        purposes)
+                                    </option>
+                                    <option th:value="certified_copy">Certified Copy (Death certificates only)</option>
+
+                                </select><a class="fa"
+                                            data-original-title="Standard size format is the most commonly issued because it satisfies most purposes,; Long Form is used most often to obtain a passport, for purposes of dual citizenship, Indian Registry and immigration"
+                                            data-tippy=""></a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-1"></div>
+                            <div class="col-md-5 d-inline p-2 m-2 form-group select required certificate_record_person_relationship">
+                                <div><label class="select required"
+                                            for="certificate_record_person_relationship">Why
+                                    are
+                                    you applying for a certificate?</label><a
+                                        data-original-title="This information is required by the Health Department. If the reason for applying is not listed here, please select “other."
+                                        data-tippy=""></a>
+                                </div>
+                                <div><select class="select required"
+                                             data-validate=""
+                                             id="certificate_purpose"
+                                             th:value="${purpose}"
+                                             th:field="*{purpose}">
+                                    <option value="">Please select</option>
+                                    <option th:value="Passport">Passport</option>
+                                    <option th:value="Social_Security">Social Security</option>
+                                    <option th:value="Retirement">Retirement</option>
+                                    <option th:value="Employment">Employment</option>
+                                    <option th:value="Working_Papers">Working Papers</option>
+                                    <option th:value="School_Entrance">School Entrance</option>
+                                    <option th:value="Driver_License">Driver's License</option>
+                                    <option th:value="Marriage_License">Marriage License</option>
+                                    <option th:value="Welfare_Assistance">Welfare Assistance</option>
+                                    <option th:value="Veteran_Benefits">Veteran's Benefits
+                                    </option>
+                                    <option th:value="Court_Proceeding">Court Proceeding
+
+                                    </option>
+                                    <option th:value="Entry_into_Armed_Forces">Entrance into Armed Forces</option>
+                                    <option th:value="International_Use">International Use
+                                    </option>
+                                    <option th:value="Insurance">Insurance
+                                    </option>
+                                    <option th:value="Genealogy">Genealogy
+                                    </option>
+                                    <option th:value="Other">Other</option>
+                                </select><a class="fa"
+                                            data-original-title="If you are requesting the  birth certificate for yourself, please select “Myself”. In all other cases, please specify your relationship to the person on record. For example if you are a mother requesting the certificate for your child, select &quot;I am the Mother&quot;. It is important to note that if you are not a direct family member, you may have to provide additional proof of your relationship with the person on record."
+                                            data-tippy=""></a>
+                                </div>
+                            </div>
+
+
+                            <div class="col-md-5 p-2 m-2 d-inline form-group select required certificate_record_copies">
+                                <div><label class="select required"
+                                            for="certificate_record_copies">Number
+                                    of Certified Copies needed</label><a
+
+                                        data-original-title="Indicate how many copies of the certificate you need. A certified copy is a copy of a primary document, that has on it an endorsement or certificate marking that it is a true copy of the primary document. It does not certify that the primary document is genuine. It is only a true copy of the primary document. A certified copy may be required for official government or court purposes and for commercial purposes."
+                                        data-tippy=""></a>
+                                </div>
+                                <div><select class="select required"
+                                             data-validate=""
+                                             id="certificate_record_copies"
+                                             name="certificate[record_copies]">
+                                    <option value="">Please select</option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                </select><a
+                                        data-original-title="Indicate how many copies of the certificate you need. A certified copy is a copy of a primary document, that has on it an endorsement or certificate marking that it is a true copy of the primary document. It does not certify that the primary document is genuine. It is only a true copy of the primary document. A certified copy may be required for official government or court purposes and for commercial purposes."
+                                        data-tippy=""></a>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div><select class="select required"
-                                                         data-validate=""
-                                                         id="certificate_purpose"
-                                                         th:value="${purpose}"
-                                                         th:field="*{purpose}">
-                      <option value="">Please select</option>
-                      <option th:value="Passport">Passport</option>
-                      <option th:value="Social_Security">Social Security</option>
-                      <option th:value="Retirement">Retirement</option>
-                      <option th:value="Employment">Employment</option>
-                      <option th:value="Working_Papers">Working Papers</option>
-                      <option th:value="School_Entrance">School Entrance</option>
-                      <option th:value="Driver_License">Driver's License</option>
-                      <option th:value="Marriage_License">Marriage License</option>
-                      <option th:value="Welfare_Assistance">Welfare Assistance</option>
-                      <option th:value="Veteran_Benefits">Veteran's Benefits
-                      </option>
-                      <option th:value="Court_Proceeding">Court Proceeding
-
-                      </option>
-                      <option th:value="Entry_into_Armed_Forces">Entrance into Armed Forces</option>
-                      <option th:value="International_Use">International Use
-                      </option>
-                      <option th:value="Insurance">Insurance
-                      </option>
-                      <option th:value="Genealogy">Genealogy
-                      </option>
-                      <option th:value="Other">Other</option>
-                    </select><a class="fa"
-                                data-original-title="If you are requesting the  birth certificate for yourself, please select “Myself”. In all other cases, please specify your relationship to the person on record. For example if you are a mother requesting the certificate for your child, select &quot;I am the Mother&quot;. It is important to note that if you are not a direct family member, you may have to provide additional proof of your relationship with the person on record."
-                                data-tippy=""></a>
-                    </div>
-                  </div>
-
-
-                  <div class="col-md-5 p-2 m-2 d-inline form-group select required certificate_record_copies">
-                    <div><label class="select required"
-                                                               for="certificate_record_copies">Number
-                      of Certified Copies needed</label><a
-
-                        data-original-title="Indicate how many copies of the certificate you need. A certified copy is a copy of a primary document, that has on it an endorsement or certificate marking that it is a true copy of the primary document. It does not certify that the primary document is genuine. It is only a true copy of the primary document. A certified copy may be required for official government or court purposes and for commercial purposes."
-                        data-tippy=""></a>
-                    </div>
-                    <div><select class="select required"
-                                                         data-validate=""
-                                                         id="certificate_record_copies"
-                                                         name="certificate[record_copies]">
-                      <option value="">Please select</option>
-                      <option value="1">1</option>
-                      <option value="2">2</option>
-                      <option value="3">3</option>
-                      <option value="4">4</option>
-                    </select><a
-                        data-original-title="Indicate how many copies of the certificate you need. A certified copy is a copy of a primary document, that has on it an endorsement or certificate marking that it is a true copy of the primary document. It does not certify that the primary document is genuine. It is only a true copy of the primary document. A certified copy may be required for official government or court purposes and for commercial purposes."
-                        data-tippy=""></a>
-                    </div>
-                  </div>
                 </div>
-              </div>
-            </div>
-          </section>
-          <hr/>
+            </section>
+            <hr/>
         </form>
 
 
@@ -343,189 +350,192 @@
               novalidate="novalidate" accept-charset="UTF-8">
 
 
-          <section class="section pb-2">
-            <div class="row">
-
-            </div>
-          </section>
-          <section class="section pt-2">
-            <div>
-              <div style="width:100%" class="section__container container">
-                <h4 class="h4">3. Full name of the person on record</h4>
-                <p class="align-left ml-4">Enter the full name of the person on record at the time of
-                  birth. Leave middle name empty if unknown.</p>
-
+            <section class="section pb-2">
                 <div class="row">
-                  <div class="col-1"></div>
-                  <div class="col-md-3 ml-3 p-2 d-inline form-group string required certificate_person_first_name">
-                    <div><label class="string required"
-                                                               for="certificate_person_first_name">First
-                      name</label></div>
-                    <div><input data-validate=""
-                                                        class="string required" type="text"
-                                                        th:value="*{first_name}"
-                                                        id="certificate_person_first_name" style="height: 2.15em"/>
-                    </div>
-                  </div>
-                  <div class="col-md-3 p-2 d-inline form-group string optional certificate_person_middle_name">
-                    <div><label class="string optional"
-                                                               for="certificate_person_middle_name">Middle
-                      name</label></div>
-                    <div><input data-validate=""
-                                                        class="string optional" type="text"
-                                                        th:value="*{mid_name}"
-                                                        id="certificate_person_middle_name" style="height: 2.15em"/>
-                    </div>
-                  </div>
-                  <div class="col-md-3 p-2 d-inline form-group string required certificate_person_last_name">
-                    <div><label class="string required"
-                                                               for="certificate_person_last_name">Last
-                      name</label>
-                    </div>
-                    <div><input data-validate=""
-                                                        class="string required" type="text"
-                                                        th:value="*{last_name}"
-                                                        id="certificate_person_last_name" style="height: 2.15em"/>
-                    </div>
-                  </div>
+
                 </div>
-              </div>
+            </section>
+            <section class="section pt-2">
+                <div>
+                    <div style="width:100%" class="section__container container">
+                        <h4 class="h4">3. Full name of the person on record</h4>
+                        <p class="align-left ml-4">Enter the full name of the person on record at the time of
+                            birth. Leave middle name empty if unknown.</p>
+
+                        <div class="row">
+                            <div class="col-1"></div>
+                            <div class="col-md-3 ml-3 p-2 d-inline form-group string required certificate_person_first_name">
+                                <div><label class="string required"
+                                            for="certificate_person_first_name">First
+                                    name</label></div>
+                                <div><input data-validate=""
+                                            class="string required" type="text"
+                                            th:value="*{first_name}"
+                                            id="certificate_person_first_name" style="height: 2.15em"/>
+                                </div>
+                            </div>
+                            <div class="col-md-3 p-2 d-inline form-group string optional certificate_person_middle_name">
+                                <div><label class="string optional"
+                                            for="certificate_person_middle_name">Middle
+                                    name</label></div>
+                                <div><input data-validate=""
+                                            class="string optional" type="text"
+                                            th:value="*{mid_name}"
+                                            id="certificate_person_middle_name" style="height: 2.15em"/>
+                                </div>
+                            </div>
+                            <div class="col-md-3 p-2 d-inline form-group string required certificate_person_last_name">
+                                <div><label class="string required"
+                                            for="certificate_person_last_name">Last
+                                    name</label>
+                                </div>
+                                <div><input data-validate=""
+                                            class="string required" type="text"
+                                            th:value="*{last_name}"
+                                            id="certificate_person_last_name" style="height: 2.15em"/>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
 
               <th:block th:if="${app.getRecord_type() == 'Birth'}">
               <div style="width:100%" class="section__container">
+
                 <h4 class="h4">4. Birth information of the person on record</h4>
                 <p class="align-left ml-4">Enter the birth information of the person needing the
                   birth certificate. If you are applying for someone else (i.e. your child),
                   enter their birth information here.</p>
 
 
-                <div class="row">
-                  <div class="col-1"></div>
-                  <div class="col-md-3 ml-3 p-2 d-inline form-group string required certificate_birth_city">
-                    <div><label class="string required"
-                                                               for="certificate_birth_city2">City
-                      of birth</label><a
-                        data-tippy=""
-                        data-original-title="Please specify the city where the birth occurred."></a>
-                    </div>
-                    <div><input data-validate="" class="string required"
-                                                        type="text"
-                                                        th:value="*{birth_city}"
-                                                        id="certificate_birth_city2" style="height: 2.15em"/><a
-                        data-tippy=""
-                        data-original-title="Please specify the city where the birth occurred."></a>
-                    </div>
-                  </div>
+                            <div class="row">
+                                <div class="col-1"></div>
+                                <div class="col-md-3 ml-3 p-2 d-inline form-group string required certificate_birth_city">
+                                    <div><label class="string required"
+                                                for="certificate_birth_city2">City
+                                        of birth</label><a
+                                            data-tippy=""
+                                            data-original-title="Please specify the city where the birth occurred."></a>
+                                    </div>
+                                    <div><input data-validate="" class="string required"
+                                                type="text"
+                                                th:value="*{birth_city}"
+                                                id="certificate_birth_city2" style="height: 2.15em"/><a
+                                            data-tippy=""
+                                            data-original-title="Please specify the city where the birth occurred."></a>
+                                    </div>
+                                </div>
 
-                  <div class="col-md-3 p-2 d-inline form-group string required certificate_birth_county">
-                    <div><label class="string required"
-                                                               for="certificate_birth_county">County
-                      of birth</label><a
-                        data-tippy=""
-                        data-original-title="Please specify the county where the birth occurred."></a>
-                    </div>
-                    <div><input data-validate="" class="string required"
-                                                        type="text"
-                                                        th:value="*{birth_county}"
-                                                        id="certificate_birth_county" style="height: 2.15em"/><a
-                        data-tippy=""
-                        data-original-title="Please specify the county where the birth occurred."></a>
-                    </div>
-                  </div>
+                                <div class="col-md-3 p-2 d-inline form-group string required certificate_birth_county">
+                                    <div><label class="string required"
+                                                for="certificate_birth_county">County
+                                        of birth</label><a
+                                            data-tippy=""
+                                            data-original-title="Please specify the county where the birth occurred."></a>
+                                    </div>
+                                    <div><input data-validate="" class="string required"
+                                                type="text"
+                                                th:value="*{birth_county}"
+                                                id="certificate_birth_county" style="height: 2.15em"/><a
+                                            data-tippy=""
+                                            data-original-title="Please specify the county where the birth occurred."></a>
+                                    </div>
+                                </div>
 
-                  <div class="col-md-3 p-2 d-inline form-group date required certificate_birth_date">
-                    <div><label class="date required"
-                                                               for="birth_date">Date
-                      of birth</label>
+                                <div class="col-md-3 p-2 d-inline form-group date required certificate_birth_date">
+                                    <div><label class="date required"
+                                                for="birth_date">Date
+                                        of birth</label>
 
 
-                    </div>
-                    <div>
-                      <input
-                          th:value="*{date_of_birth}"
-                          type="text"
-                          id="birth_date"
-                          class="date-picker-style" style="height: 2.15em"/>
+                                    </div>
+                                    <div>
+                                        <input
+                                                th:value="*{date_of_birth}"
+                                                type="text"
+                                                id="birth_date"
+                                                class="date-picker-style" style="height: 2.15em"/>
 
-                      <a
-                          data-tippy=""
-                          data-original-title="Please specify the date of birth."></a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              </th:block>
+                                        <a
+                                                data-tippy=""
+                                                data-original-title="Please specify the date of birth."></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </th:block>
+
 
 
 
               <th:block th:unless="${app.getRecord_type() == 'Birth'}">
                 <div style="width: 100%" class="section__container container">
+
                   <h4 class="h4">4. Death information of the person on record</h4>
                   <p class="align-left ml-4">Enter the death information of the person listed on the record.</p>
 
-                  <div class="row">
-                    <div class="col-1"></div>
-                    <div class="col-md-3 ml-3 p-2 d-inline form-group string required certificate_death_city">
-                      <div><label class="string required"
-                                                                 for="certificate_death_city2">City
-                        of death</label><a
-                          data-tippy=""
-                          data-original-title="Please specify the city where the birth occurred."></a>
-                      </div>
-                      <div><input data-validate="" class="string required"
-                                                          type="text"
-                                                          th:value="*{death_city}"
-                                                          id="certificate_death_city2" style="height: 2.15em"/><a
-                          data-tippy=""
-                          data-original-title="Please specify the city where the death occurred."></a>
-                      </div>
-                    </div>
+                            <div class="row">
+                                <div class="col-1"></div>
+                                <div class="col-md-3 ml-3 p-2 d-inline form-group string required certificate_death_city">
+                                    <div><label class="string required"
+                                                for="certificate_death_city2">City
+                                        of death</label><a
+                                            data-tippy=""
+                                            data-original-title="Please specify the city where the birth occurred."></a>
+                                    </div>
+                                    <div><input data-validate="" class="string required"
+                                                type="text"
+                                                th:value="*{death_city}"
+                                                id="certificate_death_city2" style="height: 2.15em"/><a
+                                            data-tippy=""
+                                            data-original-title="Please specify the city where the death occurred."></a>
+                                    </div>
+                                </div>
 
-                    <div class="col-md-3 p-2 d-inline form-group string required certificate_death_county">
-                      <div><label class="string required"
-                                                                 for="certificate_death_county">County
-                        of death</label><a
-                          data-tippy=""
-                          data-original-title="Please specify the county where the death occurred."></a>
-                      </div>
-                      <div><input data-validate="" class="string required"
-                                                          type="text"
-                                                          th:value="*{death_county}"
-                                                          id="certificate_death_county" style="height: 2.15em"/><a
-                          data-tippy=""
-                          data-original-title="Please specify the county where the death occurred."></a>
-                      </div>
-                    </div>
+                                <div class="col-md-3 p-2 d-inline form-group string required certificate_death_county">
+                                    <div><label class="string required"
+                                                for="certificate_death_county">County
+                                        of death</label><a
+                                            data-tippy=""
+                                            data-original-title="Please specify the county where the death occurred."></a>
+                                    </div>
+                                    <div><input data-validate="" class="string required"
+                                                type="text"
+                                                th:value="*{death_county}"
+                                                id="certificate_death_county" style="height: 2.15em"/><a
+                                            data-tippy=""
+                                            data-original-title="Please specify the county where the death occurred."></a>
+                                    </div>
+                                </div>
 
-                    <div class="col-md-3 p-2 d-inline form-group date required certificate_death_date">
-                      <div><label class="date required"
-                                                                 for="death_date">Date
-                        of death</label>
+                                <div class="col-md-3 p-2 d-inline form-group date required certificate_death_date">
+                                    <div><label class="date required"
+                                                for="death_date">Date
+                                        of death</label>
 
 
-                      </div>
-                      <div>
-                        <input
-                            th:value="*{date_of_death}"
-                            type="text"
-                            id="death_date"
-                            class="date-picker-style"
-                        style="height: 2.15em"/>
+                                    </div>
+                                    <div>
+                                        <input
+                                                th:value="*{date_of_death}"
+                                                type="text"
+                                                id="death_date"
+                                                class="date-picker-style"
+                                                style="height: 2.15em"/>
 
-                        <a
-                            data-tippy=""
-                            data-original-title="Please specify the date of death."></a>
-                      </div>
-                    </div>
-                  </div>
+                                        <a
+                                                data-tippy=""
+                                                data-original-title="Please specify the date of death."></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </th:block>
+
+
                 </div>
-              </th:block>
 
-
-
-            </div>
-
-          </section>
+            </section>
 
         </form>
 
@@ -536,275 +546,274 @@
               novalidate="novalidate"
               accept-charset="UTF-8"><input name="utf8" type="hidden"
                                             value="✓"/><input
-            type="hidden" name="authenticity_token"
-            value="GBkZnnvogYBnoELufrriChXdsyeZ975veN9Q1hrDy5ov+pkPlLS8VIQiZjTnU/pzR6WYK8uVu/UzabA9pT+vYg=="/>
+                type="hidden" name="authenticity_token"
+                value="GBkZnnvogYBnoELufrriChXdsyeZ975veN9Q1hrDy5ov+pkPlLS8VIQiZjTnU/pzR6WYK8uVu/UzabA9pT+vYg=="/>
 
-          <hr/>
+            <hr/>
 
-          <section class="section pb-2">
-            <div class="row">
-              <div style="width:100%" class="section__container container">
-                <h4 class="h4">5. Mother of the person on record</h4>
-                <p class="align-left ml-4">Enter the full maiden name (before 1st Marriage) of the
-                  mother of the person on record.</p>
-
+            <section class="section pb-2">
                 <div class="row">
-                  <div class="col-1"></div>
-                  <div class="col-md-3 d-inline form-group string required certificate_mother_first_name">
-                    <div><label class="string required"
-                                                               for="parent1_first_name">First
-                      name</label></div>
-                    <div><input data-validate=""
-                                                        class="string required" type="text"
-                                                        th:value="*{parent1_first_name}"
-                                                        id="parent1_first_name" style="height: 2.15em"/>
+                    <div style="width:100%" class="section__container container">
+                        <h4 class="h4">5. Mother of the person on record</h4>
+                        <p class="align-left ml-4">Enter the full maiden name (before 1st Marriage) of the
+                            mother of the person on record.</p>
+
+                        <div class="row">
+                            <div class="col-1"></div>
+                            <div class="col-md-3 d-inline form-group string required certificate_mother_first_name">
+                                <div><label class="string required"
+                                            for="parent1_first_name">First
+                                    name</label></div>
+                                <div><input data-validate=""
+                                            class="string required" type="text"
+                                            th:value="*{parent1_first_name}"
+                                            id="parent1_first_name" style="height: 2.15em"/>
+                                </div>
+                            </div>
+                            <div class="col-md-3 d-inline form-group string optional certificate_mother_middle_name">
+                                <div><label class="string optional"
+                                            for="certificate_mother_middle_name">Middle
+                                    name</label></div>
+                                <div><input data-validate=""
+                                            class="string optional" type="text"
+                                            th:value="*{parent1_mid_name}"
+                                            id="certificate_mother_middle_name" style="height: 2.15em"/>
+                                </div>
+                            </div>
+                            <div class="col-md-4 d-inline form-group string required certificate_mother_maiden_or_last_name col-xs-6">
+                                <div><label class="string required"
+                                            for="certificate_mother_maiden_or_last_name">Last
+                                    name before any marriage</label><a
+                                        data-tippy=""
+                                        data-original-title="Enter the full maiden name of the mother of the person on record, at the time of birth."></a>
+                                </div>
+                                <div><input data-validate=""
+                                            class="string required" type="text"
+                                            th:value="*{parent1_last_name}"
+                                            id="certificate_mother_maiden_or_last_name" style="height: 2.15em"/><a
+                                        data-tippy=""
+                                        data-original-title="Enter the full maiden name of the mother of the person on record, at the time of birth."></a>
+                                </div>
+                            </div>
+                        </div>
+
                     </div>
-                  </div>
-                  <div class="col-md-3 d-inline form-group string optional certificate_mother_middle_name">
-                    <div><label class="string optional"
-                                                               for="certificate_mother_middle_name">Middle
-                      name</label></div>
-                    <div><input data-validate=""
-                                                        class="string optional" type="text"
-                                                        th:value="*{parent1_mid_name}"
-                                                        id="certificate_mother_middle_name" style="height: 2.15em"/>
-                    </div>
-                  </div>
-                  <div class="col-md-4 d-inline form-group string required certificate_mother_maiden_or_last_name col-xs-6">
-                    <div><label class="string required"
-                                                               for="certificate_mother_maiden_or_last_name">Last
-                      name before any marriage</label><a
-                        data-tippy=""
-                        data-original-title="Enter the full maiden name of the mother of the person on record, at the time of birth."></a>
-                    </div>
-                    <div><input data-validate=""
-                                                        class="string required" type="text"
-                                                        th:value="*{parent1_last_name}"
-                                                        id="certificate_mother_maiden_or_last_name" style="height: 2.15em"/><a
-                        data-tippy=""
-                        data-original-title="Enter the full maiden name of the mother of the person on record, at the time of birth."></a>
-                    </div>
-                  </div>
                 </div>
 
-              </div>
-            </div>
-
-            <div class="row">
-              <div style="width:100%" class="section__container container">
-                <h4 class="h4">6. Father of the person on record</h4>
-                <p class="align-left ml-4">Enter the full name of the father of the person on record.
-                  Leave empty if the identity of the father is unknown.</p>
-
                 <div class="row">
-                  <div class="col-1"></div>
-                  <div class="col-md-3 d-inline form-group string optional certificate_father_first_name">
-                    <div><label class="string optional"
-                                                               for="certificate_father_first_name">First
-                      name</label></div>
-                    <div><input data-validate=""
-                                                        class="string optional" type="text"
-                                                        th:value="*{parent2_first_name}"
-                                                        id="certificate_father_first_name" style="height: 2.15em"/>
-                    </div>
-                  </div>
-                  <div class="col-md-3 d-inline form-group string optional certificate_father_middle_name">
-                    <div><label class="string optional"
-                                                               for="parent2_middle_name">Middle
-                      name</label></div>
-                    <div><input data-validate=""
-                                                        class="string optional" type="text"
-                                                        th:value="*{parent2_mid_name}"
-                                                        id="parent2_middle_name" style="height: 2.15em"/>
-                    </div>
-                  </div>
-                  <div class="col-md-3 d-inline form-group string optional certificate_father_last_name">
-                    <div><label class="string optional"
-                                                               for="certificate_father_last_name">Last
-                      name</label>
-                    </div>
-                    <div><input data-validate=""
-                                                        class="string optional" type="text"
-                                                        th:value="*{parent2_last_name}"
-                                                        id="certificate_father_last_name" style="height: 2.15em;"/><a
-                        data-tippy=""
-                        data-original-title="Enter the full name of the father of the person on record at the time of birth. Leave empty if the identity of the father is unknown."></a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+                    <div style="width:100%" class="section__container container">
+                        <h4 class="h4">6. Father of the person on record</h4>
+                        <p class="align-left ml-4">Enter the full name of the father of the person on record.
+                            Leave empty if the identity of the father is unknown.</p>
 
-          </section>
+                        <div class="row">
+                            <div class="col-1"></div>
+                            <div class="col-md-3 d-inline form-group string optional certificate_father_first_name">
+                                <div><label class="string optional"
+                                            for="certificate_father_first_name">First
+                                    name</label></div>
+                                <div><input data-validate=""
+                                            class="string optional" type="text"
+                                            th:value="*{parent2_first_name}"
+                                            id="certificate_father_first_name" style="height: 2.15em"/>
+                                </div>
+                            </div>
+                            <div class="col-md-3 d-inline form-group string optional certificate_father_middle_name">
+                                <div><label class="string optional"
+                                            for="parent2_middle_name">Middle
+                                    name</label></div>
+                                <div><input data-validate=""
+                                            class="string optional" type="text"
+                                            th:value="*{parent2_mid_name}"
+                                            id="parent2_middle_name" style="height: 2.15em"/>
+                                </div>
+                            </div>
+                            <div class="col-md-3 d-inline form-group string optional certificate_father_last_name">
+                                <div><label class="string optional"
+                                            for="certificate_father_last_name">Last
+                                    name</label>
+                                </div>
+                                <div><input data-validate=""
+                                            class="string optional" type="text"
+                                            th:value="*{parent2_last_name}"
+                                            id="certificate_father_last_name" style="height: 2.15em;"/><a
+                                        data-tippy=""
+                                        data-original-title="Enter the full name of the father of the person on record at the time of birth. Leave empty if the identity of the father is unknown."></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </section>
         </form>
 
         <form class="simple_form new_certificate mx-auto" style="width: 100%;" id="new_certificate4"
               novalidate="novalidate"
               th:action="@{/checkout}" accept-charset="UTF-8" th:method="post" th:object="${mailaddress}">
-          <hr/>
-          <section class="section pb-2">
-            <div class="row">
-              <div style="width:100%" class="section__container container">
-                <h4 class="h4">7. Address of delivery</h4>
-                <p class="align-left ml-4">Please enter the physical address where you need the
-                  certificate to be delivered.</p>
+            <hr/>
+            <section class="section pb-2">
                 <div class="row">
-                  <div class="col-1"></div>
-                  <div class="col-md-5 d-inline form-group string required certificate_delivery_address_1">
-                    <div><label class="string required"
-                                                               for="certificate_delivery_address_1">Address
-                      1 (Street number and street name)</label>
-                    </div>
+                    <div style="width:100%" class="section__container container">
+                        <h4 class="h4">7. Address of delivery</h4>
+                        <p class="align-left ml-4">Please enter the physical address where you need the
+                            certificate to be delivered.</p>
+                        <div class="row">
+                            <div class="col-1"></div>
+                            <div class="col-md-5 d-inline form-group string required certificate_delivery_address_1">
+                                <div><label class="string required"
+                                            for="certificate_delivery_address_1">Address
+                                    1 (Street number and street name)</label>
+                                </div>
 
-                    <div><input data-validate="" class="string required"
-                                                        type="text"
-                                                        th:value="*{street}"
-                                                        id="certificate_delivery_address_1" style="height: 2.15em"/>
-                    </div>
-                  </div>
-                  <div class="col-md-5 d-inline form-group string optional certificate_delivery_address_2">
-                    <div><label class="string optional"
-                                                               for="certificate_delivery_address_2">Address
-                      2 (if applicable: Apt, suite, floor)</label><a
-                        data-tippy=""
-                        data-original-title="Please enter, if applicable, the apartment number, suite number or floor where you need the certificate to be delivered."></a>
-                      <div><input data-validate="" class="string optional"
-                                                          type="text"
-                                                          th:value="*{street_2}"
-                                                          id="certificate_delivery_address_2" style="height: 2.15em"/>
-                      </div>
-                    </div>
-                  </div>
+                                <div><input data-validate="" class="string required"
+                                            type="text"
+                                            th:value="*{street}"
+                                            id="certificate_delivery_address_1" style="height: 2.15em"/>
+                                </div>
+                            </div>
+                            <div class="col-md-5 d-inline form-group string optional certificate_delivery_address_2">
+                                <div><label class="string optional"
+                                            for="certificate_delivery_address_2">Address
+                                    2 (if applicable: Apt, suite, floor)</label><a
+                                        data-tippy=""
+                                        data-original-title="Please enter, if applicable, the apartment number, suite number or floor where you need the certificate to be delivered."></a>
+                                    <div><input data-validate="" class="string optional"
+                                                type="text"
+                                                th:value="*{street_2}"
+                                                id="certificate_delivery_address_2" style="height: 2.15em"/>
+                                    </div>
+                                </div>
+                            </div>
 
+                        </div>
+                    </div>
                 </div>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-1"></div>
-              <div style="width:100%" class="section__container container">
                 <div class="row">
-                  <div class="col-1"></div>
-                  <div class="col-md-3 d-inline form-group string required certificate_delivery_city">
-                    <div><label class="string required"
-                                                               for="certificate_delivery_city">City</label><a
-                        data-tippy=""
-                        data-original-title="Please indicate the name of the city where you need the certificate to be delivered."></a>
-                    </div>
-                    <div><input data-validate="" class="string required"
-                                                        type="text"
-                                                        th:value="*{city}"
-                                                        id="certificate_delivery_city" style="height: 2.15em"/><a
-                        data-tippy=""
-                        data-original-title="Please indicate the name of the city where you need the certificate to be delivered."></a>
-                    </div>
-                  </div>
-                  <div class="col-md-3 d-inline form-group select required certificate_delivery_state">
-                    <div><label class="select required"
-                                                               for="certificate_delivery_state">State</label><a
-                        data-tippy=""
-                        data-original-title="Please specify the state to which you need the certificate to be delivered."></a>
-                    </div>
-                    <div><select data-validate=""
-                                                         class="select required"
-                                                         th:value="*{state}"
-                                                         th:field="*{state}"
-                                                         id="certificate_delivery_state">
-                      <option value="">Please select</option>
-                      <option th:value="AL">Alabama</option>
-                      <option th:value="AK">Alaska</option>
-                      <option th:value="AR">Arkansas</option>
-                      <option th:value="AZ">Arizona</option>
-                      <option th:value="CA">California</option>
-                      <option th:value="CO">Colorado</option>
-                      <option th:value="CT">Connecticut</option>
-                      <option th:value="DE">Delaware</option>
-                      <option th:value="FL">Florida</option>
-                      <option th:value="GA">Georgia</option>
-                      <option th:value="HI">Hawaii</option>
-                      <option th:value="ID">Idaho</option>
-                      <option th:value="IL">Illinois</option>
-                      <option th:value="IN">Indiana</option>
-                      <option th:value="IA">Iowa</option>
-                      <option th:value="KS">Kansas</option>
-                      <option th:value="KY">Kentucky</option>
-                      <option th:value="LA">Louisiana</option>
-                      <option th:value="ME">Maine</option>
-                      <option th:value="MD">Maryland</option>
-                      <option th:value="MA">Massachusetts</option>
-                      <option th:value="MI">Michigan</option>
-                      <option th:value="MN">Minnesota</option>
-                      <option th:value="MS">Mississippi</option>
-                      <option th:value="MO">Missouri</option>
-                      <option th:value="MT">Montana</option>
-                      <!--<option th:value="NE">Nebraska</option>-->
-                      <option th:value="NV">Nevada</option>
-                      <option th:value="NH">New Hampshire</option>
-                      <option th:value="NJ">New Jersey</option>
-                      <option th:value="NM">New Mexico</option>
-                      <option th:value="NY">New York</option>
-                      <option th:value="NC">North Carolina</option>
-                      <option th:value="ND">North Dakota</option>
-                      <option th:value="OH">Ohio</option>
-                      <option th:value="OK">Oklahoma</option>
-                      <!--<option th:value="OR">Oregon</option>-->
-                      <option th:value="PA">Pennsylvania</option>
-                      <option th:value="RI">Rhode Island</option>
-                      <option th:value="SC">South Carolina</option>
-                      <option th:value="SD">South Dakota</option>
-                      <option th:value="TN">Tennessee</option>
-                      <option th:value="TX">Texas</option>
-                      <option th:value="UT">Utah</option>
-                      <option th:value="VT">Vermont</option>
-                      <option th:value="VA">Virginia</option>
-                      <option th:value="WA">Washington</option>
-                      <option th:value="WV">West Virginia</option>
-                      <option th:value="WI">Wisconsin</option>
-                      <option th:value="WY">Wyoming</option>
-                    </select><a data-tippy=""
-                                data-original-title="Please specify the state to which you need the certificate to be delivered."></a>
-                    </div>
-                  </div>
-                  <div class="col-md-3 d-inline form-group string required certificate_delivery_zip_code">
-                    <div><label class="string required"
-                                                               for="certificate_delivery_zip_code">Zip
-                      code</label><a
-                        data-tippy=""
-                        data-original-title="Enter the Zip code where you need the birth certificate to be delivered"></a>
-                    </div>
+                    <div class="col-1"></div>
+                    <div style="width:100%" class="section__container container">
+                        <div class="row">
+                            <div class="col-1"></div>
+                            <div class="col-md-3 d-inline form-group string required certificate_delivery_city">
+                                <div><label class="string required"
+                                            for="certificate_delivery_city">City</label><a
+                                        data-tippy=""
+                                        data-original-title="Please indicate the name of the city where you need the certificate to be delivered."></a>
+                                </div>
+                                <div><input data-validate="" class="string required"
+                                            type="text"
+                                            th:value="*{city}"
+                                            id="certificate_delivery_city" style="height: 2.15em"/><a
+                                        data-tippy=""
+                                        data-original-title="Please indicate the name of the city where you need the certificate to be delivered."></a>
+                                </div>
+                            </div>
+                            <div class="col-md-3 d-inline form-group select required certificate_delivery_state">
+                                <div><label class="select required"
+                                            for="certificate_delivery_state">State</label><a
+                                        data-tippy=""
+                                        data-original-title="Please specify the state to which you need the certificate to be delivered."></a>
+                                </div>
+                                <div><select data-validate=""
+                                             class="select required"
+                                             th:value="*{state}"
+                                             th:field="*{state}"
+                                             id="certificate_delivery_state">
+                                    <option value="">Please select</option>
+                                    <option th:value="AL">Alabama</option>
+                                    <option th:value="AK">Alaska</option>
+                                    <option th:value="AR">Arkansas</option>
+                                    <option th:value="AZ">Arizona</option>
+                                    <option th:value="CA">California</option>
+                                    <option th:value="CO">Colorado</option>
+                                    <option th:value="CT">Connecticut</option>
+                                    <option th:value="DE">Delaware</option>
+                                    <option th:value="FL">Florida</option>
+                                    <option th:value="GA">Georgia</option>
+                                    <option th:value="HI">Hawaii</option>
+                                    <option th:value="ID">Idaho</option>
+                                    <option th:value="IL">Illinois</option>
+                                    <option th:value="IN">Indiana</option>
+                                    <option th:value="IA">Iowa</option>
+                                    <option th:value="KS">Kansas</option>
+                                    <option th:value="KY">Kentucky</option>
+                                    <option th:value="LA">Louisiana</option>
+                                    <option th:value="ME">Maine</option>
+                                    <option th:value="MD">Maryland</option>
+                                    <option th:value="MA">Massachusetts</option>
+                                    <option th:value="MI">Michigan</option>
+                                    <option th:value="MN">Minnesota</option>
+                                    <option th:value="MS">Mississippi</option>
+                                    <option th:value="MO">Missouri</option>
+                                    <option th:value="MT">Montana</option>
+                                    <!--<option th:value="NE">Nebraska</option>-->
+                                    <option th:value="NV">Nevada</option>
+                                    <option th:value="NH">New Hampshire</option>
+                                    <option th:value="NJ">New Jersey</option>
+                                    <option th:value="NM">New Mexico</option>
+                                    <option th:value="NY">New York</option>
+                                    <option th:value="NC">North Carolina</option>
+                                    <option th:value="ND">North Dakota</option>
+                                    <option th:value="OH">Ohio</option>
+                                    <option th:value="OK">Oklahoma</option>
+                                    <!--<option th:value="OR">Oregon</option>-->
+                                    <option th:value="PA">Pennsylvania</option>
+                                    <option th:value="RI">Rhode Island</option>
+                                    <option th:value="SC">South Carolina</option>
+                                    <option th:value="SD">South Dakota</option>
+                                    <option th:value="TN">Tennessee</option>
+                                    <option th:value="TX">Texas</option>
+                                    <option th:value="UT">Utah</option>
+                                    <option th:value="VT">Vermont</option>
+                                    <option th:value="VA">Virginia</option>
+                                    <option th:value="WA">Washington</option>
+                                    <option th:value="WV">West Virginia</option>
+                                    <option th:value="WI">Wisconsin</option>
+                                    <option th:value="WY">Wyoming</option>
+                                </select><a data-tippy=""
+                                            data-original-title="Please specify the state to which you need the certificate to be delivered."></a>
+                                </div>
+                            </div>
+                            <div class="col-md-3 d-inline form-group string required certificate_delivery_zip_code">
+                                <div><label class="string required"
+                                            for="certificate_delivery_zip_code">Zip
+                                    code</label><a
+                                        data-tippy=""
+                                        data-original-title="Enter the Zip code where you need the birth certificate to be delivered"></a>
+                                </div>
 
-                    <div><input data-validate="" class="string required"
-                                                        type="text"
-                                                        th:value="*{zip}"
-                                                        id="certificate_delivery_zip_code" style="height: 2.15em"/><a
-                        data-tippy=""
-                        data-original-title="Enter the Zip code where you need the birth certificate to be delivered"></a>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="text-center pt-5">
-                  <div class="align-content-center">
-
+                                <div><input data-validate="" class="string required"
+                                            type="text"
+                                            th:value="*{zip}"
+                                            id="certificate_delivery_zip_code" style="height: 2.15em"/><a
+                                        data-tippy=""
+                                        data-original-title="Enter the Zip code where you need the birth certificate to be delivered"></a>
                                 </div>
                             </div>
                         </div>
+
+                        <div class="text-center pt-5">
+                            <div class="align-content-center">
+
+                            </div>
+                        </div>
                     </div>
-
-                </section>
-            </form>
-                                    <form class="simple_form new_certificate" style="width: 100%; text-align: center; " id="checkout"
-                                          novalidate="novalidate"
-                                          th:action="@{/completed-application}" accept-charset="UTF-8" th:method="post">
-                                   <button class="p-2 mb-2 rounded btn-primary btn--large is-block disable-resubmit"
-                                           data-disable-with="CONFIRM">CONFIRM</button>
-                                    </form>
-
-        </div>
-
                 </div>
 
-        <div th:replace="fragments/admin-footer :: admin-footer"></div>
+            </section>
+        </form>
+        <form class="simple_form new_certificate" style="width: 100%; text-align: center; " id="checkout"
+              novalidate="novalidate"
+              th:action="@{/completed-application}" accept-charset="UTF-8" th:method="post">
+            <button class="p-2 mb-2 rounded btn-primary btn--large is-block disable-resubmit"
+                    data-disable-with="CONFIRM">CONFIRM
+            </button>
+        </form>
+
     </div>
+
+
+    <div th:replace="fragments/admin-footer :: admin-footer"></div>
 
 </body>
 </html>
