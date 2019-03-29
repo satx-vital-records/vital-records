@@ -26,6 +26,17 @@ a{text-decoration:none;}
 nav.vertical ul li{	display:block;}/* vertical menu */
 nav.horizontal ul li{	display: inline-block;}/* horizontal menu */
 img{max-width:100%;}
+
+.codeup, .github {
+	max-width: 50px;
+	max-height: 50px;
+}
+
+.linkedin{
+	max-width: 70px;
+	max-height: 70px;
+	margin-bottom: 4px;
+}
 body {
 	padding: 0;
 	margin: 0;
@@ -273,9 +284,9 @@ input[type="checkbox" i] {
     flex-basis: 50%;
 	-webkit-flex-basis: 50%;
 }
-.w3_info p {
-    padding-bottom: 30px;
-}
+/*.w3_info p {*/
+    /*padding-bottom: 30px;*/
+/*}*/
 p.account,p.account1 {
     padding-top: 20px;
     padding-bottom: 0px;

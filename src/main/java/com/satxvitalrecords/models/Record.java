@@ -28,6 +28,7 @@ public class Record {
 
   @Column
   @DateTimeFormat(pattern = "MM/dd/yyyy")
+  @Temporal(TemporalType.DATE)
   private Date date_of_birth;
 
   @Column

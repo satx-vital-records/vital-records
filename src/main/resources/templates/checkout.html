@@ -3,187 +3,117 @@
       lang="en">
 <head th:replace="fragments/test-map-header :: test-map-header('Application')"/>
 <body>
-    <div class=" navbar-fixed-top">
-        <div class="navbar-inner">
-            <ul class="float-right m-0">
-
-                <li sec:authorize="!isAuthenticated()" class="d-inline px-3 mb-1">
-                    <form th:action="@{/login}" th:method="get" class="d-inline">
-                        <button class="p-1 mb-2 btn-primary btn--large is-block disable-resubmit" style="margin-top: 8px">
-                            Login
-                        </button>
-                    </form>
-                </li>
-                <li sec:authorize="isAuthenticated()" class="d-inline px-3 mb-1">
-                    <form th:action="@{/logout}" th:method="post" class="d-inline">
-                        <button class="p-1 mb-2 btn-primary btn--large is-block disable-resubmit" style="margin-top: 8px">
-                            Logout
-                        </button>
-                    </form>
-                </li>
-                <li class="d-inline px-3 mb-1 float-right">
-                    <a th:href="@{/about-us}"><i class="material-icons  " style="font-size: 36px; margin-top: 8px;">
-                        help_outline
-                    </i></a>
-                </li>
-            </ul>
-            <div class="container"></div>
-        </div>
-    </div>
-    <div id="body-container">
-        <div id="body-content">
-            <section class="nav nav-page">
-                <div class="container">
-                    <div class="row">
-                        <div class="span7">
-                            <header class="page-header">
-                                <a th:href="@{/}">
-                                    <h3>Records Application<br/>
-                                        <small>Vital Records City of San Antonio</small>
-                                    </h3>
-                                </a>
-                            </header>
-                        </div>
-                    </div>
+    <section class="nav nav-page">
+        <div class="container-fluid">
+            <div class="row ">
+                <!--<div class="">-->
+                <div class="col-7 d-inline">
+                    <header class="page-header d-inline">
+                        <a th:href="@{/}">
+                            <h3>Records Application<br/>
+                                <small>Vital Records City of San Antonio</small>
+                            </h3>
+                        </a>
+                    </header>
                 </div>
-            </section>
-            <div class="page container">
-                <div class="alert alert-success fade alert-container">
-                    <button type="button"  class="close" data-dismiss="alert" aria-hidden="true">&times;</button> Email Successfully Sent!
+                <div class="col-5 my-auto d-inline">
+                    <ul class="float-right d-inline">
+
+                        <li sec:authorize="!isAuthenticated()" class="d-inline px-3 mb-1">
+                            <form th:action="@{/login}" th:method="get" class="d-inline">
+                                <button class="p-2 btn-primary btn--large is-block disable-resubmit"
+                                        style="margin-top: 8px">
+                                    Login
+                                </button>
+                            </form>
+                        </li>
+                        <li sec:authorize="isAuthenticated()" class="d-inline px-3 mb-1">
+                            <form th:action="@{/logout}" th:method="post" class="d-inline">
+                                <button class="p-2 btn-primary btn--large is-block disable-resubmit"
+                                        style="margin-top: 8px">
+                                    Logout
+                                </button>
+                            </form>
+                        </li>
+                        <li class="d-inline px-3 mb-1 float-right">
+                            <a th:href="@{/about-us}"><i class="material-icons  "
+                                                         style="font-size: 36px; margin-top: 8px;">
+                                help_outline
+                            </i></a>
+                        </li>
+                    </ul>
                 </div>
-                <!--<div class="cssProgress mx-auto" style="width: 70%;">-->
-                <!--<div class="progress1">-->
-                <!--<div class="cssProgress-bar" data-percent="100" style="width: 100%;">-->
-                <!--<span class="cssProgress-label">100%</span>-->
-                <!--</div>-->
-                <!--</div>-->
-                <!--</div>-->
-                <div class="row pt-5 text-center">
-                    <div class="col-md-4 mb-4">
-                        <div class="card h-100">
-                            <i class=" material-icons btn-info" style="font-size: 48px;">email</i>
-                            <div class="card-body">
-                                <h4 class="card-title">Print Application</h4>
-                                <p class="card-text">Print your completed application below and/or select to have a copy
-                                    sent to you.</p>
-                            </div>
-                            <div class="card-footer py-4">
-
-
-                                <a href="/checkout" class="p-2 btn-primary btn--large is-block disable-resubmit">Send PDF
-
-                                    &raquo;</a>
-
-                                <!--<form th:action="@{/checkout}" th:method="POST">-->
-                                <!--<button id="email" class="p-2 btn-primary btn&#45;&#45;large is-block disable-resubmit" type="submit">Send PDF &raquo;</button>-->
-                                <!--</form>-->
-
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-md-4 mb-4">
-                        <div class="card h-100">
-                            <i class=" material-icons btn-info" style="font-size: 48px;">print</i>
-                            <div class="card-body">
-                                <h4 class="card-title">Notarize Application</h4>
-                                <p class="card-text">It is required by state law that this document be notarized. Click
-                                    to search for a Notary Public.</p>
-                            </div>
-                            <div class="card-footer py-4">
-                                <a href="" onclick="zoomToLevel(); return false;"
-                                   class="p-2 btn-primary btn--large is-block disable-resubmit"> Search &raquo;</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-md-4 mb-4">
-                        <div class="card h-100">
-                            <i class=" material-icons btn-info" style="font-size: 48px;">cloud_upload</i>
-                            <div class="card-body">
-                                <h4 class="card-title">Upload Docs</h4>
-                                <p class="card-text">Upload proof of your supporting documentation to expedite picking
-                                    up your vital record.</p>
-                            </div>
-                            <div class="card-footer py-4">
-                                <a href="/upload" class="p-2 btn-primary btn--large is-block disable-resubmit">Upload
-                                    Documents &raquo;</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!--<div class="text-center py-4"><h2 class="h2"> This page will emphasize that the process is NOT complete.-->
-                <!--<br/>-->
-                <!--<br/>-->
-                <!--This page will confirm email address with applicant and send completed form to be notorized.-->
-                <!--<br/>-->
-                <!--<br/>-->
-                <!--Explain steps to log back in to application and upload an image of notorized form and supporting-->
-                <!--documents to submit completed application.</h2></div>-->
-                <!--<hr/>-->
-                <!--<div>-->
-                <!--<div class="pt-5">-->
-                <!--<object-->
-                <!--data="/pdf/COSA-Mail-Application.pdf"-->
-                <!--type="application/pdf"-->
-                <!--width="100%"-->
-                <!--height="100%">-->
-                <!--<iframe-->
-                <!--src="/pdf/COSA-Mail-Application.pdf"-->
-                <!--width="100%"-->
-                <!--height="100%"-->
-                <!--style="border: none;">-->
-                <!--<p>Your browser does not support PDFs.-->
-                <!--<a href="/pdf/COSA-Mail-Application.pdf">Download the PDF</a>.</p>-->
-                <!--</iframe>-->
-                <!--</object>-->
-
-
-                <div class="row justify-content-center pt-5 mt-5">
-
-                    <div class="col">
-                        <!--<a th:href="${'/uploads' + file}">CLick to Download PDF</a>-->
-
-                        <embed th:src="${'/uploads' + file}" width="100%" height="500px" type="application/pdf"/>
-
-
-                        <!--<object th:data="@{${file}}" type="application/pdf" width="100%" height="100%">-->
-
-                        <!--<p>It appears you don't have a PDF plugin for this browser.-->
-                        <!--No biggie... you can <a th:href="@{${file}}">click here to-->
-                        <!--download the PDF file.</a></p>-->
-
-                        <!--</object>-->
-
-
-                    </div>
-                    <div class="col">
-                        <div id="map-canvas">
-                            <!--<a name="map-view"></a>-->
-                        </div>
-
-                    </div>
-
-
-
-                <!--<embed src="https://drive.google.com/viewerng/-->
-                <!--viewer?embedded=true&amp;url=pdf/COSA-Mail-Application.pdf" width="500" height="375"/>-->
-                <!--<object width="400" height="500" type="application/pdf" data="/pdf/COSA-Mail-Application.pdf">-->
-                <!--<p>Insert your error message here, if the PDF cannot be displayed.</p>-->
-                <!--</object>-->
-            </div>
             </div>
         </div>
+    </section>
+    <div class="page container">
+        <div class="alert alert-success fade alert-container">
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+            Email Successfully Sent!
+        </div>
+        <div class="row pt-5 text-center">
+            <div class="col-md-4 mb-4">
+                <div class="card h-100">
+                    <i class=" material-icons btn-info" style="font-size: 48px;">email</i>
+                    <div class="card-body">
+                        <h4 class="card-title">Print Application</h4>
+                        <p class="card-text">Print your completed application below and/or select to have a copy
+                            sent to you.</p>
+                    </div>
+                    <div class="card-footer py-4">
 
-        <div th:src="${file}"></div>
-        <div th:src="@{file}"></div>
-        <div th:href="@{${file}}"></div>
-        <div th:src="@{${file}}"></div>
-        <div th:src="@{/Users/dwallace/IdeaProjects/satxvitalrecords/target/uploads/edited_COSA-Mail-Application1553543798604.pdf}"></div>
 
-        <!--</div>-->
-        <div th:replace="fragments/admin-footer :: admin-footer"></div>
+                        <a href="/checkout" class="p-2 btn-primary btn--large is-block disable-resubmit">Send PDF
+
+                            &raquo;</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4 mb-4">
+                <div class="card h-100">
+                    <i class=" material-icons btn-info" style="font-size: 48px;">print</i>
+                    <div class="card-body">
+                        <h4 class="card-title">Notarize Application</h4>
+                        <p class="card-text">It is required by state law that this document be notarized. Click
+                            to search for a Notary Public.</p>
+                    </div>
+                    <div class="card-footer py-4">
+                        <a href="" onclick="zoomToLevel(); return false;"
+                           class="p-2 btn-primary btn--large is-block disable-resubmit"> Search &raquo;</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4 mb-4">
+                <div class="card h-100">
+                    <i class=" material-icons btn-info" style="font-size: 48px;">cloud_upload</i>
+                    <div class="card-body">
+                        <h4 class="card-title">Upload Docs</h4>
+                        <p class="card-text">Upload proof of your supporting documentation to expedite picking
+                            up your vital record.</p>
+                    </div>
+                    <div class="card-footer py-4">
+                        <a href="/upload" class="p-2 btn-primary btn--large is-block disable-resubmit">Upload
+                            Documents &raquo;</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row justify-content-center pt-5 mt-5">
+
+            <div class="col">
+
+                <embed th:src="${'/uploads' + file}" width="100%" height="500px" type="application/pdf"/>
+
+            </div>
+            <div class="col">
+                <div id="map-canvas">
+                </div>
+            </div>
+        </div>
     </div>
+    <div th:replace="fragments/admin-footer :: admin-footer"></div>
 </body>
 
 <script type="text/javascript">

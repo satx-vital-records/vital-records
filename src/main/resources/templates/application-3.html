@@ -2,55 +2,55 @@
 <html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
 <head th:replace="fragments/login-form-header :: login-form-header('Application')"/>
 <body>
-    <div class=" navbar-fixed-top">
-        <div class="navbar-inner">
-            <ul class="float-right m-0">
-
-                <li sec:authorize="!isAuthenticated()" class="d-inline px-3 mb-1">
-                    <form th:action="@{/login}" th:method="get" class="d-inline">
-                        <button class="p-2 btn-primary btn--large is-block disable-resubmit" style="margin-top: 8px">
-                            Login
-                        </button>
-                    </form>
-                </li>
-                <li sec:authorize="isAuthenticated()" class="d-inline px-3 mb-1">
-                    <form th:action="@{/logout}" th:method="post" class="d-inline">
-                        <button class="p-2 btn-primary btn--large is-block disable-resubmit" style="margin-top: 8px">
-                            Logout
-                        </button>
-                    </form>
-                </li>
-                <li class="d-inline px-3 mb-1 float-right">
-                    <a th:href="@{/about-us}"><i class="material-icons  " style="font-size: 36px; margin-top: 8px;">
-                        help_outline
-                    </i></a>
-                </li>
-            </ul>
-        </div>
-    </div>
-    <div id="body-container">
-        <div id="body-content">
-            <section class="nav nav-page">
-                <div class="container">
-                    <div class="row">
-                        <div class="span7">
-                            <header class="page-header">
-                                <a th:href="@{/}">
-                                    <h3>Records Application<br/>
-                                        <small>Vital Records City of San Antonio</small>
-                                    </h3>
-                                </a>
-                            </header>
-                        </div>
-                    </div>
+    <section class="nav nav-page">
+        <div class="container-fluid">
+            <div class="row ">
+                <!--<div class="">-->
+                <div class="col-7 d-inline">
+                    <header class="page-header d-inline">
+                        <a th:href="@{/}">
+                            <h3>Records Application<br/>
+                                <small>Vital Records City of San Antonio</small>
+                            </h3>
+                        </a>
+                    </header>
                 </div>
-            </section>
+                <div class="col-5 my-auto d-inline">
+                    <ul class="float-right d-inline">
+
+                        <li sec:authorize="!isAuthenticated()" class="d-inline px-3 mb-1">
+                            <form th:action="@{/login}" th:method="get" class="d-inline">
+                                <button class="p-2 btn-primary btn--large is-block disable-resubmit"
+                                        style="margin-top: 8px">
+                                    Login
+                                </button>
+                            </form>
+                        </li>
+                        <li sec:authorize="isAuthenticated()" class="d-inline px-3 mb-1">
+                            <form th:action="@{/logout}" th:method="post" class="d-inline">
+                                <button class="p-2 btn-primary btn--large is-block disable-resubmit"
+                                        style="margin-top: 8px">
+                                    Logout
+                                </button>
+                            </form>
+                        </li>
+                        <li class="d-inline px-3 mb-1 float-right">
+                            <a th:href="@{/about-us}"><i class="material-icons  "
+                                                         style="font-size: 36px; margin-top: 8px;">
+                                help_outline
+                            </i></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
 
             <section class="page container">
                 <div class="cssProgress mx-auto" style="width: 70%;">
                     <div class="progress1">
                         <div class="cssProgress-bar" data-percent="55" style="width: 55%;">
-                            <span class="cssProgress-label">55%</span>
+                            <span style="color:black" class="cssProgress-label">55%</span>
                         </div>
                     </div>
                 </div>
@@ -71,9 +71,9 @@
                                 <p class="align-left ml-4">Enter the full maiden name (before 1st Marriage) of the
                                     mother of the person on record.</p>
 
-                                <div class="row justify-content-between">
+                                <div class="row md-justify-content-between">
 
-                                    <div class="ml-3 d-inline p-2 form-group string required certificate_mother_first_name">
+                                    <div class="ml-md-3 d-inline p-2 form-group string required certificate_mother_first_name">
                                         <div><label class="string required"
                                                                                    for="parent1_first_name">First
                                             name</label></div>
@@ -123,8 +123,8 @@
                                 <p class="align-left ml-4">Enter the full name of the father of the person on record.
                                     Leave empty if the identity of the father is unknown.</p>
 
-                                <section class="row justify-content-between">
-                                    <div class="d-inline form-group string optional certificate_father_first_name">
+                                <section class="row md-justify-content-between">
+                                    <div class="ml-md-3 p-2 d-inline form-group string optional certificate_father_first_name">
                                         <div><label class="string optional"
                                                                                    for="certificate_father_first_name">First
                                             name</label></div>
@@ -134,7 +134,7 @@
                                                                             id="certificate_father_first_name" style="height: 2.15em"/>
                                         </div>
                                     </div>
-                                    <div class="d-inline form-group string optional certificate_father_middle_name ">
+                                    <div class="d-inline p-2 form-group string optional certificate_father_middle_name ">
                                         <div><label class="string optional"
                                                                                    for="parent2_middle_name">Middle
                                             name</label></div>
@@ -144,7 +144,7 @@
                                                                             id="parent2_middle_name" style="height: 2.15em"/>
                                         </div>
                                     </div>
-                                    <div class="d-inline form-group string optional certificate_father_last_name ">
+                                    <div class="d-inline p-2 form-group string optional certificate_father_last_name ">
                                         <div><label class="string optional"
                                                                                    for="certificate_father_last_name">Last
                                             name</label><a
@@ -166,13 +166,13 @@
                                         <a th:href="@{/application-3}"><input type="submit" name="commit"
                                                                               value="CONTINUE APPLICATION"
                                                                               id="continue-button2"
-                                                                              class="p-2 btn-sun btn--large is-block disable-resubmit"
+                                                                              class="p-2 btn-primary btn--large is-block disable-resubmit"
                                                                               data-disable-with="CONTINUE APPLICATION"/></a>
                                     </div>
                                     <div class="d-flex align-content-center flex-wrap">
                                         <input type="submit" name="commit" value="SAVE APPLICATION"
                                                id="save-button2"
-                                               class="p-2 btn-sun btn--large is-block disable-resubmit"
+                                               class="p-2 btn-primary btn--large is-block disable-resubmit"
                                                data-disable-with="SAVE APPLICATION"/>
                                     </div>
                                 </div>
@@ -181,9 +181,7 @@
                     </section>
                 </form>
             </section>
-        </div>
         <div th:replace="fragments/admin-footer :: admin-footer"></div>
-    </div>
 </body>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.min.js"></script>
