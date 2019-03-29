@@ -315,9 +315,9 @@ public class ApplicationController {
             request.setEndpoint("mail/send");
             request.setBody(mail.build());
             Response response = sg.api(request);
-            System.out.println(response.getStatusCode());
-            System.out.println(response.getBody());
-            System.out.println(response.getHeaders());
+//            System.out.println(response.getStatusCode());
+//            System.out.println(response.getBody());
+//            System.out.println(response.getHeaders());
         } catch (IOException ex) {
             throw ex;
         }
@@ -330,7 +330,7 @@ public class ApplicationController {
                         "Your application form was successfully completed. \n- SATX Vital Records").create();
 
 
-        System.out.println(message.getSid());
+        System.out.println("this is in the sendEmail method on the app controller" + message.getSid());
 
         return "redirect:/checkout";
     }
