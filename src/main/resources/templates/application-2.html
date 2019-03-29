@@ -65,42 +65,43 @@
                     <hr/>
 
                     <section class="section pb-2">
-                        <div class="row">
-                            <div class="section__container">
+                        <div>
+                            <div style="width:100%" class="section__container container">
                                 <h4 class="h4">4. Full name of the person on record</h4>
-                                <p class="align-left">Enter the full name of the person on record at the time of
+                                <p class="align-left ml-4">Enter the full name of the person on record at the time of
                                     birth. Leave middle name empty if unknown.</p>
 
-                                <div class="row justify-content-center">
-                                    <div class="d-inline p-2 form-group string required certificate_person_first_name">
+                                <div class="row">
+                                    <div class="col-1"></div>
+                                    <div class="col-md-3 ml-3 d-inline p-2 form-group string required certificate_person_first_name">
                                         <div><label class="string required"
                                                                                    for="certificate_person_first_name">First
                                             name</label></div>
                                         <div><input data-validate=""
-                                                                            class="string required"
+                                                                            class="string required" type="text"
                                                                             th:field="*{first_name}"
-                                                                            id="certificate_person_first_name" required="required"/>
+                                                                            id="certificate_person_first_name" required="required" style="height: 2.15em"/>
                                         </div>
                                     </div>
-                                    <div class="d-inline p-2 form-group string optional certificate_person_middle_name">
+                                    <div class="col-md-3 d-inline p-2 form-group string optional certificate_person_middle_name">
                                         <div><label class="string optional"
                                                                                    for="certificate_person_middle_name">Middle
                                             name</label></div>
                                         <div><input data-validate=""
-                                                                            class="string optional"
+                                                                            class="string optional" type="text"
                                                                             th:field="*{mid_name}"
-                                                                            id="certificate_person_middle_name"/>
+                                                                            id="certificate_person_middle_name" style="height: 2.15em"/>
                                         </div>
                                     </div>
-                                    <div class="d-inline p-2 form-group string required certificate_person_last_name">
+                                    <div class="col-md-3 d-inline p-2 form-group string required certificate_person_last_name">
                                         <div><label class="string required"
                                                                                    for="certificate_person_last_name">Last
                                             name</label>
                                         </div>
                                         <div><input data-validate=""
-                                                                            class="string required"
+                                                                            class="string required" type="text"
                                                                             th:field="*{last_name}"
-                                                                            id="certificate_person_last_name" required="required"/>
+                                                                            id="certificate_person_last_name" required="required" style="height: 2.15em;"/>
                                         </div>
                                     </div>
                                 </div>
@@ -110,40 +111,40 @@
                     </section>
                     <hr/>
                     <section class="section pt-2">
-                        <div class="row">
-                            <div class="section__container">
+                        <div>
+                            <div style="width:100%" class="section__container container">
                                 <th:block th:if="${app.getRecord_type() =='Birth'}">
                                 <h4 class="h4">5. Birth information of the person on record</h4>
-                                <p class="align-left">Enter the birth information of the person needing the
+                                <p class="align-left ml-4">Enter the birth information of the person needing the
                                     birth certificate. If you are applying for someone else (i.e. your child),
                                     enter their birth information here.</p>
 
 
-                                <div class="row justify-content-center">
-
-                                    <div class="d-inline p-2 form-group string required certificate_birth_city">
+                                <div class="row">
+                                    <div class="col-1"></div>
+                                    <div class="col-md-3 ml-3 d-inline p-2 form-group string required certificate_birth_city">
                                         <div><label class="string required"
                                                                                    for="certificate_birth_city2">City
                                             of birth</label>
                                         </div>
                                         <div><input data-validate="" class="string required"
                                                                             th:field="*{birth_city}"
-                                                                            id="certificate_birth_city2" required="required"/>
+                                                                            id="certificate_birth_city2" required="required" type="text" style="height: 2.15em"/>
                                         </div>
                                     </div>
 
-                                    <div class="d-inline p-2 form-group string required certificate_birth_county">
+                                    <div class="col-md-3 d-inline p-2 form-group string required certificate_birth_county">
                                         <div><label class="string required"
                                                                                    for="certificate_birth_county">County
                                             of birth</label>
                                         </div>
                                         <div><input data-validate="" class="string required"
                                                                             th:field="*{birth_county}"
-                                                                            id="certificate_birth_county" required="required"/>
+                                                                            id="certificate_birth_county" required="required" type="text" style="height: 2.15em"/>
                                         </div>
                                     </div>
 
-                                    <div class="d-inline p-2 form-group date required certificate_birth_date">
+                                    <div class="col-md-3 d-inline p-2 form-group date required certificate_birth_date">
                                         <div><label class="date required"
                                                                                    for="birth_date">Date
                                             of birth (MM/DD/YYYY)</label>
@@ -155,7 +156,7 @@
                                                     id="birth_date"
                                                     class="date-picker-style"
                                                     pattern="\d{2}/\d{2}/\d{4}"
-                                                    required="required"/>
+                                                    required="required" type="text" style="height: 2.15em"/>
                                         </div>
                                     </div>
                                 </div>
@@ -167,33 +168,33 @@
                                 <th:block th:unless="${app.getRecord_type() == 'Birth'}">
 
                         <h4 class="h4">5. Death information of the person on record</h4>
-                        <p class="align-left">Enter the death information of the person on the record. (Please note that date of death is required.) </p>
+                        <p class="align-left ml-4">Enter the death information of the person on the record. (Please note that date of death is required.) </p>
 
                         <div class="row justify-content-center">
-
-                            <div class="d-inline p-2 form-group string required certificate_death_city">
+                            <div class="col-1"></div>
+                            <div class="col-md-3 ml-3 d-inline p-2 form-group string required certificate_death_city">
                                 <div><label class="string required"
                                                                            for="certificate_death_city2">City
                                     of death</label>
                                 </div>
                                 <div><input data-validate="" class="string required"
                                                                     th:field="*{death_city}"
-                                                                    id="certificate_death_city2" required="required"/>
+                                                                    id="certificate_death_city2" required="required" type="text" style="height: 2.15em"/>
                                 </div>
                             </div>
 
-                            <div class="d-inline p-2 form-group string required certificate_death_county">
+                            <div class="col-md-3 d-inline p-2 form-group string required certificate_death_county">
                                 <div><label class="string required"
                                                                            for="certificate_death_county">County
                                     of Death</label>
                                 </div>
                                 <div><input data-validate="" class="string required"
                                                                     th:field="*{death_county}"
-                                                                    id="certificate_death_county" required="required"/>
+                                                                    id="certificate_death_county" required="required" style="height: 2.15em" type="text"/>
                                 </div>
                             </div>
 
-                            <div class="d-inline p-2 form-group date required certificate_death_date">
+                            <div class="col-md-3 d-inline p-2 form-group date required certificate_death_date">
                                 <div><label class="date required"
                                                                            for="death_date">Date
                                     of death (MM/DD/YYYY)</label>
@@ -204,7 +205,7 @@
                                         th:field="*{date_of_death}"
                                         id="death_date"
                                         class="date-picker-style"
-                                        pattern="\d{2}/\d{2}/\d{4}" required="required"/>
+                                        pattern="\d{2}/\d{2}/\d{4}" required="required" type="text" style="height: 2.15em"/>
                                 </div>
                             </div>
                         </div>
@@ -222,13 +223,13 @@
                                                                 name="certificate[person_sex]"
                                                                 th:field="*{sex}"
                                                                 value=""/><input
-                                    class="radio_buttons required" type="radio"
+                                    class="radio_buttons required mt-0 mr-1" type="radio"
                                     th:field="*{sex}"
                                     th:value="Female"
                                     id="certificate_person_sex_female" required="required"/><label
                                     class="collection_radio_buttons pr-3 d-inline"
                                     for="certificate_person_sex_female">Female</label><input
-                                    class="radio_buttons required pr-3 d-inline" type="radio"
+                                    class="radio_buttons required mt-0 mr-1 pr-3 d-inline" type="radio"
                                     th:field="*{sex}"
                                     th:value="Male"
                                     id="certificate_person_sex_male" required="required"/><label

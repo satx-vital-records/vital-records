@@ -51,7 +51,7 @@
           </div>
         </div>
         <form accept-charset="UTF-8" th:action="@{/application-1}" class="simple_form new_certificate mx-auto"
-              style="width:70%"
+              style="width:100%"
               id="new_certificate1" th:method="post" th:object="${app}" novalidate="novalidate">
           <input name="utf8" type="hidden"
                  value="✓"/><input
@@ -62,33 +62,33 @@
           <hr/>
 
           <div class="row">
-            <div class="section__container">
+            <div style="width:100%" class="section__container container">
               <h4 class="h4">1. Requestor information</h4>
               <p class="align-left">Enter the name of the requestor as shown on the ID/driver's license.</p>
 
 
-              <div class="">
-                <div class="form-group string required certificate_contact_first_name col-xs-4">
+              <div class="row">
+                <div class="form-group string required certificate_contact_first_name col-md-3">
                   <div><label class="string required"
                                                              for="certificate_contact_first_name">First
                     name</label></div>
                   <div><input class="string required"
                                                       data-validate="" id="certificate_contact_first_name"
                                                       th:value="*{first_name}"
-                                                      type="text"/>
+                                                      type="text" style="height: 2.15em"/>
                   </div>
                 </div>
-                <div class="form-group string optional certificate_contact_middle_name col-xs-4">
+                <div class="col-md-3 form-group string optional certificate_contact_middle_name">
                   <div><label class="string optional"
                                                              for="certificate_contact_middle_name">Middle
                     name</label></div>
                   <div><input class="string optional"
                                                       data-validate="" id="certificate_contact_middle_name"
                                                       th:value="*{mid_name}"
-                                                      type="text"/>
+                                                      type="text" style="height: 2.15em"/>
                   </div>
                 </div>
-                <div class="form-group string required certificate_contact_last_name col-xs-4">
+                <div class="form-group string required certificate_contact_last_name">
                   <div><label class="string required"
                                                              for="certificate_contact_last_name">Last
                     name</label>
@@ -96,7 +96,7 @@
                   <div><input class="string required"
                                                       data-validate="" id="certificate_contact_last_name"
                                                       th:value="*{last_name}"
-                                                      type="text"/>
+                                                      type="text" style="height: 2.15em"/>
                   </div>
                 </div>
               </div>
@@ -108,36 +108,41 @@
                 <h4 class="h4"> Requestor Address</h4>
                 <p class="align-left">Enter the address of the requestor as shown on the ID/driver's license.</p>
 
-                <div class="">
-                  <div class="form-group string required certificate_contact_street col-xs-4">
+                <div class="row">
+                  <div class="col-1"></div>
+                  <div class="col-md-5 form-group string required certificate_contact_street">
                     <div><label class="string required"
                                                                for="certificate_contact_street">Street Address</label></div>
                     <div><input class="string required"
                                                         data-validate="" id="certificate_contact_street"
                                                         th:value="*{street}"
-                                                        type="text"/>
+                                                        type="text" style="height: 2.15em"/>
                     </div>
                   </div>
-                  <div class="form-group string optional certificate_contact_street2 col-xs-4">
+                  <div class="form-group string optional certificate_contact_street2 col-md-5">
                     <div><label class="string optional"
                                                                for="certificate_contact_street2">Street Address 2 (Apt, Bldg, etc)</label></div>
                     <div><input class="string optional"
                                                         data-validate="" id="certificate_contact_street2"
                                                         th:value="*{street2}"
-                                                        type="text"/>
+                                                        type="text" style="height: 2.15em"/>
                     </div>
                   </div>
-                  <div class="form-group string required certificate_contact_city col-xs-4">
+                </div>
+
+                <div class="row">
+                  <div class="col-1"></div>
+                  <div class="col-md-3 d-line p-2 form-group string required certificate_contact_city col-md-3">
                     <div><label class="string required"
                                                                for="certificate_contact_city">City</label>
                     </div>
                     <div><input class="string required"
                                                         data-validate="" id="certificate_contact_city"
                                                         th:value="*{city}"
-                                                        type="text"/>
+                                                        type="text" style="height: 2.15em"/>
                     </div>
                   </div>
-                  <div class=" d-inline form-group select required certificate_delivery_state">
+                  <div class="col-md-3 d-inline p-2 form-group select required certificate_delivery_state">
                     <div><label class="select required"
                                                                for="certificate_contact_state">State</label>
                     </div>
@@ -200,13 +205,13 @@
                     </select>
                     </div>
                   </div>
-                  <div class="form-group string optional certificate_contact_zip col-xs-4">
+                  <div class="col-md-3 d-inline p-2 form-group string optional certificate_contact_zip">
                     <div><label class="string optional"
                                                                for="certificate_contact_zip">Zip Code</label></div>
                     <div><input class="string optional"
                                                         data-validate="" id="certificate_contact_zip"
                                                         th:value="*{zip}"
-                                                        type="text"/>
+                                                        type="text" style="height: 2.15em"/>
                     </div>
 
                   </div>
@@ -269,8 +274,6 @@
                         data-original-title="This information is required by the Health Department. If the reason for applying is not listed here, please select “other."
                         data-tippy=""></a>
                     </div>
-                    <!--<input type="text" th:field="*{purpose}" name="purpose"/>-->
-
                     <div><select class="select required"
                                                          data-validate=""
                                                          id="certificate_purpose"
@@ -328,12 +331,9 @@
                         data-tippy=""></a>
                     </div>
                   </div>
-
                 </div>
               </div>
             </div>
-
-            <!--<button type="submit" id="update_app1">Update Information</button>-->
           </section>
           <hr/>
         </form>
@@ -390,30 +390,6 @@
                     </div>
                   </div>
                 </div>
-                <!--<div class="pt-5 row justify-content-center form-group radio_buttons required certificate_person_sex">-->
-                  <!--<div class="tooltip-wrapper-mobile"><label-->
-                      <!--class="radio_buttons required pr-3" >Gender</label>-->
-                  <!--</div>-->
-                  <!--<div class="tooltip-wrapper"><input type="hidden"-->
-                                                      <!--name="certificate[person_sex]"-->
-                                                      <!--th:value="*{sex}"-->
-                                                      <!--th:field="*{sex}"-->
-                                                      <!--/><input-->
-                      <!--class="radio_buttons required" type="radio"-->
-                      <!--th:value="Female"-->
-                      <!--id="certificate_person_sex_female"/><label-->
-                      <!--class="collection_radio_buttons pr-3"-->
-                      <!--for="certificate_person_sex_female">Female</label><input-->
-                      <!--class="radio_buttons required" type="radio"-->
-                      <!--th:value="Male"-->
-                      <!--id="certificate_person_sex_male"/><label-->
-                      <!--class="collection_radio_buttons"-->
-                      <!--for="certificate_person_sex_male">Male</label>-->
-                    <!--&lt;!&ndash;th:field="*{sex}"&ndash;&gt;-->
-
-                  <!--</div>-->
-
-                <!--</div>-->
               </div>
 
               <th:block th:if="${app.getRecord_type() == 'birth'}">
@@ -548,7 +524,7 @@
 
 
             </div>
-            <!--<button type="submit" id="update_record1">Update Information</button>-->
+
           </section>
 
         </form>
@@ -656,7 +632,7 @@
                 </div>
               </div>
             </div>
-            <!--<button type="submit" id="update_record2">Update Information</button>-->
+
           </section>
         </form>
 
@@ -820,30 +796,6 @@
                 </div>
                 <div class="text-center pt-5">
                   <div class="align-content-center">
-                    <!--<input type="submit" name="commit"-->
-                    <!--value="CONTINUE TO PAYMENT"-->
-                    <!--id="continue-button2"-->
-                    <!--class="btn-primary btn&#45;&#45;large is-block disable-resubmit"-->
-                    <!--data-disable-with="CONTINUE APPLICATION"/>-->
-
-                                    <!--<form action='/charge' method='POST' id='checkout-form' >-->
-                                    <!--<input type='hidden' th:value='${amount}' name='amount' />-->
-                                    <!--&lt;!&ndash;<label>Price:<span th:text='${amount/100}' /></label>&ndash;&gt;-->
-                                    <!--&lt;!&ndash; NOTE: data-key/data-amount/data-currency will be rendered by Thymeleaf &ndash;&gt;-->
-                                    <!--<script-->
-                                    <!--src='https://checkout.stripe.com/checkout.js'-->
-                                    <!--class='stripe-button'-->
-                                    <!--th:attr='data-key=${stripePublicKey},-->
-                                    <!--data-amount=${amount},-->
-                                    <!--data-currency=${currency}'-->
-                                    <!--data-name='Baeldung'-->
-                                    <!--data-description='Spring course checkout'-->
-                                    <!--data-image-->
-                                    <!--='http://www.baeldung.com/wp-content/themes/baeldung/favicon/android-chrome-192x192.png'-->
-                                    <!--data-locale='auto'-->
-                                    <!--data-zip-code='false'>-->
-                                    <!--</script>-->
-                                    <!--</form>-->
 
                                 </div>
                             </div>
@@ -860,20 +812,8 @@
                                     </form>
 
         </div>
-                    <!--<a th:href="@{/checkout}"><input type="submit" name="commit" value="CONFIRM"-->
-                                                     <!--id="save-and-print"-->
-                                                     <!--class=" p-2 btn-sun btn&#45;&#45;large is-block disable-resubmit"-->
-                                                     <!--data-disable-with="CONFIRM"/></a>-->
 
-                  <!--</div>-->
                 </div>
-
-
-            <!--<button type="submit" id="update">Update Information</button>-->
-          <!---->
-        <!--</form>-->
-
-
 
         <div th:replace="fragments/admin-footer :: admin-footer"></div>
     </div>
