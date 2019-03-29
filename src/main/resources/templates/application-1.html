@@ -26,7 +26,6 @@
                     </i></a>
                 </li>
             </ul>
-            <div class="container"></div>
         </div>
     </div>
     <div id="body-container">
@@ -201,6 +200,7 @@
                                             <label class="string required" for="certificate_contact_first_name">First name</label>
                                         </div>
                                         <div>
+
                                             <input class="string required" data-validate="" id="certificate_contact_first_name" th:field="*{first_name}" required="required" type="text" style="height:2.15em;"/>
                                         </div>
                                     </div>
@@ -209,14 +209,16 @@
                                             <label class="string optional" for="certificate_contact_middle_name">Middle name</label>
                                         </div>
                                         <div>
+
                                             <input class="string optional" data-validate="" id="certificate_contact_middle_name" th:field="*{mid_name}" type="text" style="height: 2.15em;"/>
                                         </div>
                                     </div>
                                     <div class="col-md-3 d-inline p-2 form-group string required certificate_contact_last_name ">
                                         <div>
-                                            <label class="string required" for="certificate_contact_last_name">Last name</label>
+                                            <label class="string required text-capitalize" for="certificate_contact_last_name">Last name</label>
                                         </div>
                                         <div>
+
                                             <input class="string required" data-validate="" id="certificate_contact_last_name" th:field="*{last_name}" required="required" type="text" style="height: 2.15em;"/>
                                         </div>
                                     </div>
@@ -239,7 +241,9 @@
                                             <label class="string required" for="certificate_contact_street">Street Address</label>
                                         </div>
                                         <div>
+
                                             <input class="string required" data-validate="" id="certificate_contact_street" th:field="*{street}" required="required" type="text" style="height: 2.15em"/>
+
                                         </div>
                                     </div>
                                     <div class="col-md-3 d-inline p-2 form-group string optional certificate_contact_street2">
@@ -247,6 +251,7 @@
                                             <label class="string optional" for="certificate_contact_street2">Street Address 2</label>
                                         </div>
                                         <div>
+
                                             <input class="string optional" data-validate="" id="certificate_contact_street2" th:field="*{street2}" type="text" style="height: 2.15em;"/>
                                         </div>
                                     </div>
@@ -260,6 +265,7 @@
                                                 <label class="string required" for="certificate_contact_city">City</label>
                                             </div>
                                             <div>
+
                                                 <input class="string required" data-validate="" id="certificate_contact_city" th:field="*{city}" required="required" type="text" style="height: 2.15em;"/>
                                             </div>
                                         </div>

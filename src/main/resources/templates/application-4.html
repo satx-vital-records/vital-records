@@ -26,7 +26,6 @@
                     </i></a>
                 </li>
             </ul>
-            <div class="container"></div>
         </div>
     </div>
     <div id="body-container">
@@ -58,9 +57,7 @@
                       novalidate="novalidate"
                       th:action="@{/application-4}" accept-charset="UTF-8" th:method="post" th:object="${mailaddress}">
                     <input name="utf8" type="hidden"
-                           value="✓"/><input
-                        type="hidden" name="authenticity_token"
-                        value="GBkZnnvogYBnoELufrriChXdsyeZ975veN9Q1hrDy5ov+pkPlLS8VIQiZjTnU/pzR6WYK8uVu/UzabA9pT+vYg=="/>
+                           value="✓"/>
                     <div class="text-center py-4"><h2 class="h2"> Vital Records Application Form</h2></div>
 
                     <hr/>
@@ -78,6 +75,7 @@
                                             class="fa" data-tippy=""
                                             data-original-title="Please indicate the first name of the person receiving the document."></a>
                                         </div>
+
                                         <div><input style="height:2.15em" data-validate="" class="string required"
                                                                             type="text"
                                                                             th:field="*{first_name}"
@@ -92,7 +90,9 @@
                                             class="fa" data-tippy=""
                                             data-original-title="Please indicate the last name of the person receiving the document."></a>
                                         </div>
+
                                         <div><input style="height: 2.15em" data-validate="" class="string required"
+
                                                                             type="text"
                                                                             th:field="*{last_name}"
                                                                             id="certificate_delivery_last_name" required="required"/><a
@@ -111,7 +111,7 @@
                                                 data-original-title="Please indicate the the street number and street name where you need the certificate to be delivered."></a>
                                         </div>
 
-                                        <div><input data-validate="" class="string required"
+                                        <div><input data-validate="" class="string required text-capitalize"
                                                                             type="text"
                                                                             th:field="*{street}"
                                                                             id="certificate_delivery_address_1" required="required" style="height: 2.15em"/><a
@@ -125,7 +125,7 @@
                                             2 (if applicable: Apt, suite, floor)</label><a
                                                 data-tippy=""
                                                 data-original-title="Please enter, if applicable, the apartment number, suite number or floor where you need the certificate to be delivered."></a>
-                                            <div><input data-validate="" class="string optional"
+                                            <div><input data-validate="" class="string optional text-capitalize"
                                                                                 type="text"
                                                                                 th:field="*{street_2}"
                                                                                 id="certificate_delivery_address_2" style="height: 2.15em"/><a
@@ -147,7 +147,7 @@
                                                data-tippy=""
                                                 data-original-title="Please indicate the name of the city where you need the certificate to be delivered."></a>
                                         </div>
-                                        <div><input data-validate="" class="string required"
+                                        <div><input data-validate="" class="string required text-capitalize"
                                                                             type="text"
                                                                             th:field="*{city}"
                                                                             id="certificate_delivery_city" required="required" style="height: 2.15em"/><a
