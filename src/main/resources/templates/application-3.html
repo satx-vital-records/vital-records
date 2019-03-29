@@ -61,9 +61,7 @@
                       id="new_certificate3"
                       novalidate="novalidate"
                       accept-charset="UTF-8"><input name="utf8" type="hidden"
-                                                    value="✓"/><input
-                        type="hidden" name="authenticity_token"
-                        value="GBkZnnvogYBnoELufrriChXdsyeZ975veN9Q1hrDy5ov+pkPlLS8VIQiZjTnU/pzR6WYK8uVu/UzabA9pT+vYg=="/>
+                                                    value="✓"/>
                     <div class="text-center py-4"><h2 class="h2"> Vital Records Application Form</h2></div>
 
                     <hr/>
@@ -82,7 +80,7 @@
                                                                                    for="parent1_first_name">First
                                             name</label></div>
                                         <div><input data-validate=""
-                                                                            class="string required" type="text"
+                                                                            class="string required text-capitalize" type="text"
                                                                             th:field="*{parent1_first_name}"
                                                                             id="parent1_first_name" required="required"/>
                                         </div>
@@ -92,7 +90,7 @@
                                                                                    for="certificate_mother_middle_name">Middle
                                             name</label></div>
                                         <div><input data-validate=""
-                                                                            class="string optional" type="text"
+                                                                            class="string optional text-capitalize" type="text"
                                                                             th:field="*{parent1_mid_name}"
                                                                             id="certificate_mother_middle_name"/>
                                         </div>
@@ -105,7 +103,7 @@
                                                 data-original-title="Enter the full maiden name of the mother of the person on record, at the time of birth."></a>
                                         </div>
                                         <div><input data-validate=""
-                                                                            class="string required" type="text"
+                                                                            class="string required text-capitalize" type="text"
                                                                             th:field="*{parent1_last_name}"
                                                                             id="certificate_mother_maiden_or_last_name"/><a
                                                 data-tippy=""
@@ -133,7 +131,7 @@
                                                                                    for="certificate_father_first_name">First
                                             name</label></div>
                                         <div><input data-validate=""
-                                                                            class="string optional" type="text"
+                                                                            class="string optional text-capitalize" type="text"
                                                                             th:field="*{parent2_first_name}"
                                                                             id="certificate_father_first_name"/>
                                         </div>
@@ -143,7 +141,7 @@
                                                                                    for="parent2_middle_name">Middle
                                             name</label></div>
                                         <div><input data-validate=""
-                                                                            class="string optional" type="text"
+                                                                            class="string optional text-capitalize" type="text"
                                                                             th:field="*{parent2_mid_name}"
                                                                             id="parent2_middle_name"/>
                                         </div>
@@ -156,7 +154,7 @@
                                                            data-original-title="Enter the full name of the father of the person on record at the time of birth. Leave empty if the identity of the father is unknown."></a>
                                         </div>
                                         <div><input data-validate=""
-                                                                            class="string optional" type="text"
+                                                                            class="string optional text-capitalize" type="text"
                                                                             th:field="*{parent2_last_name}"
                                                                             id="certificate_father_last_name"/><a
                                                  data-tippy=""
