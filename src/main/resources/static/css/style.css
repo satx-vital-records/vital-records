@@ -284,9 +284,9 @@ input[type="checkbox" i] {
     flex-basis: 50%;
 	-webkit-flex-basis: 50%;
 }
-.w3_info p {
-    padding-bottom: 30px;
-}
+/*.w3_info p {*/
+    /*padding-bottom: 30px;*/
+/*}*/
 p.account,p.account1 {
     padding-top: 20px;
     padding-bottom: 0px;
