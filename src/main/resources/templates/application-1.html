@@ -46,7 +46,6 @@
                 </div>
             </section>
             <div class="page container">
-                <!--<section class=" paddsection">-->
                 <div class="cssProgress ">
                     <div class="progress1">
                         <div class="cssProgress-bar" data-percent="15" style="width: 15%;">
@@ -57,33 +56,24 @@
                 <form accept-charset="UTF-8" th:action="@{/application-1}"
                       class="simple_form new_certificate" style="width:100%;"
                       id="new_certificate1" th:method="post" th:object="${app}" novalidate="novalidate">
-                    <!--<input name="utf8" type="hidden" value="✓"/><input-->
-                    <!--name="authenticity_token" type="hidden"-->
-                    <!--value="GBkZnnvogYBnoELufrriChXdsyeZ975veN9Q1hrDy5ov+pkPlLS8VIQiZjTnU/pzR6WYK8uVu/UzabA9pT+vYg=="/>-->
                     <input id="record_type" type="hidden" th:name="record_type" th:value="${param.RT[0]}"/>
                     <div class="text-center py-4"><h2 class="h2"> Vital Records Application Form</h2></div>
-                    <!--<div id="death" class="text-center py-4"><h2 class="h2"> Death Certificate Order Form</h2></div>-->
                     <hr/>
 
                     <section class="section pb-2">
-                        <div class="row justify-content-center">
-                            <div class="section__container">
+                        <div>
+                            <div style="width:100%" class="section__container container">
                                 <h4 class="h4">1. Your relationship with person on record</h4>
-                                <div class=" row justify-content-center">
-
-                                    <div class="d-inline p-2 form-group select string required certificate_record_person_relationship">
-                                        <div class="tooltip-wrapper-mobile"><label
+                                <div class="row">
+                                    <div class="col-1"></div>
+                                    <div class="col-md-5 d-inline p-2 m-2 form-group select string required certificate_record_person_relationship">
+                                        <div><label
                                                 class="select required pr-1"
                                                 for="certificate_record_person_relationship">Relationship with
                                             person on record?</label><a
                                                 data-original-title="If you are requesting the  birth certificate for yourself, please select “Myself”. In all other cases, please specify your relationship to the person on record. For example if you are a mother requesting the certificate for your child, select &quot;I am the Mother&quot;. It is important to note that if you are not a direct family member, you may have to provide additional proof of your relationship with the person on record."></a>
                                         </div>
                                         <div>
-
-                                            <!--<input type="text" th:field="*{record_relationship}"-->
-                                            <!--name="record_relationship"-->
-                                            <!--id="certificate_record_person_relationship"/>-->
-
                                             <select class="select required"
                                                     data-validate=""
                                                     id="certificate_record_person_relationship"
@@ -113,24 +103,7 @@
                                             </select>
                                         </div>
                                     </div>
-
-                                    <!--<div id="record_person_relationship_specify" style="display: none;">-->
-                                    <!--<div class="d-inline form-group string optional certificate_record_person_relationship_specify">-->
-                                    <!--<div class="tooltip-wrapper-mobile"><label-->
-                                    <!--class="string optional required"-->
-                                    <!--for="certificate_record_person_relationship_specify">Specify</label>-->
-                                    <!--</div>-->
-                                    <!--<div class="tooltip-wrapper"><input class="string optional"-->
-                                    <!--data-validate=""-->
-                                    <!--id="certificate_record_person_relationship_specify"-->
-                                    <!--maxlength="45"-->
-                                    <!--name="certificate[record_person_relationship_specify]"-->
-                                    <!--size="45"-->
-                                    <!--type="text"/>-->
-                                    <!--</div>-->
-                                    <!--</div>-->
-                                    <!--</div>-->
-                                    <div class="d-inline p-2 form-group select required certificate_record_person_relationship">
+                                    <div class="col-md-5 d-inline p-2 m-2 form-group select required certificate_record_person_relationship">
                                         <div><label class="select required"
                                                                                    for="certificate_record_person_relationship">Please
                                             select the certificate type</label><a
@@ -138,7 +111,6 @@
                                                 data-original-title="Standard size format is the most commonly issued because it satisfies most purposes,; Long Form is used most often to obtain a passport, for purposes of dual citizenship, Indian Registry and immigration"
                                                 data-tippy=""></a>
                                         </div>
-                                        <!--<input type="text" th:field="*{form_type}" name="form_type"/>-->
                                         <div>
                                             <select class="select required" data-validate="" id="certificate_type_long_standard" th:field="*{form_type}" required="required">
                                                 <option value="">Please select</option>
@@ -152,8 +124,12 @@
                                             </select>
                                         </div>
                                     </div>
-                                <div class="row justify-content-center">
-                                    <div class="d-inline p-2 form-group select required certificate_record_person_relationship">
+
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-1"></div>
+                                    <div class="col-md-5 d-inline p-2 m-2 form-group select required certificate_record_person_relationship">
                                         <div>
                                             <label class="select required" for="certificate_record_person_relationship">Why are you applying for a certificate?</label>
                                         </div>
@@ -190,7 +166,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="d-inline p-2 form-group select required certificate_record_copies">
+                                    <div class="col-md-5 d-inline p-2 m-2 form-group select required certificate_record_copies">
                                         <div>
                                             <label class="select required" for="certificate_record_copies">Number of Certified Copies needed</label>
                                         </div>
@@ -207,40 +183,43 @@
                                 </div>
                             </div>
                         </div>
-                </div>
-            </section>
-                    <hr/>
+                    </section>
+                    <hr />
 
                     <section class="section pt-2">
-                        <div class="row justify-content-center">
-                            <div class="section__container">
+                        <div>
+                            <div style="width:100%" class="section__container">
                                 <h4 class="h4">2. Requestor information</h4>
-                                <p class="align-left">Enter the name of the requestor as shown on the ID/driver's
+                                <p class="align-left ml-4">Enter the name of the requestor as shown on the ID/driver's
                                     license.</p>
 
-                                <div class="row justify-content-center">
-                                    <div class="d-inline p-2 form-group required certificate_contact_first_name">
+                                <div class="row">
+                                    <div class="col-1"></div>
+                                    <div class="col-md-3 ml-3 d-inline p-2 form-group required certificate_contact_first_name">
                                         <div>
                                             <label class="string required" for="certificate_contact_first_name">First name</label>
                                         </div>
                                         <div>
-                                            <input class="string required text-capitalize" data-validate="" id="certificate_contact_first_name" th:field="*{first_name}" required="required"/>
+
+                                            <input class="string required" data-validate="" id="certificate_contact_first_name" th:field="*{first_name}" required="required" type="text" style="height:2.15em;"/>
                                         </div>
                                     </div>
-                                    <div class="d-inline p-2 form-group string optional certificate_contact_middle_name ">
+                                    <div class="col-md-3 d-inline p-2 form-group string optional certificate_contact_middle_name ">
                                         <div>
                                             <label class="string optional" for="certificate_contact_middle_name">Middle name</label>
                                         </div>
                                         <div>
-                                            <input class="string optional text-capitalize" data-validate="" id="certificate_contact_middle_name" th:field="*{mid_name}"/>
+
+                                            <input class="string optional" data-validate="" id="certificate_contact_middle_name" th:field="*{mid_name}" type="text" style="height: 2.15em;"/>
                                         </div>
                                     </div>
-                                    <div class="d-inline p-2 form-group string required certificate_contact_last_name ">
+                                    <div class="col-md-3 d-inline p-2 form-group string required certificate_contact_last_name ">
                                         <div>
                                             <label class="string required text-capitalize" for="certificate_contact_last_name">Last name</label>
                                         </div>
                                         <div>
-                                            <input class="string required text-capitalize" data-validate="" id="certificate_contact_last_name" th:field="*{last_name}" required="required"/>
+
+                                            <input class="string required" data-validate="" id="certificate_contact_last_name" th:field="*{last_name}" required="required" type="text" style="height: 2.15em;"/>
                                         </div>
                                     </div>
                                 </div>
@@ -249,39 +228,48 @@
                     </section>
                     <hr/>
                     <section class="section pt-2">
-                        <div class="row justify-content-center">
-                            <div class="section__container">
+                        <div>
+                            <div style="width:100%" class="section__container container">
                                 <h4 class="h4">3. Requestor Address</h4>
-                                <p class="align-left">Enter the address of the requestor as shown on the ID/driver's
+                                <p class="align-left ml-4">Enter the address of the requestor as shown on the ID/driver's
                                     license.</p>
 
-                                <div class="row justify-content-center">
-                                    <div class="d-inline p-2 form-group string required certificate_contact_street">
+                                <div class="row">
+                                    <div class="col-1"></div>
+                                    <div class="col-md-3 d-inline p-2 form-group string required certificate_contact_street">
                                         <div>
                                             <label class="string required" for="certificate_contact_street">Street Address</label>
                                         </div>
                                         <div>
-                                            <input class="string required text-capitalize" data-validate="" id="certificate_contact_street" th:field="*{street}" required="required"/>
+
+                                            <input class="string required" data-validate="" id="certificate_contact_street" th:field="*{street}" required="required" type="text" style="height: 2.15em"/>
+
                                         </div>
                                     </div>
-                                    <div class="d-inline p-2 form-group string optional certificate_contact_street2">
+                                    <div class="col-md-3 d-inline p-2 form-group string optional certificate_contact_street2">
                                         <div>
                                             <label class="string optional" for="certificate_contact_street2">Street Address 2</label>
                                         </div>
                                         <div>
-                                            <input class="string optional text-capitalize" data-validate="" id="certificate_contact_street2" th:field="*{street2}"/>
+
+                                            <input class="string optional" data-validate="" id="certificate_contact_street2" th:field="*{street2}" type="text" style="height: 2.15em;"/>
                                         </div>
                                     </div>
-                                    <div class="row justify-content-center">
-                                        <div class="d-inline p-2 form-group string required certificate_contact_city">
+                                    <div class="col-5"></div>
+                                </div>
+
+                                    <div class="row">
+                                        <div class="col-1"></div>
+                                        <div class="col-md-3 d-inline p-2 form-group string required certificate_contact_city">
                                             <div>
                                                 <label class="string required" for="certificate_contact_city">City</label>
                                             </div>
                                             <div>
-                                                <input class="string required text-capitalize" data-validate="" id="certificate_contact_city" th:field="*{city}" required="required"/>
+
+                                                <input class="string required" data-validate="" id="certificate_contact_city" th:field="*{city}" required="required" type="text" style="height: 2.15em;"/>
                                             </div>
                                         </div>
-                                        <div class=" d-inline p-2 form-group select required certificate_delivery_state">
+                                        <div class="col-md-3 d-inline p-2 form-group select required certificate_delivery_state">
                                             <div>
                                                 <label class="select required" for="certificate_contact_state">State</label>
                                             </div>
@@ -341,16 +329,17 @@
                                                 </select>
                                             </div>
                                         </div>
-                                        <div class="d-inline p-2 form-group string optional certificate_contact_zip ">
+                                        <div class="col-md-3 ml-3 d-inline p-2 form-group string optional certificate_contact_zip ">
                                             <div>
                                                 <label class="string optional" for="certificate_contact_zip">Zip Code</label>
                                             </div>
                                             <div>
-                                                <input class="string optional" data-validate="" id="certificate_contact_zip" th:field="*{zip}"/>
+                                                <input class="string optional" data-validate="" id="certificate_contact_zip" th:field="*{zip}" type="text" style="height:2.15em;"/>
                                             </div>
                                         </div>
+                                        <div class="col-2"></div>
                                     </div>
-                                </div>
+
                             </div>
                         </div>
                     </section>
@@ -373,15 +362,7 @@
                                    data-disable-with="SAVE APPLICATION"/>
                         </div>
                     </div>
-                    <!--</div>-->
-                    <!--</div>-->
-
-                    <!--</section>-->
                 </form>
-
-                <!--</section>-->
-                <!--</div>-->
-                <!--</div>-->
             </div>
 
         </div>

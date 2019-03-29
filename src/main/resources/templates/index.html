@@ -9,14 +9,14 @@
 
                 <li sec:authorize="!isAuthenticated()" class="d-inline px-3 mb-1">
                     <form th:action="@{/login}" th:method="get" class="d-inline">
-                        <button class="p-2 btn-primary btn--large is-block disable-resubmit" style="margin-top: 8px">
+                        <button class="p-1 mb-2 rounded  btn-primary btn--large is-block disable-resubmit" style="margin-top: 8px">
                             Login
                         </button>
                     </form>
                 </li>
                 <li sec:authorize="isAuthenticated()" class="d-inline px-3 mb-1">
                     <form th:action="@{/logout}" th:method="post" class="d-inline">
-                        <button class="p-2 btn-primary btn--large is-block disable-resubmit" style="margin-top: 8px">
+                        <button class="p-1 mb-2 rounded  btn-primary btn--large is-block disable-resubmit" style="margin-top: 8px">
                             Logout
                         </button>
                     </form>
