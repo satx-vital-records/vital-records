@@ -9,14 +9,14 @@
 
                 <li sec:authorize="!isAuthenticated()" class="d-inline px-3 mb-1">
                     <form th:action="@{/login}" th:method="get" class="d-inline">
-                        <button class="p-2 btn-primary btn--large is-block disable-resubmit" style="margin-top: 8px">
+                        <button class="p-1 mb-2 btn-primary btn--large is-block disable-resubmit" style="margin-top: 8px">
                             Login
                         </button>
                     </form>
                 </li>
                 <li sec:authorize="isAuthenticated()" class="d-inline px-3 mb-1">
                     <form th:action="@{/logout}" th:method="post" class="d-inline">
-                        <button class="p-2 btn-primary btn--large is-block disable-resubmit" style="margin-top: 8px">
+                        <button class="p-1 mb-2 btn-primary btn--large is-block disable-resubmit" style="margin-top: 8px">
                             Logout
                         </button>
                     </form>
@@ -70,7 +70,8 @@
                             <div class="card-footer py-4">
 
 
-                                <a href="/checkout"  id="email" class="p-2 btn-primary btn--large is-block disable-resubmit">Send PDF
+                                <a href="/checkout" class="p-2 btn-primary btn--large is-block disable-resubmit">Send PDF
+
                                     &raquo;</a>
 
                                 <!--<form th:action="@{/checkout}" th:method="POST">-->
@@ -164,9 +165,13 @@
                     </div>
 
 
-                </div>
+
+                <!--<embed src="https://drive.google.com/viewerng/-->
+                <!--viewer?embedded=true&amp;url=pdf/COSA-Mail-Application.pdf" width="500" height="375"/>-->
+                <!--<object width="400" height="500" type="application/pdf" data="/pdf/COSA-Mail-Application.pdf">-->
+                <!--<p>Insert your error message here, if the PDF cannot be displayed.</p>-->
+                <!--</object>-->
             </div>
-        </div>
 
         <div th:src="${file}"></div>
         <div th:src="@{file}"></div>
