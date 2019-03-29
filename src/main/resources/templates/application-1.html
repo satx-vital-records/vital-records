@@ -108,24 +108,23 @@
                                             for="certificate_record_person_relationship">Please
                                     select the certificate type</label><a
 
-                                        data-original-title="Standard size format is the most commonly issued because it satisfies most purposes,; Long Form is used most often to obtain a passport, for purposes of dual citizenship, Indian Registry and immigration"
-                                        data-tippy=""></a>
+                                                data-original-title="Standard size format is the most commonly issued because it satisfies most purposes,; Long Form is used most often to obtain a passport, for purposes of dual citizenship, Indian Registry and immigration"
+                                                data-tippy=""></a>
+                                        </div>
+                                        <div>
+                                            <select class="select required" data-validate="" id="certificate_type_long_standard" th:field="*{form_type}" required="required">
+                                                <option value="">Please select</option>
+                                                <option th:value="Abstract">Abstract (Standard)</option>
+                                                <option th:value="Long">Long form (Passport, Dual Citizenship, Indian
+                                                    Registry, Immigration
+                                                    purposes)
+                                                </option>
+                                                <option th:value="Certified_Copy">Certified Copy (Death certificates only)
+                                                </option>
+                                            </select>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div>
-                                    <select class="select required" data-validate="" id="certificate_type_long_standard"
-                                            th:field="*{form_type}" required="required">
-                                        <option value="">Please select</option>
-                                        <option th:value="Abstract">Abstract (Standard)</option>
-                                        <option th:value="Long">Long form ( Passport, Dual Citizenship, Indian
-                                            Registry, Immigration
-                                            purposes)
-                                        </option>
-                                        <option th:value="certified_copy">Certified Copy (Death certificates only)
-                                        </option>
-                                    </select>
-                                </div>
-                            </div>
-                        </div>
 
                         <div class="row">
                             <div class="col-1"></div>

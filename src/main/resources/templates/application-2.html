@@ -146,16 +146,17 @@
                                     <div class="col-md-3 d-inline p-2 form-group date required certificate_birth_date">
                                         <div><label class="date required"
                                                                                    for="birth_date">Date
-                                            of birth (MM/DD/YYYY)</label>
+                                            of birth</label>
 
                                         </div>
                                         <div>
                                             <input
-                                                    th:field="*{date_of_birth}"
+                                                    name="dob_dod"
+                                                    type="date"
                                                     id="birth_date"
                                                     class="date-picker-style"
-                                                    pattern="\d{2}/\d{2}/\d{4}"
-                                                    required="required" type="text" style="height: 2.15em"/>
+                                                    required="required"
+                                                    min="01-01-1901"  style="height: 2.15em"/>
                                         </div>
                                     </div>
                                 </div>
@@ -196,15 +197,17 @@
                             <div class="col-md-3 d-inline p-2 form-group date required certificate_death_date">
                                 <div><label class="date required"
                                                                            for="death_date">Date
-                                    of death (MM/DD/YYYY)</label>
+                                    of death</label>
 
                                 </div>
                                 <div>
                                     <input
-                                        th:field="*{date_of_death}"
+                                        name="dob_dod"
+                                        type="date"
                                         id="death_date"
                                         class="date-picker-style"
-                                        pattern="\d{2}/\d{2}/\d{4}" required="required" type="text" style="height: 2.15em"/>
+                                        required="required"
+                                        min="01-01-1901"  style="height: 2.15em"/>
                                 </div>
                             </div>
                         </div>
