@@ -43,8 +43,8 @@ let urlImg2 = "";
         });
 
         form.addEventListener('submit', function (e) {
-            // e.preventDefault();
-            alert('Your documents are being submitted to SATX Vital Records.');
+                    e.preventDefault();
+                    // $(".alert").delay(1000).addClass("in").toggle(true).fadeOut(4000);
             updateForm(urlImg1, urlImg2);
 
         });
