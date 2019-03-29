@@ -27,6 +27,7 @@
                     </i></a>
                 </li>
             </ul>
+            <div class="container"></div>
         </div>
     </div>
     <div id="body-container">
@@ -47,6 +48,9 @@
                 </div>
             </section>
             <div class="page container">
+                <div class="alert alert-success fade alert-container">
+                    <button type="button"  class="close" data-dismiss="alert" aria-hidden="true">&times;</button> Email Successfully Sent!
+                </div>
                 <!--<div class="cssProgress mx-auto" style="width: 70%;">-->
                 <!--<div class="progress1">-->
                 <!--<div class="cssProgress-bar" data-percent="100" style="width: 100%;">-->
@@ -66,12 +70,12 @@
                             <div class="card-footer py-4">
 
 
-                                <!--<a href="/checkout" id="email" class="p-2 btn-primary btn&#45;&#45;large is-block disable-resubmit">Send PDF-->
-                                    <!--&raquo;</a>-->
+                                <a href="/checkout"  id="email" class="p-2 btn-primary btn--large is-block disable-resubmit">Send PDF
+                                    &raquo;</a>
 
-                                <form th:action="@{/checkout}" th:method="POST">
-                                <button id="email" class="p-2 btn-primary btn--large is-block disable-resubmit" type="submit">Send PDF &raquo;</button>
-                                </form>
+                                <!--<form th:action="@{/checkout}" th:method="POST">-->
+                                <!--<button id="email" class="p-2 btn-primary btn&#45;&#45;large is-block disable-resubmit" type="submit">Send PDF &raquo;</button>-->
+                                <!--</form>-->
 
                             </div>
                         </div>
@@ -160,11 +164,6 @@
                     </div>
 
 
-                    <!--<embed src="https://drive.google.com/viewerng/-->
-                    <!--viewer?embedded=true&amp;url=pdf/COSA-Mail-Application.pdf" width="500" height="375"/>-->
-                    <!--<object width="400" height="500" type="application/pdf" data="/pdf/COSA-Mail-Application.pdf">-->
-                    <!--<p>Insert your error message here, if the PDF cannot be displayed.</p>-->
-                    <!--</object>-->
                 </div>
             </div>
         </div>
@@ -181,9 +180,9 @@
 </body>
 
 <script type="text/javascript">
-    $('#email').click(function () {
-        $("#email").html("Hello <b>world</b>!");
-        // alert("Email sent!")
+    $('#email').click(function (e) {
+        e.preventDefault();
+        $(".alert").delay(1000).addClass("in").toggle(true).fadeOut(4000);
     });
 
     function zoomToLevel() {
