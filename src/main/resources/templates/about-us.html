@@ -2,48 +2,52 @@
 <html xmlns:th="http://www.thymeleaf.org" lang="en" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
 
 <head th:replace="fragments/login-form-header :: login-form-header('About Us!')">
-    <!--<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous" />-->
 </head>
 
 <body>
-    <div class=" navbar-fixed-top">
-        <div class="navbar-inner">
-            <ul class="float-right m-0">
-                <li sec:authorize="!isAuthenticated()" class="d-inline px-3 mb-1">
-                    <form th:action="@{/login}" th:method="get" class="d-inline">
-                        <button class="p-2 btn-primary btn--large is-block disable-resubmit" style="margin-top: 8px">
-                            Login
-                        </button>
-                    </form>
-                </li>
-                <li sec:authorize="isAuthenticated()" class="d-inline px-3 mb-1">
-                    <form th:action="@{/logout}" th:method="post" class="d-inline">
-                        <button class="p-2 btn-primary btn--large is-block disable-resubmit" style="margin-top: 8px">
-                            Logout
-                        </button>
-                    </form>
-                </li>
-            </ul>
+<section class="nav nav-page">
+    <div class="container-fluid">
+        <div class="row ">
+            <!--<div class="">-->
+            <div class="col-7 d-inline">
+                <header class="page-header d-inline">
+                    <a th:href="@{/}">
+                        <h3>Records Application<br/>
+                            <small>Vital Records City of San Antonio</small>
+                        </h3>
+                    </a>
+                </header>
+            </div>
+            <div class="col-5 my-auto d-inline">
+                <ul class="float-right d-inline">
+
+                    <li sec:authorize="!isAuthenticated()" class="d-inline px-3 mb-1">
+                        <form th:action="@{/login}" th:method="get" class="d-inline">
+                            <button class="p-2 btn-primary btn--large is-block disable-resubmit"
+                                    style="margin-top: 8px">
+                                Login
+                            </button>
+                        </form>
+                    </li>
+                    <li sec:authorize="isAuthenticated()" class="d-inline px-3 mb-1">
+                        <form th:action="@{/logout}" th:method="post" class="d-inline">
+                            <button class="p-2 btn-primary btn--large is-block disable-resubmit"
+                                    style="margin-top: 8px">
+                                Logout
+                            </button>
+                        </form>
+                    </li>
+                    <li class="d-inline px-3 mb-1 float-right">
+                        <a th:href="@{/about-us}"><i class="material-icons  "
+                                                     style="font-size: 36px; margin-top: 8px;">
+                            help_outline
+                        </i></a>
+                    </li>
+                </ul>
+            </div>
         </div>
     </div>
-    <div id="body-content">
-        <section class="nav nav-page">
-            <div class="container">
-                <div class="row">
-                    <div class="span7">
-                        <header class="page-header">
-                            <a th:href="@{/}">
-                                <h3>Records Application<br/>
-                                    <small>Vital Records City of San Antonio</small>
-                                </h3>
-                            </a>
-                        </header>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-
+</section>
         <div class="page container" style="width:90%; margin:1em auto;">
         <div class="card-deck">
             <div class="card" style="width: 10rem;">
@@ -100,6 +104,5 @@
         </div>
         </div>
         <footer th:replace="fragments/admin-footer :: admin-footer"></footer>
-    </div>
 </body>
 </html>
