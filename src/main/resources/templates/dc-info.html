@@ -2,70 +2,77 @@
 <html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
 <head th:replace="fragments/login-form-header :: login-form-header('Application')"/>
 <body>
-    <div class=" navbar-fixed-top">
-        <div class="navbar-inner">
-            <ul class="float-right m-0">
-
-                <li sec:authorize="!isAuthenticated()" class="d-inline px-3 mb-1">
-                    <form th:action="@{/login}" th:method="get" class="d-inline">
-                        <button class="p-2 btn-primary btn--large is-block disable-resubmit" style="margin-top: 8px">
-                            Login
-                        </button>
-                    </form>
-                </li>
-                <li sec:authorize="isAuthenticated()" class="d-inline px-3 mb-1">
-                    <form th:action="@{/logout}" th:method="post" class="d-inline">
-                        <button class="p-2 btn-primary btn--large is-block disable-resubmit" style="margin-top: 8px">
-                            Logout
-                        </button>
-                    </form>
-                </li>
-                <li class="d-inline px-3 mb-1 float-right">
-                    <a th:href="@{/about-us}"><i class="material-icons  " style="font-size: 36px; margin-top: 8px;">
-                        help_outline
-                    </i></a>
-                </li>
-            </ul>
-        </div>
-    </div>
-    <div id="body-container">
-        <div id="body-content">
-            <section class="nav nav-page">
-                <div class="container">
-                    <div class="row">
-                        <div class="span7">
-                            <header class="page-header">
-                                <a th:href="@{/}">
-                                    <h3>Records Application<br/>
-                                        <small>Vital Records City of San Antonio</small>
-                                    </h3>
-                                </a>
-                            </header>
-                        </div>
-                    </div>
+    <section class="nav nav-page">
+        <div class="container-fluid">
+            <div class="row ">
+                <!--<div class="">-->
+                <div class="col-7 d-inline">
+                    <header class="page-header d-inline">
+                        <a th:href="@{/}">
+                            <h3>Records Application<br/>
+                                <small>Vital Records City of San Antonio</small>
+                            </h3>
+                        </a>
+                    </header>
                 </div>
-            </section>
-            <div class="page container">
-                <h1 style="font-size: x-large;" class="pt-5"> Death Certificate Information Page</h1><br />
-                <article>San Antonio Office of the City Clerk, Vital Records Agency Information<br /><br />
-                    <h4>SAN ANTONIO VITAL RECORDS</h4><br />
-                    <p>The San Antonio Division of Vital Records (San Antonio Vital Records) issues certified copies of San Antonio death certificates for events which occurred in Bexar County from 1873 to the present. </p><br />
+                <div class="col-5 my-auto d-inline">
+                    <ul class="float-right d-inline">
 
-                    <p><b><em>NOTICE:</em></b> Although we attempt to include accurate and up-to-date information on this site, state and agency information is subject to change without notice. We make no representations or warranties as to the accuracy, completeness or timeliness of the information herein and assumes no liability with respect to such information.</p><br />
-
-                    <h4>SAN ANTONIO DEATH CERTIFICATES</h4><br />
-                    <p>San Antonio Vital Records issues only certified copies of a death record that can typically be used to obtain death benefits, claim insurance proceeds, notify social security and other legal purposes.</p><br />
-
-                    <a href="https://www.sanantonio.gov/Municipal-Archives-Records/Birth-Death-Records" target="_blank">Visit San Antonio Office of the City Clerk, Vital Records site</a></article>
-
-            </div>
-            <div style="text-align: center; margin-top: 1.5em;">
-                <form th:action="@{/application-1}" th:method="GET">
-                    <button class="p-2 btn-primary btn--large is-block disable-resubmit" name="RT" value="Death" type="submit" id="death_cert">Request Death Certificate</button></form>
+                        <li sec:authorize="!isAuthenticated()" class="d-inline px-3 mb-1">
+                            <form th:action="@{/login}" th:method="get" class="d-inline">
+                                <button class="p-2 btn-primary btn--large is-block disable-resubmit"
+                                        style="margin-top: 8px">
+                                    Login
+                                </button>
+                            </form>
+                        </li>
+                        <li sec:authorize="isAuthenticated()" class="d-inline px-3 mb-1">
+                            <form th:action="@{/logout}" th:method="post" class="d-inline">
+                                <button class="p-2 btn-primary btn--large is-block disable-resubmit"
+                                        style="margin-top: 8px">
+                                    Logout
+                                </button>
+                            </form>
+                        </li>
+                        <li class="d-inline px-3 mb-1 float-right">
+                            <a th:href="@{/about-us}"><i class="material-icons  "
+                                                         style="font-size: 36px; margin-top: 8px;">
+                                help_outline
+                            </i></a>
+                        </li>
+                    </ul>
+                </div>
             </div>
         </div>
-    </div>
+    </section>
+    <div class="page container">
+        <h1 style="font-size: x-large;" class="pt-5"> Death Certificate Information Page</h1><br/>
+        <article>San Antonio Office of the City Clerk, Vital Records Agency Information<br/><br/>
+            <h4>SAN ANTONIO VITAL RECORDS</h4><br/>
+            <p>The San Antonio Division of Vital Records (San Antonio Vital Records) issues certified copies of San
+                Antonio death certificates for events which occurred in Bexar County from 1873 to the present. </p><br/>
 
+            <p><b><em>NOTICE:</em></b> Although we attempt to include accurate and up-to-date information on this site,
+                state and agency information is subject to change without notice. We make no representations or
+                warranties as to the accuracy, completeness or timeliness of the information herein and assumes no
+                liability with respect to such information.</p><br/>
+
+            <h4>SAN ANTONIO DEATH CERTIFICATES</h4><br/>
+            <p>San Antonio Vital Records issues only certified copies of a death record that can typically be used to
+                obtain death benefits, claim insurance proceeds, notify social security and other legal purposes.</p>
+            <br/>
+
+            <a href="https://www.sanantonio.gov/Municipal-Archives-Records/Birth-Death-Records" target="_blank">Visit
+                San Antonio Office of the City Clerk, Vital Records site</a></article>
+
+    </div>
+    <div style="text-align: center; margin-top: 1.5em;" class="pb-5">
+        <form th:action="@{/application-1}" th:method="GET">
+            <button class="p-2 btn-primary btn--large is-block disable-resubmit" name="RT" value="Death" type="submit"
+                    id="death_cert">Request Death Certificate
+            </button>
+        </form>
+    </div>
     <div th:replace="fragments/admin-footer :: admin-footer"></div>
 </body>
 </html>

@@ -1,164 +1,93 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
 <head th:replace="fragments/login-form-header :: login-form-header('Login')"/>
 <body>
-    <div class=" navbar-fixed-top">
-        <div class="navbar-inner">
-            <a th:href="@{/about-us}"><i class="material-icons float-right" style="font-size: 36px; margin-top: 8px;">
-                help_outline
-            </i></a>
-        </div>
-    </div>
-    <div id="body-container">
-        <div id="body-content">
-            <section class="nav nav-page">
-                <div class="container">
-                    <div class="row">
-                        <div class="span7">
-                            <header class="page-header">
-                                <a th:href="@{/}">
-                                    <h3>Records Application<br/>
-                                        <small>Vital Records City of San Antonio</small>
-                                    </h3>
-                                </a>
-                            </header>
-                        </div>
-                    </div>
+    <section class="nav nav-page">
+        <div class="container-fluid">
+            <div class="row ">
+                <!--<div class="">-->
+                <div class="col-7 d-inline">
+                    <header class="page-header d-inline">
+                        <a th:href="@{/}">
+                            <h3>Records Application<br/>
+                                <small>Vital Records City of San Antonio</small>
+                            </h3>
+                        </a>
+                    </header>
                 </div>
-            </section>
-            <div class="signupform">
-                <div class="container">
-                    <!-- main content -->
-                    <div class="agile_info">
-                        <div class="w3l_form">
-                            <div class="left_grid_info">
-                                <h1>Manage Your Vital Records Request</h1>
-                                <p>The City of San Antonio makes it easier to apply and pay online to save you time when
-                                    picking up your records.</p>
-                                <img src="images/image.jpg" alt=""/>
-                            </div>
-                        </div>
-                        <div class="w3_info">
-                            <h2>Login to your Account</h2>
-                            <p class="pb-3">Enter your details to login.</p>
-                            <form th:action="@{/login}" method="post">
+                <div class="col-5 my-auto d-inline">
+                    <ul class="float-right d-inline">
 
-
-                                <label>Username</label>
-                                <div class="input-group">
-                                    <span><i class="material-icons" aria-hidden="true">supervised_user_circle</i></span>
-                                    <input type="" id="username" name="username"
-                                           placeholder="Enter Your Username"/>
-                                </div>
-
-
-                                <label>Password</label>
-                                <div class="input-group">
-                                    <span><i class="material-icons" aria-hidden="true">lock</i></span>
-                                    <input type="password" id="password" name="password" placeholder="Enter Password"
-                                           required="required"/>
-                                </div>
-                                <!--<div class="login-check">-->
-                                    <!--<label class="checkbox"><input type="checkbox" name="checkbox" checked=""/><i> </i>-->
-                                        <!--Remember me</label>-->
-                                <!--</div>-->
-                                <button class="p-2 btn-primary btn--large is-block disable-resubmit" type="submit">Login
+                        <li sec:authorize="!isAuthenticated()" class="d-inline px-3 mb-1">
+                            <form th:action="@{/login}" th:method="get" class="d-inline">
+                                <button class="p-2 btn-primary btn--large is-block disable-resubmit"
+                                        style="margin-top: 8px">
+                                    Login
                                 </button>
                             </form>
-                            <p class="account">By clicking login, you agree to our Terms &amp;
-                                Conditions!</p>
-                            <p class="account1">Don't have an account? <a href="/">Register here</a></p>
-                        </div>
-                    </div>
+                        </li>
+                        <li sec:authorize="isAuthenticated()" class="d-inline px-3 mb-1">
+                            <form th:action="@{/logout}" th:method="post" class="d-inline">
+                                <button class="p-2 btn-primary btn--large is-block disable-resubmit"
+                                        style="margin-top: 8px">
+                                    Logout
+                                </button>
+                            </form>
+                        </li>
+                        <li class="d-inline px-3 mb-1 float-right">
+                            <a th:href="@{/about-us}"><i class="material-icons  "
+                                                         style="font-size: 36px; margin-top: 8px;">
+                                help_outline
+                            </i></a>
+                        </li>
+                    </ul>
                 </div>
             </div>
         </div>
-                <div th:replace="fragments/admin-footer :: admin-footer"></div>
+    </section>
+    <div class="signupform">
+        <div class="container">
+            <!-- main content -->
+            <div class="agile_info">
+                <div class="w3l_form">
+                    <div class="left_grid_info">
+                        <h1>Manage Your Vital Records Request</h1>
+                        <p>The City of San Antonio makes it easier to apply and pay online to save you time when
+                            picking up your records.</p>
+                        <img src="images/image.jpg" alt=""/>
+                    </div>
+                </div>
+                <div class="w3_info">
+                    <h2>Login to your Account</h2>
+                    <p class="pb-3">Enter your details to login.</p>
+                    <form th:action="@{/login}" method="post">
+
+
+                        <label>Username</label>
+                        <div class="input-group">
+                            <span><i class="material-icons" aria-hidden="true">supervised_user_circle</i></span>
+                            <input type="" id="username" name="username"
+                                   placeholder="Enter Your Username"/>
+                        </div>
+
+
+                        <label>Password</label>
+                        <div class="input-group">
+                            <span><i class="material-icons" aria-hidden="true">lock</i></span>
+                            <input type="password" id="password" name="password" placeholder="Enter Password"
+                                   required="required"/>
+                        </div>
+                        <button class="p-2 btn-primary btn--large is-block disable-resubmit" type="submit">Login
+                        </button>
+                    </form>
+                    <p class="account">By clicking login, you agree to our Terms &amp;
+                        Conditions!</p>
+                    <p class="account1">Don't have an account? <a href="/">Register here</a></p>
+                </div>
+            </div>
+        </div>
     </div>
+    <div th:replace="fragments/admin-footer :: admin-footer"></div>
 </body>
 </html>
-
-
-
-
-
-
-
-
-<!--<!DOCTYPE html>-->
-<!--<html xmlns:th="http://www.thymeleaf.org">-->
-<!--<head th:replace="fragments/test-header :: test-header('Login')"/>-->
-<!--<body>-->
-<!--<div class=" navbar-fixed-top">-->
-<!--<div class="navbar-inner">-->
-<!--<div class="container"></div>-->
-<!--</div>-->
-<!--</div>-->
-<!--<div id="body-container" class="bdy-img2">-->
-<!--<div id="body-content">-->
-<!--<section class="nav nav-page">-->
-<!--<div class="container">-->
-<!--<div class="row">-->
-<!--<div class="span7">-->
-<!--<header class="page-header">-->
-<!--<h3>Records Application<br/>-->
-<!--<small>Vital Records City of San Antonio</small>-->
-<!--</h3>-->
-<!--</header>-->
-<!--</div>-->
-<!--</div>-->
-<!--</div>-->
-<!--</section>-->
-<!--<div class="page container mt-5">-->
-
-
-<!--<div class="row justify-content-center">-->
-
-<!--<div th:if="${param.error}">-->
-<!--Invalid Username and/or Password-->
-<!--</div>-->
-<!--<div th:if="${param.logout}">-->
-<!--You have been logged out.-->
-<!--</div>-->
-<!--</div>-->
-
-
-<!--<div class="col-md-6 mb-4">-->
-<!--<div class="card">-->
-<!--<div class="card-body text-center">-->
-<!--<form th:action="@{/login}" method="post">-->
-<!--<div class="row mt-5 form-bgc">-->
-<!--<div class="row align-items-center">-->
-<!--<div class="mx-2">-->
-<!--<div class="form-group contact-block1 d-inline">-->
-<!--<label for="username">Username</label>-->
-<!--<input id="username" name="username" type="text"/>-->
-<!--</div>-->
-<!--</div>-->
-<!--<div class=" mx-2">-->
-<!--<div class="form-group contact-block1 d-inline">-->
-<!--<label for="password">Password</label>-->
-<!--<input id="password" name="password" type="password"/>-->
-<!--</div>-->
-<!--</div>-->
-<!--<div class="mx-2">-->
-<!--<div class="form-group contact-block1 d-inline">-->
-<!--<input type="submit" class="p-2 btn-sun btn&#45;&#45;large is-block disable-resubmit"-->
-<!--value="Log In"/>-->
-<!--</div>-->
-<!--</div>-->
-<!--</div>-->
-<!--</div>-->
-<!--</form>-->
-<!--</div>-->
-<!--</div>-->
-<!--</div>-->
-<!--</div>-->
-<!--</div>-->
-<!--</div>-->
-
-<!--<div th:replace="fragments/admin-footer :: admin-footer"></div>-->
-<!--</body>-->
-<!--</html>-->
-
 
