@@ -197,10 +197,10 @@
                                 <td th:text="${app.form_type}"></td>
                                 <span th:if="${app.getRecord_type() == 'Birth'}"><td
 
-                                        th:text="${#dates.format(app.getRecord().getDate_of_birth(), 'MM/dd/yyyy hh:mm')}"></td>
+                                        th:text="${#dates.format(app.getRecord().getDate_of_birth(), 'MM/dd/yyyy')}"></td>
                                         </span>
                                 <span th:unless="${app.getRecord_type() == 'Birth'}"><td
-                                        th:text="${#dates.format(app.getRecord().getDate_of_death(), 'MM/dd/yyyy hh:mm')}"></td>
+                                        th:text="${#dates.format(app.getRecord().getDate_of_death(), 'MM/dd/yyyy')}"></td>
                                         </span>
                                 <td th:text="${app.last_name} + ', ' + ${app.first_name}"></td>
                                 <td th:text="${app.record_relationship}"></td>
