@@ -51,8 +51,9 @@ public class HomeController {
     Iterable<Application> allapps = appDao.findAll();
     List<Application> viewapps = new ArrayList<>();
     for(Application app:allapps){
-      if((app.getStatus()== null) || (app.getRecord()== null)){
-        appDao.delete(app.getId());
+      if((app.getStatus()== null) || app.getStatus().getId()== 100 || (app.getRecord()== null)){
+//        appDao.delete(app.getId());
+        continue;
       } else {
         viewapps.add(app);
       }

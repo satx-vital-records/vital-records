@@ -77,11 +77,11 @@ public class ApplicationController {
 
 
         app.setUser(userDB);
+        app.setStatus(statusDao.findOne(100L));
         appDao.save(app);
 
         model.addAttribute("record_type", record_type);
         model.addAttribute("copies", numOfCopies);
-
         model.addAttribute("app", app);
 
     return "redirect:/application-2";
@@ -241,22 +241,15 @@ public class ApplicationController {
             }
         }
 
-
-//        User user = userDao.findOne(1L);
         address.setUser(userDB);
-        System.out.println("setting user in app 4 post");
         mailDao.save(address);
-        System.out.println("saving user to db in app 4 post");
 
 // -----START OF GETTING FORM FIELDS POPULATED BY DB -------
 // passing thru a record and app object - separating thru preparepdf function
         Application app = appDao.findOne(appDB.getId());
         Record record = recordDao.findOne(recordDB_id);
-//        User user = userDao.findOne(1L);
-//        MailingAddress address1 = mailDao.findOne(1L);
         long millis = System.currentTimeMillis();
         pdfStamper.preparePdf(record, app, userDB, address, millis);
-        System.out.println("just finished pdf stamper method in app 4 post");
         return "redirect:/completed-application";
     }
 
@@ -309,7 +302,11 @@ public class ApplicationController {
         }
 
         appDB.setStatus(statusDao.findOne(200L));
-        appDao.save(appDB);
+
+      Date date = new Date();
+      appDB.getRecord().setDate_of_request(date);
+
+      appDao.save(appDB);
         return "redirect:/checkout";
     }
 
@@ -386,10 +383,10 @@ public class ApplicationController {
         appDB.setForm_img(url2);
 //        System.out.println(url);
 
-        Date date = new Date();
-        System.out.println(date);
+//        Date date = new Date();
+//        System.out.println(date);
 
-        appDB.getRecord().setDate_of_request(date);
+//        appDB.getRecord().setDate_of_request(date);
         appDB.setStatus(statusDao.findOne(300L));
         appDao.save(appDB);
         return "redirect:/charge";
