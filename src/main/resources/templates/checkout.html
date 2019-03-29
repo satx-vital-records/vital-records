@@ -9,14 +9,14 @@
 
                 <li sec:authorize="!isAuthenticated()" class="d-inline px-3 mb-1">
                     <form th:action="@{/login}" th:method="get" class="d-inline">
-                        <button class="p-2 btn-primary btn--large is-block disable-resubmit" style="margin-top: 8px">
+                        <button class="p-1 mb-2 btn-primary btn--large is-block disable-resubmit" style="margin-top: 8px">
                             Login
                         </button>
                     </form>
                 </li>
                 <li sec:authorize="isAuthenticated()" class="d-inline px-3 mb-1">
                     <form th:action="@{/logout}" th:method="post" class="d-inline">
-                        <button class="p-2 btn-primary btn--large is-block disable-resubmit" style="margin-top: 8px">
+                        <button class="p-1 mb-2 btn-primary btn--large is-block disable-resubmit" style="margin-top: 8px">
                             Logout
                         </button>
                     </form>
@@ -48,6 +48,9 @@
                 </div>
             </section>
             <div class="page container">
+                <div class="alert alert-success fade alert-container">
+                    <button type="button"  class="close" data-dismiss="alert" aria-hidden="true">&times;</button> Email Successfully Sent!
+                </div>
                 <!--<div class="cssProgress mx-auto" style="width: 70%;">-->
                 <!--<div class="progress1">-->
                 <!--<div class="cssProgress-bar" data-percent="100" style="width: 100%;">-->
@@ -67,7 +70,8 @@
                             <div class="card-footer py-4">
 
 
-                                <a href="/checkout" class="p-2 btn-primary btn--large is-block disable-resubmi">Send PDF
+                                <a href="/checkout" class="p-2 btn-primary btn--large is-block disable-resubmit">Send PDF
+
                                     &raquo;</a>
 
                                 <!--<form th:action="@{/checkout}" th:method="POST">-->
@@ -102,7 +106,7 @@
                                     up your vital record.</p>
                             </div>
                             <div class="card-footer py-4">
-                                <a href="/upload" class="p-2 btn-primary btn--large is-block disable-resubmi">Upload
+                                <a href="/upload" class="p-2 btn-primary btn--large is-block disable-resubmit">Upload
                                     Documents &raquo;</a>
                             </div>
                         </div>
@@ -161,14 +165,13 @@
                     </div>
 
 
-                    <!--<embed src="https://drive.google.com/viewerng/-->
-                    <!--viewer?embedded=true&amp;url=pdf/COSA-Mail-Application.pdf" width="500" height="375"/>-->
-                    <!--<object width="400" height="500" type="application/pdf" data="/pdf/COSA-Mail-Application.pdf">-->
-                    <!--<p>Insert your error message here, if the PDF cannot be displayed.</p>-->
-                    <!--</object>-->
-                </div>
+
+                <!--<embed src="https://drive.google.com/viewerng/-->
+                <!--viewer?embedded=true&amp;url=pdf/COSA-Mail-Application.pdf" width="500" height="375"/>-->
+                <!--<object width="400" height="500" type="application/pdf" data="/pdf/COSA-Mail-Application.pdf">-->
+                <!--<p>Insert your error message here, if the PDF cannot be displayed.</p>-->
+                <!--</object>-->
             </div>
-        </div>
 
         <div th:src="${file}"></div>
         <div th:src="@{file}"></div>
@@ -182,8 +185,9 @@
 </body>
 
 <script type="text/javascript">
-    $('#email').click(function () {
-        alert("Email sent!")
+    $('#email').click(function (e) {
+        e.preventDefault();
+        $(".alert").delay(1000).addClass("in").toggle(true).fadeOut(4000);
     });
 
     function zoomToLevel() {

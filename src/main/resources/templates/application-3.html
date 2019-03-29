@@ -26,7 +26,6 @@
                     </i></a>
                 </li>
             </ul>
-            <div class="container"></div>
         </div>
     </div>
     <div id="body-container">
@@ -61,43 +60,40 @@
                       id="new_certificate3"
                       novalidate="novalidate"
                       accept-charset="UTF-8"><input name="utf8" type="hidden"
-                                                    value="✓"/><input
-                        type="hidden" name="authenticity_token"
-                        value="GBkZnnvogYBnoELufrriChXdsyeZ975veN9Q1hrDy5ov+pkPlLS8VIQiZjTnU/pzR6WYK8uVu/UzabA9pT+vYg=="/>
+                                                    value="✓"/>
                     <div class="text-center py-4"><h2 class="h2"> Vital Records Application Form</h2></div>
 
                     <hr/>
-
-
                     <section class="section pb-2">
-                        <div class="row">
-                            <div class="section__container">
+                        <div>
+                            <div style="width:100%" class="section__container container">
                                 <h4 class="h4">4. Mother of the person on record</h4>
-                                <p class="align-left">Enter the full maiden name (before 1st Marriage) of the
+                                <p class="align-left ml-4">Enter the full maiden name (before 1st Marriage) of the
                                     mother of the person on record.</p>
 
                                 <div class="row justify-content-between">
-                                    <div class="d-inline form-group string required certificate_mother_first_name">
+
+                                    <div class="ml-3 d-inline p-2 form-group string required certificate_mother_first_name">
                                         <div><label class="string required"
                                                                                    for="parent1_first_name">First
                                             name</label></div>
                                         <div><input data-validate=""
-                                                                            class="string required" type="text"
+                                                                            class="string required text-capitalize" type="text"
                                                                             th:field="*{parent1_first_name}"
-                                                                            id="parent1_first_name" required="required"/>
+                                                                            id="parent1_first_name" required="required" style="height: 2.15em"/>
                                         </div>
                                     </div>
-                                    <div class="d-inline form-group string optional certificate_mother_middle_name">
+                                    <div class="d-inline p-2 form-group string optional certificate_mother_middle_name">
                                         <div><label class="string optional"
                                                                                    for="certificate_mother_middle_name">Middle
                                             name</label></div>
                                         <div><input data-validate=""
-                                                                            class="string optional" type="text"
+                                                                            class="string optional text-capitalize" type="text"
                                                                             th:field="*{parent1_mid_name}"
-                                                                            id="certificate_mother_middle_name"/>
+                                                                            id="certificate_mother_middle_name" style="height: 2.15em"/>
                                         </div>
                                     </div>
-                                    <div class="d-inline form-group string required certificate_mother_maiden_or_last_name">
+                                    <div class="d-inline p-2 form-group string required certificate_mother_maiden_or_last_name">
                                         <div><label class="string required"
                                                                                    for="certificate_mother_maiden_or_last_name">Last
                                             name before any marriage</label><a
@@ -105,9 +101,9 @@
                                                 data-original-title="Enter the full maiden name of the mother of the person on record, at the time of birth."></a>
                                         </div>
                                         <div><input data-validate=""
-                                                                            class="string required" type="text"
+                                                                            class="string required text-capitalize" type="text"
                                                                             th:field="*{parent1_last_name}"
-                                                                            id="certificate_mother_maiden_or_last_name"/><a
+                                                                            id="certificate_mother_maiden_or_last_name" style="height: 2.15em"/><a
                                                 data-tippy=""
                                                 data-original-title="Enter the full maiden name of the mother of the person on record, at the time of birth."></a>
                                         </div>
@@ -120,11 +116,11 @@
 
                     </section>
                     <hr/>
-                    <section class="section pt-2">
+                    <section class="section p-2">
                         <div class="row">
-                            <div class="section__container">
+                            <div style="width:100%" class="section__container container">
                                 <h4 class="h4">5. Father of the person on record</h4>
-                                <p class="align-left">Enter the full name of the father of the person on record.
+                                <p class="align-left ml-4">Enter the full name of the father of the person on record.
                                     Leave empty if the identity of the father is unknown.</p>
 
                                 <section class="row justify-content-between">
@@ -133,9 +129,9 @@
                                                                                    for="certificate_father_first_name">First
                                             name</label></div>
                                         <div><input data-validate=""
-                                                                            class="string optional" type="text"
+                                                                            class="string optional text-capitalize" type="text"
                                                                             th:field="*{parent2_first_name}"
-                                                                            id="certificate_father_first_name"/>
+                                                                            id="certificate_father_first_name" style="height: 2.15em"/>
                                         </div>
                                     </div>
                                     <div class="d-inline form-group string optional certificate_father_middle_name ">
@@ -143,9 +139,9 @@
                                                                                    for="parent2_middle_name">Middle
                                             name</label></div>
                                         <div><input data-validate=""
-                                                                            class="string optional" type="text"
+                                                                            class="string optional text-capitalize" type="text"
                                                                             th:field="*{parent2_mid_name}"
-                                                                            id="parent2_middle_name"/>
+                                                                            id="parent2_middle_name" style="height: 2.15em"/>
                                         </div>
                                     </div>
                                     <div class="d-inline form-group string optional certificate_father_last_name ">
@@ -156,17 +152,15 @@
                                                            data-original-title="Enter the full name of the father of the person on record at the time of birth. Leave empty if the identity of the father is unknown."></a>
                                         </div>
                                         <div><input data-validate=""
-                                                                            class="string optional" type="text"
+                                                                            class="string optional text-capitalize" type="text"
                                                                             th:field="*{parent2_last_name}"
-                                                                            id="certificate_father_last_name"/><a
+                                                                            id="certificate_father_last_name" style="height: 2.15em"/><a
                                                  data-tippy=""
                                                 data-original-title="Enter the full name of the father of the person on record at the time of birth. Leave empty if the identity of the father is unknown."></a>
                                         </div>
                                     </div>
 
                                 </section>
-                                <!--</div>-->
-                                <!--</div>-->
                                 <div class="row justify-content-between pt-5">
                                     <div class="d-flex align-content-center flex-wrap">
                                         <a th:href="@{/application-3}"><input type="submit" name="commit"
