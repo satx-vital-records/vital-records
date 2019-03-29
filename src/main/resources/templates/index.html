@@ -48,7 +48,7 @@
                 </div>
             </section>
         </section>
-        <div class="signupform">
+        <div class="signupform mt-0 pt-0">
             <div class="container">
                 <div class="agile_info">
                     <div class="w3l_form">
@@ -73,12 +73,12 @@
                                 <!--<div class="">-->
                                     <p class="card-text pt-3"><i class="material-icons pr-2">
                                         check_circle
-                                    </i>Spend more time with family, not waiting in line
+                                    </i>Complete your vital records application online!
 
                                     </p>
                                     <p class="card-text py-3"><i class="material-icons pr-2">
                                         check_circle
-                                    </i>Avoid penalties from an incomplete application
+                                    </i>Pick up your records from the City Clerk's office in record time!
                                     </p>
                                     <img class="mt-5" src="imgs/home_img.png" alt=""/>
                                 <!--</div>-->
@@ -176,14 +176,14 @@
                         <!--/SHOW IF USER IS LOGGED IN!-->
 
 
-                        <div sec:authorize="isAuthenticated()" class="">
+                        <div sec:authorize="isAuthenticated()" class="mb-5">
                             <div class=" shadow paddsection">
                                 <img src="/imgs/did_you_you.png" alt=""/>
 
 
                                 <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
                                     <div class="carousel-inner">
-                                        <div class="carousel-item active">
+                                        <div class="carousel-item active" style="height:120px;">
                                             <div class="">
                                                 <h3 class="h3 lead text-center">The city clerks office
                                                     manually
@@ -191,7 +191,7 @@
                                             </div>
                                         </div>
 
-                                        <div class="carousel-item">
+                                        <div class="carousel-item" style="height:120px;">
                                             <div class="">
                                                 <h3 class="h3 lead text-center">SATX Vital Records
                                                     expedites
@@ -200,7 +200,7 @@
                                             </div>
                                         </div>
 
-                                        <div class="carousel-item">
+                                        <div class="carousel-item" style="height:120px;">
                                             <div class="">
                                                 <h3 class="h3 lead text-center">By creating a digitized
                                                     database
@@ -218,7 +218,8 @@
                         </div>
 
                         <div  class="mt-5">
-                            <h1><span
+                            <div></div>
+                            <h1 class="mt-5"><span
                                     class="orange ">New Express Service</span></h1>
                             <!--<div class="row justify-content-start">-->
                                 <!--<i class="material-icons text-center" style="font-size: 48px;">-->
@@ -234,7 +235,15 @@
                             <p class="card-text pt-3">
                                 <i class="material-icons pr-2">
                                     check_circle
-                                </i>Skip the line and pick up your record</p>
+                                </i>Upload copies of your supporting documents</p>
+                                <p class="card-text pt-3">
+                                    <i class="material-icons pr-2">
+                                        check_circle
+                                    </i>Spend more time with family, not waiting in line</p>
+                                <p class="card-text pt-3">
+                                    <i class="material-icons pr-2">
+                                        check_circle
+                                    </i>Avoid penalties from an incomplete application</p>
                             </div>
                             <!--</div>-->
                         </div>
