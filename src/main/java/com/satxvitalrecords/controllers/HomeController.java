@@ -51,8 +51,8 @@ public class HomeController {
     Iterable<Application> allapps = appDao.findAll();
     List<Application> viewapps = new ArrayList<>();
     for(Application app:allapps){
-      if((app.getStatus()== null) || app.getStatus().getId()== 100 || (app.getRecord()== null)){
-//        appDao.delete(app.getId());
+      if((app.getStatus()== null) || (app.getRecord()== null)){
+        appDao.delete(app.getId());
         continue;
       } else {
         viewapps.add(app);
@@ -80,13 +80,6 @@ public class HomeController {
   }
 
 
-//    @PostMapping("/app-index")
-//    public String leaveComment(@ModelAttribute Application app) {
-//        appDao.save(app);
-//        return "redirect: /app-index";
-//    }
-
-
     @GetMapping("/app-view/{id}")
     public String viewAllApps(@PathVariable long id, Model model){
         Application app = appDao.findOne(id);
@@ -98,7 +91,6 @@ public class HomeController {
         int approved = numberOfApps(appDao.findAll(), "Approved");
         int mailed = numberOfApps(appDao.findAll(), "Mailed");
         int pickedup = numberOfApps(appDao.findAll(), "Picked-up");
-//        System.out.println(inprogress);
 
         model.addAttribute("apps", appDao.findAll());
         model.addAttribute("inprogress", inprogress);

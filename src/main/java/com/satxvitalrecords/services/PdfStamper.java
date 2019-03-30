@@ -67,7 +67,7 @@ public class PdfStamper {
         form.getFormFields().get("Middle Name").setValue(record.getMid_name());
         form.getFormFields().get("Last Name").setValue(record.getLast_name());
 
-        if (app.getRecord_type() == "Birth") {
+        if (app.getRecord_type().equals("Birth")) {
 // PARSING DOB IN RECORD DB_TABLE TO POPULATE SEPARATE FIELDS
             String db_month = record.getDate_of_birth().toString().substring(5, 7);
             String db_day = record.getDate_of_birth().toString().substring(8, 10);
@@ -80,7 +80,7 @@ public class PdfStamper {
 
             form.getFormFields().get("City or Town").setValue(record.getBirth_city());
             form.getFormFields().get("County").setValue(record.getBirth_county());
-        } else if(app.getRecord_type()=="Death"){
+        } else if(app.getRecord_type().equals("Death")){
             // PARSING date of death IN RECORD DB_TABLE TO POPULATE SEPARATE FIELDS
             String dod_month = record.getDate_of_death().toString().substring(5, 7);
             String dod_day = record.getDate_of_death().toString().substring(8, 10);
