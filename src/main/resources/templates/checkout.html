@@ -16,10 +16,10 @@
                         </a>
                     </header>
                 </div>
-                <div class="col-5 my-auto d-inline">
+                <div class="col-5 my-auto d-inline p-0">
                     <ul class="float-right d-inline">
 
-                        <li sec:authorize="!isAuthenticated()" class="d-inline px-3 mb-1">
+                        <li sec:authorize="!isAuthenticated()" class="d-inline mb-1">
                             <form th:action="@{/login}" th:method="get" class="d-inline">
                                 <button class="p-2 btn-primary btn--large is-block disable-resubmit"
                                         style="margin-top: 8px">
@@ -27,7 +27,7 @@
                                 </button>
                             </form>
                         </li>
-                        <li sec:authorize="isAuthenticated()" class="d-inline px-3 mb-1">
+                        <li sec:authorize="isAuthenticated()" class="d-inline mb-1">
                             <form th:action="@{/logout}" th:method="post" class="d-inline">
                                 <button class="p-2 btn-primary btn--large is-block disable-resubmit"
                                         style="margin-top: 8px">
@@ -62,10 +62,15 @@
                     </div>
                     <div class="card-footer py-4">
 
+                        <!--<form id="form-id">-->
+                            <a href="/checkout" class="p-2 btn-primary btn--large is-block disable-resubmit" id="email">Send PDF
 
-                        <a href="/checkout" class="p-2 btn-primary btn--large is-block disable-resubmit">Send PDF
+                                &raquo;</a>
+                        <!--</form>-->
 
-                            &raquo;</a>
+                        <!--<a href="/checkout" class="p-2 btn-primary btn&#45;&#45;large is-block disable-resubmit" id="email">Send PDF-->
+
+                            <!--&raquo;</a>-->
                     </div>
                 </div>
             </div>
@@ -100,14 +105,14 @@
                 </div>
             </div>
         </div>
-        <div class="row justify-content-center pt-5 mt-5">
+        <div class="row my-auto pt-5 mt-5">
 
-            <div class="col">
+            <div class="col-md-6">
 
                 <embed th:src="${'/uploads' + file}" width="100%" height="500px" type="application/pdf"/>
 
             </div>
-            <div class="col">
+            <div class="col-md-6">
                 <div id="map-canvas">
                 </div>
             </div>
@@ -116,18 +121,5 @@
     <div th:replace="fragments/admin-footer :: admin-footer"></div>
 </body>
 
-<script type="text/javascript">
-    $('#email').click(function (e) {
-        e.preventDefault();
-        $(".alert").delay(1000).addClass("in").toggle(true).fadeOut(4000);
-    });
 
-    function zoomToLevel() {
-        map.setZoom(12);
-
-        $('html, body').animate({
-            scrollTop: $('html, body').height()
-        }, 'slow');
-    }
-</script>
 </html>

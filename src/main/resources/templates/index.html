@@ -16,10 +16,10 @@
                         </a>
                     </header>
                 </div>
-                <div class="col-5 my-auto d-inline">
+                <div class="col-5 my-auto d-inline p-0">
                     <ul class="float-right d-inline">
 
-                        <li sec:authorize="!isAuthenticated()" class="d-inline px-3 mb-1">
+                        <li sec:authorize="!isAuthenticated()" class="d-inline mb-1">
                             <form th:action="@{/login}" th:method="get" class="d-inline">
                                 <button class="p-2 btn-primary btn--large is-block disable-resubmit"
                                         style="margin-top: 8px">
@@ -27,7 +27,7 @@
                                 </button>
                             </form>
                         </li>
-                        <li sec:authorize="isAuthenticated()" class="d-inline px-3 mb-1">
+                        <li sec:authorize="isAuthenticated()" class="d-inline mb-1">
                             <form th:action="@{/logout}" th:method="post" class="d-inline">
                                 <button class="p-2 btn-primary btn--large is-block disable-resubmit"
                                         style="margin-top: 8px">
@@ -53,21 +53,27 @@
                     <div class="left_grid_info">
                         <h1>San Antonio<br/> <span class="orange mt-0">Vital Records</span></h1>
                         <div class="row justify-content-start">
-                            <div class="col my-auto d-inline">
-                            <span class=""><h3 class=" h3 d-inline pt-5">Start here </h3><i class="fas fa-3x fa-hand-point-right" style="color:#E29328;"></i></span>
-                        </div>
-                        <div class="col d-inline">
-                        <div class="row justify-content-end">
-                            <!--<div class="d-flex  flex-wrap">-->
-                            <a class="p-2  my-3 d-inline btn-primary btn--large is-block disable-resubmit"  style="min-width: 155px;"
-                               href="/bc-info">Birth  Certificate</a>
-                            <!--</div>-->
-                            <!--<div class="d-flex  flex-wrap">-->
-                            <a class=" p-2 d-inline btn-primary btn--large is-block disable-resubmit" style="min-width: 155px;"
-                               href="/dc-info">Death
-                                Certificate</a>
+                            <div class="col d-inline p-0">
+                                <div class="row justify-content-start">
+                                    <h3 class=" h3  pb-1">Start here </h3>
+                                    <div><i class="fas fa-3x fa-hand-point-right p-lg-4" style="color:#E29328;"></i>
+                                    </div>
+                                </div>
                             </div>
-                        </div>
+                            <div class="col d-inline">
+                                <div class="row justify-content-end">
+                                    <!--<div class="d-flex  flex-wrap">-->
+                                    <a class="p-2  my-3 d-inline btn-primary btn--large is-block disable-resubmit"
+                                       style="min-width: 155px;"
+                                       href="/bc-info">Birth Certificate</a>
+                                    <!--</div>-->
+                                    <!--<div class="d-flex  flex-wrap">-->
+                                    <a class=" p-2 d-inline btn-primary btn--large is-block disable-resubmit"
+                                       style="min-width: 155px;"
+                                       href="/dc-info">Death
+                                        Certificate</a>
+                                </div>
+                            </div>
                         </div>
 
                         <!--<div class="row align-items-center pt-3">-->
@@ -203,8 +209,8 @@
 
                     <div class="mt-5">
                         <div></div>
-                        <h1 class="mt-5"><span
-                                class="orange ">New Express Service</span></h1>
+                        <h2 class="mt-5"><span
+                                class="orange text-center">New Express Service</span></h2>
                         <!--<div class="row justify-content-start">-->
                         <!--<i class="material-icons text-center" style="font-size: 48px;">-->
                         <!--keyboard_arrow_down-->
@@ -212,6 +218,14 @@
                         <!--</div>-->
                         <!--<div class="row">-->
                         <div class="pt-3">
+                            <p class="card-text pt-3">
+                                <i class="material-icons pr-2">
+                                    check_circle
+                                </i>Avoid penalties from an incomplete application</p>
+                            <p class="card-text pt-3">
+                                <i class="material-icons pr-2">
+                                    check_circle
+                                </i>Quickly Upload your supporting documents</p>
                             <p class="card-text pt-3 ">
                                 <i class="material-icons pr-2">
                                     check_circle
@@ -219,15 +233,7 @@
                             <p class="card-text pt-3">
                                 <i class="material-icons pr-2">
                                     check_circle
-                                </i>Upload copies of your supporting documents</p>
-                            <p class="card-text pt-3">
-                                <i class="material-icons pr-2">
-                                    check_circle
                                 </i>Spend more time with family, not waiting in line</p>
-                            <p class="card-text pt-3">
-                                <i class="material-icons pr-2">
-                                    check_circle
-                                </i>Avoid penalties from an incomplete application</p>
                         </div>
                         <!--</div>-->
                     </div>
@@ -236,30 +242,24 @@
             </div>
 
 
+            <!--<div class="row justify-content-center">-->
+            <!--</div>-->
+
             <div class="col-12 py-5 ">
                 <hr/>
             </div>
-            <div class="row justify-content-center">
-                <h2 class="h2 pb-3 green">We Made A Complex Process A Simple Formality</h2>
-            </div>
-            <div class="row justify-content-center"> <i class="material-icons arrow orange">
-                keyboard_arrow_down
-            </i></div>
-            <div class="row text-center mt-5">
-                <div class="col-md-4 mb-4">
-                    <div class="card h-100">
-                        <i class=" material-icons btn-info" style="font-size: 48px;">payment</i>
-                        <div class="card-body">
-                            <h4 class="card-title">Pay Online </h4>
-                            <p class="card-text">Complete your order by using our secure payment service</p>
-                        </div>
-                        <div class="card-footer py-4">
-                            <a href="/charge" class="p-2 btn-primary btn--large is-block disable-resubmit">
-                                Learn
-                                More &raquo;</a>
-                        </div>
-                    </div>
+            <div class="col ">
+                <div class="row justify-content-center">
+                <h3 class="h3 py-3 text-center">We Made A Complex Process A Simple Formality</h3>
                 </div>
+                <br/>
+                <div class="row justify-content-center">
+                    <i class="material-icons arrow orange text-center">
+                        keyboard_arrow_down
+                    </i>
+                </div>
+            </div>
+            <div class="row text-center mt-5">
                 <div class="col-md-4 mb-4">
                     <div class="card h-100">
                         <i class=" material-icons btn-info" style="font-size: 48px;">cloud_upload</i>
@@ -271,6 +271,20 @@
                         </div>
                         <div class="card-footer py-4">
                             <a href="/upload" class="p-2 btn-primary btn--large is-block disable-resubmit">Learn
+                                More &raquo;</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100">
+                        <i class=" material-icons btn-info" style="font-size: 48px;">payment</i>
+                        <div class="card-body">
+                            <h4 class="card-title">Pay Online </h4>
+                            <p class="card-text">Complete your order by using our secure payment service</p>
+                        </div>
+                        <div class="card-footer py-4">
+                            <a href="/charge" class="p-2 btn-primary btn--large is-block disable-resubmit">
+                                Learn
                                 More &raquo;</a>
                         </div>
                     </div>
@@ -297,7 +311,7 @@
                 </div>
             </div>
         </div>
-        <footer th:replace="fragments/admin-footer :: admin-footer"></footer>
     </div>
+        <footer th:replace="fragments/admin-footer :: admin-footer"></footer>
 </body>
 </html>

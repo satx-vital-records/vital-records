@@ -121,6 +121,11 @@ h1 .orange {
 	color: #E29328!important;
 	font-size: 1.5em;
 }
+
+.orange {
+	color: #E29328!important;
+}
+
 .green {
 	color: #77BE6D;
 }
@@ -355,7 +360,7 @@ h5 {
 /** Responsive **/
 @media screen and (max-width: 1440px){
 	.container {
-		width: 70%;
+		width: 80%;
 		margin: 0 auto;
 	}
 }
@@ -369,7 +374,7 @@ h5 {
 }
 @media screen and (max-width: 1080px){
 	.container {
-		width: 90%;
+		width: 70%;
 	}
 	.w3_info h2 {
 		font-size: 24px;
@@ -525,7 +530,7 @@ h5 {
 		font-size: 14px;
 	}
 	.container {
-		width: 90%;
+		width: 95%;
 	}
 	.left_grid_info {
 		padding-top: 1em;
