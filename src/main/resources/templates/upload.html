@@ -14,10 +14,10 @@
                         </a>
                     </header>
                 </div>
-                <div class="col-5 my-auto d-inline">
+                <div class="col-5 my-auto d-inline p-0">
                     <ul class="float-right d-inline">
 
-                        <li sec:authorize="!isAuthenticated()" class="d-inline px-3 mb-1">
+                        <li sec:authorize="!isAuthenticated()" class="d-inline mb-1">
                             <form th:action="@{/login}" th:method="get" class="d-inline">
                                 <button class="p-2 btn-primary btn--large is-block disable-resubmit"
                                         style="margin-top: 8px">
@@ -25,7 +25,7 @@
                                 </button>
                             </form>
                         </li>
-                        <li sec:authorize="isAuthenticated()" class="d-inline px-3 mb-1">
+                        <li sec:authorize="isAuthenticated()" class="d-inline mb-1">
                             <form th:action="@{/logout}" th:method="post" class="d-inline">
                                 <button class="p-2 btn-primary btn--large is-block disable-resubmit"
                                         style="margin-top: 8px">
@@ -45,10 +45,10 @@
         </div>
     </section>
     <div class="page container">
-        <div class="alert alert-success fade alert-container">
-            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-            Documents Successfully uploaded to SATX Vital Records!
-        </div>
+        <!--<div class="alert alert-success fade alert-container">-->
+            <!--<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>-->
+            <!--Documents Successfully uploaded to SATX Vital Records!-->
+        <!--</div>-->
         <div class="row pull-center">
             <div class="col-md-12 mb-4">
                 <div class="card text-center">

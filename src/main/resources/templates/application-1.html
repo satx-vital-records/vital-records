@@ -15,10 +15,10 @@
                         </a>
                     </header>
                 </div>
-                <div class="col-5 my-auto d-inline">
+                <div class="col-5 my-auto d-inline p-0">
                     <ul class="float-right d-inline">
 
-                        <li sec:authorize="!isAuthenticated()" class="d-inline px-3 mb-1">
+                        <li sec:authorize="!isAuthenticated()" class="d-inline mb-1">
                             <form th:action="@{/login}" th:method="get" class="d-inline">
                                 <button class="p-2 btn-primary btn--large is-block disable-resubmit"
                                         style="margin-top: 8px">
@@ -26,7 +26,7 @@
                                 </button>
                             </form>
                         </li>
-                        <li sec:authorize="isAuthenticated()" class="d-inline px-3 mb-1">
+                        <li sec:authorize="isAuthenticated()" class="d-inline mb-1">
                             <form th:action="@{/logout}" th:method="post" class="d-inline">
                                 <button class="p-2 btn-primary btn--large is-block disable-resubmit"
                                         style="margin-top: 8px">
@@ -364,22 +364,24 @@
             </section>
             <hr/>
 
-            <div class="row justify-content-around pt-5">
-                <div class=" d-flex align-content-center flex-wrap">
+            <div class="row justify-content-between pt-5">
+                <!--<div class=" d-flex align-content-center flex-wrap">-->
                     <a th:href="@{/application-1}"><input type="submit" name="commit"
-                                                          value="CONTINUE APPLICATION"
+                                                          value="CONTINUE"
                                                           id="continue-button1"
                                                           class="p-2 btn-primary btn--large is-block disable-resubmit"
+                                                          style="min-width: 115px;"
                                                           data-disable-with="CONTINUE APPLICATION"/></a>
-                </div>
-                <div class=" d-flex align-content-center flex-wrap">
+                <!--</div>-->
+                <!--<div class=" d-flex align-content-center flex-wrap">-->
 
                     <input type="submit" name="commit"
-                           value="SAVE APPLICATION"
+                           value="SAVE"
                            id="save-button1"
                            class="p-2 btn-primary btn--large is-block disable-resubmit"
-                           data-disable-with="SAVE APPLICATION"/>
-                </div>
+                           style="min-width: 115px;"
+                           data-disable-with="SAVE"/>
+                <!--</div>-->
             </div>
         </form>
     </div>

@@ -59,6 +59,33 @@
             interval: 7000
         })
     </script>
+    <script type="text/javascript">
+        $('#email').click(function (e) {
+            e.preventDefault();
+            func();
+
+        });
+
+        function func(){
+
+            $.ajax({
+                type: 'POST',
+                url: '/ApplicationController/checkout',
+                async: false,
+                success: function(){$(".alert").delay(1000).addClass("in").toggle(true).fadeOut(4000);},
+                error: function(){console.log("alert isn't working")},
+            });
+        }
+
+
+        function zoomToLevel() {
+            map.setZoom(12);
+
+            $('html, body').animate({
+                scrollTop: $('html, body').height()
+            }, 'slow');
+        }
+    </script>
 
 
 
