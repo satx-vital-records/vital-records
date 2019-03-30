@@ -62,10 +62,15 @@
                     </div>
                     <div class="card-footer py-4">
 
+                        <!--<form id="form-id">-->
+                            <a href="/checkout" class="p-2 btn-primary btn--large is-block disable-resubmit" id="email">Send PDF
 
-                        <a href="/checkout" class="p-2 btn-primary btn--large is-block disable-resubmit">Send PDF
+                                &raquo;</a>
+                        <!--</form>-->
 
-                            &raquo;</a>
+                        <!--<a href="/checkout" class="p-2 btn-primary btn&#45;&#45;large is-block disable-resubmit" id="email">Send PDF-->
+
+                            <!--&raquo;</a>-->
                     </div>
                 </div>
             </div>
@@ -116,18 +121,5 @@
     <div th:replace="fragments/admin-footer :: admin-footer"></div>
 </body>
 
-<script type="text/javascript">
-    $('#email').click(function (e) {
-        e.preventDefault();
-        $(".alert").delay(1000).addClass("in").toggle(true).fadeOut(4000);
-    });
 
-    function zoomToLevel() {
-        map.setZoom(12);
-
-        $('html, body').animate({
-            scrollTop: $('html, body').height()
-        }, 'slow');
-    }
-</script>
 </html>
