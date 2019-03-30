@@ -323,6 +323,7 @@ public class ApplicationController {
     @Value("${TWILIO_AUTH_TOKEN}") String AUTH_TOKEN;
     @PostMapping("/checkout")
     public String sendEmail() throws IOException{
+        System.out.println("sendEmail function triggered!");
         User sessionUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         User userDB = userDao.findOne(sessionUser.getId());
 
@@ -339,12 +340,17 @@ public class ApplicationController {
             request.setEndpoint("mail/send");
             request.setBody(mail.build());
             Response response = sg.api(request);
-//            System.out.println(response.getStatusCode());
-//            System.out.println(response.getBody());
-//            System.out.println(response.getHeaders());
         } catch (IOException ex) {
+            System.out.println("email sending failed");
             throw ex;
         }
+
+
+
+
+        //DO SOMETHING HERE TO TRIGGER ALERT
+
+
 
         Twilio.init(ACCOUNT_SID, AUTH_TOKEN);
 
