@@ -75,7 +75,7 @@
             <div class="card-body">
 
                 <h4 class="card-title text-center">Upload Documents</h4>
-                <p class="card-text text-center">You must be logged in to continue with uploading your
+                <p sec:authorize="!isAuthenticated()" class="card-text text-center">You must be logged in to continue with uploading your
                     documentation</p>
 
                 <div sec:authorize="isAuthenticated()" class="row justify-content-between pt-5">
