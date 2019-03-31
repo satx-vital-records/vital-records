@@ -50,10 +50,10 @@
 </section>
         <div class="page container pb-5" style="width:90%; margin:1em auto;">
             <div class="row justify-content-center">
-                <h1 class="h1 orange pb-5 display"></h1>
+                <h1 class="h1 text-center orange pb-5 display"></h1>
             </div>
-        <div class="card-deck">
-            <div class="card" style="width: 10rem;">
+        <div class="card-deck" >
+            <div class="card" style="width: 10rem;" id="bounce">
                 <img class="card-img-top" src="/imgs/SarahBarron.jpg" alt="Sarah Barron" />
                 <div class="card-body">
                     <h5 class="card-title">Sarah Barron</h5>
@@ -70,7 +70,7 @@
                     </a>
                 </div>
             </div>
-            <div class="card" style="width: 10rem;">
+            <div class="card" style="width: 10rem;" id="bounce2">
                 <img class="card-img-top" src="/imgs/RobMoore.jpg" alt="Rob Moore" />
                 <div class="card-body">
                     <h5 class="card-title">Rob Moore</h5>
@@ -87,7 +87,7 @@
                     </a>
                 </div>
             </div>
-            <div class="card" style="width: 10rem;">
+            <div class="card" style="width: 10rem;" id="bounce3">
                 <img class="card-img-top" src="/imgs/DorianWallace.jpg" alt="Dorian Wallace" />
                 <div class="card-body">
                     <h5 class="card-title">Dorian Wallace</h5>
@@ -108,11 +108,30 @@
         </div>
         <footer th:replace="fragments/admin-footer :: admin-footer"></footer>
 </body>
-<script>
+<script th:inline="javascript">
+    /*<![CDATA[*/
 
-
-    $( document ).click(function() {
-        $(".orange").toggle("fade", 3000).html("Looking for a vital member to add to your team?");
+    $( document ).one('click', function() {
+        $(".orange").hide().fadeIn( 5000).html("Looking for a vital member to add to your team?");
     });
+
+    $("#bounce").hover(function() {
+        doBounce($(this), 1, '10px', 300);
+    });
+    $("#bounce2").hover(function() {
+        doBounce($(this), 1, '10px', 300);
+    });
+    $("#bounce3").hover(function() {
+        doBounce($(this), 1, '10px', 300);
+    });
+
+    function doBounce(element, times, distance, speed) {
+        for(let i = 0; i < times; i++) {
+            element.animate({marginTop: '-='+distance}, speed)
+                .animate({marginTop: '+='+distance}, speed);
+        }
+    }
+    /*]]>*/
 </script>
+
 </html>
