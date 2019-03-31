@@ -48,7 +48,10 @@
         </div>
     </div>
 </section>
-        <div class="page container" style="width:90%; margin:1em auto;">
+        <div class="page container pb-5" style="width:90%; margin:1em auto;">
+            <div class="row justify-content-center">
+                <h1 class="h1 orange pb-5 display"></h1>
+            </div>
         <div class="card-deck">
             <div class="card" style="width: 10rem;">
                 <img class="card-img-top" src="/imgs/SarahBarron.jpg" alt="Sarah Barron" />
@@ -102,7 +105,14 @@
                 </div>
             </div>
         </div>
-        <footer th:replace="fragments/admin-footer :: admin-footer"></footer>
         </div>
+        <footer th:replace="fragments/admin-footer :: admin-footer"></footer>
 </body>
+<script>
+
+
+    $( document ).click(function() {
+        $(".orange").toggle("fade", 3000).html("Looking for a vital member to add to your team?");
+    });
+</script>
 </html>

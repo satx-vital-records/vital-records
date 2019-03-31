@@ -62,15 +62,17 @@
                     </div>
                     <div class="card-footer py-4">
 
-                        <!--<form id="form-id">-->
-                            <a href="/checkout" class="p-2 btn-primary btn--large is-block disable-resubmit" id="email">Send PDF
+                        <form method="Post" th:action="@{/checkout}" class="m-0">
+                            <button class="p-2 btn-primary btn--large is-block disable-resubmit" id="email"
+                                    style="min-width: 115px;">Send PDF
 
-                                &raquo;</a>
-                        <!--</form>-->
+                                &raquo;
+                            </button>
+                        </form>
 
                         <!--<a href="/checkout" class="p-2 btn-primary btn&#45;&#45;large is-block disable-resubmit" id="email">Send PDF-->
 
-                            <!--&raquo;</a>-->
+                        <!--&raquo;</a>-->
                     </div>
                 </div>
             </div>
@@ -84,8 +86,12 @@
                             to search for a Notary Public.</p>
                     </div>
                     <div class="card-footer py-4">
-                        <a href="" onclick="zoomToLevel(); return false;"
-                           class="p-2 btn-primary btn--large is-block disable-resubmit"> Search &raquo;</a>
+                        <form class="m-0">
+                            <button onclick="zoomToLevel(); return false;"
+                                    class="p-2 btn-primary btn--large is-block disable-resubmit"
+                                    style="min-width: 115px;"> Search &raquo;
+                            </button>
+                        </form>
                     </div>
                 </div>
             </div>
@@ -99,8 +105,11 @@
                             up your vital record.</p>
                     </div>
                     <div class="card-footer py-4">
-                        <a href="/upload" class="p-2 btn-primary btn--large is-block disable-resubmit">Upload
-                            Documents &raquo;</a>
+                        <form class="m-0">
+                            <button href="/upload" class="p-2 btn-primary btn--large is-block disable-resubmit"
+                                    style="min-width: 115px;">Upload &raquo;
+                            </button>
+                        </form>
                     </div>
                 </div>
             </div>
@@ -117,7 +126,7 @@
                 </div>
             </div>
         </div>
-    <div th:replace="fragments/admin-footer :: admin-footer"></div>
+        <div th:replace="fragments/admin-footer :: admin-footer"></div>
     </div>
 
 
