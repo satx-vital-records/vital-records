@@ -123,22 +123,25 @@
 
     <script th:inline="javascript">
 
-
-
-        $('#email').click(function (e) {
-            func();
-            // e.preventDefault();
+        $('#email').click(function () {
+            alert("Email sent!")
         });
-        function func(){
-            $.ajax({
-                type: "POST",
-                // url: "/checkout",
-                url:'@Url.Action("sendEmail", "ApplicationController")',
-                async: true,
-                success: function(){$(".alert").delay(1000).addClass("in").toggle(true).fadeOut(4000);},
-                error: function(){console.log("alert isn't working")},
-            });
-        }
+
+
+        // $('#email').click(function (e) {
+        //     func();
+        //     // e.preventDefault();
+        // });
+        // function func(){
+        //     $.ajax({
+        //         type: "POST",
+        //         // url: "/checkout",
+        //         url:'@Url.Action("sendEmail", "ApplicationController")',
+        //         async: true,
+        //         success: function(){$(".alert").delay(1000).addClass("in").toggle(true).fadeOut(4000);},
+        //         error: function(){console.log("alert isn't working")},
+        //     });
+        // }
         function zoomToLevel() {
             map.setZoom(12);
             $('html, body').animate({
