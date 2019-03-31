@@ -63,7 +63,7 @@
                     <div class="card-footer py-4">
 
                         <!--<form id="form-id">-->
-                            <a href="/checkout" class="p-2 btn-primary btn--large is-block disable-resubmit" >Send PDF
+                            <a href="/checkout" class="p-2 btn-primary btn--large is-block disable-resubmit" id="email">Send PDF
 
                                 &raquo;</a>
                         <!--</form>-->
@@ -121,11 +121,22 @@
     </div>
 
 
-    <script th:inline="javascript">
+    <script>
 
         $('#email').click(function () {
-            alert("Email sent!")
+            alert('Your documents have been successfully submitted to SATX Vital Records');
         });
+
+
+        // document.getElementById('email').addEventListener('click', function (event) {
+        //     alert('This alert should not show up!');
+        // }, false);
+
+        // form.addEventListener('#email', function (e) {
+        //     // e.preventDefault();
+        //     // $(".alert").delay(1000).addClass("in").toggle(true).fadeOut(4000);
+        //     alert('Your documents have been successfully submitted to SATX Vital Records');
+        // });
 
 
         // $('#email').click(function (e) {
