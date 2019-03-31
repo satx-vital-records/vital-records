@@ -347,22 +347,17 @@ public class ApplicationController {
 
 
 
-
-        //DO SOMETHING HERE TO TRIGGER ALERT
-
-
-
         Twilio.init(ACCOUNT_SID, AUTH_TOKEN);
 
         Message message = Message
-                .creator(new PhoneNumber(userDB.getPhone_num()), // to
+                .creator(new PhoneNumber("+1"+ userDB.getPhone_num()), // to
                         new PhoneNumber("+12109439303"), // from
-                        "Your application form was successfully completed. \n- SATX Vital Records").create();
+                        "Your application was successfully sent! \n- SATX Vital Records").create();
 
 
         System.out.println("this is in the sendEmail method on the app controller" + message.getSid());
 
-        return "end of controller";
+        return "checkout";
     }
 
 

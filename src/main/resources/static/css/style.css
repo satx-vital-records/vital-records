@@ -134,6 +134,10 @@ h1 .orange {
 	border-bottom: black solid 3px!important;
 }
 
+.display {
+	display: none;
+}
+
 input {
     border: none!important;
 }
