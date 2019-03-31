@@ -130,6 +130,10 @@ h1 .orange {
 	color: #77BE6D;
 }
 
+.new-line {
+	border-bottom: black solid 3px!important;
+}
+
 input {
     border: none!important;
 }
