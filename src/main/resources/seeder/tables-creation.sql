@@ -96,3 +96,11 @@ status_desc varchar(100) NOT NULL ,
 PRIMARY KEY (status_id)
 );
 
+INSERT INTO statuses(id, description) VALUES (
+                                                 100, 'In Progress'),
+                                             (200, 'Need Uploads'),
+                                             (300, 'Pending Review'),
+                                             (400, 'Approved'),
+                                             (500, 'Mailed'),
+                                             (600, 'Picked-up');
+
