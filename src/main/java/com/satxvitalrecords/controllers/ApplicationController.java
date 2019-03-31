@@ -357,7 +357,7 @@ public class ApplicationController {
 
         System.out.println("this is in the sendEmail method on the app controller" + message.getSid());
 
-        return "checkout";
+        return "redirect:/checkout";
     }
 
 
