@@ -28,8 +28,7 @@
                         </li>
                         <li sec:authorize="isAuthenticated()" class="d-inline mb-1">
                             <form th:action="@{/logout}" th:method="post" class="d-inline">
-                                <button class="p-2 btn-primary btn--large is-block disable-resubmit"
-                                        style="margin-top: 8px">
+                                <button class="p-2 btn-primary btn--large is-block disable-resubmit">
                                     Logout
                                 </button>
                             </form>
