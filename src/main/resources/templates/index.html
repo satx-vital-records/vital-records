@@ -16,13 +16,12 @@
                         </a>
                     </header>
                 </div>
-                <div class="col-5 my-auto d-inline p-0">
+                <div class="col-5 my-auto d-inline pt-3">
                     <ul class="float-right d-inline">
 
                         <li sec:authorize="!isAuthenticated()" class="d-inline mb-1">
                             <form th:action="@{/login}" th:method="get" class="d-inline">
-                                <button class="p-2 btn-primary btn--large is-block disable-resubmit"
-                                        style="margin-top: 8px">
+                                <button class="p-2 btn-primary btn--large is-block disable-resubmit">
                                     Login
                                 </button>
                             </form>
@@ -35,7 +34,7 @@
                                 </button>
                             </form>
                         </li>
-                        <li class="d-inline px-2 my-auto mb-1 float-right">
+                        <li class="d-inline px-2 my-auto mb-1 float-right ">
                             <a th:href="@{/about-us}"><img src="imgs/about.png" style="height:45px; width:50px;"/></a>
                         </li>
                     </ul>
