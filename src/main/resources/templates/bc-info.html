@@ -15,30 +15,25 @@
                         </a>
                     </header>
                 </div>
-                <div class="col-5 my-auto d-inline p-0">
+                <div class="col-5 my-auto d-inline pt-3">
                     <ul class="float-right d-inline">
 
                         <li sec:authorize="!isAuthenticated()" class="d-inline mb-1">
                             <form th:action="@{/login}" th:method="get" class="d-inline">
-                                <button class="p-2 btn-primary btn--large is-block disable-resubmit"
-                                        style="margin-top: 8px">
+                                <button class="p-2 btn-primary btn--large is-block disable-resubmit">
                                     Login
                                 </button>
                             </form>
                         </li>
                         <li sec:authorize="isAuthenticated()" class="d-inline mb-1">
                             <form th:action="@{/logout}" th:method="post" class="d-inline">
-                                <button class="p-2 btn-primary btn--large is-block disable-resubmit"
-                                        style="margin-top: 8px">
+                                <button class="p-2 btn-primary btn--large is-block disable-resubmit">
                                     Logout
                                 </button>
                             </form>
                         </li>
-                        <li class="d-inline px-3 mb-1 float-right">
-                            <a th:href="@{/about-us}"><i class="material-icons  "
-                                                         style="font-size: 36px; margin-top: 8px;">
-                                help_outline
-                            </i></a>
+                        <li class="d-inline px-2 my-auto mb-1 float-right ">
+                            <a th:href="@{/about-us}"><img src="imgs/about.png" style="height:45px; width:50px;"/></a>
                         </li>
                     </ul>
                 </div>
