@@ -4,6 +4,14 @@
 <head th:replace="fragments/login-form-header :: login-form-header('About Us!')">
 </head>
 
+<style>
+    @media only screen and (max-width: 768px) {
+        .card {
+            width: 100%;
+        }
+    }
+</style>
+
 <body>
 <section class="nav nav-page">
     <div class="container-fluid">
@@ -53,7 +61,7 @@
                 <h1 class="h1 text-center orange pb-5 display"></h1>
             </div>
         <div class="card-deck" >
-            <div class="card" style="width: 10rem;" id="bounce">
+            <div class="card" id="bounce">
                 <img class="card-img-top" src="/imgs/SarahBarron.jpg" alt="Sarah Barron" />
                 <div class="card-body">
                     <h5 class="card-title">Sarah Barron</h5>
@@ -70,7 +78,7 @@
                     </a>
                 </div>
             </div>
-            <div class="card" style="width: 10rem;" id="bounce2">
+            <div class="card" id="bounce2">
                 <img class="card-img-top" src="/imgs/RobMoore.jpg" alt="Rob Moore" />
                 <div class="card-body">
                     <h5 class="card-title">Rob Moore</h5>
@@ -87,7 +95,7 @@
                     </a>
                 </div>
             </div>
-            <div class="card" style="width: 10rem;" id="bounce3">
+            <div class="card" id="bounce3">
                 <img class="card-img-top" src="/imgs/DorianWallace.jpg" alt="Dorian Wallace" />
                 <div class="card-body">
                     <h5 class="card-title">Dorian Wallace</h5>
