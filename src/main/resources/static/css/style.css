@@ -161,6 +161,13 @@ input[type="email"] {
     background: transparent;
 	font-family: 'Raleway', sans-serif;
 }
+
+ #email:invalid, #password:invalid, #first_name:focus, #last_name:focus, #username:focus, #phone_num:focus {
+	box-shadow: none;
+	border: none;
+	outline: none;
+}
+
 input[type="Password"] {
 	font-size: 15px;
 	color: #333;

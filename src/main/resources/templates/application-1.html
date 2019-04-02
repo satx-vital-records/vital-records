@@ -366,6 +366,13 @@
 
             <div class="row justify-content-between pt-5" style="margin-top: 3em;">
                 <!--<div class=" d-flex align-content-center flex-wrap">-->
+                    <input type="submit" name="commit"
+                           value="SAVE"
+                           id="save-button1"
+                           class="p-2 btn-primary btn--large is-block disable-resubmit"
+                           style="min-width: 115px;"
+                           data-disable-with="SAVE"/>
+
                     <a th:href="@{/application-1}"><input type="submit" name="commit"
                                                           value="CONTINUE"
                                                           id="continue-button1"
@@ -375,12 +382,6 @@
                 <!--</div>-->
                 <!--<div class=" d-flex align-content-center flex-wrap">-->
 
-                    <input type="submit" name="commit"
-                           value="SAVE"
-                           id="save-button1"
-                           class="p-2 btn-primary btn--large is-block disable-resubmit"
-                           style="min-width: 115px;"
-                           data-disable-with="SAVE"/>
                 <!--</div>-->
             </div>
         </form>
